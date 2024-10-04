@@ -1,7 +1,7 @@
 
 
 
-CÁCH ĐẶT TÊN
+QUY TẮC ĐẶT TÊN
 
 ĐỐI VỚI ĐẶT TÊN FORM VÀ CÁC TOOL CỦA FORM THÌ PHẢI CÓ TIỀN TỐ Ở TRƯỚC SAU ĐÓ GHI HOA CHỮ CÁI ĐẦU MỖI CHỮ VD: frm_DangKy
 VD:
