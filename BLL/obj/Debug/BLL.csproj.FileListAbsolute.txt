@@ -1,0 +1,11 @@
+D:\Hoctap\clone\CongNgheNet\BLL\bin\Debug\BLL.dll
+D:\Hoctap\clone\CongNgheNet\BLL\bin\Debug\BLL.pdb
+D:\Hoctap\clone\CongNgheNet\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Hoctap\clone\CongNgheNet\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Hoctap\clone\CongNgheNet\BLL\obj\Debug\BLL.dll
+D:\Hoctap\clone\CongNgheNet\BLL\obj\Debug\BLL.pdb
+D:\Hoctap\clone\CongNgheNet\BLL\bin\Debug\DAL.dll
+D:\Hoctap\clone\CongNgheNet\BLL\bin\Debug\DTO.dll
+D:\Hoctap\clone\CongNgheNet\BLL\bin\Debug\DAL.pdb
+D:\Hoctap\clone\CongNgheNet\BLL\bin\Debug\DTO.pdb
+D:\Hoctap\clone\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
