@@ -29,5 +29,14 @@ namespace GUI
             panel.Controls.Clear();
             panel.Controls.Add(us);
         }
+
+        
+
+        private void tsb_QLXe_Click(object sender, EventArgs e)
+        {
+            UsCtrl_QLXe us = new UsCtrl_QLXe();
+            panel.Controls.Clear();
+            panel.Controls.Add(us);
+        }
     }
 }

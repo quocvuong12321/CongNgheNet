@@ -7,3 +7,12 @@ D:\Hoctap\clone\CongNgheNet\DAL\bin\Debug\DTO.dll
 D:\Hoctap\clone\CongNgheNet\DAL\bin\Debug\DTO.pdb
 D:\Hoctap\clone\CongNgheNet\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\Hoctap\clone\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\bin\Debug\DAL.dll
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\bin\Debug\DAL.pdb
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\bin\Debug\DTO.dll
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\bin\Debug\DTO.pdb
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\obj\Debug\DAL.dll
+C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DAL\obj\Debug\DAL.pdb
