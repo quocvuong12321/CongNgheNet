@@ -16,5 +16,18 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void frm_Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            UsCtrl_QLTaiKhoan us = new UsCtrl_QLTaiKhoan();
+            panel.Controls.Clear();
+            panel.Controls.Add(us);
+        }
     }
 }

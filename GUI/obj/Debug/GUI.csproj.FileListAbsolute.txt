@@ -14,3 +14,4 @@ D:\Hoctap\clone\CongNgheNet\GUI\bin\Debug\DTO.dll
 D:\Hoctap\clone\CongNgheNet\GUI\bin\Debug\BLL.pdb
 D:\Hoctap\clone\CongNgheNet\GUI\bin\Debug\DTO.pdb
 D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.csproj.CopyComplete
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLTaiKhoan.resources
