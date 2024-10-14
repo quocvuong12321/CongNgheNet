@@ -225,7 +225,6 @@ namespace GUI
             this.Name = "frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Main";
-            this.Load += new System.EventHandler(this.frm_Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tab_HeThong.ResumeLayout(false);
             this.tab_HeThong.PerformLayout();
