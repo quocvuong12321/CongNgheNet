@@ -45,6 +45,7 @@ namespace GUI
             this.tsb_DoanhThu = new System.Windows.Forms.ToolStripButton();
             this.tsp_TenNV = new System.Windows.Forms.ToolStripButton();
             this.tab_TroGiup = new System.Windows.Forms.TabPage();
+            this.tsb_QLLichTrinh = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tab_HeThong.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -91,6 +92,7 @@ namespace GUI
             this.toolStripSeparator1,
             this.tsb_QLVe,
             this.tsb_QLTuyenDuong,
+            this.tsb_QLLichTrinh,
             this.tsb_QLXe,
             this.tsb_BanVe,
             this.tsb_DoanhThu,
@@ -217,6 +219,17 @@ namespace GUI
             this.tab_TroGiup.Text = "Trợ giúp";
             this.tab_TroGiup.UseVisualStyleBackColor = true;
             // 
+            // tsb_QLLichTrinh
+            // 
+            this.tsb_QLLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("tsb_QLLichTrinh.Image")));
+            this.tsb_QLLichTrinh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_QLLichTrinh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_QLLichTrinh.Name = "tsb_QLLichTrinh";
+            this.tsb_QLLichTrinh.Size = new System.Drawing.Size(97, 72);
+            this.tsb_QLLichTrinh.Text = "QL Lịch Trình";
+            this.tsb_QLLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLLichTrinh.Click += new System.EventHandler(this.tsb_QLLichTrinh_Click);
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -256,6 +269,7 @@ namespace GUI
         private System.Windows.Forms.ToolStripButton tsp_TenNV;
         private System.Windows.Forms.TabPage tab_TroGiup;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.ToolStripButton tsb_QLLichTrinh;
     }
 }
 

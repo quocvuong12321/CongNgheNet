@@ -94,5 +94,13 @@ namespace GUI
             frm_ThongKeDoanhThu frm = new frm_ThongKeDoanhThu();
             frm.ShowDialog();
         }
+
+        private void tsb_QLLichTrinh_Click(object sender, EventArgs e)
+        {
+            UsCtrl_QLLichTrinh us = new UsCtrl_QLLichTrinh();
+            panel.Controls.Clear();
+            us.Dock = DockStyle.Fill;
+            panel.Controls.Add(us);
+        }
     }
 }

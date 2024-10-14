@@ -28,7 +28,7 @@ GO
 CREATE TABLE [Xe] (
   [ID_XE] INT IDENTITY(1,1) PRIMARY KEY,
   [BIEN_SO_XE] varchar(128) UNIQUE,
-  [SO_GHE] int NOT NULL check ([SO_GHE] in (20,34,40)),
+  [SO_GHE] int NOT NULL check ([SO_GHE] in (20,34)),
   [NGAY_THEM] datetime NOT NULL DEFAULT GETDATE()
 )
 GO
@@ -121,7 +121,12 @@ CREATE TABLE THONGKE(
 	FOREIGN KEY (MA_LICH_TRINH) REFERENCES LichTrinh(MA_LICH_TRINH)
 )
 
---TRIGGER
+
+
+-------------------------TRIGGER---------------------------------
+
+-------Trigger Tự Động Thêm Ghế---------
+go
 CREATE TRIGGER AutoAddSeats
 ON LichTrinh
 AFTER INSERT
@@ -138,22 +143,50 @@ BEGIN
 
     SET @i = 1;
     SET @seat_prefix = 'A';
+	if @num_seats =  20
+		begin
+			WHILE @i <= @num_seats
+				BEGIN
+					IF @i > 10
+						BEGIN
+							SET @seat_prefix = 'B';
+							SET @seat_number = @i - 10;
+						END
+					ELSE
+						BEGIN
+							SET @seat_number = @i;
+						END
 
-    WHILE @i <= @num_seats
-    BEGIN
-        IF @i > 11
-        BEGIN
-            SET @seat_prefix = 'B';
-            SET @seat_number = @i - 11;
-        END
-        ELSE
-        BEGIN
-            SET @seat_number = @i;
-        END
+					INSERT INTO Ghe (VI_TRI_NGOI,MA_LICH_TRINH)
+					VALUES (CONCAT(@seat_prefix, @seat_number), (SELECT MA_LICH_TRINH FROM inserted));
 
-        INSERT INTO Ghe (VI_TRI_NGOI,MA_LICH_TRINH)
-        VALUES (CONCAT(@seat_prefix, @seat_number), (SELECT MA_LICH_TRINH FROM inserted));
+					SET @i = @i + 1;
+				END
+		end
+	else
+		begin
+			WHILE @i <= @num_seats
+				BEGIN
+					if @i > 22 
+						BEGIN
+							SET @seat_prefix = 'C';
+							SET @seat_number = @i - 22;
+						END
+					else IF @i > 12
+						BEGIN
+							SET @seat_prefix = 'B';
+							SET @seat_number = @i - 12;
+						END
+					ELSE
+						BEGIN
+							SET @seat_number = @i;
+						END
 
-        SET @i = @i + 1;
-    END
+					INSERT INTO Ghe (VI_TRI_NGOI,MA_LICH_TRINH)
+					VALUES (CONCAT(@seat_prefix, @seat_number), (SELECT MA_LICH_TRINH FROM inserted));
+
+					SET @i = @i + 1;
+				END
+		end
 END
+go

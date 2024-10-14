@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class UsCtrl_QLTuyenDuong : UserControl
+    public partial class frm_QLTramDungChan : Form
     {
-        public UsCtrl_QLTuyenDuong()
+        public frm_QLTramDungChan()
         {
             InitializeComponent();
         }
 
+        
     }
 }

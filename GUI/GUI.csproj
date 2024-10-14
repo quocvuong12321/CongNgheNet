@@ -62,6 +62,12 @@
     <Compile Include="frm_Main.Designer.cs">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_QLTramDungChan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_QLTramDungChan.Designer.cs">
+      <DependentUpon>frm_QLTramDungChan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_ThongKeDoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +106,20 @@
     <Compile Include="UsCtrl_QLTuyenDuong.Designer.cs">
       <DependentUpon>UsCtrl_QLTuyenDuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsCtrl_QLLichTrinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_QLLichTrinh.Designer.cs">
+      <DependentUpon>UsCtrl_QLLichTrinh.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_QLTramDungChan.resx">
+      <DependentUpon>frm_QLTramDungChan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ThongKeDoanhThu.resx">
       <DependentUpon>frm_ThongKeDoanhThu.cs</DependentUpon>
@@ -120,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="UsCtrl_BanVe.resx">
       <DependentUpon>UsCtrl_BanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsCtrl_QLLichTrinh.resx">
+      <DependentUpon>UsCtrl_QLLichTrinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLTaiKhoan.resx">
       <DependentUpon>UsCtrl_QLTaiKhoan.cs</DependentUpon>

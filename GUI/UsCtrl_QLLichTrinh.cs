@@ -10,12 +10,19 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class UsCtrl_QLTuyenDuong : UserControl
+    public partial class UsCtrl_QLLichTrinh : UserControl
     {
-        public UsCtrl_QLTuyenDuong()
+        public UsCtrl_QLLichTrinh()
         {
             InitializeComponent();
         }
 
+
+
+        private void btn_QLTramDungChan_Click(object sender, EventArgs e)
+        {
+            frm_QLTramDungChan frmTDC = new frm_QLTramDungChan();
+            frmTDC.ShowDialog();
+        }
     }
 }
