@@ -55,7 +55,7 @@ namespace GUI
             this.label1.Location = new System.Drawing.Point(609, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 25);
+            this.label1.Size = new System.Drawing.Size(186, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ XE";
             // 
@@ -67,7 +67,7 @@ namespace GUI
             this.label2.Location = new System.Drawing.Point(278, 68);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã xe";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -80,7 +80,7 @@ namespace GUI
             this.label3.Location = new System.Drawing.Point(278, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 16);
+            this.label3.Size = new System.Drawing.Size(63, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Loại xe";
             // 
@@ -92,26 +92,26 @@ namespace GUI
             this.label4.Location = new System.Drawing.Point(278, 144);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Số ghế";
             // 
             // txt_LoaiXe
             // 
             this.txt_LoaiXe.Location = new System.Drawing.Point(399, 101);
-            this.txt_LoaiXe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_LoaiXe.Margin = new System.Windows.Forms.Padding(4);
             this.txt_LoaiXe.Name = "txt_LoaiXe";
-            this.txt_LoaiXe.Size = new System.Drawing.Size(431, 22);
+            this.txt_LoaiXe.Size = new System.Drawing.Size(431, 26);
             this.txt_LoaiXe.TabIndex = 2;
             // 
             // btn_ThemXe
             // 
-            this.btn_ThemXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThemXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemXe.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemXe.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemXe.Image")));
             this.btn_ThemXe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ThemXe.Location = new System.Drawing.Point(266, 197);
-            this.btn_ThemXe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_ThemXe.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemXe.Name = "btn_ThemXe";
             this.btn_ThemXe.Size = new System.Drawing.Size(137, 48);
             this.btn_ThemXe.TabIndex = 4;
@@ -126,7 +126,7 @@ namespace GUI
             this.btn_CapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhat.Image")));
             this.btn_CapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CapNhat.Location = new System.Drawing.Point(441, 197);
-            this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhat.Name = "btn_CapNhat";
             this.btn_CapNhat.Size = new System.Drawing.Size(137, 48);
             this.btn_CapNhat.TabIndex = 5;
@@ -140,7 +140,7 @@ namespace GUI
             this.btn_XoaXe.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaXe.Image")));
             this.btn_XoaXe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_XoaXe.Location = new System.Drawing.Point(615, 197);
-            this.btn_XoaXe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_XoaXe.Margin = new System.Windows.Forms.Padding(4);
             this.btn_XoaXe.Name = "btn_XoaXe";
             this.btn_XoaXe.Size = new System.Drawing.Size(137, 48);
             this.btn_XoaXe.TabIndex = 6;
@@ -155,7 +155,7 @@ namespace GUI
             this.btn_Luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.ForeColor = System.Drawing.Color.Snow;
             this.btn_Luu.Location = new System.Drawing.Point(878, 60);
-            this.btn_Luu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Luu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(168, 49);
             this.btn_Luu.TabIndex = 7;
@@ -169,7 +169,7 @@ namespace GUI
             this.btn_Huy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Snow;
             this.btn_Huy.Location = new System.Drawing.Point(878, 129);
-            this.btn_Huy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Huy.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(168, 49);
             this.btn_Huy.TabIndex = 8;
@@ -181,17 +181,17 @@ namespace GUI
             // 
             this.cbo_SoGhe.FormattingEnabled = true;
             this.cbo_SoGhe.Location = new System.Drawing.Point(399, 144);
-            this.cbo_SoGhe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbo_SoGhe.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_SoGhe.Name = "cbo_SoGhe";
-            this.cbo_SoGhe.Size = new System.Drawing.Size(124, 24);
+            this.cbo_SoGhe.Size = new System.Drawing.Size(124, 28);
             this.cbo_SoGhe.TabIndex = 3;
             // 
             // txt_MaXe
             // 
             this.txt_MaXe.Location = new System.Drawing.Point(399, 63);
-            this.txt_MaXe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_MaXe.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MaXe.Name = "txt_MaXe";
-            this.txt_MaXe.Size = new System.Drawing.Size(431, 22);
+            this.txt_MaXe.Size = new System.Drawing.Size(431, 26);
             this.txt_MaXe.TabIndex = 1;
             this.txt_MaXe.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -202,7 +202,7 @@ namespace GUI
             this.btn_HienThi.Image = ((System.Drawing.Image)(resources.GetObject("btn_HienThi.Image")));
             this.btn_HienThi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_HienThi.Location = new System.Drawing.Point(790, 197);
-            this.btn_HienThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_HienThi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_HienThi.Name = "btn_HienThi";
             this.btn_HienThi.Size = new System.Drawing.Size(283, 48);
             this.btn_HienThi.TabIndex = 9;
@@ -213,14 +213,15 @@ namespace GUI
             // 
             this.dgv_DanhSachXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DanhSachXe.Location = new System.Drawing.Point(174, 262);
-            this.dgv_DanhSachXe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_DanhSachXe.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSachXe.Name = "dgv_DanhSachXe";
+            this.dgv_DanhSachXe.RowHeadersWidth = 51;
             this.dgv_DanhSachXe.Size = new System.Drawing.Size(948, 185);
             this.dgv_DanhSachXe.TabIndex = 28;
             // 
             // UsCtrl_QLXe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.Controls.Add(this.dgv_DanhSachXe);
@@ -239,7 +240,7 @@ namespace GUI
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Red;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsCtrl_QLXe";
             this.Size = new System.Drawing.Size(1463, 471);
             this.Load += new System.EventHandler(this.UsCtrl_QLXe_Load);

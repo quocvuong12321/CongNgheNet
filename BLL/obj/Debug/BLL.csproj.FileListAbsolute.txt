@@ -31,3 +31,14 @@ C:\Users\ASUS\Desktop\New_folder\CongNgheNet\BLL\obj\Debug\BLL.csproj.CoreCompil
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\BLL\obj\Debug\BLL.dll
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\BLL\obj\Debug\BLL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\BLL.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\BLL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\DAL.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\DTO.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\DAL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\DTO.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\obj\Debug\BLL.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\obj\Debug\BLL.pdb

@@ -70,11 +70,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsCtrl_BanVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_BanVe.Designer.cs">
+      <DependentUpon>UsCtrl_BanVe.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsCtrl_QLTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UsCtrl_QLTaiKhoan.Designer.cs">
       <DependentUpon>UsCtrl_QLTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsCtrl_QLVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_QLVe.Designer.cs">
+      <DependentUpon>UsCtrl_QLVe.cs</DependentUpon>
     </Compile>
     <Compile Include="UsCtrl_QLXe.cs">
       <SubType>UserControl</SubType>
@@ -106,11 +118,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UsCtrl_BanVe.resx">
+      <DependentUpon>UsCtrl_BanVe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLTaiKhoan.resx">
       <DependentUpon>UsCtrl_QLTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLTuyenDuong.resx">
       <DependentUpon>UsCtrl_QLTuyenDuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsCtrl_QLVe.resx">
+      <DependentUpon>UsCtrl_QLVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLXe.resx">
       <DependentUpon>UsCtrl_QLXe.cs</DependentUpon>

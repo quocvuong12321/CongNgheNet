@@ -24,3 +24,12 @@ C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DAL\obj\Debug\DAL.csproj.CoreCompil
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DAL\obj\Debug\DAL.dll
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DAL\obj\Debug\DAL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\bin\Debug\DAL.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\bin\Debug\DAL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\bin\Debug\DTO.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\bin\Debug\DTO.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\obj\Debug\DAL.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\obj\Debug\DAL.pdb
