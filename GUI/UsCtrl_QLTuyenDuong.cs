@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class UsCtrl_QLTaiKhoan : UserControl
+    public partial class UsCtrl_QLTuyenDuong : UserControl
     {
-        public UsCtrl_QLTaiKhoan()
+        public UsCtrl_QLTuyenDuong()
         {
             InitializeComponent();
+        }
+
+        private void UsCtrl_QLTuyenDuong_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

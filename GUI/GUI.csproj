@@ -82,6 +82,12 @@
     <Compile Include="UsCtrl_QLXe.Designer.cs">
       <DependentUpon>UsCtrl_QLXe.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsCtrl_QLTuyenDuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_QLTuyenDuong.Designer.cs">
+      <DependentUpon>UsCtrl_QLTuyenDuong.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="UsCtrl_QLTaiKhoan.resx">
       <DependentUpon>UsCtrl_QLTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsCtrl_QLTuyenDuong.resx">
+      <DependentUpon>UsCtrl_QLTuyenDuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLXe.resx">
       <DependentUpon>UsCtrl_QLXe.cs</DependentUpon>
