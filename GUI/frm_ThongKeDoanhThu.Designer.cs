@@ -63,7 +63,6 @@ namespace GUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(771, 457);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -85,7 +84,6 @@ namespace GUI
             this.label1.Size = new System.Drawing.Size(242, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "THỐNG KÊ SỐ LƯỢNG VÉ BÁN";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 

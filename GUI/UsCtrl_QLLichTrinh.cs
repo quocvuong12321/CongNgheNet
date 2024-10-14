@@ -7,17 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace GUI
 {
-    public partial class frm_ThongKeDoanhThu : Form
+    public partial class UsCtrl_QLLichTrinh : UserControl
     {
-        public frm_ThongKeDoanhThu()
+        public UsCtrl_QLLichTrinh()
         {
             InitializeComponent();
         }
 
-     
+
+
+        private void btn_QLTramDungChan_Click(object sender, EventArgs e)
+        {
+            frm_QLTramDungChan frmTDC = new frm_QLTramDungChan();
+            frmTDC.ShowDialog();
+        }
     }
 }

@@ -34,17 +34,18 @@ namespace GUI
             this.tab_HeThong = new System.Windows.Forms.TabPage();
             this.panel = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsb_QLTaiKhoan = new System.Windows.Forms.ToolStripButton();
+            this.tsb_DangXuat = new System.Windows.Forms.ToolStripButton();
+            this.tsb_Thoat = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_QLVe = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.tsb_QLTuyenDuong = new System.Windows.Forms.ToolStripButton();
             this.tsb_QLXe = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.tsb_BanVe = new System.Windows.Forms.ToolStripButton();
+            this.tsb_DoanhThu = new System.Windows.Forms.ToolStripButton();
+            this.tsp_TenNV = new System.Windows.Forms.ToolStripButton();
             this.tab_TroGiup = new System.Windows.Forms.TabPage();
+            this.tsb_QLLichTrinh = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tab_HeThong.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -57,7 +58,7 @@ namespace GUI
             this.tabControl1.Location = new System.Drawing.Point(1, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1368, 683);
+            this.tabControl1.Size = new System.Drawing.Size(1368, 760);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.Tag = "";
             // 
@@ -65,10 +66,10 @@ namespace GUI
             // 
             this.tab_HeThong.Controls.Add(this.panel);
             this.tab_HeThong.Controls.Add(this.toolStrip1);
-            this.tab_HeThong.Location = new System.Drawing.Point(4, 28);
+            this.tab_HeThong.Location = new System.Drawing.Point(4, 33);
             this.tab_HeThong.Name = "tab_HeThong";
             this.tab_HeThong.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_HeThong.Size = new System.Drawing.Size(1360, 651);
+            this.tab_HeThong.Size = new System.Drawing.Size(1360, 723);
             this.tab_HeThong.TabIndex = 0;
             this.tab_HeThong.Text = "Hệ thống";
             this.tab_HeThong.UseVisualStyleBackColor = true;
@@ -77,7 +78,7 @@ namespace GUI
             // 
             this.panel.Location = new System.Drawing.Point(8, 82);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1339, 563);
+            this.panel.Size = new System.Drawing.Size(1339, 635);
             this.panel.TabIndex = 5;
             // 
             // toolStrip1
@@ -85,59 +86,63 @@ namespace GUI
             this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.tsb_QLTaiKhoan,
+            this.tsb_DangXuat,
+            this.tsb_Thoat,
             this.toolStripSeparator1,
             this.tsb_QLVe,
-            this.toolStripButton5,
+            this.tsb_QLTuyenDuong,
+            this.tsb_QLLichTrinh,
             this.tsb_QLXe,
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.toolStripButton9});
+            this.tsb_BanVe,
+            this.tsb_DoanhThu,
+            this.tsp_TenNV});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1354, 70);
+            this.toolStrip1.Size = new System.Drawing.Size(1354, 75);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsb_QLTaiKhoan
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(104, 67);
-            this.toolStripButton1.Text = "Quản lý tài khoản";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            this.tsb_QLTaiKhoan.AutoSize = false;
+            this.tsb_QLTaiKhoan.Image = ((System.Drawing.Image)(resources.GetObject("tsb_QLTaiKhoan.Image")));
+            this.tsb_QLTaiKhoan.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_QLTaiKhoan.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_QLTaiKhoan.Name = "tsb_QLTaiKhoan";
+            this.tsb_QLTaiKhoan.Size = new System.Drawing.Size(128, 72);
+            this.tsb_QLTaiKhoan.Text = "Quản lý tài khoản";
+            this.tsb_QLTaiKhoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLTaiKhoan.Click += new System.EventHandler(this.tsb_QLTaiKhoan_Click);
             // 
-            // toolStripButton2
+            // tsb_DangXuat
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(65, 67);
-            this.toolStripButton2.Text = "Đăng xuất";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton2.ToolTipText = "Đăng xuất\r\n";
+            this.tsb_DangXuat.Image = ((System.Drawing.Image)(resources.GetObject("tsb_DangXuat.Image")));
+            this.tsb_DangXuat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_DangXuat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_DangXuat.Name = "tsb_DangXuat";
+            this.tsb_DangXuat.Size = new System.Drawing.Size(81, 72);
+            this.tsb_DangXuat.Text = "Đăng xuất";
+            this.tsb_DangXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_DangXuat.ToolTipText = "Đăng xuất\r\n";
+            this.tsb_DangXuat.Click += new System.EventHandler(this.tsb_DangXuat_Click);
             // 
-            // toolStripButton3
+            // tsb_Thoat
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(52, 67);
-            this.toolStripButton3.Text = "Thoát";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_Thoat.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Thoat.Image")));
+            this.tsb_Thoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_Thoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Thoat.Name = "tsb_Thoat";
+            this.tsb_Thoat.Size = new System.Drawing.Size(52, 72);
+            this.tsb_Thoat.Text = "Thoát";
+            this.tsb_Thoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_Thoat.Click += new System.EventHandler(this.tsb_Thoat_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 70);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 75);
             // 
             // tsb_QLVe
             // 
@@ -145,19 +150,21 @@ namespace GUI
             this.tsb_QLVe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_QLVe.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_QLVe.Name = "tsb_QLVe";
-            this.tsb_QLVe.Size = new System.Drawing.Size(67, 67);
+            this.tsb_QLVe.Size = new System.Drawing.Size(82, 72);
             this.tsb_QLVe.Text = "Quản lý vé";
             this.tsb_QLVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLVe.Click += new System.EventHandler(this.tsb_QLVe_Click);
             // 
-            // toolStripButton5
+            // tsb_QLTuyenDuong
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(99, 67);
-            this.toolStripButton5.Text = "QL Tuyến đường";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLTuyenDuong.Image = ((System.Drawing.Image)(resources.GetObject("tsb_QLTuyenDuong.Image")));
+            this.tsb_QLTuyenDuong.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_QLTuyenDuong.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_QLTuyenDuong.Name = "tsb_QLTuyenDuong";
+            this.tsb_QLTuyenDuong.Size = new System.Drawing.Size(122, 72);
+            this.tsb_QLTuyenDuong.Text = "QL Tuyến đường";
+            this.tsb_QLTuyenDuong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLTuyenDuong.Click += new System.EventHandler(this.tsb_QLTuyenDuong_Click);
             // 
             // tsb_QLXe
             // 
@@ -165,63 +172,77 @@ namespace GUI
             this.tsb_QLXe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_QLXe.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_QLXe.Name = "tsb_QLXe";
-            this.tsb_QLXe.Size = new System.Drawing.Size(67, 67);
+            this.tsb_QLXe.Size = new System.Drawing.Size(82, 72);
             this.tsb_QLXe.Text = "Quản lý xe";
             this.tsb_QLXe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_QLXe.Click += new System.EventHandler(this.tsb_QLXe_Click);
             // 
-            // toolStripButton7
+            // tsb_BanVe
             // 
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(52, 67);
-            this.toolStripButton7.Text = "Bán vé";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_BanVe.Image = ((System.Drawing.Image)(resources.GetObject("tsb_BanVe.Image")));
+            this.tsb_BanVe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_BanVe.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_BanVe.Name = "tsb_BanVe";
+            this.tsb_BanVe.Size = new System.Drawing.Size(57, 72);
+            this.tsb_BanVe.Text = "Bán vé";
+            this.tsb_BanVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_BanVe.Click += new System.EventHandler(this.tsb_BanVe_Click);
             // 
-            // toolStripButton8
+            // tsb_DoanhThu
             // 
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(67, 67);
-            this.toolStripButton8.Text = "Doanh thu";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_DoanhThu.Image = ((System.Drawing.Image)(resources.GetObject("tsb_DoanhThu.Image")));
+            this.tsb_DoanhThu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_DoanhThu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_DoanhThu.Name = "tsb_DoanhThu";
+            this.tsb_DoanhThu.Size = new System.Drawing.Size(82, 72);
+            this.tsb_DoanhThu.Text = "Doanh thu";
+            this.tsb_DoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_DoanhThu.Click += new System.EventHandler(this.tsb_DoanhThu_Click);
             // 
-            // toolStripButton9
+            // tsp_TenNV
             // 
-            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(52, 67);
-            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsp_TenNV.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsp_TenNV.Image = ((System.Drawing.Image)(resources.GetObject("tsp_TenNV.Image")));
+            this.tsp_TenNV.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsp_TenNV.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsp_TenNV.Name = "tsp_TenNV";
+            this.tsp_TenNV.Size = new System.Drawing.Size(52, 72);
+            this.tsp_TenNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tab_TroGiup
             // 
-            this.tab_TroGiup.Location = new System.Drawing.Point(4, 28);
+            this.tab_TroGiup.Location = new System.Drawing.Point(4, 33);
             this.tab_TroGiup.Name = "tab_TroGiup";
             this.tab_TroGiup.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_TroGiup.Size = new System.Drawing.Size(1360, 609);
+            this.tab_TroGiup.Size = new System.Drawing.Size(1360, 723);
             this.tab_TroGiup.TabIndex = 1;
             this.tab_TroGiup.Text = "Trợ giúp";
             this.tab_TroGiup.UseVisualStyleBackColor = true;
             // 
+            // tsb_QLLichTrinh
+            // 
+            this.tsb_QLLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("tsb_QLLichTrinh.Image")));
+            this.tsb_QLLichTrinh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_QLLichTrinh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_QLLichTrinh.Name = "tsb_QLLichTrinh";
+            this.tsb_QLLichTrinh.Size = new System.Drawing.Size(97, 72);
+            this.tsb_QLLichTrinh.Text = "QL Lịch Trình";
+            this.tsb_QLLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLLichTrinh.Click += new System.EventHandler(this.tsb_QLLichTrinh_Click);
+            // 
             // frm_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 697);
+            this.ClientSize = new System.Drawing.Size(1372, 774);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Main";
-            this.Load += new System.EventHandler(this.frm_Main_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_Main_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tab_HeThong.ResumeLayout(false);
             this.tab_HeThong.PerformLayout();
@@ -236,18 +257,19 @@ namespace GUI
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tab_HeThong;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tsb_QLTaiKhoan;
+        private System.Windows.Forms.ToolStripButton tsb_DangXuat;
+        private System.Windows.Forms.ToolStripButton tsb_Thoat;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsb_QLVe;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton tsb_QLTuyenDuong;
         private System.Windows.Forms.ToolStripButton tsb_QLXe;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton tsb_BanVe;
+        private System.Windows.Forms.ToolStripButton tsb_DoanhThu;
+        private System.Windows.Forms.ToolStripButton tsp_TenNV;
         private System.Windows.Forms.TabPage tab_TroGiup;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.ToolStripButton tsb_QLLichTrinh;
     }
 }
 

@@ -10,3 +10,9 @@ C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyRe
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DTO\obj\Debug\DTO.dll
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\DTO\obj\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\bin\Debug\DTO.dll
+C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\bin\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.dll
+C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.pdb

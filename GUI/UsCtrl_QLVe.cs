@@ -7,17 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace GUI
 {
-    public partial class frm_ThongKeDoanhThu : Form
+    public partial class UsCtrl_QLVe : UserControl
     {
-        public frm_ThongKeDoanhThu()
+        public UsCtrl_QLVe()
         {
             InitializeComponent();
         }
-
-     
     }
 }
