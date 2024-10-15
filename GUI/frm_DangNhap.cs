@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DTO;
 
 namespace GUI
 {
     public partial class frm_DangNhap : Form
     {
+        NhanVienBLL nvBLL = new NhanVienBLL();
         public frm_DangNhap()
         {
             InitializeComponent();
@@ -58,9 +61,18 @@ namespace GUI
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            frm_Main frm = new frm_Main();
-            frm.ShowDialog();
-            this.Close();
+            if (nvBLL.Login(txt_TaiKhoan.Text, txt_MatKhau.Text))
+            {
+                
+                frm_Main frm = new frm_Main();
+                frm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu hoặc tài khoản");
+            } 
+                
         }
     }
 }

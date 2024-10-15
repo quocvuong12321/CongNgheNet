@@ -16,3 +16,9 @@ C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyRe
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.dll
 C:\Users\ASUS\Desktop\New_folder\CongNgheNet\DTO\obj\Debug\DTO.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\bin\Debug\DTO.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\bin\Debug\DTO.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.pdb

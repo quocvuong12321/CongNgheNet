@@ -1,4 +1,7 @@
-﻿create database QuanLyBanVeXeKhach
+﻿
+drop database QuanLyBanVeXeKhach
+
+create database QuanLyBanVeXeKhach
 go
 
 use QuanLyBanVeXeKhach
@@ -38,7 +41,7 @@ CREATE TABLE NHANVIEN(
 	MAT_KHAU VARCHAR(128) NOT NULL,
 	HOTEN NVARCHAR(128) NOT NULL,
 	SO_DT VARCHAR(128),
-	GIOITINH BIT,
+	GIOITINH NVARCHAR(5) NOT NULL check (GIOITINH IN (N'Nam',N'Nữ')),
 	DIACHI NVARCHAR(128),
 	LOAINV VARCHAR(128) CHECK (LOAINV IN (N'Quản lý',N'Nhân viên',N'Tài xế'))
 )
@@ -82,8 +85,7 @@ CREATE TABLE GHE(
 	ID_GHE INT IDENTITY(1,1) PRIMARY KEY,
 	VI_TRI_NGOI VARCHAR(10),
 	[MA_LICH_TRINH] varchar(128),
-	TRANG_THAI VARCHAR(128) CHECK (TRANG_THAI IN (N'Trống',N'Đang chọn',N'Đã đặt')),
-	Default N'Trống' for TRANG_THAI,
+	TRANG_THAI VARCHAR(128) Default N'Trống', CHECK (TRANG_THAI IN (N'Trống',N'Đang chọn',N'Đã đặt')),
 	FOREIGN KEY ([MA_LICH_TRINH]) REFERENCES [LichTrinh]([MA_LICH_TRINH])
 )
 GO

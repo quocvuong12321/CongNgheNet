@@ -125,3 +125,7 @@ C:\Users\Thanh Truc\Source\Repos\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_BanVe.reso
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLLichTrinh.resources
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLTuyenDuong.resources
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLVe.resources
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\GUI\obj\Debug\GUI.frm_QLTramDungChan.resources
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\GUI\obj\Debug\GUI.UsCtrl_QLLichTrinh.resources
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\GUI\bin\Debug\DAL.dll
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\GUI\bin\Debug\DAL.pdb
