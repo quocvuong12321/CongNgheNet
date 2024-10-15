@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnHienThiDanhSachNhanVien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_HienThiDanhSachNhanVien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAA+9JREFUaEPtmN1PU2ccx7nYP7A/wZvtZrv1asmWLcuyGExm4syyzHmxOJfpEoda
@@ -141,7 +141,7 @@
         AAl3LeJh7rX4AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnXoaNhanVien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_XoaNhanVien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAABEdJREFUaEPtmN1PE1kYxrlw/wEv1huZdkrb7cy0My2DmOBCicCiBNtIwRZUFEX8
@@ -165,7 +165,7 @@
         /E8Et3/wgwpfixPoVc4hzidjLSwsLCwsUiAr63/B61LRs9fOpwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnCapNhat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_CapNhat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAACPJJREFUaEPtmXlUVPcVx38/BoYZNheC782Y09SenNiquCeNu3GN6anUVrTHJdFo
@@ -209,7 +209,7 @@
         D3TPyRqqO3DsI4+xdR2CNKpRjaouxv4L2Ls5zysitrcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnThemNhanVien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_ThemNhanVien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAABE5JREFUaEPtmFFoG3Ucx9NKFRF8UagPA2HY9UERJKDd0NFckruUW5JiF7dBReue

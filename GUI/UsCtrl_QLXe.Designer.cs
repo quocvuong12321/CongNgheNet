@@ -57,7 +57,7 @@ namespace GUI
             this.label1.Location = new System.Drawing.Point(609, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 25);
+            this.label1.Size = new System.Drawing.Size(186, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ XE";
             // 
@@ -69,7 +69,7 @@ namespace GUI
             this.label2.Location = new System.Drawing.Point(278, 68);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã xe";
             // 
@@ -81,7 +81,7 @@ namespace GUI
             this.label3.Location = new System.Drawing.Point(278, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ngày thêm";
             // 
@@ -93,7 +93,7 @@ namespace GUI
             this.label4.Location = new System.Drawing.Point(278, 144);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Số ghế";
             // 
@@ -173,7 +173,7 @@ namespace GUI
             this.txt_MaXe.Location = new System.Drawing.Point(399, 63);
             this.txt_MaXe.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MaXe.Name = "txt_MaXe";
-            this.txt_MaXe.Size = new System.Drawing.Size(148, 22);
+            this.txt_MaXe.Size = new System.Drawing.Size(148, 26);
             this.txt_MaXe.TabIndex = 1;
             // 
             // btn_HienThi
@@ -205,10 +205,10 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(604, 66);
+            this.label5.Location = new System.Drawing.Point(586, 68);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 16);
+            this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 29;
             this.label5.Text = "Biển số xe";
             // 
@@ -217,14 +217,14 @@ namespace GUI
             this.txtBienSoXe.Location = new System.Drawing.Point(682, 63);
             this.txtBienSoXe.Margin = new System.Windows.Forms.Padding(4);
             this.txtBienSoXe.Name = "txtBienSoXe";
-            this.txtBienSoXe.Size = new System.Drawing.Size(148, 22);
+            this.txtBienSoXe.Size = new System.Drawing.Size(148, 26);
             this.txtBienSoXe.TabIndex = 30;
             // 
             // dtp_NgayThem
             // 
             this.dtp_NgayThem.Location = new System.Drawing.Point(399, 101);
             this.dtp_NgayThem.Name = "dtp_NgayThem";
-            this.dtp_NgayThem.Size = new System.Drawing.Size(431, 22);
+            this.dtp_NgayThem.Size = new System.Drawing.Size(431, 26);
             this.dtp_NgayThem.TabIndex = 31;
             // 
             // cbo_SoGhe
@@ -233,12 +233,12 @@ namespace GUI
             this.cbo_SoGhe.Location = new System.Drawing.Point(399, 144);
             this.cbo_SoGhe.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_SoGhe.Name = "cbo_SoGhe";
-            this.cbo_SoGhe.Size = new System.Drawing.Size(124, 24);
+            this.cbo_SoGhe.Size = new System.Drawing.Size(124, 28);
             this.cbo_SoGhe.TabIndex = 3;
             // 
             // UsCtrl_QLXe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.Controls.Add(this.dtp_NgayThem);
