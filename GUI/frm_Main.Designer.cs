@@ -40,12 +40,12 @@ namespace GUI
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_QLVe = new System.Windows.Forms.ToolStripButton();
             this.tsb_QLTuyenDuong = new System.Windows.Forms.ToolStripButton();
+            this.tsb_QLLichTrinh = new System.Windows.Forms.ToolStripButton();
             this.tsb_QLXe = new System.Windows.Forms.ToolStripButton();
             this.tsb_BanVe = new System.Windows.Forms.ToolStripButton();
             this.tsb_DoanhThu = new System.Windows.Forms.ToolStripButton();
             this.tsp_TenNV = new System.Windows.Forms.ToolStripButton();
             this.tab_TroGiup = new System.Windows.Forms.TabPage();
-            this.tsb_QLLichTrinh = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tab_HeThong.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -66,10 +66,10 @@ namespace GUI
             // 
             this.tab_HeThong.Controls.Add(this.panel);
             this.tab_HeThong.Controls.Add(this.toolStrip1);
-            this.tab_HeThong.Location = new System.Drawing.Point(4, 33);
+            this.tab_HeThong.Location = new System.Drawing.Point(8, 53);
             this.tab_HeThong.Name = "tab_HeThong";
             this.tab_HeThong.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_HeThong.Size = new System.Drawing.Size(1360, 723);
+            this.tab_HeThong.Size = new System.Drawing.Size(1352, 699);
             this.tab_HeThong.TabIndex = 0;
             this.tab_HeThong.Text = "Hệ thống";
             this.tab_HeThong.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@ namespace GUI
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1354, 75);
+            this.toolStrip1.Size = new System.Drawing.Size(1346, 90);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -122,7 +122,7 @@ namespace GUI
             this.tsb_DangXuat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_DangXuat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_DangXuat.Name = "tsb_DangXuat";
-            this.tsb_DangXuat.Size = new System.Drawing.Size(81, 72);
+            this.tsb_DangXuat.Size = new System.Drawing.Size(128, 84);
             this.tsb_DangXuat.Text = "Đăng xuất";
             this.tsb_DangXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_DangXuat.ToolTipText = "Đăng xuất\r\n";
@@ -134,7 +134,7 @@ namespace GUI
             this.tsb_Thoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_Thoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_Thoat.Name = "tsb_Thoat";
-            this.tsb_Thoat.Size = new System.Drawing.Size(52, 72);
+            this.tsb_Thoat.Size = new System.Drawing.Size(80, 84);
             this.tsb_Thoat.Text = "Thoát";
             this.tsb_Thoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_Thoat.Click += new System.EventHandler(this.tsb_Thoat_Click);
@@ -142,7 +142,7 @@ namespace GUI
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 90);
             // 
             // tsb_QLVe
             // 
@@ -150,7 +150,7 @@ namespace GUI
             this.tsb_QLVe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_QLVe.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_QLVe.Name = "tsb_QLVe";
-            this.tsb_QLVe.Size = new System.Drawing.Size(82, 72);
+            this.tsb_QLVe.Size = new System.Drawing.Size(134, 84);
             this.tsb_QLVe.Text = "Quản lý vé";
             this.tsb_QLVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_QLVe.Click += new System.EventHandler(this.tsb_QLVe_Click);
@@ -161,10 +161,21 @@ namespace GUI
             this.tsb_QLTuyenDuong.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_QLTuyenDuong.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_QLTuyenDuong.Name = "tsb_QLTuyenDuong";
-            this.tsb_QLTuyenDuong.Size = new System.Drawing.Size(122, 72);
+            this.tsb_QLTuyenDuong.Size = new System.Drawing.Size(198, 84);
             this.tsb_QLTuyenDuong.Text = "QL Tuyến đường";
             this.tsb_QLTuyenDuong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_QLTuyenDuong.Click += new System.EventHandler(this.tsb_QLTuyenDuong_Click);
+            // 
+            // tsb_QLLichTrinh
+            // 
+            this.tsb_QLLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("tsb_QLLichTrinh.Image")));
+            this.tsb_QLLichTrinh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsb_QLLichTrinh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_QLLichTrinh.Name = "tsb_QLLichTrinh";
+            this.tsb_QLLichTrinh.Size = new System.Drawing.Size(157, 84);
+            this.tsb_QLLichTrinh.Text = "QL Lịch Trình";
+            this.tsb_QLLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_QLLichTrinh.Click += new System.EventHandler(this.tsb_QLLichTrinh_Click);
             // 
             // tsb_QLXe
             // 
@@ -172,7 +183,7 @@ namespace GUI
             this.tsb_QLXe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_QLXe.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_QLXe.Name = "tsb_QLXe";
-            this.tsb_QLXe.Size = new System.Drawing.Size(82, 72);
+            this.tsb_QLXe.Size = new System.Drawing.Size(133, 84);
             this.tsb_QLXe.Text = "Quản lý xe";
             this.tsb_QLXe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_QLXe.Click += new System.EventHandler(this.tsb_QLXe_Click);
@@ -183,7 +194,7 @@ namespace GUI
             this.tsb_BanVe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_BanVe.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_BanVe.Name = "tsb_BanVe";
-            this.tsb_BanVe.Size = new System.Drawing.Size(57, 72);
+            this.tsb_BanVe.Size = new System.Drawing.Size(91, 84);
             this.tsb_BanVe.Text = "Bán vé";
             this.tsb_BanVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_BanVe.Click += new System.EventHandler(this.tsb_BanVe_Click);
@@ -194,7 +205,7 @@ namespace GUI
             this.tsb_DoanhThu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsb_DoanhThu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_DoanhThu.Name = "tsb_DoanhThu";
-            this.tsb_DoanhThu.Size = new System.Drawing.Size(82, 72);
+            this.tsb_DoanhThu.Size = new System.Drawing.Size(133, 84);
             this.tsb_DoanhThu.Text = "Doanh thu";
             this.tsb_DoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsb_DoanhThu.Click += new System.EventHandler(this.tsb_DoanhThu_Click);
@@ -206,33 +217,22 @@ namespace GUI
             this.tsp_TenNV.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsp_TenNV.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsp_TenNV.Name = "tsp_TenNV";
-            this.tsp_TenNV.Size = new System.Drawing.Size(52, 72);
+            this.tsp_TenNV.Size = new System.Drawing.Size(52, 84);
             this.tsp_TenNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tab_TroGiup
             // 
-            this.tab_TroGiup.Location = new System.Drawing.Point(4, 33);
+            this.tab_TroGiup.Location = new System.Drawing.Point(8, 53);
             this.tab_TroGiup.Name = "tab_TroGiup";
             this.tab_TroGiup.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_TroGiup.Size = new System.Drawing.Size(1360, 723);
+            this.tab_TroGiup.Size = new System.Drawing.Size(1352, 699);
             this.tab_TroGiup.TabIndex = 1;
             this.tab_TroGiup.Text = "Trợ giúp";
             this.tab_TroGiup.UseVisualStyleBackColor = true;
             // 
-            // tsb_QLLichTrinh
-            // 
-            this.tsb_QLLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("tsb_QLLichTrinh.Image")));
-            this.tsb_QLLichTrinh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsb_QLLichTrinh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_QLLichTrinh.Name = "tsb_QLLichTrinh";
-            this.tsb_QLLichTrinh.Size = new System.Drawing.Size(97, 72);
-            this.tsb_QLLichTrinh.Text = "QL Lịch Trình";
-            this.tsb_QLLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsb_QLLichTrinh.Click += new System.EventHandler(this.tsb_QLLichTrinh_Click);
-            // 
             // frm_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 39F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1372, 774);
             this.Controls.Add(this.tabControl1);

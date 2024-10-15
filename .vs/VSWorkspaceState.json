@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GUI"
   ],
-  "SelectedNode": "\\Nhom10_QuanLyBanVeXeKhach.sln",
+  "SelectedNode": "\\GUI\\frm_Main.cs",
   "PreviewInSolutionExplorer": false
 }

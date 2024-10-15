@@ -102,5 +102,10 @@ namespace GUI
             us.Dock = DockStyle.Fill;
             panel.Controls.Add(us);
         }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
