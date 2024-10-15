@@ -43,7 +43,7 @@ CREATE TABLE NHANVIEN(
 	SO_DT VARCHAR(128),
 	GIOITINH NVARCHAR(5) NOT NULL check (GIOITINH IN (N'Nam',N'Nữ')),
 	DIACHI NVARCHAR(128),
-	LOAINV VARCHAR(128) CHECK (LOAINV IN (N'Quản lý',N'Nhân viên',N'Tài xế'))
+	LOAINV NVARCHAR(128) CHECK (LOAINV IN (N'Quản lý',N'Nhân viên',N'Tài xế'))
 )
 GO
 
@@ -55,6 +55,7 @@ CREATE TABLE [LichTrinh] (
   [GIA_VE] float NOT NULL,
   [ID_XE] INT NOT NULL,
   [TAIXE] varchar(128),
+  SOGHETRONG INT,
   [NGAY_TAO_LICH_TRINH]  datetime NOT NULL DEFAULT GETDATE(),
   CHECK (KHOI_HANH < KET_THUC),
   FOREIGN KEY (TAIXE) REFERENCES NHANVIEN(USERNAME),
@@ -192,3 +193,23 @@ BEGIN
 		end
 END
 go
+
+
+CREATE TRIGGER trg_SetSoGheTrong
+ON [LichTrinh]
+AFTER INSERT
+AS
+BEGIN
+    UPDATE LichTrinh
+    SET SOGHETRONG = Xe.SO_GHE
+    FROM LichTrinh lt
+    JOIN Xe ON Xe.ID_XE = lt.ID_XE
+    WHERE lt.MA_LICH_TRINH = (SELECT MA_LICH_TRINH FROM inserted)
+END
+
+insert into NHANVIEN values ('abc','1',N'Nguyễn Văn A','0987651234',N'Nam',N'Cà Mau',N'Nhân viên')
+insert into NHANVIEN values ('abcd','1',N'Nguyễn Thị B','0987651234',N'Nữ',N'Hà Nội',N'Quản lý')
+insert into NHANVIEN values ('abcde','1',N'Nguyễn Văn C','0987651234',N'Nam',N'TP. Hồ Chí Minh',N'Tài xế')
+
+
+
