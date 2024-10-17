@@ -80,8 +80,10 @@ namespace GUI
             this.dtp_NgayDi = new System.Windows.Forms.DateTimePicker();
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
+            this.gb_Xe20 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.gb_Xe20.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -98,7 +100,7 @@ namespace GUI
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(23, 74);
+            this.groupBox1.Location = new System.Drawing.Point(38, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(178, 436);
             this.groupBox1.TabIndex = 0;
@@ -229,7 +231,7 @@ namespace GUI
             this.groupBox2.Controls.Add(this.button14);
             this.groupBox2.Controls.Add(this.button15);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(226, 74);
+            this.groupBox2.Location = new System.Drawing.Point(241, 22);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(178, 436);
             this.groupBox2.TabIndex = 1;
@@ -351,9 +353,9 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(515, 10);
+            this.label1.Location = new System.Drawing.Point(629, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 39);
+            this.label1.Size = new System.Drawing.Size(144, 38);
             this.label1.TabIndex = 2;
             this.label1.Text = "BÁN VÉ";
             // 
@@ -361,7 +363,7 @@ namespace GUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(446, 78);
+            this.label2.Location = new System.Drawing.Point(560, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 21);
             this.label2.TabIndex = 3;
@@ -371,7 +373,7 @@ namespace GUI
             // 
             this.cbo_ChonLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_ChonLichTrinh.FormattingEnabled = true;
-            this.cbo_ChonLichTrinh.Location = new System.Drawing.Point(621, 74);
+            this.cbo_ChonLichTrinh.Location = new System.Drawing.Point(735, 73);
             this.cbo_ChonLichTrinh.Name = "cbo_ChonLichTrinh";
             this.cbo_ChonLichTrinh.Size = new System.Drawing.Size(240, 29);
             this.cbo_ChonLichTrinh.TabIndex = 4;
@@ -380,7 +382,7 @@ namespace GUI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(712, 120);
+            this.label3.Location = new System.Drawing.Point(826, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 21);
             this.label3.TabIndex = 5;
@@ -390,7 +392,7 @@ namespace GUI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(441, 168);
+            this.label4.Location = new System.Drawing.Point(555, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 21);
             this.label4.TabIndex = 6;
@@ -400,7 +402,7 @@ namespace GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(785, 171);
+            this.label5.Location = new System.Drawing.Point(899, 170);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 21);
             this.label5.TabIndex = 7;
@@ -410,7 +412,7 @@ namespace GUI
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(441, 216);
+            this.label6.Location = new System.Drawing.Point(555, 215);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 21);
             this.label6.TabIndex = 8;
@@ -420,7 +422,7 @@ namespace GUI
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(785, 216);
+            this.label7.Location = new System.Drawing.Point(899, 215);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 21);
             this.label7.TabIndex = 9;
@@ -430,7 +432,7 @@ namespace GUI
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(554, 265);
+            this.label9.Location = new System.Drawing.Point(668, 264);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(160, 21);
             this.label9.TabIndex = 11;
@@ -440,7 +442,7 @@ namespace GUI
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(441, 304);
+            this.label10.Location = new System.Drawing.Point(555, 303);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 21);
             this.label10.TabIndex = 12;
@@ -450,7 +452,7 @@ namespace GUI
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(441, 347);
+            this.label11.Location = new System.Drawing.Point(555, 346);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(107, 21);
             this.label11.TabIndex = 13;
@@ -460,7 +462,7 @@ namespace GUI
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(441, 390);
+            this.label12.Location = new System.Drawing.Point(555, 389);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 21);
             this.label12.TabIndex = 14;
@@ -470,7 +472,7 @@ namespace GUI
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(441, 433);
+            this.label13.Location = new System.Drawing.Point(555, 432);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(80, 21);
             this.label13.TabIndex = 15;
@@ -480,7 +482,7 @@ namespace GUI
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(907, 304);
+            this.label14.Location = new System.Drawing.Point(1021, 303);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(82, 21);
             this.label14.TabIndex = 16;
@@ -490,7 +492,7 @@ namespace GUI
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(907, 347);
+            this.label15.Location = new System.Drawing.Point(1021, 346);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(75, 21);
             this.label15.TabIndex = 17;
@@ -500,7 +502,7 @@ namespace GUI
             // 
             this.btn_KiemTra.BackColor = System.Drawing.Color.White;
             this.btn_KiemTra.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_KiemTra.Location = new System.Drawing.Point(120, 16);
+            this.btn_KiemTra.Location = new System.Drawing.Point(234, 15);
             this.btn_KiemTra.Name = "btn_KiemTra";
             this.btn_KiemTra.Size = new System.Drawing.Size(127, 41);
             this.btn_KiemTra.TabIndex = 18;
@@ -510,7 +512,7 @@ namespace GUI
             // txt_GioDi
             // 
             this.txt_GioDi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_GioDi.Location = new System.Drawing.Point(915, 165);
+            this.txt_GioDi.Location = new System.Drawing.Point(1029, 164);
             this.txt_GioDi.Name = "txt_GioDi";
             this.txt_GioDi.Size = new System.Drawing.Size(117, 28);
             this.txt_GioDi.TabIndex = 20;
@@ -518,7 +520,7 @@ namespace GUI
             // txt_Xe
             // 
             this.txt_Xe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Xe.Location = new System.Drawing.Point(565, 212);
+            this.txt_Xe.Location = new System.Drawing.Point(679, 211);
             this.txt_Xe.Name = "txt_Xe";
             this.txt_Xe.Size = new System.Drawing.Size(201, 28);
             this.txt_Xe.TabIndex = 21;
@@ -526,7 +528,7 @@ namespace GUI
             // txt_SoGheTrong
             // 
             this.txt_SoGheTrong.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_SoGheTrong.Location = new System.Drawing.Point(915, 212);
+            this.txt_SoGheTrong.Location = new System.Drawing.Point(1029, 211);
             this.txt_SoGheTrong.Name = "txt_SoGheTrong";
             this.txt_SoGheTrong.Size = new System.Drawing.Size(75, 28);
             this.txt_SoGheTrong.TabIndex = 22;
@@ -534,7 +536,7 @@ namespace GUI
             // txt_TenKH
             // 
             this.txt_TenKH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TenKH.Location = new System.Drawing.Point(591, 301);
+            this.txt_TenKH.Location = new System.Drawing.Point(705, 300);
             this.txt_TenKH.Name = "txt_TenKH";
             this.txt_TenKH.Size = new System.Drawing.Size(298, 28);
             this.txt_TenKH.TabIndex = 23;
@@ -542,7 +544,7 @@ namespace GUI
             // txt_SDT
             // 
             this.txt_SDT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_SDT.Location = new System.Drawing.Point(591, 344);
+            this.txt_SDT.Location = new System.Drawing.Point(705, 343);
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.Size = new System.Drawing.Size(298, 28);
             this.txt_SDT.TabIndex = 24;
@@ -550,7 +552,7 @@ namespace GUI
             // txt_ViTriGhe
             // 
             this.txt_ViTriGhe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ViTriGhe.Location = new System.Drawing.Point(591, 387);
+            this.txt_ViTriGhe.Location = new System.Drawing.Point(705, 386);
             this.txt_ViTriGhe.Name = "txt_ViTriGhe";
             this.txt_ViTriGhe.Size = new System.Drawing.Size(175, 28);
             this.txt_ViTriGhe.TabIndex = 25;
@@ -558,7 +560,7 @@ namespace GUI
             // txt_TongTien
             // 
             this.txt_TongTien.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TongTien.Location = new System.Drawing.Point(591, 430);
+            this.txt_TongTien.Location = new System.Drawing.Point(705, 429);
             this.txt_TongTien.Name = "txt_TongTien";
             this.txt_TongTien.Size = new System.Drawing.Size(175, 28);
             this.txt_TongTien.TabIndex = 26;
@@ -567,7 +569,7 @@ namespace GUI
             // 
             this.cbo_DiemDon.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_DiemDon.FormattingEnabled = true;
-            this.cbo_DiemDon.Location = new System.Drawing.Point(1007, 301);
+            this.cbo_DiemDon.Location = new System.Drawing.Point(1121, 300);
             this.cbo_DiemDon.Name = "cbo_DiemDon";
             this.cbo_DiemDon.Size = new System.Drawing.Size(182, 29);
             this.cbo_DiemDon.TabIndex = 29;
@@ -576,7 +578,7 @@ namespace GUI
             // 
             this.cbo_DiemTra.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_DiemTra.FormattingEnabled = true;
-            this.cbo_DiemTra.Location = new System.Drawing.Point(1007, 344);
+            this.cbo_DiemTra.Location = new System.Drawing.Point(1121, 343);
             this.cbo_DiemTra.Name = "cbo_DiemTra";
             this.cbo_DiemTra.Size = new System.Drawing.Size(182, 29);
             this.cbo_DiemTra.TabIndex = 30;
@@ -585,7 +587,7 @@ namespace GUI
             // 
             this.dtp_NgayDi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_NgayDi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_NgayDi.Location = new System.Drawing.Point(567, 165);
+            this.dtp_NgayDi.Location = new System.Drawing.Point(681, 164);
             this.dtp_NgayDi.Name = "dtp_NgayDi";
             this.dtp_NgayDi.Size = new System.Drawing.Size(165, 28);
             this.dtp_NgayDi.TabIndex = 31;
@@ -596,7 +598,7 @@ namespace GUI
             this.btn_Them.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Them.ForeColor = System.Drawing.Color.Green;
             this.btn_Them.Image = ((System.Drawing.Image)(resources.GetObject("btn_Them.Image")));
-            this.btn_Them.Location = new System.Drawing.Point(891, 399);
+            this.btn_Them.Location = new System.Drawing.Point(1005, 398);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(139, 55);
             this.btn_Them.TabIndex = 32;
@@ -610,7 +612,7 @@ namespace GUI
             this.btn_Huy.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Red;
             this.btn_Huy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Huy.Image")));
-            this.btn_Huy.Location = new System.Drawing.Point(1050, 399);
+            this.btn_Huy.Location = new System.Drawing.Point(1164, 398);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(139, 55);
             this.btn_Huy.TabIndex = 33;
@@ -618,11 +620,22 @@ namespace GUI
             this.btn_Huy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Huy.UseVisualStyleBackColor = false;
             // 
+            // gb_Xe20
+            // 
+            this.gb_Xe20.Controls.Add(this.groupBox2);
+            this.gb_Xe20.Controls.Add(this.groupBox1);
+            this.gb_Xe20.Location = new System.Drawing.Point(68, 77);
+            this.gb_Xe20.Name = "gb_Xe20";
+            this.gb_Xe20.Size = new System.Drawing.Size(449, 491);
+            this.gb_Xe20.TabIndex = 34;
+            this.gb_Xe20.TabStop = false;
+            // 
             // UsCtrl_BanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.gb_Xe20);
             this.Controls.Add(this.btn_Huy);
             this.Controls.Add(this.btn_Them);
             this.Controls.Add(this.dtp_NgayDi);
@@ -651,13 +664,12 @@ namespace GUI
             this.Controls.Add(this.cbo_ChonLichTrinh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Name = "UsCtrl_BanVe";
-            this.Size = new System.Drawing.Size(1264, 539);
+            this.Size = new System.Drawing.Size(1471, 598);
             this.Load += new System.EventHandler(this.UsCtrl_BanVe_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.gb_Xe20.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,5 +727,6 @@ namespace GUI
         private System.Windows.Forms.DateTimePicker dtp_NgayDi;
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Button btn_Huy;
+        private System.Windows.Forms.GroupBox gb_Xe20;
     }
 }

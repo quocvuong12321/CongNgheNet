@@ -115,6 +115,7 @@ namespace GUI
             // 
             // frm_DangNhap
             // 
+            this.AcceptButton = this.btn_DangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 341);

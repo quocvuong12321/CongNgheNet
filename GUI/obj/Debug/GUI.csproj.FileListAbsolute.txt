@@ -131,3 +131,12 @@ D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\GUI\bin\Debug\DAL.dll
 D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\GUI\bin\Debug\DAL.pdb
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\GUI\bin\Debug\DAL.dll
 C:\Users\Thanh Truc\Source\Repos\CongNgheNet\GUI\bin\Debug\DAL.pdb
+D:\Hoctap\clone\CongNgheNet\GUI\bin\Debug\DAL.dll
+D:\Hoctap\clone\CongNgheNet\GUI\bin\Debug\DAL.pdb
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.frm_QLTramDungChan.resources
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.frm_ThongKeDoanhThu.resources
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_BanVe.resources
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLLichTrinh.resources
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLTuyenDuong.resources
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLVe.resources
+D:\Hoctap\clone\CongNgheNet\GUI\obj\Debug\GUI.UsCtrl_QLXe.resources

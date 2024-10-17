@@ -39,11 +39,22 @@ namespace DAL
         public bool Login(string username, string password)
         {
             conn.Open();
-                string sql = "select count(*) from NhanVien where USERNAME = '" + username + "' AND MAT_KHAU = '" + password + "'";
+                string sql = "select count(*) from NHANVIEN where USERNAME = '" + username + "' AND MAT_KHAU = '" + password + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 int kq = (int)cmd.ExecuteScalar();
             conn.Close();
             return kq > 0;
         }
+
+        public string getTenNV(string username) {
+            string name = string.Empty;
+                conn.Open();
+                string sql = "select HOTEN from NHANVIEN where USERNAME = '" + username + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                name = (string)cmd.ExecuteScalar();
+                conn.Close();
+            return name;
+        }
+
     }
 }

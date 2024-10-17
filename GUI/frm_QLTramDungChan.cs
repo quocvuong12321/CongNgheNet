@@ -12,11 +12,14 @@ namespace GUI
 {
     public partial class frm_QLTramDungChan : Form
     {
-        public frm_QLTramDungChan()
+        public frm_QLTramDungChan( )
         {
             InitializeComponent();
         }
 
-        
+        private void frm_QLTramDungChan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

@@ -15,11 +15,16 @@ namespace GUI
     public partial class frm_DangNhap : Form
     {
         NhanVienBLL nvBLL = new NhanVienBLL();
+        frm_Main frm_Main;
         public frm_DangNhap()
         {
             InitializeComponent();
         }
-
+        public frm_DangNhap(frm_Main frm_Main)
+        {
+            InitializeComponent();
+            this.frm_Main = frm_Main;
+        }
         private void frm_DangNhap_Load(object sender, EventArgs e)
         {
             txt_TaiKhoan.Text = "Nhập Email hoặc SĐT";
@@ -63,8 +68,10 @@ namespace GUI
         {
             if (nvBLL.Login(txt_TaiKhoan.Text, txt_MatKhau.Text))
             {
-                
+
                 frm_Main frm = new frm_Main();
+                string name = nvBLL.getTenNV(txt_TaiKhoan.Text);
+                frm.setTenNV(name);
                 frm.ShowDialog();
                 this.Close();
             }

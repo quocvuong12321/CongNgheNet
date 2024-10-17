@@ -300,6 +300,7 @@ namespace GUI
             this.Name = "frm_QLTramDungChan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Trạm Dừng Chân";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_QLTramDungChan_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanTheoMaLichTrinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChan)).EndInit();
             this.ResumeLayout(false);

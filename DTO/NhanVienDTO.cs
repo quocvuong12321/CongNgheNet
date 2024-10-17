@@ -37,5 +37,10 @@ namespace DTO
             LoaiNV = lnv;
         }
 
+        public NhanVienDTO(string ten)
+        {
+            HoTen = ten;
+        }
+
     }
 }

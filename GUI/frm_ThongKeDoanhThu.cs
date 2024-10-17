@@ -13,10 +13,16 @@ namespace GUI
 {
     public partial class frm_ThongKeDoanhThu : Form
     {
+        frm_Main frm;
         public frm_ThongKeDoanhThu()
         {
             InitializeComponent();
         }
+        public frm_ThongKeDoanhThu(frm_Main frm)
+        {
+            this.frm = frm;
+        }
+
 
      
     }

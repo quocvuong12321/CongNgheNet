@@ -22,5 +22,9 @@ namespace BLL
         {
             return nvDAL.Login(username, password);
         }
+        public string getTenNV(string username)
+        {
+            return nvDAL.getTenNV(username);
+        }
     }
 }

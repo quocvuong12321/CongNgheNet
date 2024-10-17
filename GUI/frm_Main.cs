@@ -16,7 +16,14 @@ namespace GUI
         {
             InitializeComponent();
         }
-
+        private void frm_Main_Load(object sender, EventArgs e)
+        {
+            panel.Dock = DockStyle.Fill;
+        }
+        public void setTenNV(string name)
+        {
+            tsb_TenNV.Text = "Chào, "+name;
+        }
 
         private void tsb_QLXe_Click(object sender, EventArgs e)
         {
@@ -91,8 +98,11 @@ namespace GUI
 
         private void tsb_DoanhThu_Click(object sender, EventArgs e)
         {
+            tabControl1.Visible = false;
             frm_ThongKeDoanhThu frm = new frm_ThongKeDoanhThu();
-            frm.ShowDialog();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
 
         private void tsb_QLLichTrinh_Click(object sender, EventArgs e)
@@ -107,5 +117,7 @@ namespace GUI
         {
 
         }
+
+        
     }
 }
