@@ -1,5 +1,5 @@
 ﻿
-drop database QuanLyBanVeXeKhach
+--drop database QuanLyBanVeXeKhach
 
 create database QuanLyBanVeXeKhach
 go
@@ -54,11 +54,9 @@ CREATE TABLE [LichTrinh] (
   [KET_THUC] datetime NOT NULL,
   [GIA_VE] float NOT NULL,
   [ID_XE] INT NOT NULL,
-  [TAIXE] varchar(128),
   SOGHETRONG INT,
   [NGAY_TAO_LICH_TRINH]  datetime NOT NULL DEFAULT GETDATE(),
   CHECK (KHOI_HANH < KET_THUC),
-  FOREIGN KEY (TAIXE) REFERENCES NHANVIEN(USERNAME),
   FOREIGN KEY (ID_TUYEN_DUONG) REFERENCES TuyenDuong(ID_TUYEN),
   FOREIGN KEY (ID_XE) REFERENCES Xe(ID_XE)
 )
@@ -86,7 +84,7 @@ CREATE TABLE GHE(
 	ID_GHE INT IDENTITY(1,1) PRIMARY KEY,
 	VI_TRI_NGOI VARCHAR(10),
 	[MA_LICH_TRINH] varchar(128),
-	TRANG_THAI VARCHAR(128) Default N'Trống', CHECK (TRANG_THAI IN (N'Trống',N'Đang chọn',N'Đã đặt')),
+	TRANG_THAI NVARCHAR(128) Default N'Trống', CHECK (TRANG_THAI IN (N'Trống',N'Đã đặt')),
 	FOREIGN KEY ([MA_LICH_TRINH]) REFERENCES [LichTrinh]([MA_LICH_TRINH])
 )
 GO
@@ -98,8 +96,9 @@ CREATE TABLE [Ve] (
   [ID_LICH_TRINH] varchar(128) NOT NULL,
   [TONG_TIEN] float NOT NULL,
   NHAN_VIEN_TAO VARCHAR(128),
-  [TRANG_THAI] varchar(128) NOT NULL CHECK ([TRANG_THAI] IN (N'Đã thanh toán', N'Chưa thanh toán')),
+  [TRANG_THAI] Nvarchar(128) NOT NULL CHECK ([TRANG_THAI] IN (N'Đã thanh toán', N'Chưa thanh toán')),
   [NGAY_DAT_VE]  datetime NOT NULL DEFAULT GETDATE(),
+  SOLUONG int ,
   FOREIGN KEY (ID_LICH_TRINH) REFERENCES LichTrinh(MA_LICH_TRINH),
   FOREIGN KEY (NHAN_VIEN_TAO) REFERENCES NHANVIEN(USERNAME)
 )
@@ -123,12 +122,14 @@ CREATE TABLE THONGKE(
 	[SO_GHE_CON_TRONG] INT NOT NULL,
 	FOREIGN KEY (MA_LICH_TRINH) REFERENCES LichTrinh(MA_LICH_TRINH)
 )
-
+go
 
 
 -------------------------TRIGGER---------------------------------
 
 -------Trigger Tự Động Thêm Ghế---------
+--drop trigger AutoAddSeats
+
 go
 CREATE TRIGGER AutoAddSeats
 ON LichTrinh
@@ -139,60 +140,65 @@ BEGIN
     DECLARE @seat_prefix CHAR(1);
     DECLARE @seat_number INT;
     DECLARE @i INT;
+    DECLARE @ma_lich_trinh varchar(128);
 
-    SELECT @num_seats = Xe.SO_GHE
+    SELECT @num_seats = Xe.SO_GHE, @ma_lich_trinh = MA_LICH_TRINH
     FROM inserted
     INNER JOIN Xe ON inserted.ID_XE = Xe.ID_XE;
 
     SET @i = 1;
     SET @seat_prefix = 'A';
-	if @num_seats =  20
-		begin
-			WHILE @i <= @num_seats
-				BEGIN
-					IF @i > 10
-						BEGIN
-							SET @seat_prefix = 'B';
-							SET @seat_number = @i - 10;
-						END
-					ELSE
-						BEGIN
-							SET @seat_number = @i;
-						END
 
-					INSERT INTO Ghe (VI_TRI_NGOI,MA_LICH_TRINH)
-					VALUES (CONCAT(@seat_prefix, @seat_number), (SELECT MA_LICH_TRINH FROM inserted));
+    IF @num_seats = 20
+    BEGIN
+        WHILE @i <= @num_seats
+        BEGIN
+            IF @i > 10
+            BEGIN
+                SET @seat_prefix = 'B';
+                SET @seat_number = @i - 10;
+            END
+            ELSE
+            BEGIN
+                SET @seat_number = @i;
+            END
 
-					SET @i = @i + 1;
-				END
-		end
-	else
-		begin
-			WHILE @i <= @num_seats
-				BEGIN
-					if @i > 22 
-						BEGIN
-							SET @seat_prefix = 'C';
-							SET @seat_number = @i - 22;
-						END
-					else IF @i > 12
-						BEGIN
-							SET @seat_prefix = 'B';
-							SET @seat_number = @i - 12;
-						END
-					ELSE
-						BEGIN
-							SET @seat_number = @i;
-						END
+            -- Chèn ghế với trạng thái 'Trống'
+            INSERT INTO Ghe (VI_TRI_NGOI, MA_LICH_TRINH)
+            VALUES (CONCAT(@seat_prefix, @seat_number), @ma_lich_trinh);
 
-					INSERT INTO Ghe (VI_TRI_NGOI,MA_LICH_TRINH)
-					VALUES (CONCAT(@seat_prefix, @seat_number), (SELECT MA_LICH_TRINH FROM inserted));
+            SET @i = @i + 1;
+        END
+    END
+    ELSE
+    BEGIN
+        WHILE @i <= @num_seats
+        BEGIN
+            IF @i > 22
+            BEGIN
+                SET @seat_prefix = 'C';
+                SET @seat_number = @i - 22;
+            END
+            ELSE IF @i > 12
+            BEGIN
+                SET @seat_prefix = 'B';
+                SET @seat_number = @i - 12;
+            END
+            ELSE
+            BEGIN
+                SET @seat_number = @i;
+            END
 
-					SET @i = @i + 1;
-				END
-		end
+            -- Chèn ghế với trạng thái 'Trống'
+            INSERT INTO Ghe (VI_TRI_NGOI, MA_LICH_TRINH)
+            VALUES (CONCAT(@seat_prefix, @seat_number), @ma_lich_trinh);
+
+            SET @i = @i + 1;
+        END
+    END
 END
-go
+GO
+
 
 
 CREATE TRIGGER trg_SetSoGheTrong
@@ -206,10 +212,65 @@ BEGIN
     JOIN Xe ON Xe.ID_XE = lt.ID_XE
     WHERE lt.MA_LICH_TRINH = (SELECT MA_LICH_TRINH FROM inserted)
 END
+go
 
-insert into NHANVIEN values ('abc','1',N'Nguyễn Văn A','0987651234',N'Nam',N'Cà Mau',N'Nhân viên')
-insert into NHANVIEN values ('abcd','1',N'Nguyễn Thị B','0987651234',N'Nữ',N'Hà Nội',N'Quản lý')
-insert into NHANVIEN values ('abcde','1',N'Nguyễn Văn C','0987651234',N'Nam',N'TP. Hồ Chí Minh',N'Tài xế')
+
+
+---drop trigger trg_AutoUpdateEmptySeats
+Create trigger trg_AutoUpdateState
+on ChiTietVe
+AFTER INSERT
+AS
+begin
+	DECLARE @ma_lich_trinh VARCHAR(128),@ghe int;
+    
+    -- Lấy mã lịch trình từ bảng 'Ve' thông qua 'inserted'
+    SELECT @ma_lich_trinh = Ve.ID_LICH_TRINH
+    FROM Ve
+    JOIN inserted ON Ve.ID_VE = inserted.ID_VE;
+
+    -- Cập nhật số ghế trống (giảm đi 1 ghế sau khi một vé được đặt)
+    UPDATE GHE
+    SET TRANG_THAI = N'Đã đặt'
+    WHERE MA_LICH_TRINH = @ma_lich_trinh and ID_GHE = (select ID_GHE from inserted)
+
+end;
+go
+
+
+
+
+Create trigger trg_AutoUpdateEmptySeats
+on Ve
+After insert
+as
+begin
+DECLARE 
+	@ma_lich_trinh VARCHAR(128),@ghe int;
+    
+    -- Lấy mã lịch trình từ bảng 'Ve' thông qua 'inserted'
+    SELECT @ma_lich_trinh = Ve.ID_LICH_TRINH
+    FROM Ve
+    JOIN inserted ON Ve.ID_VE = inserted.ID_VE;
+
+
+	declare @soghetrong int
+	set @soghetrong = (select SOGHETRONG from LichTrinh where MA_LICH_TRINH = @ma_lich_trinh) 
+
+
+	update LichTrinh
+	set SOGHETRONG = @soghetrong - (select SOLUONG from inserted where MA_LICH_TRINH = @ma_lich_trinh)
+	where MA_LICH_TRINH =@ma_lich_trinh
+end
+go
+
+
+
+
+
+
+
+
 
 
 

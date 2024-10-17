@@ -62,20 +62,14 @@
     <Compile Include="frm_Main.Designer.cs">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_QLTramDungChan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_QLTramDungChan.Designer.cs">
-      <DependentUpon>frm_QLTramDungChan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ThongKeDoanhThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ThongKeDoanhThu.Designer.cs">
-      <DependentUpon>frm_ThongKeDoanhThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsCtrl_QLTramDungChan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_QLTramDungChan.Designer.cs">
+      <DependentUpon>UsCtrl_QLTramDungChan.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsCtrl_BanVe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,17 +106,17 @@
     <Compile Include="UsCtrl_QLLichTrinh.Designer.cs">
       <DependentUpon>UsCtrl_QLLichTrinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsCtrl_ThongKeDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_ThongKeDoanhThu.Designer.cs">
+      <DependentUpon>UsCtrl_ThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_QLTramDungChan.resx">
-      <DependentUpon>frm_QLTramDungChan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_ThongKeDoanhThu.resx">
-      <DependentUpon>frm_ThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,6 +127,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UsCtrl_QLTramDungChan.resx">
+      <DependentUpon>UsCtrl_QLTramDungChan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_BanVe.resx">
       <DependentUpon>UsCtrl_BanVe.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLXe.resx">
       <DependentUpon>UsCtrl_QLXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsCtrl_ThongKeDoanhThu.resx">
+      <DependentUpon>UsCtrl_ThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

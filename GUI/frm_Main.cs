@@ -25,6 +25,13 @@ namespace GUI
             tsb_TenNV.Text = "Chào, "+name;
         }
 
+        public void MoUsCtrl(UserControl us)
+        {
+            panel.Controls.Clear();
+            us.Dock = DockStyle.Fill;//fill cho vừa với panel
+            panel.Controls.Add(us);
+        }
+
         private void tsb_QLXe_Click(object sender, EventArgs e)
         {
             UsCtrl_QLXe us = new UsCtrl_QLXe();
@@ -98,25 +105,21 @@ namespace GUI
 
         private void tsb_DoanhThu_Click(object sender, EventArgs e)
         {
-            tabControl1.Visible = false;
-            frm_ThongKeDoanhThu frm = new frm_ThongKeDoanhThu();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            UsCtrl_ThongKeDoanhThu us = new UsCtrl_ThongKeDoanhThu();
+            panel.Controls.Clear();
+            us.Dock = DockStyle.Fill;
+            panel.Controls.Add(us);
+
         }
 
         private void tsb_QLLichTrinh_Click(object sender, EventArgs e)
         {
-            UsCtrl_QLLichTrinh us = new UsCtrl_QLLichTrinh();
+            UsCtrl_QLLichTrinh us = new UsCtrl_QLLichTrinh(this);
             panel.Controls.Clear();
             us.Dock = DockStyle.Fill;
             panel.Controls.Add(us);
         }
 
-        private void panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         
     }

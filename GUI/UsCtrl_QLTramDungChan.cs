@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frm_QLTramDungChan : Form
+    public partial class UsCtrl_QLTramDungChan : UserControl
     {
-        public frm_QLTramDungChan( )
+        public UsCtrl_QLTramDungChan()
         {
             InitializeComponent();
-        }
-
-        private void frm_QLTramDungChan_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
         }
     }
 }

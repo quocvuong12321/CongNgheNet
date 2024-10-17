@@ -58,11 +58,11 @@ namespace GUI
             // dgv_DanhSachTaiKhoan
             // 
             this.dgv_DanhSachTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DanhSachTaiKhoan.Location = new System.Drawing.Point(204, 290);
+            this.dgv_DanhSachTaiKhoan.Location = new System.Drawing.Point(77, 267);
             this.dgv_DanhSachTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSachTaiKhoan.Name = "dgv_DanhSachTaiKhoan";
             this.dgv_DanhSachTaiKhoan.RowHeadersWidth = 51;
-            this.dgv_DanhSachTaiKhoan.Size = new System.Drawing.Size(987, 294);
+            this.dgv_DanhSachTaiKhoan.Size = new System.Drawing.Size(1189, 256);
             this.dgv_DanhSachTaiKhoan.TabIndex = 42;
             // 
             // btn_HienThiDanhSachNhanVien
@@ -72,7 +72,7 @@ namespace GUI
             this.btn_HienThiDanhSachNhanVien.ForeColor = System.Drawing.Color.DodgerBlue;
             this.btn_HienThiDanhSachNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_HienThiDanhSachNhanVien.Image")));
             this.btn_HienThiDanhSachNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_HienThiDanhSachNhanVien.Location = new System.Drawing.Point(645, 198);
+            this.btn_HienThiDanhSachNhanVien.Location = new System.Drawing.Point(614, 202);
             this.btn_HienThiDanhSachNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_HienThiDanhSachNhanVien.Name = "btn_HienThiDanhSachNhanVien";
             this.btn_HienThiDanhSachNhanVien.Size = new System.Drawing.Size(264, 57);
@@ -86,7 +86,7 @@ namespace GUI
             this.btn_Huy.BackColor = System.Drawing.Color.Red;
             this.btn_Huy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Snow;
-            this.btn_Huy.Location = new System.Drawing.Point(1116, 198);
+            this.btn_Huy.Location = new System.Drawing.Point(1085, 202);
             this.btn_Huy.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(158, 57);
@@ -99,7 +99,7 @@ namespace GUI
             this.btn_Luu.BackColor = System.Drawing.Color.SeaGreen;
             this.btn_Luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.ForeColor = System.Drawing.Color.Snow;
-            this.btn_Luu.Location = new System.Drawing.Point(950, 198);
+            this.btn_Luu.Location = new System.Drawing.Point(919, 202);
             this.btn_Luu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(158, 57);
@@ -114,7 +114,7 @@ namespace GUI
             this.btn_XoaNhanVien.ForeColor = System.Drawing.Color.Red;
             this.btn_XoaNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaNhanVien.Image")));
             this.btn_XoaNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_XoaNhanVien.Location = new System.Drawing.Point(472, 198);
+            this.btn_XoaNhanVien.Location = new System.Drawing.Point(441, 202);
             this.btn_XoaNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_XoaNhanVien.Name = "btn_XoaNhanVien";
             this.btn_XoaNhanVien.Size = new System.Drawing.Size(158, 57);
@@ -130,7 +130,7 @@ namespace GUI
             this.btn_CapNhat.ForeColor = System.Drawing.Color.Goldenrod;
             this.btn_CapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhat.Image")));
             this.btn_CapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CapNhat.Location = new System.Drawing.Point(299, 198);
+            this.btn_CapNhat.Location = new System.Drawing.Point(268, 202);
             this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhat.Name = "btn_CapNhat";
             this.btn_CapNhat.Size = new System.Drawing.Size(158, 57);
@@ -146,7 +146,7 @@ namespace GUI
             this.btn_ThemNhanVien.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemNhanVien.Image")));
             this.btn_ThemNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemNhanVien.Location = new System.Drawing.Point(126, 198);
+            this.btn_ThemNhanVien.Location = new System.Drawing.Point(95, 202);
             this.btn_ThemNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemNhanVien.Name = "btn_ThemNhanVien";
             this.btn_ThemNhanVien.Size = new System.Drawing.Size(158, 57);
@@ -161,7 +161,7 @@ namespace GUI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(134, 148);
+            this.label4.Location = new System.Drawing.Point(103, 152);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 24);
@@ -173,7 +173,7 @@ namespace GUI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(134, 102);
+            this.label3.Location = new System.Drawing.Point(103, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 24);
@@ -183,18 +183,18 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(547, 10);
+            this.label1.Location = new System.Drawing.Point(516, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 31);
+            this.label1.Size = new System.Drawing.Size(365, 40);
             this.label1.TabIndex = 29;
             this.label1.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
             // txt_HoTen
             // 
-            this.txt_HoTen.Location = new System.Drawing.Point(270, 99);
+            this.txt_HoTen.Location = new System.Drawing.Point(239, 103);
             this.txt_HoTen.Margin = new System.Windows.Forms.Padding(4);
             this.txt_HoTen.Multiline = true;
             this.txt_HoTen.Name = "txt_HoTen";
@@ -203,7 +203,7 @@ namespace GUI
             // 
             // txt_SoDienThoai
             // 
-            this.txt_SoDienThoai.Location = new System.Drawing.Point(270, 145);
+            this.txt_SoDienThoai.Location = new System.Drawing.Point(239, 149);
             this.txt_SoDienThoai.Margin = new System.Windows.Forms.Padding(4);
             this.txt_SoDienThoai.Multiline = true;
             this.txt_SoDienThoai.Name = "txt_SoDienThoai";
@@ -215,7 +215,7 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(135, 56);
+            this.label5.Location = new System.Drawing.Point(104, 60);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 24);
@@ -227,7 +227,7 @@ namespace GUI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(496, 102);
+            this.label6.Location = new System.Drawing.Point(465, 106);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 24);
@@ -239,7 +239,7 @@ namespace GUI
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(496, 148);
+            this.label7.Location = new System.Drawing.Point(465, 152);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 24);
@@ -248,7 +248,7 @@ namespace GUI
             // 
             // txt_TenDangNhap
             // 
-            this.txt_TenDangNhap.Location = new System.Drawing.Point(270, 54);
+            this.txt_TenDangNhap.Location = new System.Drawing.Point(239, 58);
             this.txt_TenDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TenDangNhap.Multiline = true;
             this.txt_TenDangNhap.Name = "txt_TenDangNhap";
@@ -257,7 +257,7 @@ namespace GUI
             // 
             // txt_MatKhau
             // 
-            this.txt_MatKhau.Location = new System.Drawing.Point(644, 99);
+            this.txt_MatKhau.Location = new System.Drawing.Point(613, 103);
             this.txt_MatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MatKhau.Multiline = true;
             this.txt_MatKhau.Name = "txt_MatKhau";
@@ -267,7 +267,7 @@ namespace GUI
             // cbo_LoaiTaiKhoan
             // 
             this.cbo_LoaiTaiKhoan.FormattingEnabled = true;
-            this.cbo_LoaiTaiKhoan.Location = new System.Drawing.Point(644, 146);
+            this.cbo_LoaiTaiKhoan.Location = new System.Drawing.Point(613, 150);
             this.cbo_LoaiTaiKhoan.Name = "cbo_LoaiTaiKhoan";
             this.cbo_LoaiTaiKhoan.Size = new System.Drawing.Size(190, 24);
             this.cbo_LoaiTaiKhoan.TabIndex = 43;
@@ -277,7 +277,7 @@ namespace GUI
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(875, 53);
+            this.label8.Location = new System.Drawing.Point(844, 57);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 24);
@@ -286,7 +286,7 @@ namespace GUI
             // 
             // txt_DiaChi
             // 
-            this.txt_DiaChi.Location = new System.Drawing.Point(970, 53);
+            this.txt_DiaChi.Location = new System.Drawing.Point(939, 57);
             this.txt_DiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txt_DiaChi.Multiline = true;
             this.txt_DiaChi.Name = "txt_DiaChi";
@@ -298,7 +298,7 @@ namespace GUI
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(875, 145);
+            this.label9.Location = new System.Drawing.Point(844, 149);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 24);
@@ -308,7 +308,7 @@ namespace GUI
             // cbo_GioiTinh
             // 
             this.cbo_GioiTinh.FormattingEnabled = true;
-            this.cbo_GioiTinh.Location = new System.Drawing.Point(970, 143);
+            this.cbo_GioiTinh.Location = new System.Drawing.Point(939, 147);
             this.cbo_GioiTinh.Name = "cbo_GioiTinh";
             this.cbo_GioiTinh.Size = new System.Drawing.Size(283, 24);
             this.cbo_GioiTinh.TabIndex = 43;
