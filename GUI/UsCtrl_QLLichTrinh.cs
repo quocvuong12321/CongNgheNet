@@ -38,5 +38,9 @@ namespace GUI
                 MessageBox.Show("Form chính chưa được khởi tạo.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
+
+
     }
 }

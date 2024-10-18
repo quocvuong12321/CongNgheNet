@@ -64,3 +64,15 @@ C:\Users\ASUS\Desktop\Lap_Trinh_NET\Do_An_Cuoi_Ky\CongNgheNet\BLL\obj\Debug\BLL.
 C:\Users\ASUS\Desktop\Lap_Trinh_NET\Do_An_Cuoi_Ky\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\ASUS\Desktop\Lap_Trinh_NET\Do_An_Cuoi_Ky\CongNgheNet\BLL\obj\Debug\BLL.dll
 C:\Users\ASUS\Desktop\Lap_Trinh_NET\Do_An_Cuoi_Ky\CongNgheNet\BLL\obj\Debug\BLL.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\BLL.dll
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\BLL.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\DAL.dll
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\DTO.dll
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\DAL.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\DTO.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\bin\Debug\DTO.dll.config
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\obj\Debug\BLL.dll
+D:\Hoctap\clone\cnn1\CongNgheNet\BLL\obj\Debug\BLL.pdb

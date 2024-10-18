@@ -22,3 +22,10 @@ D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.csproj.A
 D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.dll
 D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\obj\Debug\DTO.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\bin\Debug\DTO.dll.config
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\bin\Debug\DTO.dll
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\bin\Debug\DTO.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.dll
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.pdb
+D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
