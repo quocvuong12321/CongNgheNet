@@ -52,7 +52,6 @@ CREATE TABLE [LichTrinh] (
   [ID_TUYEN_DUONG] INT NOT NULL,
   [KHOI_HANH] datetime NOT NULL,
   [KET_THUC] datetime ,
-  --[KET_THUC] datetime DEFAULT DATEADD(HOUR, 1, GETDATE()),
   [GIA_VE] float NOT NULL,
   [ID_XE] INT NOT NULL,
   SOGHETRONG INT,
