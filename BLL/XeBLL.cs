@@ -15,6 +15,28 @@ namespace BLL
         {
             return xeDal.Xe();
         }
-        
+        XeDAL xeDAL = new XeDAL();
+        public List<XeDTO> GetAllXe()
+        {
+            return xeDAL.GetAllXe();
+        }
+        public void InsertXe(XeDTO xe)
+        {
+            xeDAL.InsertXe(xe);
+        }
+        public void UpdateXe(XeDTO xe)
+        {
+            xeDAL.UpdateXe(xe);
+        }
+        public void DeleteXe(int id)
+        {
+            xeDAL.DeleteXe(id);
+        }
+        public bool CheckBienSoXe(string bienSoXe)
+        {
+            return xeDAL.CheckBienSoXe(bienSoXe);
+        }
+
+
     }
 }

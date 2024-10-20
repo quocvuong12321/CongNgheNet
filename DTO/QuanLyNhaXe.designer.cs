@@ -66,7 +66,7 @@ namespace DTO
     #endregion
 		
 		public QuanLyNhaXeDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -899,7 +899,7 @@ namespace DTO
 		
 		private System.DateTime _KHOI_HANH;
 		
-		private System.Nullable<System.DateTime> _KET_THUC;
+		private System.DateTime _KET_THUC;
 		
 		private double _GIA_VE;
 		
@@ -931,7 +931,7 @@ namespace DTO
     partial void OnID_TUYEN_DUONGChanged();
     partial void OnKHOI_HANHChanging(System.DateTime value);
     partial void OnKHOI_HANHChanged();
-    partial void OnKET_THUCChanging(System.Nullable<System.DateTime> value);
+    partial void OnKET_THUCChanging(System.DateTime value);
     partial void OnKET_THUCChanged();
     partial void OnGIA_VEChanging(double value);
     partial void OnGIA_VEChanged();
@@ -1018,8 +1018,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KET_THUC", DbType="DateTime")]
-		public System.Nullable<System.DateTime> KET_THUC
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KET_THUC", DbType="DateTime NOT NULL")]
+		public System.DateTime KET_THUC
 		{
 			get
 			{
