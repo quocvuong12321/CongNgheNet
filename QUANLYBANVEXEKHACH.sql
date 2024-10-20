@@ -43,7 +43,7 @@ CREATE TABLE NHANVIEN(
 	SO_DT VARCHAR(128),
 	GIOITINH NVARCHAR(5) NOT NULL check (GIOITINH IN (N'Nam',N'Nữ')),
 	DIACHI NVARCHAR(128),
-	LOAINV NVARCHAR(128) CHECK (LOAINV IN (N'Quản lý',N'Nhân viên',N'Tài xế'))
+	LOAINV NVARCHAR(128) CHECK (LOAINV IN (N'Quản lý',N'Nhân viên'))
 )
 GO
 
@@ -51,7 +51,8 @@ CREATE TABLE [LichTrinh] (
   [MA_LICH_TRINH] varchar(128) PRIMARY KEY,
   [ID_TUYEN_DUONG] INT NOT NULL,
   [KHOI_HANH] datetime NOT NULL,
-  [KET_THUC] datetime,
+  [KET_THUC] datetime ,
+  --[KET_THUC] datetime DEFAULT DATEADD(HOUR, 1, GETDATE()),
   [GIA_VE] float NOT NULL,
   [ID_XE] INT NOT NULL,
   SOGHETRONG INT,
@@ -128,8 +129,6 @@ go
 -------------------------TRIGGER---------------------------------
 
 -------Trigger Tự Động Thêm Ghế---------
---drop trigger AutoAddSeats
-
 go
 CREATE TRIGGER AutoAddSeats
 ON LichTrinh
@@ -216,7 +215,7 @@ go
 
 
 
----drop trigger trg_AutoUpdateEmptySeats
+
 Create trigger trg_AutoUpdateState
 on ChiTietVe
 AFTER INSERT
@@ -263,6 +262,31 @@ DECLARE
 	where MA_LICH_TRINH =@ma_lich_trinh
 end
 go
+
+
+
+--drop trigger trg_AutoSetEndDateTime
+
+CREATE TRIGGER trg_AutoSetEndDateTime
+ON LichTrinh
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @ma_lich_trinh VARCHAR(128);
+    DECLARE @khoi_hanh DATETIME;
+    DECLARE @thoi_gian_di_chuyen FLOAT;
+
+
+    SELECT @ma_lich_trinh = MA_LICH_TRINH, @khoi_hanh = KHOI_HANH, @thoi_gian_di_chuyen = td.THOI_GIAN_DI_CHUYEN
+    FROM inserted i
+    JOIN TuyenDuong td ON i.ID_TUYEN_DUONG = td.ID_TUYEN;
+
+
+    UPDATE LichTrinh
+    SET KET_THUC = DATEADD(HOUR, @thoi_gian_di_chuyen, @khoi_hanh)
+    WHERE MA_LICH_TRINH = @ma_lich_trinh;
+END;
+GO
 
 
 

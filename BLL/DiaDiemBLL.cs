@@ -14,5 +14,11 @@ namespace BLL
         {
             return ddDAL.loadDiaDiem();
         }
+
+        public int LayMaDiaDiemTheoTen(string tenDiaDiem)
+        {
+            DiaDiemDAL diaDiemDAL = new DiaDiemDAL();
+            return diaDiemDAL.LayMaDiaDiemTheoTen(tenDiaDiem);
+        }
     }
 }

@@ -52,3 +52,13 @@ D:\Hoctap\clone\cnn1\CongNgheNet\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cach
 D:\Hoctap\clone\cnn1\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Hoctap\clone\cnn1\CongNgheNet\DAL\obj\Debug\DAL.dll
 D:\Hoctap\clone\cnn1\CongNgheNet\DAL\obj\Debug\DAL.pdb
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\bin\Debug\DAL.dll
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\bin\Debug\DAL.pdb
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\bin\Debug\DTO.dll
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\bin\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\bin\Debug\DTO.dll.config
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\obj\Debug\DAL.dll
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DAL\obj\Debug\DAL.pdb

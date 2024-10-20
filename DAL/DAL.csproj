@@ -47,6 +47,9 @@
     <Compile Include="LichTrinhDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TramDungChanDAL.cs" />
+    <Compile Include="TuyenDuongDAL.cs" />
+    <Compile Include="XeDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

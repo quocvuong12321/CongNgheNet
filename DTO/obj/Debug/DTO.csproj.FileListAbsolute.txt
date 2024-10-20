@@ -29,3 +29,10 @@ D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cach
 D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.dll
 D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.pdb
 D:\Hoctap\clone\cnn1\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\bin\Debug\DTO.dll.config
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\bin\Debug\DTO.dll
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\bin\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\obj\Debug\DTO.dll
+C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\obj\Debug\DTO.pdb
