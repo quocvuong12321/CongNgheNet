@@ -22,13 +22,12 @@ namespace GUI
             InitializeComponent();
         }
 
-        
         private void UsCtrl_QLTramDungChan_Load(object sender, EventArgs e)
         {
             cbo_DanhSachMaLichTrinh.DataSource = lichTrinhBLL.LayDanhSachMaLichTrinh();
             load_cboDiaDiem();
-            //HienThiTatCaTramDungChan();
             HienThiTramDungChanTheoDiaDiem(Convert.ToInt32(cbo_DiaDiem.SelectedValue));
+            databindding_DgvDsTramDungChan();
         }
 
         private void cbo_DanhSachMaLichTrinh_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +47,8 @@ namespace GUI
             }
 
 
-            HienThi_DgvLichTrinhVaTramDungChan(maLichTrinh);
+            HienThi_DgvTramDungChanDiemDi(maLichTrinh);
+            HienThi_DgvTramDungChanDiemTra(maLichTrinh);
         }
 
         private void txt_DiemDi_TextChanged(object sender, EventArgs e)
@@ -77,34 +77,41 @@ namespace GUI
             lst_DiemDen.Items.AddRange(danhSachTram.ToArray());
         }
 
-
-        private void HienThi_DgvLichTrinhVaTramDungChan( string maLichTrinh)
+        private void HienThi_DgvTramDungChanDiemDi( string maLichTrinh)
         {
-            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChan( maLichTrinh);
+            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemDi( maLichTrinh);
 
-            dgv_DanhSachTramDungChanTheoMaLichTrinh.DataSource = danhSachLichTrinh;
+            dgv_DanhSachTramDungChanDiemDi.DataSource = danhSachLichTrinh;
 
-            dgv_DanhSachTramDungChanTheoMaLichTrinh.Columns["MaLichTrinh"].HeaderText = "Mã Lịch Trình";
-            dgv_DanhSachTramDungChanTheoMaLichTrinh.Columns["DiemDi"].HeaderText = "Nơi Xuất Phát";
-            dgv_DanhSachTramDungChanTheoMaLichTrinh.Columns["TramDiemDi"].HeaderText = "Điểm Đón";
-            dgv_DanhSachTramDungChanTheoMaLichTrinh.Columns["DiemDen"].HeaderText = "Nơi Kết Thúc";
-            dgv_DanhSachTramDungChanTheoMaLichTrinh.Columns["TramDiemDen"].HeaderText = "Điểm Trả";
+            dgv_DanhSachTramDungChanDiemDi.Columns["MaLichTrinh"].HeaderText = "Mã Lịch Trình";
+            dgv_DanhSachTramDungChanDiemDi.Columns["TramDungChan"].HeaderText = "Điểm Đón";
+
+
+        }
+        private void HienThi_DgvTramDungChanDiemTra( string maLichTrinh)
+        {
+            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemTra( maLichTrinh);
+
+            dgv_DanhSachTramDungChanDiemTra.DataSource = danhSachLichTrinh;
+
+            dgv_DanhSachTramDungChanDiemTra.Columns["MaLichTrinh"].HeaderText = "Mã Lịch Trình";
+            dgv_DanhSachTramDungChanDiemTra.Columns["TramDungChan"].HeaderText = "Điểm Trả";
 
 
         }
 
-        private void HienThiTatCaTramDungChan()
-        {
-            var danhSachTram = tdcBLL.LayTatCaTramDungChan();
+        //private void HienThiTatCaTramDungChan()
+        //{
+        //    var danhSachTram = tdcBLL.LayTatCaTramDungChan();
 
-            dgv_DanhSachTramDungChan.DataSource = danhSachTram;
+        //    dgv_DanhSachTramDungChan.DataSource = danhSachTram;
 
-            dgv_DanhSachTramDungChan.Columns["ID_TramDungChan"].HeaderText = "Mã Trạm Dừng Chân";
-            dgv_DanhSachTramDungChan.Columns["TEN_TramDungChan"].HeaderText = "Tên Trạm Dừng Chân";
+        //    dgv_DanhSachTramDungChan.Columns["ID_TramDungChan"].HeaderText = "Mã Trạm Dừng Chân";
+        //    dgv_DanhSachTramDungChan.Columns["TEN_TramDungChan"].HeaderText = "Tên Trạm Dừng Chân";
 
-            dgv_DanhSachTramDungChan.Columns["ID_DiaDiem"].Visible = false;
-            dgv_DanhSachTramDungChan.Columns["DiaDiem"].Visible = false;
-        }
+        //    dgv_DanhSachTramDungChan.Columns["ID_DiaDiem"].Visible = false;
+        //    dgv_DanhSachTramDungChan.Columns["DiaDiem"].Visible = false;
+        //}
 
         private void HienThiTramDungChanTheoDiaDiem(int maDiaDiem)
         {
@@ -118,8 +125,6 @@ namespace GUI
             dgv_DanhSachTramDungChan.Columns["ID_DiaDiem"].Visible = false;
             dgv_DanhSachTramDungChan.Columns["DiaDiem"].Visible = false;
         }
-
-
 
         private bool isLoading = true;
         private void load_cboDiaDiem()
@@ -252,5 +257,17 @@ namespace GUI
                 MessageBox.Show("Mã địa điểm không hợp lệ.");
             }
         }
+
+        private void databindding_DgvDsTramDungChan()
+        {
+            txt_MaTramDungChan.DataBindings.Clear();
+            txt_MaTramDungChan.DataBindings.Add("Text", dgv_DanhSachTramDungChan.DataSource, "ID_TramDungChan");
+            txt_TenTramDungChan.DataBindings.Clear();
+            txt_TenTramDungChan.DataBindings.Add("Text", dgv_DanhSachTramDungChan.DataSource, "TEN_TramDungChan");
+        }
+
+
+
+
     }
 }

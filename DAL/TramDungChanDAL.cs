@@ -130,40 +130,58 @@ namespace DAL
             }
         }
 
-        public List<dynamic> LayDanhSachLichTrinhVaTramDungChan(string maLichTrinh)
+
+        public List<LichTrinhVaTramDungChanDTO> LayDanhSachLichTrinhVaTramDungChanDiemDi(string maLichTrinh)
         {
             try
             {
                 var danhSach = from lt in db.LichTrinhs
+                               join tram in db.THEMTRAMDUNGCHANs on lt.MA_LICH_TRINH equals tram.MA_LICH_TRINH
                                join td in db.TuyenDuongs on lt.ID_TUYEN_DUONG equals td.ID_TUYEN
-                               join ddDiemDau in db.DiaDiems on td.DIEM_DAU equals ddDiemDau.ID_DIADIEM
-                               join ddDiemCuoi in db.DiaDiems on td.DIEM_CUOI equals ddDiemCuoi.ID_DIADIEM
-                               join tramDiemDau in db.TRAMDUNGCHANs on ddDiemDau.ID_DIADIEM equals tramDiemDau.ID_DIADIEM into tramDiemDauGroup
-                               from tramDiemDau in tramDiemDauGroup.DefaultIfEmpty()
-                               join tramDiemCuoi in db.TRAMDUNGCHANs on ddDiemCuoi.ID_DIADIEM equals tramDiemCuoi.ID_DIADIEM into tramDiemCuoiGroup
-                               from tramDiemCuoi in tramDiemCuoiGroup.DefaultIfEmpty()
-                               where lt.MA_LICH_TRINH == maLichTrinh
-                               select new
+                               join tramdc in db.TRAMDUNGCHANs on tram.ID_TramDungChan equals tramdc.ID_TramDungChan
+
+                               where lt.MA_LICH_TRINH == maLichTrinh && td.DIEM_DAU == tramdc.ID_DIADIEM
+                               select new LichTrinhVaTramDungChanDTO
                                {
                                    MaLichTrinh = lt.MA_LICH_TRINH,
-                                   DiemDi = ddDiemDau.TEN_TINH_THANH,
-                                   TramDiemDi = tramDiemDau.TEN_TramDungChan,
-                                   DiemDen = ddDiemCuoi.TEN_TINH_THANH,
-                                   TramDiemDen = tramDiemCuoi.TEN_TramDungChan
+                                   TramDungChan = tramdc.TEN_TramDungChan
+
                                };
 
-                return danhSach.ToList<dynamic>();
+                return danhSach.ToList();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi lấy danh sách lịch trình và trạm dừng chân: " + ex.Message);
-                return new List<dynamic>();
+                return new List<LichTrinhVaTramDungChanDTO>();
             }
         }
 
 
-        
+        public List<LichTrinhVaTramDungChanDTO> LayDanhSachLichTrinhVaTramDungChanDiemTra(string maLichTrinh)
+        {
+            try
+            {
+                var danhSach = from lt in db.LichTrinhs
+                               join tram in db.THEMTRAMDUNGCHANs on lt.MA_LICH_TRINH equals tram.MA_LICH_TRINH
+                               join td in db.TuyenDuongs on lt.ID_TUYEN_DUONG equals td.ID_TUYEN
+                               join tramdc in db.TRAMDUNGCHANs on tram.ID_TramDungChan equals tramdc.ID_TramDungChan
 
+                               where lt.MA_LICH_TRINH == maLichTrinh && td.DIEM_CUOI == tramdc.ID_DIADIEM
+                               select new LichTrinhVaTramDungChanDTO
+                               {
+                                   MaLichTrinh = lt.MA_LICH_TRINH,
+                                   TramDungChan = tramdc.TEN_TramDungChan
 
+                               };
+
+                return danhSach.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy danh sách lịch trình và trạm dừng chân: " + ex.Message);
+                return new List<LichTrinhVaTramDungChanDTO>();
+            }
+        }
     }
 }

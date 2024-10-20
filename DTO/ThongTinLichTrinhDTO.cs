@@ -8,13 +8,13 @@ namespace DTO
 {
     public class ThongTinLichTrinhDTO
     {
-        public ThongTinLichTrinhDTO(string maLichTrinh, string diemDon, string diemTra, DateTime gioDi, DateTime gioDen, string bienSoXe, float giaVe)
+        public ThongTinLichTrinhDTO(string maLichTrinh, string diemDon, string diemTra, DateTime gioDi, DateTime? gioDen, string bienSoXe, float giaVe)
         {
             MaLichTrinh = maLichTrinh;
             DiemDon = diemDon;
             DiemTra = diemTra;
             GioDi = gioDi;
-            GioDen = gioDen;
+            GioDen = gioDen ?? DateTime.MinValue;
             BienSoXe = bienSoXe;
             GiaVe = giaVe;
         }

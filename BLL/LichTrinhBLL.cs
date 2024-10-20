@@ -30,5 +30,17 @@ namespace BLL
         {
             return ltDAL.LayThongTinLichTrinh(maLichTrinh);
         }
+
+        public List<LichTrinh> LayDanhSachLichTrinh()
+        {
+            return ltDAL.LayDanhSachLichTrinh();
+        }
+
+        public List<LichTrinh> LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
+        {
+            return ltDAL.LayDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
+        }
+
+
     }
 }

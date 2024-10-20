@@ -41,7 +41,7 @@
       <Column Name="MA_LICH_TRINH" Type="System.String" DbType="VarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ID_TUYEN_DUONG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="KHOI_HANH" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="KET_THUC" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KET_THUC" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="GIA_VE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="ID_XE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SOGHETRONG" Type="System.Int32" DbType="Int" CanBeNull="true" />

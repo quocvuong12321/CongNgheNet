@@ -88,3 +88,15 @@ C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\BLL\obj\Debug\BLL.csproj.CoreC
 C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\BLL\obj\Debug\BLL.dll
 C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\BLL\obj\Debug\BLL.pdb
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\BLL.dll
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\BLL.pdb
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\DAL.dll
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\DTO.dll
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\DAL.pdb
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\bin\Debug\DTO.dll.config
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\obj\Debug\BLL.dll
+C:\Users\ASUS\Desktop\test2\CongNgheNet\BLL\obj\Debug\BLL.pdb

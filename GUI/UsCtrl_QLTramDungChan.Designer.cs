@@ -37,7 +37,7 @@ namespace GUI
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_ThemTramDungChan = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh = new System.Windows.Forms.DataGridView();
+            this.dgv_DanhSachTramDungChanDiemDi = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,8 +52,10 @@ namespace GUI
             this.lst_DiemDen = new System.Windows.Forms.ListBox();
             this.lst_DiemDi = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.dgv_DanhSachTramDungChanDiemTra = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanTheoMaLichTrinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemDi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemTra)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -61,7 +63,7 @@ namespace GUI
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(933, 143);
+            this.label7.Location = new System.Drawing.Point(950, 143);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(266, 25);
             this.label7.TabIndex = 34;
@@ -146,17 +148,17 @@ namespace GUI
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
             // 
-            // dgv_DanhSachTramDungChanTheoMaLichTrinh
+            // dgv_DanhSachTramDungChanDiemDi
             // 
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.Location = new System.Drawing.Point(83, 384);
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.Name = "dgv_DanhSachTramDungChanTheoMaLichTrinh";
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.RowHeadersWidth = 51;
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.RowTemplate.Height = 24;
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.Size = new System.Drawing.Size(635, 181);
-            this.dgv_DanhSachTramDungChanTheoMaLichTrinh.TabIndex = 26;
+            this.dgv_DanhSachTramDungChanDiemDi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_DanhSachTramDungChanDiemDi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DanhSachTramDungChanDiemDi.Location = new System.Drawing.Point(83, 384);
+            this.dgv_DanhSachTramDungChanDiemDi.Name = "dgv_DanhSachTramDungChanDiemDi";
+            this.dgv_DanhSachTramDungChanDiemDi.RowHeadersWidth = 51;
+            this.dgv_DanhSachTramDungChanDiemDi.RowTemplate.Height = 24;
+            this.dgv_DanhSachTramDungChanDiemDi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DanhSachTramDungChanDiemDi.Size = new System.Drawing.Size(299, 181);
+            this.dgv_DanhSachTramDungChanDiemDi.TabIndex = 26;
             // 
             // label3
             // 
@@ -242,6 +244,7 @@ namespace GUI
             // 
             this.txt_DiemDen.Location = new System.Drawing.Point(510, 142);
             this.txt_DiemDen.Name = "txt_DiemDen";
+            this.txt_DiemDen.ReadOnly = true;
             this.txt_DiemDen.Size = new System.Drawing.Size(154, 22);
             this.txt_DiemDen.TabIndex = 17;
             this.txt_DiemDen.TextChanged += new System.EventHandler(this.txt_DiemDen_TextChanged);
@@ -250,6 +253,7 @@ namespace GUI
             // 
             this.txt_DiemDi.Location = new System.Drawing.Point(228, 142);
             this.txt_DiemDi.Name = "txt_DiemDi";
+            this.txt_DiemDi.ReadOnly = true;
             this.txt_DiemDi.Size = new System.Drawing.Size(154, 22);
             this.txt_DiemDi.TabIndex = 16;
             this.txt_DiemDi.TextChanged += new System.EventHandler(this.txt_DiemDi_TextChanged);
@@ -293,6 +297,18 @@ namespace GUI
             this.label8.TabIndex = 71;
             this.label8.Text = "QUẢN LÝ TRẠM DỪNG CHÂN";
             // 
+            // dgv_DanhSachTramDungChanDiemTra
+            // 
+            this.dgv_DanhSachTramDungChanDiemTra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_DanhSachTramDungChanDiemTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DanhSachTramDungChanDiemTra.Location = new System.Drawing.Point(413, 384);
+            this.dgv_DanhSachTramDungChanDiemTra.Name = "dgv_DanhSachTramDungChanDiemTra";
+            this.dgv_DanhSachTramDungChanDiemTra.RowHeadersWidth = 51;
+            this.dgv_DanhSachTramDungChanDiemTra.RowTemplate.Height = 24;
+            this.dgv_DanhSachTramDungChanDiemTra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DanhSachTramDungChanDiemTra.Size = new System.Drawing.Size(299, 181);
+            this.dgv_DanhSachTramDungChanDiemTra.TabIndex = 26;
+            // 
             // UsCtrl_QLTramDungChan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,7 +323,8 @@ namespace GUI
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_ThemTramDungChan);
             this.Controls.Add(this.btn_Them);
-            this.Controls.Add(this.dgv_DanhSachTramDungChanTheoMaLichTrinh);
+            this.Controls.Add(this.dgv_DanhSachTramDungChanDiemTra);
+            this.Controls.Add(this.dgv_DanhSachTramDungChanDiemDi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -325,7 +342,8 @@ namespace GUI
             this.Size = new System.Drawing.Size(1471, 700);
             this.Load += new System.EventHandler(this.UsCtrl_QLTramDungChan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanTheoMaLichTrinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemDi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemTra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +359,7 @@ namespace GUI
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_ThemTramDungChan;
         private System.Windows.Forms.Button btn_Them;
-        private System.Windows.Forms.DataGridView dgv_DanhSachTramDungChanTheoMaLichTrinh;
+        private System.Windows.Forms.DataGridView dgv_DanhSachTramDungChanDiemDi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -356,5 +374,6 @@ namespace GUI
         private System.Windows.Forms.ListBox lst_DiemDen;
         private System.Windows.Forms.ListBox lst_DiemDi;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dgv_DanhSachTramDungChanDiemTra;
     }
 }

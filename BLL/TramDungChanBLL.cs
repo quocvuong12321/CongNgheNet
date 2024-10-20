@@ -22,10 +22,13 @@ namespace BLL
             return tramDungChanDAL.LayDanhSachTramDungChanTheoDiaDiem(maDiaDiem);
         }
 
-
-        public List<dynamic> LayDanhSachLichTrinhVaTramDungChan(string MaLT)
+        public List<LichTrinhVaTramDungChanDTO> LayDanhSachLichTrinhVaTramDungChanDiemDi(string MaLT)
         {
-            return tramDungChanDAL.LayDanhSachLichTrinhVaTramDungChan(MaLT);
+            return tramDungChanDAL.LayDanhSachLichTrinhVaTramDungChanDiemDi(MaLT);
+        }
+        public List<LichTrinhVaTramDungChanDTO> LayDanhSachLichTrinhVaTramDungChanDiemTra(string MaLT)
+        {
+            return tramDungChanDAL.LayDanhSachLichTrinhVaTramDungChanDiemTra(MaLT);
         }
 
         public List<TRAMDUNGCHAN> LayTatCaTramDungChan()

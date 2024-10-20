@@ -66,26 +66,14 @@ namespace DAL
                     return false;
                 }
 
-
-                var tuyenDuong = db.TuyenDuongs.FirstOrDefault(td => td.ID_TUYEN == maTuyenDuong);
-
-
-                DateTime ketThuc = khoiHanh.AddHours(tuyenDuong.THOI_GIAN_DI_CHUYEN);
-
-
-                Console.WriteLine("KhoiHanh: " + khoiHanh);
-                Console.WriteLine("ThoiGianDiChuyen: " + tuyenDuong.THOI_GIAN_DI_CHUYEN);
-                Console.WriteLine("KetThuc: " + ketThuc);
-
-
                 LichTrinh lichTrinhMoi = new LichTrinh
                 {
                     MA_LICH_TRINH = maLichTrinh,
                     ID_TUYEN_DUONG = maTuyenDuong,
                     KHOI_HANH = khoiHanh,
-                    KET_THUC = ketThuc,
                     GIA_VE = giaVe,
-                    ID_XE = maXe
+                    ID_XE = maXe,
+                    NGAY_TAO_LICH_TRINH = DateTime.Now
                 };
 
 
@@ -102,8 +90,6 @@ namespace DAL
             }
         }
 
-
-
         public List<string> LayMaLichTrinh()
         {
             try
@@ -118,7 +104,6 @@ namespace DAL
                 return new List<string>();
             }
         }
-
 
         public LichTrinh_DiemDau_DiemCuoi LayThongTinLichTrinh(string maLichTrinh)
         {
@@ -145,6 +130,35 @@ namespace DAL
                 return null;
             }
         }
+
+        public List<LichTrinh> LayDanhSachLichTrinh()
+        {
+            try
+            {
+                var danhSachLichTrinh = db.LichTrinhs.ToList();
+                return danhSachLichTrinh;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy danh sách lịch trình: " + ex.Message);
+                return new List<LichTrinh>();
+            }
+        }
+
+        public List<LichTrinh> LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
+        {
+            try
+            {
+                var danhSachLichTrinh = db.LichTrinhs.Where(lt => lt.ID_TUYEN_DUONG == maTuyenDuong).ToList();
+                return danhSachLichTrinh;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy danh sách lịch trình: " + ex.Message);
+                return new List<LichTrinh>();
+            }
+        }
+
 
 
     }

@@ -47,8 +47,8 @@ namespace GUI
             this.label3 = new System.Windows.Forms.Label();
             this.btn_QLTramDungChan = new System.Windows.Forms.Button();
             this.txt_MaLichTrinh = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgv_DanhSachLichTrinh = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachLichTrinh)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -205,6 +205,7 @@ namespace GUI
             this.cbo_TuyenDuong.Name = "cbo_TuyenDuong";
             this.cbo_TuyenDuong.Size = new System.Drawing.Size(255, 30);
             this.cbo_TuyenDuong.TabIndex = 121;
+            this.cbo_TuyenDuong.SelectedIndexChanged += new System.EventHandler(this.cbo_TuyenDuong_SelectedIndexChanged);
             // 
             // dtp_GioKhoiHanh
             // 
@@ -230,9 +231,9 @@ namespace GUI
             // btn_QLTramDungChan
             // 
             this.btn_QLTramDungChan.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QLTramDungChan.Location = new System.Drawing.Point(989, 184);
+            this.btn_QLTramDungChan.Location = new System.Drawing.Point(997, 193);
             this.btn_QLTramDungChan.Name = "btn_QLTramDungChan";
-            this.btn_QLTramDungChan.Size = new System.Drawing.Size(206, 71);
+            this.btn_QLTramDungChan.Size = new System.Drawing.Size(198, 62);
             this.btn_QLTramDungChan.TabIndex = 127;
             this.btn_QLTramDungChan.Text = "QL Trạm Dừng Chân";
             this.btn_QLTramDungChan.UseVisualStyleBackColor = true;
@@ -246,22 +247,24 @@ namespace GUI
             this.txt_MaLichTrinh.Size = new System.Drawing.Size(255, 29);
             this.txt_MaLichTrinh.TabIndex = 128;
             // 
-            // dataGridView1
+            // dgv_DanhSachLichTrinh
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(279, 320);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(850, 223);
-            this.dataGridView1.TabIndex = 129;
+            this.dgv_DanhSachLichTrinh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_DanhSachLichTrinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DanhSachLichTrinh.Location = new System.Drawing.Point(233, 320);
+            this.dgv_DanhSachLichTrinh.Name = "dgv_DanhSachLichTrinh";
+            this.dgv_DanhSachLichTrinh.RowHeadersWidth = 51;
+            this.dgv_DanhSachLichTrinh.RowTemplate.Height = 24;
+            this.dgv_DanhSachLichTrinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DanhSachLichTrinh.Size = new System.Drawing.Size(941, 223);
+            this.dgv_DanhSachLichTrinh.TabIndex = 129;
             // 
             // UsCtrl_QLLichTrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_DanhSachLichTrinh);
             this.Controls.Add(this.txt_MaLichTrinh);
             this.Controls.Add(this.btn_QLTramDungChan);
             this.Controls.Add(this.label2);
@@ -282,7 +285,7 @@ namespace GUI
             this.Name = "UsCtrl_QLLichTrinh";
             this.Size = new System.Drawing.Size(1471, 577);
             this.Load += new System.EventHandler(this.UsCtrl_QLLichTrinh_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachLichTrinh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +310,6 @@ namespace GUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_QLTramDungChan;
         private System.Windows.Forms.TextBox txt_MaLichTrinh;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_DanhSachLichTrinh;
     }
 }
