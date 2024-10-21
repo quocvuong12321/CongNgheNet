@@ -288,7 +288,16 @@ END;
 GO
 
 
-
+create function ChonXe (@malt varchar(128))
+returns bit
+as
+begin
+	declare @soghe int
+	select @soghe = x.SO_GHE from LichTrinh lt 
+					join Xe x on x.ID_XE = lt.ID_XE
+					where lt.MA_LICH_TRINH = @malt
+	return iif(@soghe=20,1,0)
+end
 
 
 

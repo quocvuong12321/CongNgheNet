@@ -50,3 +50,4 @@ C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyRefer
 C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DTO\obj\Debug\DTO.dll
 C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DTO\obj\Debug\DTO.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DTO\bin\Debug\DTO.dll.config

@@ -124,3 +124,4 @@ C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\BLL\obj\Debug\BLL.csproj.CoreCompileIn
 C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\BLL\obj\Debug\BLL.dll
 C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\BLL\obj\Debug\BLL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\BLL\bin\Debug\DTO.dll.config

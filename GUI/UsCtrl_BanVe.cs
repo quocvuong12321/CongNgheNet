@@ -15,6 +15,7 @@ namespace GUI
     {
         DiaDiemBLL ddBLL = new DiaDiemBLL();
         LichTrinhBLL ltBLL = new LichTrinhBLL();
+        DatVeBLL dvBLL = new DatVeBLL();
         public UsCtrl_BanVe()
         {
             InitializeComponent();
@@ -39,12 +40,32 @@ namespace GUI
         }
         private void UsCtrl_BanVe_Load(object sender, EventArgs e)
         {
+            gb_Xe20.Visible = false;
+            gb_Xe34.Visible = false;
             loadCboDiaDiem();
         }
 
         private void btn_Tim_Click(object sender, EventArgs e)
         {
             loadTTLicTrinh();
+        }
+
+        private void dgv_ThongTinLichTrinh_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgv_ThongTinLichTrinh.SelectedRows.Count > 0)
+            {
+                string mlt = dgv_ThongTinLichTrinh.SelectedRows[0].Cells[0].Value.ToString();
+                if (dvBLL.layLoaiXe(mlt))
+                {
+                    gb_Xe34.Visible = false;
+                    gb_Xe20.Visible = true;
+                }
+                else
+                {
+                    gb_Xe34.Visible = true;
+                    gb_Xe20.Visible = false;
+                }
+            }
         }
     }
 }
