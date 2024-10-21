@@ -21,6 +21,16 @@ namespace BLL
             return ltDAL.ThemLichTrinh(maLichTrinh, maTuyenDuong, khoiHanh, giaVe, maXe);
         }
 
+        public bool XoaLichTrinh(string maLichTrinh)
+        {
+            return ltDAL.XoaLichTrinh(maLichTrinh);
+        }
+
+        public bool CapNhatLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
+        {
+            return ltDAL.CapNhatLichTrinh(maLichTrinh, maTuyenDuong, khoiHanh, giaVe, maXe);
+        }
+
         public List<string> LayDanhSachMaLichTrinh()
         {
             return ltDAL.LayMaLichTrinh();

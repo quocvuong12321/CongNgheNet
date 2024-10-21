@@ -97,7 +97,6 @@ namespace DAL
             }
         }
 
-
         public List<string> LayDanhSachTenTramDungChanTheoDiaDiem(int maDiaDiem)
         {
             try
@@ -130,7 +129,6 @@ namespace DAL
             }
         }
 
-
         public List<LichTrinhVaTramDungChanDTO> LayDanhSachLichTrinhVaTramDungChanDiemDi(string maLichTrinh)
         {
             try
@@ -144,8 +142,8 @@ namespace DAL
                                select new LichTrinhVaTramDungChanDTO
                                {
                                    MaLichTrinh = lt.MA_LICH_TRINH,
-                                   TramDungChan = tramdc.TEN_TramDungChan
-
+                                   TenTramDungChan = tramdc.TEN_TramDungChan,
+                                   IDTramDungChan = tramdc.ID_TramDungChan
                                };
 
                 return danhSach.ToList();
@@ -156,7 +154,6 @@ namespace DAL
                 return new List<LichTrinhVaTramDungChanDTO>();
             }
         }
-
 
         public List<LichTrinhVaTramDungChanDTO> LayDanhSachLichTrinhVaTramDungChanDiemTra(string maLichTrinh)
         {
@@ -171,8 +168,8 @@ namespace DAL
                                select new LichTrinhVaTramDungChanDTO
                                {
                                    MaLichTrinh = lt.MA_LICH_TRINH,
-                                   TramDungChan = tramdc.TEN_TramDungChan
-
+                                   TenTramDungChan = tramdc.TEN_TramDungChan,
+                                   IDTramDungChan = tramdc.ID_TramDungChan
                                };
 
                 return danhSach.ToList();
@@ -183,5 +180,73 @@ namespace DAL
                 return new List<LichTrinhVaTramDungChanDTO>();
             }
         }
+
+        public bool ThemTramDungChanTheoMaLichTrinh(string maTramDungChan, string maLichTrinh)
+        {
+            try
+            {
+                Console.WriteLine("Ma Tram Dung Chan: " + maTramDungChan);
+                Console.WriteLine("Ma Lich Trinh: " + maLichTrinh);
+
+                var tramTonTai = db.TRAMDUNGCHANs.FirstOrDefault(t => t.ID_TramDungChan == maTramDungChan);
+                if (tramTonTai == null)
+                {
+                    Console.WriteLine("Trạm dừng chân không tồn tại. Vui lòng kiểm tra lại.");
+                    return false;
+                }
+
+                var tramDungChanTonTai = db.THEMTRAMDUNGCHANs.FirstOrDefault(t => t.ID_TramDungChan == maTramDungChan && t.MA_LICH_TRINH == maLichTrinh);
+
+                if (tramDungChanTonTai == null)
+                {
+                    THEMTRAMDUNGCHAN themTramDungChan = new THEMTRAMDUNGCHAN
+                    {
+                        ID_TramDungChan = maTramDungChan,
+                        MA_LICH_TRINH = maLichTrinh
+                    };
+
+                    db.THEMTRAMDUNGCHANs.InsertOnSubmit(themTramDungChan);
+                    db.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm trạm dừng chân: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool XoaTramDungChanTheoMaLichTrinh(string maTramDungChan, string maLichTrinh)
+        {
+            try
+            {
+                var tramDungChanTonTai = db.THEMTRAMDUNGCHANs.FirstOrDefault(t => t.ID_TramDungChan == maTramDungChan && t.MA_LICH_TRINH == maLichTrinh);
+
+                if (tramDungChanTonTai != null)
+                {
+                    db.THEMTRAMDUNGCHANs.DeleteOnSubmit(tramDungChanTonTai);
+                    db.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Trạm dừng chân không tồn tại.");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa trạm dừng chân: " + ex.Message);
+                return false;
+            }
+        }
+
+
+
     }
 }

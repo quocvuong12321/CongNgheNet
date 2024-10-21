@@ -53,6 +53,8 @@ namespace GUI
             this.lst_DiemDi = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgv_DanhSachTramDungChanDiemTra = new System.Windows.Forms.DataGridView();
+            this.btn_BoChon1 = new System.Windows.Forms.Button();
+            this.btn_BoChon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemDi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemTra)).BeginInit();
@@ -124,6 +126,7 @@ namespace GUI
             this.btn_Xoa.TabIndex = 29;
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_ThemTramDungChan
             // 
@@ -147,6 +150,7 @@ namespace GUI
             this.btn_Them.TabIndex = 27;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // dgv_DanhSachTramDungChanDiemDi
             // 
@@ -309,11 +313,33 @@ namespace GUI
             this.dgv_DanhSachTramDungChanDiemTra.Size = new System.Drawing.Size(299, 181);
             this.dgv_DanhSachTramDungChanDiemTra.TabIndex = 26;
             // 
+            // btn_BoChon1
+            // 
+            this.btn_BoChon1.Location = new System.Drawing.Point(21, 446);
+            this.btn_BoChon1.Name = "btn_BoChon1";
+            this.btn_BoChon1.Size = new System.Drawing.Size(56, 64);
+            this.btn_BoChon1.TabIndex = 75;
+            this.btn_BoChon1.Text = "Bỏ Chọn";
+            this.btn_BoChon1.UseVisualStyleBackColor = true;
+            this.btn_BoChon1.Click += new System.EventHandler(this.btn_BoChon1_Click);
+            // 
+            // btn_BoChon
+            // 
+            this.btn_BoChon.Location = new System.Drawing.Point(69, 212);
+            this.btn_BoChon.Name = "btn_BoChon";
+            this.btn_BoChon.Size = new System.Drawing.Size(56, 64);
+            this.btn_BoChon.TabIndex = 74;
+            this.btn_BoChon.Text = "Bỏ Chọn";
+            this.btn_BoChon.UseVisualStyleBackColor = true;
+            this.btn_BoChon.Click += new System.EventHandler(this.btn_BoChon_Click);
+            // 
             // UsCtrl_QLTramDungChan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.btn_BoChon1);
+            this.Controls.Add(this.btn_BoChon);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbo_DiaDiem);
@@ -375,5 +401,7 @@ namespace GUI
         private System.Windows.Forms.ListBox lst_DiemDi;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgv_DanhSachTramDungChanDiemTra;
+        private System.Windows.Forms.Button btn_BoChon1;
+        private System.Windows.Forms.Button btn_BoChon;
     }
 }

@@ -64,6 +64,17 @@ namespace BLL
             return tramDungChanDAL.SuaTramDungChan(maTramDungChan, tenTramDungChan, maDiaDiem);
         }
 
+        public bool ThemTramDungChanTheoMaLichTrinh(string maTramDungChan, string maLichTrinh)
+        {
+            return tramDungChanDAL.ThemTramDungChanTheoMaLichTrinh(maTramDungChan, maLichTrinh);
+        }
+
+        public bool XoaTramDungChanTheoMaLichTrinh(string maTramDungChan, string maLichTrinh)
+        {
+            return tramDungChanDAL.XoaTramDungChanTheoMaLichTrinh(maTramDungChan, maLichTrinh);
+        }
+
+
 
     }
 }

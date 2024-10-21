@@ -27,7 +27,7 @@ namespace GUI
             cbo_DanhSachMaLichTrinh.DataSource = lichTrinhBLL.LayDanhSachMaLichTrinh();
             load_cboDiaDiem();
             HienThiTramDungChanTheoDiaDiem(Convert.ToInt32(cbo_DiaDiem.SelectedValue));
-            databindding_DgvDsTramDungChan();
+            //databindding_DgvDsTramDungChan();
         }
 
         private void cbo_DanhSachMaLichTrinh_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,11 +57,11 @@ namespace GUI
 
             int maDiaDiem = ddBLL.LayMaDiaDiemTheoTen(tenDiaDiem);
 
-            TramDungChanBLL tramDungChanBLL = new TramDungChanBLL();
-            List<string> danhSachTram = tramDungChanBLL.LayDanhSachTenTramDungChanTheoDiaDiem(maDiaDiem);
+            List<TRAMDUNGCHAN> danhSachTram = tdcBLL.LayDanhSachTramDungChanTheoDiaDiem(maDiaDiem);
 
-            lst_DiemDi.Items.Clear();
-            lst_DiemDi.Items.AddRange(danhSachTram.ToArray());
+            lst_DiemDi.DisplayMember = "TEN_TramDungChan";
+            lst_DiemDi.ValueMember = "ID_TramDungChan";
+            lst_DiemDi.DataSource = danhSachTram;
         }
 
         private void txt_DiemDen_TextChanged(object sender, EventArgs e)
@@ -70,33 +70,28 @@ namespace GUI
 
             int maDiaDiem = ddBLL.LayMaDiaDiemTheoTen(tenDiaDiem);
 
-            TramDungChanBLL tramDungChanBLL = new TramDungChanBLL();
-            List<string> danhSachTram = tramDungChanBLL.LayDanhSachTenTramDungChanTheoDiaDiem(maDiaDiem);
+            List<TRAMDUNGCHAN> danhSachTram = tdcBLL.LayDanhSachTramDungChanTheoDiaDiem(maDiaDiem);
 
-            lst_DiemDen.Items.Clear();
-            lst_DiemDen.Items.AddRange(danhSachTram.ToArray());
+            lst_DiemDen.DisplayMember = "TEN_TramDungChan";
+            lst_DiemDen.ValueMember = "ID_TramDungChan";
+            lst_DiemDen.DataSource = danhSachTram;
         }
 
         private void HienThi_DgvTramDungChanDiemDi( string maLichTrinh)
         {
-            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemDi( maLichTrinh);
-
+            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemDi(maLichTrinh);
             dgv_DanhSachTramDungChanDiemDi.DataSource = danhSachLichTrinh;
-
             dgv_DanhSachTramDungChanDiemDi.Columns["MaLichTrinh"].HeaderText = "Mã Lịch Trình";
-            dgv_DanhSachTramDungChanDiemDi.Columns["TramDungChan"].HeaderText = "Điểm Đón";
-
-
+            dgv_DanhSachTramDungChanDiemDi.Columns["TenTramDungChan"].HeaderText = "Điểm Đón";
+            dgv_DanhSachTramDungChanDiemDi.Columns["IDTramDungChan"].Visible = false;
         }
         private void HienThi_DgvTramDungChanDiemTra( string maLichTrinh)
         {
-            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemTra( maLichTrinh);
-
+            var danhSachLichTrinh = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemTra(maLichTrinh);
             dgv_DanhSachTramDungChanDiemTra.DataSource = danhSachLichTrinh;
-
             dgv_DanhSachTramDungChanDiemTra.Columns["MaLichTrinh"].HeaderText = "Mã Lịch Trình";
-            dgv_DanhSachTramDungChanDiemTra.Columns["TramDungChan"].HeaderText = "Điểm Trả";
-
+            dgv_DanhSachTramDungChanDiemTra.Columns["TenTramDungChan"].HeaderText = "Điểm Trả";
+            dgv_DanhSachTramDungChanDiemTra.Columns["IDTramDungChan"].Visible = false;
 
         }
 
@@ -265,6 +260,107 @@ namespace GUI
             txt_TenTramDungChan.DataBindings.Clear();
             txt_TenTramDungChan.DataBindings.Add("Text", dgv_DanhSachTramDungChan.DataSource, "TEN_TramDungChan");
         }
+
+        private void HienThiTramDungChanTheoLichTrinh(string maLichTrinh)
+        {
+            var danhSachTramDiemDi = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemDi(maLichTrinh);
+            dgv_DanhSachTramDungChanDiemDi.DataSource = danhSachTramDiemDi;
+            var danhSachTramDiemDen = tdcBLL.LayDanhSachLichTrinhVaTramDungChanDiemTra(maLichTrinh);
+            dgv_DanhSachTramDungChanDiemTra.DataSource = danhSachTramDiemDen;
+        }
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            if (lst_DiemDi.SelectedItem != null || lst_DiemDen.SelectedItem != null)
+            {
+                string maLichTrinh = cbo_DanhSachMaLichTrinh.SelectedValue.ToString();
+
+                if (lst_DiemDi.SelectedItem != null)
+                {
+                    string maTramDi = lst_DiemDi.SelectedValue.ToString();
+                    bool themThanhCongDi = tdcBLL.ThemTramDungChanTheoMaLichTrinh(maTramDi, maLichTrinh);
+                    if (themThanhCongDi)
+                        MessageBox.Show("Thêm trạm điểm đi thành công cho lịch trình!");
+                    else
+                        MessageBox.Show("Trạm điểm đi đã tồn tại cho lịch trình này.");
+                }
+
+
+
+                if (lst_DiemDen.SelectedItem != null)
+                {
+                    string maTramDen = lst_DiemDen.SelectedValue.ToString();
+                    bool themThanhCongDen = tdcBLL.ThemTramDungChanTheoMaLichTrinh(maTramDen, maLichTrinh);
+                    if (themThanhCongDen)
+                        MessageBox.Show("Thêm trạm điểm đến thành công cho lịch trình!");
+                    else
+                        MessageBox.Show("Trạm điểm đến đã tồn tại cho lịch trình này.");
+                }
+
+                HienThiTramDungChanTheoLichTrinh(maLichTrinh);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một trạm dừng chân.");
+            }
+        }
+
+        private void btn_BoChon_Click(object sender, EventArgs e)
+        {
+            lst_DiemDi.ClearSelected();
+            lst_DiemDen.ClearSelected();
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            if (dgv_DanhSachTramDungChanDiemDi.SelectedRows.Count > 0 || dgv_DanhSachTramDungChanDiemTra.SelectedRows.Count > 0)
+            {
+                string maLichTrinh = cbo_DanhSachMaLichTrinh.SelectedValue.ToString();
+
+                if (dgv_DanhSachTramDungChanDiemDi.SelectedRows.Count > 0)
+                {
+                    string maTramDi = dgv_DanhSachTramDungChanDiemDi.SelectedRows[0].Cells[2].Value.ToString();
+                    bool xoaThanhCongDi = tdcBLL.XoaTramDungChanTheoMaLichTrinh(maTramDi, maLichTrinh);
+
+                    if (xoaThanhCongDi)
+                    {
+                        MessageBox.Show("Xóa trạm điểm đi thành công!");
+                        HienThiTramDungChanTheoLichTrinh(maLichTrinh);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa trạm điểm đi này.");
+                    }
+                }
+
+                if (dgv_DanhSachTramDungChanDiemTra.SelectedRows.Count > 0)
+                {
+                    string maTramDen = dgv_DanhSachTramDungChanDiemTra.SelectedRows[0].Cells[2].Value.ToString();
+                    bool xoaThanhCongDen = tdcBLL.XoaTramDungChanTheoMaLichTrinh(maTramDen, maLichTrinh);
+
+                    if (xoaThanhCongDen)
+                    {
+                        MessageBox.Show("Xóa trạm điểm đến thành công!");
+                        HienThiTramDungChanTheoLichTrinh(maLichTrinh);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa trạm điểm đến này.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa.");
+            }
+        }
+
+        private void btn_BoChon1_Click(object sender, EventArgs e)
+        {
+            dgv_DanhSachTramDungChanDiemDi.ClearSelection();
+            dgv_DanhSachTramDungChanDiemTra.ClearSelection();
+        }
+
 
 
 
