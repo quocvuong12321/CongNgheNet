@@ -82,3 +82,14 @@ C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desk
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DAL\obj\Debug\DAL.dll
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DAL\obj\Debug\DAL.pdb
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\bin\Debug\DAL.dll
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\bin\Debug\DAL.pdb
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\bin\Debug\DTO.dll
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\bin\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\bin\Debug\DTO.dll.config
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\obj\Debug\DAL.dll
+C:\Users\ASUS\Desktop\cloneTT\CongNgheNet\DAL\obj\Debug\DAL.pdb
+D:\Nam3\Do_An\Lap_Trinh_Net\Nhom10_QuanLyBanVeXeKhach\DAL\bin\Debug\DTO.dll.config

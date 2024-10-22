@@ -1015,6 +1015,7 @@ namespace GUI
             this.dgv_ThongTinLichTrinh.RowTemplate.Height = 24;
             this.dgv_ThongTinLichTrinh.Size = new System.Drawing.Size(663, 150);
             this.dgv_ThongTinLichTrinh.TabIndex = 39;
+            this.dgv_ThongTinLichTrinh.SelectionChanged += new System.EventHandler(this.dgv_ThongTinLichTrinh_SelectionChanged);
             // 
             // UsCtrl_BanVe
             // 

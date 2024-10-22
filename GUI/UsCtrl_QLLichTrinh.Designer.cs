@@ -95,6 +95,7 @@ namespace GUI
             this.btn_XoaLichTrinh.Text = "Xóa lịch trình";
             this.btn_XoaLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_XoaLichTrinh.UseVisualStyleBackColor = false;
+            this.btn_XoaLichTrinh.Click += new System.EventHandler(this.btn_XoaLichTrinh_Click);
             // 
             // btn_ThemLichTrinh
             // 
@@ -126,6 +127,7 @@ namespace GUI
             this.btn_CapNhatLichTrinh.Text = "Cập nhật lịch trình";
             this.btn_CapNhatLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_CapNhatLichTrinh.UseVisualStyleBackColor = false;
+            this.btn_CapNhatLichTrinh.Click += new System.EventHandler(this.btn_CapNhatLichTrinh_Click);
             // 
             // txt_GiaVe
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -54,7 +55,7 @@ namespace DAL
             }
         }
 
-        public bool ThemLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh,float giaVe, int maXe)
+        public bool ThemLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
         {
 
             try
@@ -86,7 +87,68 @@ namespace DAL
             catch (SqlException ex)
             {
                 Console.WriteLine("Lỗi khi thêm lịch trình: " + ex.Message);
-                return false; 
+                return false;
+            }
+        }
+
+        public bool XoaLichTrinh(string maLichTrinh)
+        {
+            try
+            {
+                var veLienQuan = db.Ves.Where(v => v.ID_LICH_TRINH == maLichTrinh);
+                db.Ves.DeleteAllOnSubmit(veLienQuan);
+
+                var gheLienQuan = db.GHEs.Where(g => g.MA_LICH_TRINH == maLichTrinh);
+                db.GHEs.DeleteAllOnSubmit(gheLienQuan);
+
+                var chiTietVeLienQuan = db.ChiTietVes.Where(ct => ct.ID_VE == maLichTrinh);
+                db.ChiTietVes.DeleteAllOnSubmit(chiTietVeLienQuan);
+
+                var lichTrinh = db.LichTrinhs.FirstOrDefault(lt => lt.MA_LICH_TRINH == maLichTrinh);
+                if (lichTrinh != null)
+                {
+                    db.Refresh(RefreshMode.OverwriteCurrentValues, lichTrinh);
+                    db.LichTrinhs.DeleteOnSubmit(lichTrinh);
+                    db.SubmitChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi khi xóa lịch trình: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool CapNhatLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
+        {
+            try
+            {
+                using (var db = new QuanLyNhaXeDataContext())
+                {
+                    var lichTrinhCanCapNhat = db.LichTrinhs.FirstOrDefault(lt => lt.MA_LICH_TRINH == maLichTrinh);
+
+                    if (lichTrinhCanCapNhat != null)
+                    {
+                        lichTrinhCanCapNhat.ID_TUYEN_DUONG = maTuyenDuong;
+                        lichTrinhCanCapNhat.KHOI_HANH = khoiHanh;
+                        lichTrinhCanCapNhat.GIA_VE = giaVe;
+                        lichTrinhCanCapNhat.ID_XE = maXe;
+
+                        db.SubmitChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi cập nhật lịch trình: " + ex.Message);
+                return false;
             }
         }
 
@@ -158,6 +220,8 @@ namespace DAL
                 return new List<LichTrinh>();
             }
         }
+
+
 
 
 
