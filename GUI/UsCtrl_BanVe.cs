@@ -16,9 +16,14 @@ namespace GUI
         DiaDiemBLL ddBLL = new DiaDiemBLL();
         LichTrinhBLL ltBLL = new LichTrinhBLL();
         DatVeBLL dvBLL = new DatVeBLL();
+        GheBLL gBLL = new GheBLL();
+        private List<string> gheDaChon;
+        private double giaVe;
         public UsCtrl_BanVe()
         {
             InitializeComponent();
+            gheDaChon = new List<string>();
+
         }
 
         private void loadCboDiaDiem()
@@ -65,7 +70,103 @@ namespace GUI
                     gb_Xe34.Visible = true;
                     gb_Xe20.Visible = false;
                 }
+                txt_TongTien.Clear();
+                txt_ViTriGhe.Clear();
+                LoadTinhTrangGhe(mlt);
             }
+        }
+
+        private void btn_SuKienChonGhe(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            string viTriNgoi = clickedButton.Text;
+
+            foreach(Button btn in gb_Xe20.Controls)
+            if(clickedButton.BackColor == Color.Gray)
+            {
+                clickedButton.BackColor = Color.Yellow;
+                txt_ViTriGhe.Text = viTriNgoi;
+            }
+        }
+
+        private Control FindControlRecursive(Control parent, string name)
+        {
+            // Kiểm tra nếu control hiện tại là control cần tìm
+            if (parent.Name == name)
+            {
+                return parent;
+            }
+
+            // Tìm kiếm trong các control con
+            foreach (Control child in parent.Controls)
+            {
+                Control result = FindControlRecursive(child, name);
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return null;
+        }
+
+        private void LoadTinhTrangGhe(string malichtrinh)
+        {
+            List<GHE> lst = gBLL.LoadGhe(malichtrinh);
+            int SoGhe = gBLL.LaySoGhe(malichtrinh);
+            giaVe = ltBLL.LayGiaLichTrinh(malichtrinh);
+            foreach (var item in lst)
+            {
+                string viTriNgoi = item.VI_TRI_NGOI;
+                string trangThai = item.TRANG_THAI;
+                string buttonName = "xe" + SoGhe + "_" + viTriNgoi;
+
+                Button seatButton = FindControlRecursive(this, buttonName) as Button;
+
+                if (seatButton != null)
+                {
+                    if(trangThai.Equals("Đã đặt"))
+                    {
+                        seatButton.BackColor = Color.Gray;
+                    }
+                    else
+                    {
+                        seatButton.BackColor = Color.White;
+                        seatButton.Click += ChucNangChonGhe;
+                        //txt_TongTien.Tag = ltBLL.LayGiaLichTrinh(malichtrinh) * gheDaChon.Count  ;
+                        //txt_TongTien.Text = string.Format("{0:0,00} VNĐ", txt_TongTien.Tag);
+                    }
+                }
+                UpdateTongTien();
+            }
+        }
+
+        
+        private void ChucNangChonGhe(object sender,EventArgs e) 
+        {
+            Button seatButton = sender as Button;
+            if (seatButton != null)
+            {
+                if(seatButton.BackColor == Color.White)
+                {
+                    seatButton.BackColor = Color.ForestGreen;
+                    gheDaChon.Add(seatButton.Text);
+                }
+                else if(seatButton.BackColor == Color.ForestGreen)
+                {
+                    seatButton.BackColor = Color.White;
+                    gheDaChon.Remove(seatButton.Text);
+                }
+            }
+            UpdateTongTien();
+            txt_ViTriGhe.Text = String.Join(", ", gheDaChon);
+        }
+
+        private void UpdateTongTien()
+        {
+            double totalPrice = giaVe * gheDaChon.Count;
+            txt_TongTien.Text = string.Format("{0:0,00} VNĐ", totalPrice);
+            txt_TongTien.Tag = totalPrice;
         }
     }
 }

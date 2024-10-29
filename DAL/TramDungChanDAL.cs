@@ -117,10 +117,7 @@ namespace DAL
         {
             try
             {
-                var danhSachTram = (from tram in db.TRAMDUNGCHANs
-                                    where tram.ID_DIADIEM == maDiaDiem
-                                    select tram).ToList();
-                return danhSachTram;
+                return db.TRAMDUNGCHANs.Where(t => t.ID_DIADIEM == maDiaDiem).ToList();
             }
             catch (Exception ex)
             {

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DatVeDAL.cs" />
     <Compile Include="DiaDiemDAL.cs" />
+    <Compile Include="GheDAL.cs" />
     <Compile Include="LichTrinhDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

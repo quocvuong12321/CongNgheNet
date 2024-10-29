@@ -52,5 +52,9 @@ namespace BLL
         }
 
 
+        public double LayGiaLichTrinh(string maLichTrinh)
+        {
+            return ltDAL.LayGiaLichTrinh(maLichTrinh);
+        }
     }
 }

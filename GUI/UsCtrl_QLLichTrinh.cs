@@ -28,6 +28,7 @@ namespace GUI
         {
             InitializeComponent();
             this.main = main;
+
         }
 
         private void btn_QLTramDungChan_Click(object sender, EventArgs e)
@@ -95,14 +96,17 @@ namespace GUI
             }
         }
 
+
         private void cbo_TuyenDuong_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isLoading)
                 return;
+            if (cbo_TuyenDuong.SelectedValue != null)
+            {
+                int maTuyenDuong = int.Parse(cbo_TuyenDuong.SelectedValue.ToString());
+                HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
+            }
 
-            int maTuyenDuong = int.Parse(cbo_TuyenDuong.SelectedValue.ToString());
-
-            HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
         }
 
 
@@ -128,9 +132,7 @@ namespace GUI
         private void HienThiDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
         {
             var danhSachLichTrinh = ltBll.LayDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
-
             dgv_DanhSachLichTrinh.DataSource = danhSachLichTrinh;
-
 
             dgv_DanhSachLichTrinh.Columns["MA_LICH_TRINH"].HeaderText = "Mã Lịch Trình";
             dgv_DanhSachLichTrinh.Columns["ID_TUYEN_DUONG"].HeaderText = "Mã Tuyến Đường";

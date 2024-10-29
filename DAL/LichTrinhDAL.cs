@@ -222,6 +222,10 @@ namespace DAL
         }
 
 
+        public double LayGiaLichTrinh(string maLichTrinh)
+        {
+            return db.LichTrinhs.FirstOrDefault(t => t.MA_LICH_TRINH.Equals(maLichTrinh)).GIA_VE;
+        }
 
 
 
