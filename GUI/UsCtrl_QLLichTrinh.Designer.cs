@@ -33,7 +33,6 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_NgayKhoiHanh = new System.Windows.Forms.DateTimePicker();
             this.cbo_Xe = new System.Windows.Forms.ComboBox();
-            this.btn_XoaLichTrinh = new System.Windows.Forms.Button();
             this.btn_ThemLichTrinh = new System.Windows.Forms.Button();
             this.btn_CapNhatLichTrinh = new System.Windows.Forms.Button();
             this.txt_GiaVe = new System.Windows.Forms.TextBox();
@@ -81,29 +80,13 @@ namespace GUI
             this.cbo_Xe.Size = new System.Drawing.Size(255, 30);
             this.cbo_Xe.TabIndex = 122;
             // 
-            // btn_XoaLichTrinh
-            // 
-            this.btn_XoaLichTrinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_XoaLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaLichTrinh.ForeColor = System.Drawing.Color.Crimson;
-            this.btn_XoaLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaLichTrinh.Image")));
-            this.btn_XoaLichTrinh.Location = new System.Drawing.Point(848, 270);
-            this.btn_XoaLichTrinh.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_XoaLichTrinh.Name = "btn_XoaLichTrinh";
-            this.btn_XoaLichTrinh.Size = new System.Drawing.Size(202, 43);
-            this.btn_XoaLichTrinh.TabIndex = 118;
-            this.btn_XoaLichTrinh.Text = "Xóa lịch trình";
-            this.btn_XoaLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_XoaLichTrinh.UseVisualStyleBackColor = false;
-            this.btn_XoaLichTrinh.Click += new System.EventHandler(this.btn_XoaLichTrinh_Click);
-            // 
             // btn_ThemLichTrinh
             // 
             this.btn_ThemLichTrinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_ThemLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemLichTrinh.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemLichTrinh.Image")));
-            this.btn_ThemLichTrinh.Location = new System.Drawing.Point(352, 270);
+            this.btn_ThemLichTrinh.Location = new System.Drawing.Point(416, 270);
             this.btn_ThemLichTrinh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemLichTrinh.Name = "btn_ThemLichTrinh";
             this.btn_ThemLichTrinh.Size = new System.Drawing.Size(202, 43);
@@ -119,7 +102,7 @@ namespace GUI
             this.btn_CapNhatLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CapNhatLichTrinh.ForeColor = System.Drawing.Color.Orange;
             this.btn_CapNhatLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhatLichTrinh.Image")));
-            this.btn_CapNhatLichTrinh.Location = new System.Drawing.Point(600, 270);
+            this.btn_CapNhatLichTrinh.Location = new System.Drawing.Point(789, 270);
             this.btn_CapNhatLichTrinh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhatLichTrinh.Name = "btn_CapNhatLichTrinh";
             this.btn_CapNhatLichTrinh.Size = new System.Drawing.Size(202, 43);
@@ -251,6 +234,7 @@ namespace GUI
             // 
             // dgv_DanhSachLichTrinh
             // 
+            this.dgv_DanhSachLichTrinh.AllowUserToAddRows = false;
             this.dgv_DanhSachLichTrinh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_DanhSachLichTrinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DanhSachLichTrinh.Location = new System.Drawing.Point(233, 320);
@@ -260,6 +244,7 @@ namespace GUI
             this.dgv_DanhSachLichTrinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DanhSachLichTrinh.Size = new System.Drawing.Size(941, 223);
             this.dgv_DanhSachLichTrinh.TabIndex = 129;
+            this.dgv_DanhSachLichTrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DanhSachLichTrinh_CellClick);
             // 
             // UsCtrl_QLLichTrinh
             // 
@@ -274,7 +259,6 @@ namespace GUI
             this.Controls.Add(this.dtp_NgayKhoiHanh);
             this.Controls.Add(this.cbo_Xe);
             this.Controls.Add(this.cbo_TuyenDuong);
-            this.Controls.Add(this.btn_XoaLichTrinh);
             this.Controls.Add(this.btn_ThemLichTrinh);
             this.Controls.Add(this.btn_CapNhatLichTrinh);
             this.Controls.Add(this.txt_GiaVe);
@@ -298,7 +282,6 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtp_NgayKhoiHanh;
         private System.Windows.Forms.ComboBox cbo_Xe;
-        private System.Windows.Forms.Button btn_XoaLichTrinh;
         private System.Windows.Forms.Button btn_ThemLichTrinh;
         private System.Windows.Forms.Button btn_CapNhatLichTrinh;
         private System.Windows.Forms.TextBox txt_GiaVe;

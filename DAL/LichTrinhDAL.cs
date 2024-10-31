@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,6 +12,29 @@ namespace DAL
 {
     public class LichTrinhDAL
     {
+        public string str;
+        SqlConnection conn;
+
+        DataSet ds;
+        SqlDataAdapter da;
+        DataColumn[] key;
+        public LichTrinhDAL()
+        {
+            str = ConfigurationManager.ConnectionStrings["QLBanVeXe"].ConnectionString;
+
+            conn = new SqlConnection(str);
+
+            ds = new DataSet();
+            string sql = "Select * from LichTrinh;";
+
+            da = new SqlDataAdapter(sql, conn);
+            da.Fill(ds, "lt");
+
+            key = new DataColumn[1];
+            key[0] = ds.Tables["lt"].Columns[0];
+
+        }
+
         QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
         public List<ThongTinLichTrinhDTO> TTLichTrinh(int diemdau, int diemcuoi, DateTime ngaydi)
         {
@@ -57,98 +82,80 @@ namespace DAL
 
         public bool ThemLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
         {
-
             try
             {
-                var lichTrinhTonTai = db.LichTrinhs.FirstOrDefault(lt => lt.MA_LICH_TRINH == maLichTrinh);
-
-                if (lichTrinhTonTai != null)
+                DataRow[] kiemTraTonTai = ds.Tables["lt"].Select("MA_LICH_TRINH = '" + maLichTrinh + "'");
+                if (kiemTraTonTai.Length > 0)
                 {
                     return false;
                 }
 
-                LichTrinh lichTrinhMoi = new LichTrinh
-                {
-                    MA_LICH_TRINH = maLichTrinh,
-                    ID_TUYEN_DUONG = maTuyenDuong,
-                    KHOI_HANH = khoiHanh,
-                    GIA_VE = giaVe,
-                    ID_XE = maXe,
-                    NGAY_TAO_LICH_TRINH = DateTime.Now
-                };
+
+                DataRow newR = ds.Tables["lt"].NewRow();
+                newR["MA_LICH_TRINH"] = maLichTrinh;
+                newR["ID_TUYEN_DUONG"] = maTuyenDuong;
+                newR["KHOI_HANH"] = khoiHanh;
+                newR["GIA_VE"] = giaVe;
+                newR["ID_XE"] = maXe;
+
+                ds.Tables["lt"].Rows.Add(newR);
+
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                da.Update(ds, "lt");
 
 
-                db.LichTrinhs.InsertOnSubmit(lichTrinhMoi);
+                ds.Tables["lt"].Clear();
+                da.Fill(ds, "lt");
 
-                db.SubmitChanges();
 
                 return true;
+
+
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi thêm lịch trình: " + ex.Message);
-                return false;
+                throw new Exception("Có lỗi xảy ra khi sửa lịch trình: " + ex.Message);
             }
         }
 
-        public bool XoaLichTrinh(string maLichTrinh)
-        {
-            try
-            {
-                var veLienQuan = db.Ves.Where(v => v.ID_LICH_TRINH == maLichTrinh);
-                db.Ves.DeleteAllOnSubmit(veLienQuan);
-
-                var gheLienQuan = db.GHEs.Where(g => g.MA_LICH_TRINH == maLichTrinh);
-                db.GHEs.DeleteAllOnSubmit(gheLienQuan);
-
-                var chiTietVeLienQuan = db.ChiTietVes.Where(ct => ct.ID_VE == maLichTrinh);
-                db.ChiTietVes.DeleteAllOnSubmit(chiTietVeLienQuan);
-
-                var lichTrinh = db.LichTrinhs.FirstOrDefault(lt => lt.MA_LICH_TRINH == maLichTrinh);
-                if (lichTrinh != null)
-                {
-                    db.Refresh(RefreshMode.OverwriteCurrentValues, lichTrinh);
-                    db.LichTrinhs.DeleteOnSubmit(lichTrinh);
-                    db.SubmitChanges();
-                    return true;
-                }
-                return false;
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine("Lỗi khi xóa lịch trình: " + ex.Message);
-                return false;
-            }
-        }
 
         public bool CapNhatLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
         {
             try
             {
-                using (var db = new QuanLyNhaXeDataContext())
+                DataRow[] rows = ds.Tables["lt"].Select("MA_LICH_TRINH = '" + maLichTrinh + "'");
+
+                if (rows.Length != 0)
                 {
-                    var lichTrinhCanCapNhat = db.LichTrinhs.FirstOrDefault(lt => lt.MA_LICH_TRINH == maLichTrinh);
+                    DataRow row = rows[0];
 
-                    if (lichTrinhCanCapNhat != null)
-                    {
-                        lichTrinhCanCapNhat.ID_TUYEN_DUONG = maTuyenDuong;
-                        lichTrinhCanCapNhat.KHOI_HANH = khoiHanh;
-                        lichTrinhCanCapNhat.GIA_VE = giaVe;
-                        lichTrinhCanCapNhat.ID_XE = maXe;
+                    row["ID_TUYEN_DUONG"] = maTuyenDuong;
+                    row["KHOI_HANH"] = khoiHanh;
+                    row["GIA_VE"] = giaVe;
+                    row["ID_XE"] = maXe;
 
-                        db.SubmitChanges();
-                        return true;
-                    }
-                    else
+                    var thoiGianDiChuyen = db.TuyenDuongs.FirstOrDefault(td => td.ID_TUYEN == maTuyenDuong)?.THOI_GIAN_DI_CHUYEN;
+                    if (thoiGianDiChuyen != null)
                     {
-                        return false;
+                        row["KET_THUC"] = khoiHanh.AddHours((double)thoiGianDiChuyen);
                     }
+
+                    SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                    da.Update(ds, "lt");
+
+                    ds.Tables["lt"].Clear();
+                    da.Fill(ds, "lt");
+
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi cập nhật lịch trình: " + ex.Message);
-                return false;
+                throw new Exception("Có lỗi xảy ra khi sửa lịch trình: " + ex.Message);
             }
         }
 
@@ -207,17 +214,16 @@ namespace DAL
             }
         }
 
-        public List<LichTrinh> LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
+        public DataTable LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
         {
-            try
+            DataRow[] rowDs = ds.Tables["lt"].Select("ID_TUYEN_DUONG = '" + maTuyenDuong + "'");
+            if (rowDs.Length != 0)
             {
-                var danhSachLichTrinh = db.LichTrinhs.Where(lt => lt.ID_TUYEN_DUONG == maTuyenDuong).ToList();
-                return danhSachLichTrinh;
+                return rowDs.CopyToDataTable();
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Lỗi khi lấy danh sách lịch trình: " + ex.Message);
-                return new List<LichTrinh>();
+                return ds.Tables["lt"].Clone();
             }
         }
 

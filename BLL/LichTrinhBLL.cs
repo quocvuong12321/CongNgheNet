@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using System.Data;
 
 namespace BLL
 {
@@ -21,10 +22,6 @@ namespace BLL
             return ltDAL.ThemLichTrinh(maLichTrinh, maTuyenDuong, khoiHanh, giaVe, maXe);
         }
 
-        public bool XoaLichTrinh(string maLichTrinh)
-        {
-            return ltDAL.XoaLichTrinh(maLichTrinh);
-        }
 
         public bool CapNhatLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
         {
@@ -46,7 +43,7 @@ namespace BLL
             return ltDAL.LayDanhSachLichTrinh();
         }
 
-        public List<LichTrinh> LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
+        public DataTable LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
         {
             return ltDAL.LayDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
         }

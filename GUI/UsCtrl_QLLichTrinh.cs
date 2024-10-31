@@ -68,7 +68,6 @@ namespace GUI
             Loadcbo_MaTuyenDuong();
             loadcbo_IDXe();
             HienThiDanhSachLichTrinhTheoTuyenDuong(int.Parse(cbo_TuyenDuong.SelectedValue.ToString()));
-            //databindding_DgvDsLichTrinh();
         }
 
         private void btn_ThemLichTrinh_Click(object sender, EventArgs e)
@@ -80,7 +79,7 @@ namespace GUI
 
                 bool themThanhCong = ltBll.ThemLichTrinh(txt_MaLichTrinh.Text, int.Parse(cbo_TuyenDuong.SelectedValue.ToString()), ngaykh, float.Parse(txt_GiaVe.Text), int.Parse(cbo_Xe.SelectedValue.ToString()));
 
-                if (themThanhCong)
+                if (themThanhCong == true)
                 {
                     MessageBox.Show("Thêm lịch trình thành công!");
                     HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
@@ -88,6 +87,7 @@ namespace GUI
                 else
                 {
                     MessageBox.Show("Thêm lịch trình thất bại. Mã lịch trình đã tồn tại.");
+                    HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
                 }
             }
             else
@@ -110,29 +110,9 @@ namespace GUI
         }
 
 
-        //private void Load_DgvDanhSachLichTrinh()
-        //{
-        //    var danhSachLichTrinh = ltBll.LayDanhSachLichTrinh();
-
-        //    dgv_DanhSachLichTrinh.DataSource = danhSachLichTrinh;
-
-        //    dgv_DanhSachLichTrinh.Columns["MA_LICH_TRINH"].HeaderText = "Mã Lịch Trình";
-        //    dgv_DanhSachLichTrinh.Columns["ID_TUYEN_DUONG"].HeaderText = "Mã Tuyến Đường";
-        //    dgv_DanhSachLichTrinh.Columns["KHOI_HANH"].HeaderText = "Khởi Hành";
-        //    dgv_DanhSachLichTrinh.Columns["KET_THUC"].HeaderText = "Kết Thúc";
-        //    dgv_DanhSachLichTrinh.Columns["GIA_VE"].HeaderText = "Giá Vé";
-        //    dgv_DanhSachLichTrinh.Columns["ID_XE"].HeaderText = "Xe";
-        //    dgv_DanhSachLichTrinh.Columns["SOGHETRONG"].HeaderText = "Số Ghế Trống";
-        //    dgv_DanhSachLichTrinh.Columns["NGAY_TAO_LICH_TRINH"].HeaderText = "Ngày Tạo Lịch Trình";
-
-        //    dgv_DanhSachLichTrinh.Columns["XE"].Visible = false;
-        //    dgv_DanhSachLichTrinh.Columns["TuyenDuong"].Visible = false;
-        //}
-
         private void HienThiDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
         {
-            var danhSachLichTrinh = ltBll.LayDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
-            dgv_DanhSachLichTrinh.DataSource = danhSachLichTrinh;
+            dgv_DanhSachLichTrinh.DataSource = ltBll.LayDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
 
             dgv_DanhSachLichTrinh.Columns["MA_LICH_TRINH"].HeaderText = "Mã Lịch Trình";
             dgv_DanhSachLichTrinh.Columns["ID_TUYEN_DUONG"].HeaderText = "Mã Tuyến Đường";
@@ -143,61 +123,9 @@ namespace GUI
             dgv_DanhSachLichTrinh.Columns["SOGHETRONG"].HeaderText = "Số Ghế Trống";
             dgv_DanhSachLichTrinh.Columns["NGAY_TAO_LICH_TRINH"].HeaderText = "Ngày Tạo Lịch Trình";
 
-            dgv_DanhSachLichTrinh.Columns["XE"].Visible = false;
-            dgv_DanhSachLichTrinh.Columns["TuyenDuong"].Visible = false;
         }
 
-        private void btn_XoaLichTrinh_Click(object sender, EventArgs e)
-        {
-            if (txt_MaLichTrinh.Text.Trim().Length != 0)
-            {
-                string maLichTrinh = txt_MaLichTrinh.Text;
-
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa lịch trình này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    bool xoaThanhCong = ltBll.XoaLichTrinh(maLichTrinh);
-
-                    if (xoaThanhCong)
-                    {
-                        MessageBox.Show("Xóa lịch trình thành công!");
-
-                        HienThiDanhSachLichTrinhTheoTuyenDuong(int.Parse(cbo_TuyenDuong.SelectedValue.ToString()));
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa lịch trình thất bại. Vui lòng thử lại.");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn lịch trình để xóa.");
-            }
-        }
-
-        private void databindding_DgvDsLichTrinh()
-        {
-            txt_MaLichTrinh.Text = dgv_DanhSachLichTrinh.CurrentRow.Cells["MA_LICH_TRINH"].Value.ToString();
-
-            cbo_TuyenDuong.DataBindings.Clear();
-            cbo_TuyenDuong.DataBindings.Add("SelectedValue", dgv_DanhSachLichTrinh.DataSource, "ID_TUYEN_DUONG");
-
-            dtp_NgayKhoiHanh.DataBindings.Clear();
-            dtp_NgayKhoiHanh.DataBindings.Add("Value", dgv_DanhSachLichTrinh.DataSource, "KHOI_HANH");
-
-            dtp_GioKhoiHanh.DataBindings.Clear();
-            dtp_GioKhoiHanh.DataBindings.Add("Value", dgv_DanhSachLichTrinh.DataSource, "KHOI_HANH");
-
-            txt_GiaVe.DataBindings.Clear();
-            txt_GiaVe.DataBindings.Add("Text", dgv_DanhSachLichTrinh.DataSource, "GIA_VE");
-
-            cbo_Xe.DataBindings.Clear();
-            cbo_Xe.DataBindings.Add("SelectedValue", dgv_DanhSachLichTrinh.DataSource, "ID_XE");
-
-        }
+        
 
         private void btn_CapNhatLichTrinh_Click(object sender, EventArgs e)
         {
@@ -225,5 +153,21 @@ namespace GUI
                 MessageBox.Show("Điền đầy đủ thông tin!");
             }
         }
+
+        private void dgv_DanhSachLichTrinh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+
+            DataGridViewRow dtgvr = dgv_DanhSachLichTrinh.Rows[e.RowIndex];
+
+            txt_MaLichTrinh.Text = dtgvr.Cells["MA_LICH_TRINH"].Value.ToString();
+            txt_GiaVe.Text = dtgvr.Cells["GIA_VE"].Value.ToString();
+            cbo_Xe.SelectedValue = dtgvr.Cells["ID_XE"].Value;
+
+        }
+
     }
 }
