@@ -12,6 +12,8 @@ namespace GUI
 {
     public partial class frm_Main : Form
     {
+        private string MaNV;
+        public UsCtrl_BanVe usBV;
         public frm_Main()
         {
             InitializeComponent();
@@ -20,8 +22,9 @@ namespace GUI
         {
             panel.Dock = DockStyle.Fill;
         }
-        public void setTenNV(string name)
+        public void setTenNV(string name,string manv)
         {
+            MaNV = manv;
             tsb_TenNV.Text = "Chào, "+name;
         }
 
@@ -69,10 +72,11 @@ namespace GUI
 
         private void tsb_BanVe_Click(object sender, EventArgs e)
         {
-            UsCtrl_BanVe us = new UsCtrl_BanVe();
+            UsCtrl_BanVe usBV = new UsCtrl_BanVe();
             panel.Controls.Clear();
-            us.Dock = DockStyle.Fill;
-            panel.Controls.Add(us);
+            usBV.getMaNV(MaNV);
+            usBV.Dock = DockStyle.Fill;
+            panel.Controls.Add(usBV);
         }
 
         private void tsb_Thoat_Click(object sender, EventArgs e)

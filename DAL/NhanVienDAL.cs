@@ -13,6 +13,7 @@ namespace DAL
     {
         public string str;
         SqlConnection conn;
+        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
         public NhanVienDAL()
         {
             str = ConfigurationManager.ConnectionStrings["QLBanVeXe"].ConnectionString;
@@ -55,6 +56,8 @@ namespace DAL
                 conn.Close();
             return name;
         }
+
+
 
     }
 }

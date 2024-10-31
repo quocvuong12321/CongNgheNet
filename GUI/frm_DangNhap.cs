@@ -71,7 +71,7 @@ namespace GUI
 
                 frm_Main frm = new frm_Main();
                 string name = nvBLL.getTenNV(txt_TaiKhoan.Text);
-                frm.setTenNV(name);
+                frm.setTenNV(name,txt_TaiKhoan.Text);
                 frm.ShowDialog();
                 this.Close();
             }

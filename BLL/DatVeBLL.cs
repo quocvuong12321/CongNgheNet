@@ -15,5 +15,24 @@ namespace BLL
         {
             return dvDAL.layLoaiXe(maLichTrinh);
         }
+
+        public int LaySoVe(string maLichTrinh)
+        {
+            return dvDAL.LaySoVe(maLichTrinh);
+        }
+        public bool LuuVe(Ve ve)
+        {
+            return dvDAL.LuuVe(ve);
+        }
+
+        public bool LuuChiTietVe(ChiTietVe ctVe)
+        {
+            return dvDAL.LuuChiTietVe(ctVe);
+        }
+
+        public int LayIDGhe(string viTriNgoi, string MaLichTrinh)
+        {
+            return dvDAL.LayIDGhe(viTriNgoi, MaLichTrinh);
+        }
     }
 }
