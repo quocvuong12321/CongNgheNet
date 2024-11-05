@@ -53,5 +53,10 @@ namespace BLL
         {
             return ltDAL.LayGiaLichTrinh(maLichTrinh);
         }
+
+        public List<LichTrinh> loadLT()
+        {
+            return ltDAL.loadLT();
+        }
     }
 }

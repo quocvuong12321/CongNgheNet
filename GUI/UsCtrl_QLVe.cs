@@ -7,14 +7,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DTO;
+using BLL;
 namespace GUI
 {
     public partial class UsCtrl_QLVe : UserControl
     {
+        LichTrinhBLL ltBLL = new LichTrinhBLL();
+        VeBLL vBLL = new VeBLL();
         public UsCtrl_QLVe()
         {
             InitializeComponent();
+        }
+
+
+        private void UsCtrl_QLVe_Load(object sender, EventArgs e)
+        {
+            cbo_LichTrinh.DataSource = ltBLL.loadLT();
+            cbo_LichTrinh.DisplayMember = "MA_LICH_TRINH";
+            cbo_LichTrinh.ValueMember= "MA_LICH_TRINH";
+            cbo_LichTrinh.SelectedItem = null;
+
+
+            string[] trangthai = { "Tất cả", "Chưa thanh toán", "Đã thanh toán" };
+            cbo_TrangThai.Items.AddRange(trangthai);
+            cbo_TrangThai.SelectedIndex = 0;
+            dgv_DSVe.DataSource = vBLL.LoadDSVe();
+        }
+
+        private void btn_DSVe_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            if(cbo_LichTrinh.SelectedItem== null || cbo_TrangThai.SelectedItem==null) {
+                MessageBox.Show("Vui lòng chọn mã lịch trình và trạngt thái");
+                return;
+            }
+
+            dgv_DSVe.DataSource = null;
+            dgv_DSVe.DataSource= vBLL.locVe(cbo_LichTrinh.SelectedValue.ToString(), cbo_TrangThai.SelectedItem.ToString());
+
+        }
+
+        private void btn_TimKiem_Click(object sender, EventArgs e)
+        {
+            if(txt_TimKiem.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Vui lòng nhập từ khoá cần tìm kiếm");
+                return;
+            }
+            dgv_DSVe.DataSource = null;
+            List<object> lst= vBLL.TimKiemVe(txt_TimKiem.Text);
+            if (lst != null)
+            {
+                dgv_DSVe.DataSource = lst;
+            }
+            else
+            {
+                MessageBox.Show("Thông tin tìm kiếm không tồn tại");
+            }
+            
         }
     }
 }

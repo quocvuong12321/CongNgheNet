@@ -234,6 +234,10 @@ namespace DAL
         }
 
 
+        public List<LichTrinh> loadLT()
+        {
+            return db.LichTrinhs.ToList();
+        }
 
     }
 }

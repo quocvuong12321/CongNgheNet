@@ -13,23 +13,32 @@ namespace DAL
     {
         public string str;
         SqlConnection conn;
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        public QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
         public NhanVienDAL()
         {
             str = ConfigurationManager.ConnectionStrings["QLBanVeXe"].ConnectionString;
             conn = new SqlConnection(str);
         }
+        public List<object> LoadNhanVien()
+        {
+            var dsNV = db.NHANVIENs.Select(nv => new
+            {
+                nv.USERNAME,
+                nv.HOTEN,
+                nv.SO_DT,
+                nv.GIOITINH,
+                nv.DIACHI,
+                nv.LOAINV
+            }).ToList();
+            return dsNV.Cast<object>().ToList();
+        }
 
-        public bool Insert(NhanVienDTO nv)
+        public bool Insert(NHANVIEN nv)
         {
             try {
-                conn.Open();
-                string sql = @"INSERT INTO NHANVIEN (USERNAME, MAT_KHAU, HOTEN, SO_DT, GIOITINH, DIACHI, LOAINV) VALUES
-                    ('"+nv.UserName+ "', '"+nv.MatKhau+ "', N'"+nv.HoTen+ "', '"+nv.SDT+ "', N'"+nv.GioiTinh+ "', N'"+nv.DiaChi+ "', N'"+nv.LoaiNV+"')";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                int kq = cmd.ExecuteNonQuery();
-                conn.Close();
-                return kq > 0;
+                db.NHANVIENs.InsertOnSubmit(nv);
+                db.SubmitChanges();
+                return true;
             }
             catch (Exception ex)
             {
@@ -39,25 +48,45 @@ namespace DAL
 
         public bool Login(string username, string password)
         {
-            conn.Open();
-                string sql = "select count(*) from NHANVIEN where USERNAME = '" + username + "' AND MAT_KHAU = '" + password + "'";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                int kq = (int)cmd.ExecuteScalar();
-            conn.Close();
-            return kq > 0;
+
+            NHANVIEN nv = db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username));
+            if (nv != null)
+            {
+                if (nv.MAT_KHAU.Equals(password))
+                    return true;
+                else return false;
+            }
+
+            return false;
         }
 
         public string getTenNV(string username) {
-            string name = string.Empty;
-                conn.Open();
-                string sql = "select HOTEN from NHANVIEN where USERNAME = '" + username + "'";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                name = (string)cmd.ExecuteScalar();
-                conn.Close();
-            return name;
+            return db.NHANVIENs.First(t => t.USERNAME.Equals(username)).HOTEN;
         }
 
 
+        public bool update(string username, NHANVIEN nvMoi)
+        {
+            NHANVIEN nv = db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username));
+            if (nv == null)
+            {
+                return false;
+            }
+            try
+            {
+                nv.HOTEN = nvMoi.HOTEN;
+                nv.SO_DT = nvMoi.SO_DT;
+                nv.GIOITINH = nvMoi.GIOITINH;
+                nv.DIACHI = nvMoi.DIACHI;
+                nv.LOAINV = nvMoi.LOAINV;
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: " + ex);
+            }
 
+        }
     }
 }

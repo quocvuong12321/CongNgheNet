@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TramDungChanDAL.cs" />
     <Compile Include="TuyenDuongDAL.cs" />
+    <Compile Include="VeDAL.cs" />
     <Compile Include="XeDAL.cs" />
   </ItemGroup>
   <ItemGroup>
