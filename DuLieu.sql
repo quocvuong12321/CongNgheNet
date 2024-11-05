@@ -60,15 +60,6 @@ VALUES ('LT012', 1, '2024-10-26 07:00:00',null, 330000, 3);
 go
 
 
-select * from LichTrinh;
-
-select * from DiaDiem;
-
-SELECT ID_TUYEN, THOI_GIAN_DI_CHUYEN FROM TuyenDuong;
-
-SELECT MA_LICH_TRINH, KHOI_HANH, KET_THUC FROM LichTrinh;
-
-select * from TRAMDUNGCHAN;
 
 
 INSERT INTO TRAMDUNGCHAN (ID_TramDungChan, TEN_TramDungChan, ID_DIADIEM) 
