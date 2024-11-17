@@ -1019,6 +1019,7 @@ namespace GUI
             this.dgv_ThongTinLichTrinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ThongTinLichTrinh.Size = new System.Drawing.Size(663, 150);
             this.dgv_ThongTinLichTrinh.TabIndex = 39;
+            this.dgv_ThongTinLichTrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ThongTinLichTrinh_CellClick);
             this.dgv_ThongTinLichTrinh.SelectionChanged += new System.EventHandler(this.dgv_ThongTinLichTrinh_SelectionChanged);
             // 
             // txt_MaVe
@@ -1026,6 +1027,7 @@ namespace GUI
             this.txt_MaVe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaVe.Location = new System.Drawing.Point(715, 337);
             this.txt_MaVe.Name = "txt_MaVe";
+            this.txt_MaVe.ReadOnly = true;
             this.txt_MaVe.Size = new System.Drawing.Size(229, 28);
             this.txt_MaVe.TabIndex = 40;
             // 

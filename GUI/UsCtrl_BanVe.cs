@@ -73,8 +73,13 @@ namespace GUI
 
         private void dgv_ThongTinLichTrinh_SelectionChanged(object sender, EventArgs e)
         {
+            
+        }
+        private void dgv_ThongTinLichTrinh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (dgv_ThongTinLichTrinh.SelectedRows.Count > 0)
             {
+
                 string mlt = dgv_ThongTinLichTrinh.SelectedRows[0].Cells[0].Value.ToString();
                 if (dvBLL.layLoaiXe(mlt))
                 {
@@ -87,11 +92,11 @@ namespace GUI
                     gb_Xe20.Visible = false;
                 }
                 txt_TongTien.Clear();
+                txt_MaVe.Clear();
                 txt_ViTriGhe.Clear();
                 LoadTinhTrangGhe(mlt);
             }
         }
-
 
         private Control FindControlRecursive(Control parent, string name)
         {
@@ -116,7 +121,8 @@ namespace GUI
 
         private void LoadTinhTrangGhe(string malichtrinh)
         {
-            List<GHE> lst = gBLL.LoadGhe(malichtrinh);
+            List<GHE> lst = new List<GHE>();
+            lst = gBLL.LoadGhe(malichtrinh);
             int SoGhe = gBLL.LaySoGhe(malichtrinh);
             giaVe = ltBLL.LayGiaLichTrinh(malichtrinh);
             foreach (var item in lst)
@@ -129,15 +135,7 @@ namespace GUI
 
                 if (seatButton != null)
                 {
-                    //if (trangThai.Equals("Đã đặt"))
-                    //{
-                    //    seatButton.BackColor = Color.Gray;
-                    //}
-                    //else
-                    //{
-                    //    seatButton.BackColor = Color.White;
-                    //    seatButton.Click += ChucNangChonGhe;
-                    //}
+                    seatButton.Click -= ChucNangChonGhe;
 
                     seatButton.BackColor = trangThai.Equals("Đã đặt") ? Color.Gray : Color.White;
                     if (trangThai.Equals("Đã đặt"))
@@ -149,11 +147,20 @@ namespace GUI
                         seatButton.Click += ChucNangChonGhe;
                     }
                 }
-                UpdateTongTien();
             }
         }
 
-
+        private void ResetGhe()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button seatButton && seatButton.Name.StartsWith("xe"))
+                {
+                    seatButton.BackColor = Color.White; // Reset màu ghế về mặc định
+                    seatButton.Click -= ChucNangChonGhe; // Gỡ sự kiện cũ
+                }
+            }
+        }
 
         private void ChucNangChonGhe(object sender, EventArgs e)
         {
@@ -172,6 +179,7 @@ namespace GUI
                 }
             }
             UpdateTongTien();
+            txt_ViTriGhe.Clear();
             txt_ViTriGhe.Text = String.Join(", ", gheDaChon);
         }
 
@@ -276,5 +284,7 @@ namespace GUI
             Nus.Dock = DockStyle.Fill;
 
         }
+
+        
     }
 }
