@@ -76,6 +76,7 @@ namespace GUI
             // Tạo đối tượng xe mới
             XeDTO xe = new XeDTO
             {
+                Id = int.Parse(txt_MaXe.Text),
                 BienSoXe = txtBienSoXe.Text,
                 SoGhe = int.Parse(cbo_SoGhe.SelectedItem.ToString()),
                 NgayThem = dtp_NgayThem.Value
@@ -143,7 +144,8 @@ namespace GUI
             HienThiDanhSachXe();
         }
 
-        private void dgv_DanhSachXe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void dgv_DanhSachXe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -151,10 +153,17 @@ namespace GUI
 
                 txt_MaXe.Text = row.Cells["Id"].Value.ToString();
                 txtBienSoXe.Text = row.Cells["BienSoXe"].Value.ToString();
-                dtp_NgayThem.Format = DateTimePickerFormat.Custom;
-                dtp_NgayThem.CustomFormat = "dd/MM/yyyy";
-                dtp_NgayThem.Value = DateTime.Parse(row.Cells["NgayThem"].Value.ToString());
-
+                // Kiểm tra và chuyển đổi giá trị ngày
+                if (DateTime.TryParse(row.Cells["NgayThem"].Value.ToString(), out DateTime ngayThem))
+                {
+                    dtp_NgayThem.Format = DateTimePickerFormat.Custom;
+                    dtp_NgayThem.CustomFormat = "dd/MM/yyyy";
+                    dtp_NgayThem.Value = ngayThem;
+                }
+                else
+                {
+                    MessageBox.Show("Ngày không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 // Cập nhật ComboBox với số ghế
                 string soGhe = row.Cells["SoGhe"].Value.ToString();
                 if (cbo_SoGhe.Items.Contains(soGhe))
@@ -167,6 +176,5 @@ namespace GUI
                 }
             }
         }
-
     }
 }

@@ -57,6 +57,7 @@
       <DependentUpon>QuanLyNhaXe.dbml</DependentUpon>
     </Compile>
     <Compile Include="ThongTinLichTrinhDTO.cs" />
+    <Compile Include="TuyenDuongDTO.cs" />
     <Compile Include="XeDTO.cs" />
   </ItemGroup>
   <ItemGroup>

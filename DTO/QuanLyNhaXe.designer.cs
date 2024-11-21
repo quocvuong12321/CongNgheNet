@@ -48,9 +48,6 @@ namespace DTO
     partial void InsertNHANVIEN(NHANVIEN instance);
     partial void UpdateNHANVIEN(NHANVIEN instance);
     partial void DeleteNHANVIEN(NHANVIEN instance);
-    partial void InsertTuyenDuong(TuyenDuong instance);
-    partial void UpdateTuyenDuong(TuyenDuong instance);
-    partial void DeleteTuyenDuong(TuyenDuong instance);
     partial void InsertTHEMTRAMDUNGCHAN(THEMTRAMDUNGCHAN instance);
     partial void UpdateTHEMTRAMDUNGCHAN(THEMTRAMDUNGCHAN instance);
     partial void DeleteTHEMTRAMDUNGCHAN(THEMTRAMDUNGCHAN instance);
@@ -60,13 +57,16 @@ namespace DTO
     partial void InsertTRAMDUNGCHAN(TRAMDUNGCHAN instance);
     partial void UpdateTRAMDUNGCHAN(TRAMDUNGCHAN instance);
     partial void DeleteTRAMDUNGCHAN(TRAMDUNGCHAN instance);
+    partial void InsertTuyenDuong(TuyenDuong instance);
+    partial void UpdateTuyenDuong(TuyenDuong instance);
+    partial void DeleteTuyenDuong(TuyenDuong instance);
     partial void InsertVe(Ve instance);
     partial void UpdateVe(Ve instance);
     partial void DeleteVe(Ve instance);
     #endregion
 		
 		public QuanLyNhaXeDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -143,14 +143,6 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<TuyenDuong> TuyenDuongs
-		{
-			get
-			{
-				return this.GetTable<TuyenDuong>();
-			}
-		}
-		
 		public System.Data.Linq.Table<THEMTRAMDUNGCHAN> THEMTRAMDUNGCHANs
 		{
 			get
@@ -172,6 +164,14 @@ namespace DTO
 			get
 			{
 				return this.GetTable<TRAMDUNGCHAN>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TuyenDuong> TuyenDuongs
+		{
+			get
+			{
+				return this.GetTable<TuyenDuong>();
 			}
 		}
 		
@@ -524,11 +524,11 @@ namespace DTO
 		
 		private string _TEN_TINH_THANH;
 		
+		private EntitySet<TRAMDUNGCHAN> _TRAMDUNGCHANs;
+		
 		private EntitySet<TuyenDuong> _TuyenDuongs;
 		
 		private EntitySet<TuyenDuong> _TuyenDuongs1;
-		
-		private EntitySet<TRAMDUNGCHAN> _TRAMDUNGCHANs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -542,9 +542,9 @@ namespace DTO
 		
 		public DiaDiem()
 		{
+			this._TRAMDUNGCHANs = new EntitySet<TRAMDUNGCHAN>(new Action<TRAMDUNGCHAN>(this.attach_TRAMDUNGCHANs), new Action<TRAMDUNGCHAN>(this.detach_TRAMDUNGCHANs));
 			this._TuyenDuongs = new EntitySet<TuyenDuong>(new Action<TuyenDuong>(this.attach_TuyenDuongs), new Action<TuyenDuong>(this.detach_TuyenDuongs));
 			this._TuyenDuongs1 = new EntitySet<TuyenDuong>(new Action<TuyenDuong>(this.attach_TuyenDuongs1), new Action<TuyenDuong>(this.detach_TuyenDuongs1));
-			this._TRAMDUNGCHANs = new EntitySet<TRAMDUNGCHAN>(new Action<TRAMDUNGCHAN>(this.attach_TRAMDUNGCHANs), new Action<TRAMDUNGCHAN>(this.detach_TRAMDUNGCHANs));
 			OnCreated();
 		}
 		
@@ -588,6 +588,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TRAMDUNGCHAN", Storage="_TRAMDUNGCHANs", ThisKey="ID_DIADIEM", OtherKey="ID_DIADIEM")]
+		public EntitySet<TRAMDUNGCHAN> TRAMDUNGCHANs
+		{
+			get
+			{
+				return this._TRAMDUNGCHANs;
+			}
+			set
+			{
+				this._TRAMDUNGCHANs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TuyenDuong", Storage="_TuyenDuongs", ThisKey="ID_DIADIEM", OtherKey="DIEM_DAU")]
 		public EntitySet<TuyenDuong> TuyenDuongs
 		{
@@ -614,19 +627,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TRAMDUNGCHAN", Storage="_TRAMDUNGCHANs", ThisKey="ID_DIADIEM", OtherKey="ID_DIADIEM")]
-		public EntitySet<TRAMDUNGCHAN> TRAMDUNGCHANs
-		{
-			get
-			{
-				return this._TRAMDUNGCHANs;
-			}
-			set
-			{
-				this._TRAMDUNGCHANs.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -645,6 +645,18 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_TRAMDUNGCHANs(TRAMDUNGCHAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.DiaDiem = this;
+		}
+		
+		private void detach_TRAMDUNGCHANs(TRAMDUNGCHAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.DiaDiem = null;
 		}
 		
 		private void attach_TuyenDuongs(TuyenDuong entity)
@@ -669,18 +681,6 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.DiaDiem1 = null;
-		}
-		
-		private void attach_TRAMDUNGCHANs(TRAMDUNGCHAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.DiaDiem = this;
-		}
-		
-		private void detach_TRAMDUNGCHANs(TRAMDUNGCHAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.DiaDiem = null;
 		}
 	}
 	
@@ -1545,298 +1545,6 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TuyenDuong")]
-	public partial class TuyenDuong : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_TUYEN;
-		
-		private string _TEN_TUYEN;
-		
-		private int _DIEM_DAU;
-		
-		private int _DIEM_CUOI;
-		
-		private double _KHOANG_CACH;
-		
-		private double _THOI_GIAN_DI_CHUYEN;
-		
-		private EntitySet<LichTrinh> _LichTrinhs;
-		
-		private EntityRef<DiaDiem> _DiaDiem;
-		
-		private EntityRef<DiaDiem> _DiaDiem1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_TUYENChanging(int value);
-    partial void OnID_TUYENChanged();
-    partial void OnTEN_TUYENChanging(string value);
-    partial void OnTEN_TUYENChanged();
-    partial void OnDIEM_DAUChanging(int value);
-    partial void OnDIEM_DAUChanged();
-    partial void OnDIEM_CUOIChanging(int value);
-    partial void OnDIEM_CUOIChanged();
-    partial void OnKHOANG_CACHChanging(double value);
-    partial void OnKHOANG_CACHChanged();
-    partial void OnTHOI_GIAN_DI_CHUYENChanging(double value);
-    partial void OnTHOI_GIAN_DI_CHUYENChanged();
-    #endregion
-		
-		public TuyenDuong()
-		{
-			this._LichTrinhs = new EntitySet<LichTrinh>(new Action<LichTrinh>(this.attach_LichTrinhs), new Action<LichTrinh>(this.detach_LichTrinhs));
-			this._DiaDiem = default(EntityRef<DiaDiem>);
-			this._DiaDiem1 = default(EntityRef<DiaDiem>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TUYEN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_TUYEN
-		{
-			get
-			{
-				return this._ID_TUYEN;
-			}
-			set
-			{
-				if ((this._ID_TUYEN != value))
-				{
-					this.OnID_TUYENChanging(value);
-					this.SendPropertyChanging();
-					this._ID_TUYEN = value;
-					this.SendPropertyChanged("ID_TUYEN");
-					this.OnID_TUYENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEN_TUYEN", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string TEN_TUYEN
-		{
-			get
-			{
-				return this._TEN_TUYEN;
-			}
-			set
-			{
-				if ((this._TEN_TUYEN != value))
-				{
-					this.OnTEN_TUYENChanging(value);
-					this.SendPropertyChanging();
-					this._TEN_TUYEN = value;
-					this.SendPropertyChanged("TEN_TUYEN");
-					this.OnTEN_TUYENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM_DAU", DbType="Int NOT NULL")]
-		public int DIEM_DAU
-		{
-			get
-			{
-				return this._DIEM_DAU;
-			}
-			set
-			{
-				if ((this._DIEM_DAU != value))
-				{
-					if (this._DiaDiem.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDIEM_DAUChanging(value);
-					this.SendPropertyChanging();
-					this._DIEM_DAU = value;
-					this.SendPropertyChanged("DIEM_DAU");
-					this.OnDIEM_DAUChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM_CUOI", DbType="Int NOT NULL")]
-		public int DIEM_CUOI
-		{
-			get
-			{
-				return this._DIEM_CUOI;
-			}
-			set
-			{
-				if ((this._DIEM_CUOI != value))
-				{
-					if (this._DiaDiem1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDIEM_CUOIChanging(value);
-					this.SendPropertyChanging();
-					this._DIEM_CUOI = value;
-					this.SendPropertyChanged("DIEM_CUOI");
-					this.OnDIEM_CUOIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KHOANG_CACH", DbType="Float NOT NULL")]
-		public double KHOANG_CACH
-		{
-			get
-			{
-				return this._KHOANG_CACH;
-			}
-			set
-			{
-				if ((this._KHOANG_CACH != value))
-				{
-					this.OnKHOANG_CACHChanging(value);
-					this.SendPropertyChanging();
-					this._KHOANG_CACH = value;
-					this.SendPropertyChanged("KHOANG_CACH");
-					this.OnKHOANG_CACHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THOI_GIAN_DI_CHUYEN", DbType="Float NOT NULL")]
-		public double THOI_GIAN_DI_CHUYEN
-		{
-			get
-			{
-				return this._THOI_GIAN_DI_CHUYEN;
-			}
-			set
-			{
-				if ((this._THOI_GIAN_DI_CHUYEN != value))
-				{
-					this.OnTHOI_GIAN_DI_CHUYENChanging(value);
-					this.SendPropertyChanging();
-					this._THOI_GIAN_DI_CHUYEN = value;
-					this.SendPropertyChanged("THOI_GIAN_DI_CHUYEN");
-					this.OnTHOI_GIAN_DI_CHUYENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TuyenDuong_LichTrinh", Storage="_LichTrinhs", ThisKey="ID_TUYEN", OtherKey="ID_TUYEN_DUONG")]
-		public EntitySet<LichTrinh> LichTrinhs
-		{
-			get
-			{
-				return this._LichTrinhs;
-			}
-			set
-			{
-				this._LichTrinhs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TuyenDuong", Storage="_DiaDiem", ThisKey="DIEM_DAU", OtherKey="ID_DIADIEM", IsForeignKey=true)]
-		public DiaDiem DiaDiem
-		{
-			get
-			{
-				return this._DiaDiem.Entity;
-			}
-			set
-			{
-				DiaDiem previousValue = this._DiaDiem.Entity;
-				if (((previousValue != value) 
-							|| (this._DiaDiem.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DiaDiem.Entity = null;
-						previousValue.TuyenDuongs.Remove(this);
-					}
-					this._DiaDiem.Entity = value;
-					if ((value != null))
-					{
-						value.TuyenDuongs.Add(this);
-						this._DIEM_DAU = value.ID_DIADIEM;
-					}
-					else
-					{
-						this._DIEM_DAU = default(int);
-					}
-					this.SendPropertyChanged("DiaDiem");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TuyenDuong1", Storage="_DiaDiem1", ThisKey="DIEM_CUOI", OtherKey="ID_DIADIEM", IsForeignKey=true)]
-		public DiaDiem DiaDiem1
-		{
-			get
-			{
-				return this._DiaDiem1.Entity;
-			}
-			set
-			{
-				DiaDiem previousValue = this._DiaDiem1.Entity;
-				if (((previousValue != value) 
-							|| (this._DiaDiem1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DiaDiem1.Entity = null;
-						previousValue.TuyenDuongs1.Remove(this);
-					}
-					this._DiaDiem1.Entity = value;
-					if ((value != null))
-					{
-						value.TuyenDuongs1.Add(this);
-						this._DIEM_CUOI = value.ID_DIADIEM;
-					}
-					else
-					{
-						this._DIEM_CUOI = default(int);
-					}
-					this.SendPropertyChanged("DiaDiem1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_LichTrinhs(LichTrinh entity)
-		{
-			this.SendPropertyChanging();
-			entity.TuyenDuong = this;
-		}
-		
-		private void detach_LichTrinhs(LichTrinh entity)
-		{
-			this.SendPropertyChanging();
-			entity.TuyenDuong = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THEMTRAMDUNGCHAN")]
 	public partial class THEMTRAMDUNGCHAN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2383,6 +2091,298 @@ namespace DTO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TuyenDuong")]
+	public partial class TuyenDuong : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_TUYEN;
+		
+		private string _TEN_TUYEN;
+		
+		private int _DIEM_DAU;
+		
+		private int _DIEM_CUOI;
+		
+		private double _KHOANG_CACH;
+		
+		private double _THOI_GIAN_DI_CHUYEN;
+		
+		private EntitySet<LichTrinh> _LichTrinhs;
+		
+		private EntityRef<DiaDiem> _DiaDiem;
+		
+		private EntityRef<DiaDiem> _DiaDiem1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_TUYENChanging(int value);
+    partial void OnID_TUYENChanged();
+    partial void OnTEN_TUYENChanging(string value);
+    partial void OnTEN_TUYENChanged();
+    partial void OnDIEM_DAUChanging(int value);
+    partial void OnDIEM_DAUChanged();
+    partial void OnDIEM_CUOIChanging(int value);
+    partial void OnDIEM_CUOIChanged();
+    partial void OnKHOANG_CACHChanging(double value);
+    partial void OnKHOANG_CACHChanged();
+    partial void OnTHOI_GIAN_DI_CHUYENChanging(double value);
+    partial void OnTHOI_GIAN_DI_CHUYENChanged();
+    #endregion
+		
+		public TuyenDuong()
+		{
+			this._LichTrinhs = new EntitySet<LichTrinh>(new Action<LichTrinh>(this.attach_LichTrinhs), new Action<LichTrinh>(this.detach_LichTrinhs));
+			this._DiaDiem = default(EntityRef<DiaDiem>);
+			this._DiaDiem1 = default(EntityRef<DiaDiem>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TUYEN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_TUYEN
+		{
+			get
+			{
+				return this._ID_TUYEN;
+			}
+			set
+			{
+				if ((this._ID_TUYEN != value))
+				{
+					this.OnID_TUYENChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TUYEN = value;
+					this.SendPropertyChanged("ID_TUYEN");
+					this.OnID_TUYENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEN_TUYEN", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string TEN_TUYEN
+		{
+			get
+			{
+				return this._TEN_TUYEN;
+			}
+			set
+			{
+				if ((this._TEN_TUYEN != value))
+				{
+					this.OnTEN_TUYENChanging(value);
+					this.SendPropertyChanging();
+					this._TEN_TUYEN = value;
+					this.SendPropertyChanged("TEN_TUYEN");
+					this.OnTEN_TUYENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM_DAU", DbType="Int NOT NULL")]
+		public int DIEM_DAU
+		{
+			get
+			{
+				return this._DIEM_DAU;
+			}
+			set
+			{
+				if ((this._DIEM_DAU != value))
+				{
+					if (this._DiaDiem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDIEM_DAUChanging(value);
+					this.SendPropertyChanging();
+					this._DIEM_DAU = value;
+					this.SendPropertyChanged("DIEM_DAU");
+					this.OnDIEM_DAUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEM_CUOI", DbType="Int NOT NULL")]
+		public int DIEM_CUOI
+		{
+			get
+			{
+				return this._DIEM_CUOI;
+			}
+			set
+			{
+				if ((this._DIEM_CUOI != value))
+				{
+					if (this._DiaDiem1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDIEM_CUOIChanging(value);
+					this.SendPropertyChanging();
+					this._DIEM_CUOI = value;
+					this.SendPropertyChanged("DIEM_CUOI");
+					this.OnDIEM_CUOIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KHOANG_CACH", DbType="Float NOT NULL")]
+		public double KHOANG_CACH
+		{
+			get
+			{
+				return this._KHOANG_CACH;
+			}
+			set
+			{
+				if ((this._KHOANG_CACH != value))
+				{
+					this.OnKHOANG_CACHChanging(value);
+					this.SendPropertyChanging();
+					this._KHOANG_CACH = value;
+					this.SendPropertyChanged("KHOANG_CACH");
+					this.OnKHOANG_CACHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THOI_GIAN_DI_CHUYEN", DbType="Float NOT NULL")]
+		public double THOI_GIAN_DI_CHUYEN
+		{
+			get
+			{
+				return this._THOI_GIAN_DI_CHUYEN;
+			}
+			set
+			{
+				if ((this._THOI_GIAN_DI_CHUYEN != value))
+				{
+					this.OnTHOI_GIAN_DI_CHUYENChanging(value);
+					this.SendPropertyChanging();
+					this._THOI_GIAN_DI_CHUYEN = value;
+					this.SendPropertyChanged("THOI_GIAN_DI_CHUYEN");
+					this.OnTHOI_GIAN_DI_CHUYENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TuyenDuong_LichTrinh", Storage="_LichTrinhs", ThisKey="ID_TUYEN", OtherKey="ID_TUYEN_DUONG")]
+		public EntitySet<LichTrinh> LichTrinhs
+		{
+			get
+			{
+				return this._LichTrinhs;
+			}
+			set
+			{
+				this._LichTrinhs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TuyenDuong", Storage="_DiaDiem", ThisKey="DIEM_DAU", OtherKey="ID_DIADIEM", IsForeignKey=true)]
+		public DiaDiem DiaDiem
+		{
+			get
+			{
+				return this._DiaDiem.Entity;
+			}
+			set
+			{
+				DiaDiem previousValue = this._DiaDiem.Entity;
+				if (((previousValue != value) 
+							|| (this._DiaDiem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DiaDiem.Entity = null;
+						previousValue.TuyenDuongs.Remove(this);
+					}
+					this._DiaDiem.Entity = value;
+					if ((value != null))
+					{
+						value.TuyenDuongs.Add(this);
+						this._DIEM_DAU = value.ID_DIADIEM;
+					}
+					else
+					{
+						this._DIEM_DAU = default(int);
+					}
+					this.SendPropertyChanged("DiaDiem");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiem_TuyenDuong1", Storage="_DiaDiem1", ThisKey="DIEM_CUOI", OtherKey="ID_DIADIEM", IsForeignKey=true)]
+		public DiaDiem DiaDiem1
+		{
+			get
+			{
+				return this._DiaDiem1.Entity;
+			}
+			set
+			{
+				DiaDiem previousValue = this._DiaDiem1.Entity;
+				if (((previousValue != value) 
+							|| (this._DiaDiem1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DiaDiem1.Entity = null;
+						previousValue.TuyenDuongs1.Remove(this);
+					}
+					this._DiaDiem1.Entity = value;
+					if ((value != null))
+					{
+						value.TuyenDuongs1.Add(this);
+						this._DIEM_CUOI = value.ID_DIADIEM;
+					}
+					else
+					{
+						this._DIEM_CUOI = default(int);
+					}
+					this.SendPropertyChanged("DiaDiem1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_LichTrinhs(LichTrinh entity)
+		{
+			this.SendPropertyChanging();
+			entity.TuyenDuong = this;
+		}
+		
+		private void detach_LichTrinhs(LichTrinh entity)
+		{
+			this.SendPropertyChanging();
+			entity.TuyenDuong = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ve")]
 	public partial class Ve : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2390,8 +2390,6 @@ namespace DTO
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _ID_VE;
-		
-		private string _TENKHACHHANG;
 		
 		private string _ID_LICH_TRINH;
 		
@@ -2407,6 +2405,8 @@ namespace DTO
 		
 		private string _SDT;
 		
+		private string _TENKHACHHANG;
+		
 		private EntitySet<ChiTietVe> _ChiTietVes;
 		
 		private EntityRef<LichTrinh> _LichTrinh;
@@ -2419,8 +2419,6 @@ namespace DTO
     partial void OnCreated();
     partial void OnID_VEChanging(string value);
     partial void OnID_VEChanged();
-    partial void OnTENKHACHHANGChanging(string value);
-    partial void OnTENKHACHHANGChanged();
     partial void OnID_LICH_TRINHChanging(string value);
     partial void OnID_LICH_TRINHChanged();
     partial void OnTONG_TIENChanging(double value);
@@ -2435,6 +2433,8 @@ namespace DTO
     partial void OnSOLUONGChanged();
     partial void OnSDTChanging(string value);
     partial void OnSDTChanged();
+    partial void OnTENKHACHHANGChanging(string value);
+    partial void OnTENKHACHHANGChanged();
     #endregion
 		
 		public Ve()
@@ -2461,26 +2461,6 @@ namespace DTO
 					this._ID_VE = value;
 					this.SendPropertyChanged("ID_VE");
 					this.OnID_VEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKHACHHANG", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
-		public string TENKHACHHANG
-		{
-			get
-			{
-				return this._TENKHACHHANG;
-			}
-			set
-			{
-				if ((this._TENKHACHHANG != value))
-				{
-					this.OnTENKHACHHANGChanging(value);
-					this.SendPropertyChanging();
-					this._TENKHACHHANG = value;
-					this.SendPropertyChanged("TENKHACHHANG");
-					this.OnTENKHACHHANGChanged();
 				}
 			}
 		}
@@ -2613,7 +2593,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(15)")]
 		public string SDT
 		{
 			get
@@ -2629,6 +2609,26 @@ namespace DTO
 					this._SDT = value;
 					this.SendPropertyChanged("SDT");
 					this.OnSDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKHACHHANG", DbType="VarChar(128)")]
+		public string TENKHACHHANG
+		{
+			get
+			{
+				return this._TENKHACHHANG;
+			}
+			set
+			{
+				if ((this._TENKHACHHANG != value))
+				{
+					this.OnTENKHACHHANGChanging(value);
+					this.SendPropertyChanging();
+					this._TENKHACHHANG = value;
+					this.SendPropertyChanged("TENKHACHHANG");
+					this.OnTENKHACHHANGChanged();
 				}
 			}
 		}

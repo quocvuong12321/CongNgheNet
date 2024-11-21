@@ -39,7 +39,6 @@ C:\Users\ASUS\Desktop\laptrinhnetTest\CongNgheNet\DTO\obj\Debug\DTO.pdb
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\bin\Debug\DTO.dll.config
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\bin\Debug\DTO.dll
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\bin\Debug\DTO.pdb
-C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\obj\Debug\DTO.dll
 C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\obj\Debug\DTO.pdb
@@ -65,3 +64,4 @@ D:\Nam3\clone\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
 D:\Nam3\clone\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Nam3\clone\CongNgheNet\DTO\obj\Debug\DTO.dll
 D:\Nam3\clone\CongNgheNet\DTO\obj\Debug\DTO.pdb
+C:\Users\Thanh Truc\OneDrive - Ho Chi Minh city University of Food Industry\Desktop\CongNgheNet\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
