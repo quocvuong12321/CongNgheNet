@@ -34,5 +34,15 @@ namespace BLL
         {
             return dvDAL.LayIDGhe(viTriNgoi, MaLichTrinh);
         }
+
+        public List<TRAMDUNGCHAN> layDiemDon(string malt, int diemkh)
+        {
+
+            return dvDAL.layDiemDon(malt, diemkh);
+        }
+        public List<TRAMDUNGCHAN> layDiemTra(string malt, int diemden)
+        {
+            return dvDAL.layDiemDon(malt, diemden);
+        }
     }
 }

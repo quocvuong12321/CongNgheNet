@@ -33,6 +33,15 @@ namespace GUI
             cbo_TrangThai.Items.AddRange(trangthai);
             cbo_TrangThai.SelectedIndex = 0;
             dgv_DSVe.DataSource = vBLL.LoadDSVe();
+            dgv_DSVe.Columns["ID_VE"].HeaderText = "Mã vé";
+            dgv_DSVe.Columns["TONG_TIEN"].HeaderText = "Tổng tiền";
+            dgv_DSVe.Columns["TENKHACHHANG"].HeaderText = "Tên khách hàng";
+            dgv_DSVe.Columns["SDT"].HeaderText = "Số điện thoại";
+            dgv_DSVe.Columns["TRANG_THAI"].HeaderText = "Trạng thái";
+            dgv_DSVe.Columns["DIEMDON"].HeaderText = "Điểm đón";
+            dgv_DSVe.Columns["DIEMTRA"].HeaderText = "Điểm trả";
+
+            dgv_DSVe.Columns["TONG_TIEN"].DefaultCellStyle.Format = "0,00" + " đ";
         }
 
         private void btn_DSVe_Click(object sender, EventArgs e)
@@ -43,7 +52,7 @@ namespace GUI
         private void btn_Loc_Click(object sender, EventArgs e)
         {
             if(cbo_LichTrinh.SelectedItem== null || cbo_TrangThai.SelectedItem==null) {
-                MessageBox.Show("Vui lòng chọn mã lịch trình và trạngt thái");
+                MessageBox.Show("Vui lòng chọn mã lịch trình và trạng thái");
                 return;
             }
 

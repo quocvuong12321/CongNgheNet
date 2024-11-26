@@ -79,8 +79,16 @@ namespace GUI
         {
             if (dgv_ThongTinLichTrinh.SelectedRows.Count > 0)
             {
-
                 string mlt = dgv_ThongTinLichTrinh.SelectedRows[0].Cells[0].Value.ToString();
+                int diemden = int.Parse(cbo_DiemDen.SelectedValue.ToString());
+                int diemdi = int.Parse(cbo_DiemDi.SelectedValue.ToString());
+
+                cbo_DiemDon.DataSource = dvBLL.layDiemDon(mlt, diemdi);
+                cbo_DiemDon.DisplayMember = "TEN_TramDungChan";
+                cbo_DiemDon.ValueMember = "ID_TramDungChan";
+                cbo_DiemTra.DataSource = dvBLL.layDiemTra(mlt, diemden);
+                cbo_DiemTra.DisplayMember = "TEN_TramDungChan";
+                cbo_DiemTra.ValueMember = "ID_TramDungChan";
                 if (dvBLL.layLoaiXe(mlt))
                 {
                     gb_Xe34.Visible = false;
@@ -150,17 +158,6 @@ namespace GUI
             }
         }
 
-        private void ResetGhe()
-        {
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is Button seatButton && seatButton.Name.StartsWith("xe"))
-                {
-                    seatButton.BackColor = Color.White; // Reset màu ghế về mặc định
-                    seatButton.Click -= ChucNangChonGhe; // Gỡ sự kiện cũ
-                }
-            }
-        }
 
         private void ChucNangChonGhe(object sender, EventArgs e)
         {
@@ -242,7 +239,9 @@ namespace GUI
                 ID_LICH_TRINH = maLichTrinhSelected,
                 TRANG_THAI = cboThanhToan.SelectedItem.ToString().Equals("Tại quầy") ? "Đã thanh toán" : "Chưa thanh toán",
                 NGAY_DAT_VE = DateTime.Now,
-                NHAN_VIEN_TAO = MaNhanVien
+                NHAN_VIEN_TAO = MaNhanVien,
+                DIEMDON = cbo_DiemDon.SelectedValue.ToString(),
+                DIEMTRA = cbo_DiemTra.SelectedValue.ToString()
             };
             if (dvBLL.LuuVe(newVe))
             {

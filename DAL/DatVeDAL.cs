@@ -12,10 +12,10 @@ namespace DAL
 
         public bool layLoaiXe(string malichtrinh)
         {
-            var result = db.ExecuteQuery<bool>(
-                "SELECT dbo.ChonXe({0})", malichtrinh).FirstOrDefault();
-
-            return result;
+            //var result = db.ExecuteQuery<bool>(
+            //    "SELECT dbo.ChonXe({0})", malichtrinh).FirstOrDefault();
+            bool kq = Convert.ToBoolean(db.ChonXe(malichtrinh));
+            return kq;
         }
 
         public int LaySoVe(string maLichTrinh)
@@ -59,5 +59,17 @@ namespace DAL
         }
 
 
+        public List<TRAMDUNGCHAN> layDiemDon(string malt, int diemkh)
+        {
+            List<THEMTRAMDUNGCHAN> lstTTDC = db.THEMTRAMDUNGCHANs.Where(t => t.MA_LICH_TRINH == malt && t.TRAMDUNGCHAN.ID_DIADIEM == diemkh).ToList();
+            List<TRAMDUNGCHAN> lstTDC = lstTTDC.Select(t => t.TRAMDUNGCHAN).ToList();
+            return lstTDC;
+        }
+        public List<TRAMDUNGCHAN> layDiemTra(string malt, int diemden)
+        {
+            List<THEMTRAMDUNGCHAN> lstTTDC = db.THEMTRAMDUNGCHANs.Where(t => t.MA_LICH_TRINH == malt && t.TRAMDUNGCHAN.ID_DIADIEM == diemden).ToList();
+            List<TRAMDUNGCHAN> lstTDC = lstTTDC.Select(t => t.TRAMDUNGCHAN).ToList();
+            return lstTDC;
+        }
     }
 }

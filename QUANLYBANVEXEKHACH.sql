@@ -100,12 +100,14 @@ CREATE TABLE [Ve] (
   SOLUONG int ,
   SDT VARCHAR(15),
   TENKHACHHANG NVARCHAR(128),
+  DIEMDON VARCHAR(128) ,
+  DIEMTRA VARCHAR(128) ,
+  FOREIGN KEY (DIEMDON) REFERENCES TRAMDUNGCHAN(ID_TramDungChan),
+  FOREIGN KEY (DIEMTRA) REFERENCES TRAMDUNGCHAN(ID_TramDungChan),
   FOREIGN KEY (ID_LICH_TRINH) REFERENCES LichTrinh(MA_LICH_TRINH),
   FOREIGN KEY (NHAN_VIEN_TAO) REFERENCES NHANVIEN(USERNAME)
 )
 GO
-
-
 
 
 CREATE TABLE [ChiTietVe] (
@@ -202,7 +204,7 @@ END
 GO
 
 
-
+--trigger tự động set số ghế của lịch trình dựa trên xe đã chọn
 CREATE TRIGGER trg_SetSoGheTrong
 ON [LichTrinh]
 AFTER INSERT
@@ -218,7 +220,7 @@ go
 
 
 
-
+--Trigger tự động update trạng thái khi thêm mới 1 chitietve (đặt 1 chỗ)
 Create trigger trg_AutoUpdateState
 on ChiTietVe
 AFTER INSERT
@@ -241,7 +243,7 @@ go
 
 
 
-
+--Trigger tự động update số ghế trống khi thêm mới 1 vé vào csdl
 Create trigger trg_AutoUpdateEmptySeats
 on Ve
 After insert
@@ -269,7 +271,7 @@ go
 
 
 --drop trigger trg_AutoSetEndDateTime
-
+--Trigger tự động thêm ngày kết thúc dựa vào TuyenDuong và Ngay khởi hành
 CREATE TRIGGER trg_AutoSetEndDateTime
 ON LichTrinh
 AFTER INSERT
@@ -302,9 +304,31 @@ begin
 					where lt.MA_LICH_TRINH = @malt
 	return iif(@soghe=20,1,0)
 end
+go
 
+-- fucntion lấy ra danh sách xe có thể gán cho lịch trình thỏa mãn điều kiện lịch trình KET_THUC > 2 ngày so với lịch trình khác
+CREATE FUNCTION dbo.LayDanhSachXeCoTheGan (@ngaykhoihanh DATETIME)
+RETURNS @danhsachxe TABLE (
+    ID_XE INT
+)
+AS
+BEGIN
+    -- Lọc các xe thỏa mãn điều kiện và chèn vào bảng trả về
+    INSERT INTO @danhsachxe (ID_XE)
+    SELECT DISTINCT LT.ID_XE
+    FROM LichTrinh LT
+    WHERE NOT EXISTS (
+        -- Kiểm tra nếu có một lịch trình không thỏa mãn điều kiện
+        SELECT 1
+        FROM LichTrinh LT2
+        WHERE LT2.ID_XE = LT.ID_XE
+        AND DATEDIFF(DAY, LT2.KET_THUC, @ngaykhoihanh) < 2
+    );
 
-
+    -- Trả về bảng tạm chứa danh sách xe hợp lệ
+    RETURN;
+END;
+GO
 
 
 

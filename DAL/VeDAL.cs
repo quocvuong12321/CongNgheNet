@@ -18,11 +18,10 @@ namespace DAL
                 ve.ID_LICH_TRINH,
                 ve.TENKHACHHANG,
                 ve.SDT,
+                DiemDon = ve.TRAMDUNGCHAN.TEN_TramDungChan,
+                DiemTra =ve.TRAMDUNGCHAN1.TEN_TramDungChan,
                 ve.TONG_TIEN,
-                ve.NHAN_VIEN_TAO,
-                ve.TRANG_THAI,
-                ve.NGAY_DAT_VE,
-                ve.SOLUONG
+                ve.TRANG_THAI
             }).ToList();
             return dsVe.Cast<object>().ToList();
         }

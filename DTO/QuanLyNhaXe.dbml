@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyBanVeXeKhach" Class="QuanLyNhaXeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-Q412LBS9\SQLEXPRESS;Initial Catalog=QuanLyBanVeXeKhach;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyBanVeXeKhachConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-86N3SME\SQL_KING;Initial Catalog=QuanLyBanVeXeKhach;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyBanVeXeKhachConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChiTietVe" Member="ChiTietVes">
     <Type Name="ChiTietVe">
       <Column Name="ID_VE" Type="System.String" DbType="VarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -21,9 +21,9 @@
     <Type Name="DiaDiem">
       <Column Name="ID_DIADIEM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TEN_TINH_THANH" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="DiaDiem_TRAMDUNGCHAN" Member="TRAMDUNGCHANs" ThisKey="ID_DIADIEM" OtherKey="ID_DIADIEM" Type="TRAMDUNGCHAN" />
       <Association Name="DiaDiem_TuyenDuong" Member="TuyenDuongs" ThisKey="ID_DIADIEM" OtherKey="DIEM_DAU" Type="TuyenDuong" />
       <Association Name="DiaDiem_TuyenDuong1" Member="TuyenDuongs1" ThisKey="ID_DIADIEM" OtherKey="DIEM_CUOI" Type="TuyenDuong" />
+      <Association Name="DiaDiem_TRAMDUNGCHAN" Member="TRAMDUNGCHANs" ThisKey="ID_DIADIEM" OtherKey="ID_DIADIEM" Type="TRAMDUNGCHAN" />
     </Type>
   </Table>
   <Table Name="dbo.GHE" Member="GHEs">
@@ -66,6 +66,19 @@
       <Association Name="NHANVIEN_Ve" Member="Ves" ThisKey="USERNAME" OtherKey="NHAN_VIEN_TAO" Type="Ve" />
     </Type>
   </Table>
+  <Table Name="dbo.TuyenDuong" Member="TuyenDuongs">
+    <Type Name="TuyenDuong">
+      <Column Name="ID_TUYEN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEN_TUYEN" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DIEM_DAU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIEM_CUOI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KHOANG_CACH" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="THOI_GIAN_DI_CHUYEN" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="TuyenDuong_LichTrinh" Member="LichTrinhs" ThisKey="ID_TUYEN" OtherKey="ID_TUYEN_DUONG" Type="LichTrinh" />
+      <Association Name="DiaDiem_TuyenDuong" Member="DiaDiem" ThisKey="DIEM_DAU" OtherKey="ID_DIADIEM" Type="DiaDiem" IsForeignKey="true" />
+      <Association Name="DiaDiem_TuyenDuong1" Member="DiaDiem1" ThisKey="DIEM_CUOI" OtherKey="ID_DIADIEM" Type="DiaDiem" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.THEMTRAMDUNGCHAN" Member="THEMTRAMDUNGCHANs">
     <Type Name="THEMTRAMDUNGCHAN">
       <Column Name="ID_TramDungChan" Type="System.String" DbType="VarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -90,20 +103,9 @@
       <Column Name="TEN_TramDungChan" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
       <Column Name="ID_DIADIEM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="TRAMDUNGCHAN_THEMTRAMDUNGCHAN" Member="THEMTRAMDUNGCHANs" ThisKey="ID_TramDungChan" OtherKey="ID_TramDungChan" Type="THEMTRAMDUNGCHAN" />
+      <Association Name="TRAMDUNGCHAN_Ve" Member="Ves" ThisKey="ID_TramDungChan" OtherKey="DIEMDON" Type="Ve" />
+      <Association Name="TRAMDUNGCHAN_Ve1" Member="Ves1" ThisKey="ID_TramDungChan" OtherKey="DIEMTRA" Type="Ve" />
       <Association Name="DiaDiem_TRAMDUNGCHAN" Member="DiaDiem" ThisKey="ID_DIADIEM" OtherKey="ID_DIADIEM" Type="DiaDiem" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TuyenDuong" Member="TuyenDuongs">
-    <Type Name="TuyenDuong">
-      <Column Name="ID_TUYEN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TEN_TUYEN" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="DIEM_DAU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DIEM_CUOI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="KHOANG_CACH" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="THOI_GIAN_DI_CHUYEN" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Association Name="TuyenDuong_LichTrinh" Member="LichTrinhs" ThisKey="ID_TUYEN" OtherKey="ID_TUYEN_DUONG" Type="LichTrinh" />
-      <Association Name="DiaDiem_TuyenDuong" Member="DiaDiem" ThisKey="DIEM_DAU" OtherKey="ID_DIADIEM" Type="DiaDiem" IsForeignKey="true" />
-      <Association Name="DiaDiem_TuyenDuong1" Member="DiaDiem1" ThisKey="DIEM_CUOI" OtherKey="ID_DIADIEM" Type="DiaDiem" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Ve" Member="Ves">
@@ -116,10 +118,24 @@
       <Column Name="NGAY_DAT_VE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="TENKHACHHANG" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="TENKHACHHANG" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="DIEMDON" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="DIEMTRA" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Association Name="Ve_ChiTietVe" Member="ChiTietVes" ThisKey="ID_VE" OtherKey="ID_VE" Type="ChiTietVe" />
+      <Association Name="TRAMDUNGCHAN_Ve" Member="TRAMDUNGCHAN" ThisKey="DIEMDON" OtherKey="ID_TramDungChan" Type="TRAMDUNGCHAN" IsForeignKey="true" />
+      <Association Name="TRAMDUNGCHAN_Ve1" Member="TRAMDUNGCHAN1" ThisKey="DIEMTRA" OtherKey="ID_TramDungChan" Type="TRAMDUNGCHAN" IsForeignKey="true" />
       <Association Name="LichTrinh_Ve" Member="LichTrinh" ThisKey="ID_LICH_TRINH" OtherKey="MA_LICH_TRINH" Type="LichTrinh" IsForeignKey="true" />
       <Association Name="NHANVIEN_Ve" Member="NHANVIEN" ThisKey="NHAN_VIEN_TAO" OtherKey="USERNAME" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.ChonXe" Method="ChonXe" IsComposable="true">
+    <Parameter Name="malt" Type="System.String" DbType="VarChar(128)" />
+    <Return Type="System.Boolean" />
+  </Function>
+  <Function Name="dbo.LayDanhSachXeCoTheGan" Method="LayDanhSachXeCoTheGan" IsComposable="true">
+    <Parameter Name="ngaykhoihanh" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="LayDanhSachXeCoTheGanResult">
+      <Column Name="ID_XE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

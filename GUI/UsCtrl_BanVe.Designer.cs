@@ -117,6 +117,10 @@ namespace GUI
             this.btn_Luu = new System.Windows.Forms.Button();
             this.cboThanhToan = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.cbo_DiemDon = new System.Windows.Forms.ComboBox();
+            this.cbo_DiemTra = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.gb_Xe20.SuspendLayout();
             this.gb_Xe34.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThongTinLichTrinh)).BeginInit();
@@ -457,33 +461,34 @@ namespace GUI
             // txt_TenKH
             // 
             this.txt_TenKH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TenKH.Location = new System.Drawing.Point(715, 377);
+            this.txt_TenKH.Location = new System.Drawing.Point(701, 377);
             this.txt_TenKH.Name = "txt_TenKH";
-            this.txt_TenKH.Size = new System.Drawing.Size(229, 28);
+            this.txt_TenKH.Size = new System.Drawing.Size(174, 28);
             this.txt_TenKH.TabIndex = 23;
             // 
             // txt_SDT
             // 
             this.txt_SDT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_SDT.Location = new System.Drawing.Point(715, 417);
+            this.txt_SDT.Location = new System.Drawing.Point(701, 417);
             this.txt_SDT.Name = "txt_SDT";
-            this.txt_SDT.Size = new System.Drawing.Size(229, 28);
+            this.txt_SDT.Size = new System.Drawing.Size(174, 28);
             this.txt_SDT.TabIndex = 24;
             // 
             // txt_ViTriGhe
             // 
             this.txt_ViTriGhe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ViTriGhe.Location = new System.Drawing.Point(715, 457);
+            this.txt_ViTriGhe.Location = new System.Drawing.Point(701, 457);
             this.txt_ViTriGhe.Name = "txt_ViTriGhe";
-            this.txt_ViTriGhe.Size = new System.Drawing.Size(229, 28);
+            this.txt_ViTriGhe.Size = new System.Drawing.Size(174, 28);
             this.txt_ViTriGhe.TabIndex = 25;
             // 
             // txt_TongTien
             // 
+            this.txt_TongTien.Enabled = false;
             this.txt_TongTien.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TongTien.Location = new System.Drawing.Point(715, 538);
+            this.txt_TongTien.Location = new System.Drawing.Point(701, 538);
             this.txt_TongTien.Name = "txt_TongTien";
-            this.txt_TongTien.Size = new System.Drawing.Size(229, 28);
+            this.txt_TongTien.Size = new System.Drawing.Size(174, 28);
             this.txt_TongTien.TabIndex = 26;
             // 
             // dtp_NgayDi
@@ -501,9 +506,9 @@ namespace GUI
             this.btn_Them.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Them.ForeColor = System.Drawing.Color.Green;
             this.btn_Them.Image = ((System.Drawing.Image)(resources.GetObject("btn_Them.Image")));
-            this.btn_Them.Location = new System.Drawing.Point(1027, 337);
+            this.btn_Them.Location = new System.Drawing.Point(1154, 333);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(139, 55);
+            this.btn_Them.Size = new System.Drawing.Size(105, 55);
             this.btn_Them.TabIndex = 32;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -516,9 +521,9 @@ namespace GUI
             this.btn_Huy.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Red;
             this.btn_Huy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Huy.Image")));
-            this.btn_Huy.Location = new System.Drawing.Point(1027, 407);
+            this.btn_Huy.Location = new System.Drawing.Point(1154, 403);
             this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(139, 55);
+            this.btn_Huy.Size = new System.Drawing.Size(105, 55);
             this.btn_Huy.TabIndex = 33;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1002,7 +1007,7 @@ namespace GUI
             // 
             this.btn_Tim.Location = new System.Drawing.Point(1117, 82);
             this.btn_Tim.Name = "btn_Tim";
-            this.btn_Tim.Size = new System.Drawing.Size(105, 35);
+            this.btn_Tim.Size = new System.Drawing.Size(142, 35);
             this.btn_Tim.TabIndex = 38;
             this.btn_Tim.Text = "Tìm";
             this.btn_Tim.UseVisualStyleBackColor = true;
@@ -1017,7 +1022,7 @@ namespace GUI
             this.dgv_ThongTinLichTrinh.RowHeadersWidth = 51;
             this.dgv_ThongTinLichTrinh.RowTemplate.Height = 24;
             this.dgv_ThongTinLichTrinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ThongTinLichTrinh.Size = new System.Drawing.Size(663, 150);
+            this.dgv_ThongTinLichTrinh.Size = new System.Drawing.Size(700, 150);
             this.dgv_ThongTinLichTrinh.TabIndex = 39;
             this.dgv_ThongTinLichTrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ThongTinLichTrinh_CellClick);
             this.dgv_ThongTinLichTrinh.SelectionChanged += new System.EventHandler(this.dgv_ThongTinLichTrinh_SelectionChanged);
@@ -1025,10 +1030,10 @@ namespace GUI
             // txt_MaVe
             // 
             this.txt_MaVe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MaVe.Location = new System.Drawing.Point(715, 337);
+            this.txt_MaVe.Location = new System.Drawing.Point(701, 337);
             this.txt_MaVe.Name = "txt_MaVe";
             this.txt_MaVe.ReadOnly = true;
-            this.txt_MaVe.Size = new System.Drawing.Size(229, 28);
+            this.txt_MaVe.Size = new System.Drawing.Size(174, 28);
             this.txt_MaVe.TabIndex = 40;
             // 
             // label15
@@ -1047,9 +1052,9 @@ namespace GUI
             this.btn_Luu.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_Luu.Image = ((System.Drawing.Image)(resources.GetObject("btn_Luu.Image")));
-            this.btn_Luu.Location = new System.Drawing.Point(1027, 478);
+            this.btn_Luu.Location = new System.Drawing.Point(1154, 474);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(139, 55);
+            this.btn_Luu.Size = new System.Drawing.Size(105, 55);
             this.btn_Luu.TabIndex = 32;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1060,9 +1065,9 @@ namespace GUI
             // 
             this.cboThanhToan.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThanhToan.FormattingEnabled = true;
-            this.cboThanhToan.Location = new System.Drawing.Point(715, 497);
+            this.cboThanhToan.Location = new System.Drawing.Point(701, 497);
             this.cboThanhToan.Name = "cboThanhToan";
-            this.cboThanhToan.Size = new System.Drawing.Size(229, 29);
+            this.cboThanhToan.Size = new System.Drawing.Size(174, 29);
             this.cboThanhToan.TabIndex = 42;
             // 
             // label16
@@ -1075,11 +1080,53 @@ namespace GUI
             this.label16.TabIndex = 43;
             this.label16.Text = "Thanh toán";
             // 
+            // cbo_DiemDon
+            // 
+            this.cbo_DiemDon.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_DiemDon.FormattingEnabled = true;
+            this.cbo_DiemDon.Location = new System.Drawing.Point(907, 383);
+            this.cbo_DiemDon.Name = "cbo_DiemDon";
+            this.cbo_DiemDon.Size = new System.Drawing.Size(208, 30);
+            this.cbo_DiemDon.TabIndex = 44;
+            // 
+            // cbo_DiemTra
+            // 
+            this.cbo_DiemTra.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_DiemTra.FormattingEnabled = true;
+            this.cbo_DiemTra.Location = new System.Drawing.Point(907, 474);
+            this.cbo_DiemTra.Name = "cbo_DiemTra";
+            this.cbo_DiemTra.Size = new System.Drawing.Size(208, 30);
+            this.cbo_DiemTra.TabIndex = 45;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(946, 349);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(91, 23);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Điểm đón";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(955, 437);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(82, 23);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Điểm trả";
+            // 
             // UsCtrl_BanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.cbo_DiemTra);
+            this.Controls.Add(this.cbo_DiemDon);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cboThanhToan);
             this.Controls.Add(this.label15);
@@ -1210,5 +1257,9 @@ namespace GUI
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.ComboBox cboThanhToan;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cbo_DiemDon;
+        private System.Windows.Forms.ComboBox cbo_DiemTra;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
