@@ -29,6 +29,7 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_DangNhap));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,6 +37,10 @@ namespace GUI
             this.txt_MatKhau = new System.Windows.Forms.TextBox();
             this.btn_DangNhap = new System.Windows.Forms.Button();
             this.chk_NhoMK = new System.Windows.Forms.CheckBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton_Restore = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_BackUp = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -43,7 +48,7 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(36, 102);
+            this.label1.Location = new System.Drawing.Point(82, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 24);
             this.label1.TabIndex = 0;
@@ -54,7 +59,7 @@ namespace GUI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(36, 166);
+            this.label2.Location = new System.Drawing.Point(82, 196);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 1;
@@ -65,7 +70,7 @@ namespace GUI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label3.Location = new System.Drawing.Point(140, 21);
+            this.label3.Location = new System.Drawing.Point(186, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(226, 46);
             this.label3.TabIndex = 2;
@@ -74,7 +79,7 @@ namespace GUI
             // txt_TaiKhoan
             // 
             this.txt_TaiKhoan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TaiKhoan.Location = new System.Drawing.Point(148, 98);
+            this.txt_TaiKhoan.Location = new System.Drawing.Point(194, 128);
             this.txt_TaiKhoan.Name = "txt_TaiKhoan";
             this.txt_TaiKhoan.Size = new System.Drawing.Size(333, 32);
             this.txt_TaiKhoan.TabIndex = 3;
@@ -84,7 +89,7 @@ namespace GUI
             // txt_MatKhau
             // 
             this.txt_MatKhau.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MatKhau.Location = new System.Drawing.Point(148, 162);
+            this.txt_MatKhau.Location = new System.Drawing.Point(194, 192);
             this.txt_MatKhau.Name = "txt_MatKhau";
             this.txt_MatKhau.Size = new System.Drawing.Size(333, 32);
             this.txt_MatKhau.TabIndex = 4;
@@ -94,7 +99,7 @@ namespace GUI
             // btn_DangNhap
             // 
             this.btn_DangNhap.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangNhap.Location = new System.Drawing.Point(40, 270);
+            this.btn_DangNhap.Location = new System.Drawing.Point(86, 300);
             this.btn_DangNhap.Name = "btn_DangNhap";
             this.btn_DangNhap.Size = new System.Drawing.Size(441, 44);
             this.btn_DangNhap.TabIndex = 5;
@@ -106,19 +111,53 @@ namespace GUI
             // 
             this.chk_NhoMK.AutoSize = true;
             this.chk_NhoMK.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_NhoMK.Location = new System.Drawing.Point(148, 223);
+            this.chk_NhoMK.Location = new System.Drawing.Point(194, 253);
             this.chk_NhoMK.Name = "chk_NhoMK";
             this.chk_NhoMK.Size = new System.Drawing.Size(151, 27);
             this.chk_NhoMK.TabIndex = 6;
             this.chk_NhoMK.Text = "Nhớ mật khẩu";
             this.chk_NhoMK.UseVisualStyleBackColor = true;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton_Restore,
+            this.toolStripButton_BackUp});
+            this.toolStrip1.Location = new System.Drawing.Point(602, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(30, 383);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton_Restore
+            // 
+            this.toolStripButton_Restore.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_Restore.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Restore.Image")));
+            this.toolStripButton_Restore.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Restore.Name = "toolStripButton_Restore";
+            this.toolStripButton_Restore.Size = new System.Drawing.Size(27, 24);
+            this.toolStripButton_Restore.Text = "Restore";
+            this.toolStripButton_Restore.Click += new System.EventHandler(this.toolStripButton_Restore_Click);
+            // 
+            // toolStripButton_BackUp
+            // 
+            this.toolStripButton_BackUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_BackUp.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_BackUp.Image")));
+            this.toolStripButton_BackUp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_BackUp.Name = "toolStripButton_BackUp";
+            this.toolStripButton_BackUp.Size = new System.Drawing.Size(27, 24);
+            this.toolStripButton_BackUp.Text = "Backup";
+            this.toolStripButton_BackUp.Click += new System.EventHandler(this.toolStripButton_BackUp_Click);
+            // 
             // frm_DangNhap
             // 
             this.AcceptButton = this.btn_DangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 341);
+            this.ClientSize = new System.Drawing.Size(632, 383);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.chk_NhoMK);
             this.Controls.Add(this.btn_DangNhap);
             this.Controls.Add(this.txt_MatKhau);
@@ -129,6 +168,8 @@ namespace GUI
             this.Name = "frm_DangNhap";
             this.Text = "frm_DangNhap";
             this.Load += new System.EventHandler(this.frm_DangNhap_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +184,8 @@ namespace GUI
         private System.Windows.Forms.TextBox txt_MatKhau;
         private System.Windows.Forms.Button btn_DangNhap;
         private System.Windows.Forms.CheckBox chk_NhoMK;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_Restore;
+        private System.Windows.Forms.ToolStripButton toolStripButton_BackUp;
     }
 }

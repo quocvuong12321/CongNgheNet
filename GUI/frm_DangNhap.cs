@@ -81,5 +81,50 @@ namespace GUI
             } 
                 
         }
+
+        private void toolStripButton_Restore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Backup Files (*.bak)|*.bak";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string backupPath = openFileDialog.FileName;
+                    RestoreBLL bll = new RestoreBLL();
+                    if (bll.RestoreDatabase(backupPath))
+                    {
+                        MessageBox.Show("Restore successful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStripButton_BackUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Backup Files (*.bak)|*.bak";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string backupPath = saveFileDialog.FileName;
+                    BackupBLL bll = new BackupBLL();
+                    if (bll.BackupDatabase(backupPath))
+                    {
+                        MessageBox.Show("Backup successful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
