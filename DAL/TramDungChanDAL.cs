@@ -9,7 +9,12 @@ namespace DAL
 {
     public class TramDungChanDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
+
+        public TramDungChanDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+        }
 
         public List<TRAMDUNGCHAN> LayTatCaTramDungChan()
         {

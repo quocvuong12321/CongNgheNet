@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyBanVeXeKhach" Class="QuanLyNhaXeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-86N3SME\SQL_KING;Initial Catalog=QuanLyBanVeXeKhach;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyBanVeXeKhachConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-86N3SME\SQL_KING;Initial Catalog=QuanLyBanVeXeKhach;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyBanVeXeKhachConnectionString4" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChiTietVe" Member="ChiTietVes">
     <Type Name="ChiTietVe">
       <Column Name="ID_VE" Type="System.String" DbType="VarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -121,6 +121,7 @@
       <Column Name="TENKHACHHANG" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Column Name="DIEMDON" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Column Name="DIEMTRA" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="HINHTHUCTHANHTOAN" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
       <Association Name="Ve_ChiTietVe" Member="ChiTietVes" ThisKey="ID_VE" OtherKey="ID_VE" Type="ChiTietVe" />
       <Association Name="TRAMDUNGCHAN_Ve" Member="TRAMDUNGCHAN" ThisKey="DIEMDON" OtherKey="ID_TramDungChan" Type="TRAMDUNGCHAN" IsForeignKey="true" />
       <Association Name="TRAMDUNGCHAN_Ve1" Member="TRAMDUNGCHAN1" ThisKey="DIEMTRA" OtherKey="ID_TramDungChan" Type="TRAMDUNGCHAN" IsForeignKey="true" />
@@ -128,6 +129,16 @@
       <Association Name="NHANVIEN_Ve" Member="NHANVIEN" ThisKey="NHAN_VIEN_TAO" OtherKey="USERNAME" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.ThemNhanVien" Method="ThemNhanVien">
+    <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="MAT_KHAU" Parameter="mAT_KHAU" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="HOTEN" Parameter="hOTEN" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="SO_DT" Parameter="sO_DT" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="GIOITINH" Parameter="gIOITINH" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="DIACHI" Parameter="dIACHI" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="LOAINV" Parameter="lOAINV" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.ChonXe" Method="ChonXe" IsComposable="true">
     <Parameter Name="malt" Type="System.String" DbType="VarChar(128)" />
     <Return Type="System.Boolean" />

@@ -20,11 +20,19 @@ namespace DAL
         DataColumn[] key;
         public LichTrinhDAL()
         {
-            str = ConfigurationManager.ConnectionStrings["QLBanVeXe"].ConnectionString;
+            //str = ConfigurationManager.ConnectionStrings["QLBanVeXe"].ConnectionString;
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
 
+            str = DTO.Connect.ConnectString;
             conn = new SqlConnection(str);
 
             ds = new DataSet();
+            
+
+        }
+
+        public DataTable loadLichTrinh()
+        {
             string sql = "Select * from LichTrinh;";
 
             da = new SqlDataAdapter(sql, conn);
@@ -32,10 +40,10 @@ namespace DAL
 
             key = new DataColumn[1];
             key[0] = ds.Tables["lt"].Columns[0];
-
+            return ds.Tables["lt"];
         }
 
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
         public List<ThongTinLichTrinhDTO> TTLichTrinh(int diemdau, int diemcuoi, DateTime ngaydi)
         {
             TuyenDuong d = db.TuyenDuongs.FirstOrDefault(t => t.DIEM_DAU == diemdau && t.DIEM_CUOI == diemcuoi);
@@ -82,6 +90,9 @@ namespace DAL
 
         public bool ThemLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
         {
+            if (ds.Tables["lt"] == null)
+                loadLichTrinh();
+
             try
             {
                 DataRow[] kiemTraTonTai = ds.Tables["lt"].Select("MA_LICH_TRINH = '" + maLichTrinh + "'");
@@ -121,6 +132,8 @@ namespace DAL
 
         public bool CapNhatLichTrinh(string maLichTrinh, int maTuyenDuong, DateTime khoiHanh, float giaVe, int maXe)
         {
+            if (ds.Tables["lt"] == null)
+                loadLichTrinh();
             try
             {
                 DataRow[] rows = ds.Tables["lt"].Select("MA_LICH_TRINH = '" + maLichTrinh + "'");
@@ -216,6 +229,8 @@ namespace DAL
 
         public DataTable LayDanhSachLichTrinhTheoTuyenDuong(int maTuyenDuong)
         {
+            if (ds.Tables["lt"] == null)
+                loadLichTrinh();
             DataRow[] rowDs = ds.Tables["lt"].Select("ID_TUYEN_DUONG = '" + maTuyenDuong + "'");
             if (rowDs.Length != 0)
             {

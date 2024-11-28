@@ -26,5 +26,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=LAPTOP-Q412LBS9\SQLEXPRESS;Initial Catalog=QuanLyBanVeXeKhach;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="QuanLyBanVeXeKhachConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-I22SAC7\TKHANGDI;Initial Catalog=QuanLyBanVeXeKhach;Persist Security Info=True;User ID=sa&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-I22SAC7\TKHANGDI;Initial Catalog=QuanLyBanVeXeKhach;Persist Security Info=True;User ID=sa</Value>
+    </Setting>
+    <Setting Name="QuanLyBanVeXeKhachConnectionString4" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-86N3SME\SQL_KING;Initial Catalog=QuanLyBanVeXeKhach;User ID=sa;Password=123&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-86N3SME\SQL_KING;Initial Catalog=QuanLyBanVeXeKhach;User ID=sa;Password=123</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

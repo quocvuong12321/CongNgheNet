@@ -8,8 +8,12 @@ namespace DAL
 {
     public class DatVeDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
 
+        public DatVeDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+        }
         public bool layLoaiXe(string malichtrinh)
         {
             //var result = db.ExecuteQuery<bool>(

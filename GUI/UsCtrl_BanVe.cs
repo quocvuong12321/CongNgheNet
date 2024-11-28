@@ -45,7 +45,7 @@ namespace GUI
 
         private void loadCboThanhToan()
         {
-            string[] ThanhToan = { "Tại quầy", "Khi lên xe" };
+            string[] ThanhToan = { "Tiền mặt", "Chuyển khoản" };
 
             cboThanhToan.Items.AddRange(ThanhToan);
         }
@@ -237,11 +237,12 @@ namespace GUI
                 TONG_TIEN = double.Parse(txt_TongTien.Tag.ToString()),
                 SOLUONG = gheDaChon.Count(),
                 ID_LICH_TRINH = maLichTrinhSelected,
-                TRANG_THAI = cboThanhToan.SelectedItem.ToString().Equals("Tại quầy") ? "Đã thanh toán" : "Chưa thanh toán",
+                TRANG_THAI = "Hiện tại",
                 NGAY_DAT_VE = DateTime.Now,
                 NHAN_VIEN_TAO = MaNhanVien,
                 DIEMDON = cbo_DiemDon.SelectedValue.ToString(),
-                DIEMTRA = cbo_DiemTra.SelectedValue.ToString()
+                DIEMTRA = cbo_DiemTra.SelectedValue.ToString(),
+                HINHTHUCTHANHTOAN = cboThanhToan.SelectedItem.ToString()
             };
             if (dvBLL.LuuVe(newVe))
             {

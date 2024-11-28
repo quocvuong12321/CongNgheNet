@@ -9,7 +9,12 @@ namespace DAL
 {
     public class TuyenDuongDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
+
+        public TuyenDuongDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+        }
         public List<TuyenDuong> TuyenDuong()
         {
             return db.TuyenDuongs.ToList();

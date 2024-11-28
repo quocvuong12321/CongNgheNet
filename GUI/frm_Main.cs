@@ -21,15 +21,15 @@ namespace GUI
             InitializeComponent();
         }
 
-        public void checkQuyen()
+        public void checkQuyen(string Role)
         {
-            if(role.Equals("Nhân viên"))
+            if(Role.Equals("Nhân viên"))
             {
                 tsb_QLLichTrinh.Enabled = false;
                 tsb_QLTuyenDuong.Enabled = false;
-                tsb_QLLichTrinh.Enabled = false;
+                //tsb_QLLichTrinh.Enabled = false;
                 tsb_QLXe.Enabled = false;
-                
+                tsb_QLTaiKhoan.Enabled = false;
             }
         }
 
@@ -108,18 +108,23 @@ namespace GUI
 
         private void tsb_DangXuat_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm_DangNhap frm = new frm_DangNhap();
-            if (frm.ShowDialog() == DialogResult.OK)
+            DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(r == DialogResult.Yes)
             {
-                // Sau khi đăng nhập thành công, hiển thị lại form chính
-                this.Show();
+                this.Hide();
+                frm_DangNhap frm = new frm_DangNhap();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    // Sau khi đăng nhập thành công, hiển thị lại form chính
+                    this.Show();
+                }
+                else
+                {
+                    // Thoát ứng dụng nếu người dùng đóng form đăng nhập mà không đăng nhập lại
+                    this.Close();
+                }
             }
-            else
-            {
-                // Thoát ứng dụng nếu người dùng đóng form đăng nhập mà không đăng nhập lại
-                this.Close();
-            }
+           
         }
 
         private void tsb_DoanhThu_Click(object sender, EventArgs e)

@@ -8,7 +8,11 @@ namespace DAL
 {
     public class GheDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
+        public GheDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+        }
         public List<GHE> HienThiGheTheoLichTrinh(string malt)
         {
             List<GHE> dsGhe = db.GHEs.Where(t => t.MA_LICH_TRINH.Equals(malt)).ToList();

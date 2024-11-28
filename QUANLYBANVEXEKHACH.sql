@@ -47,6 +47,8 @@ CREATE TABLE NHANVIEN(
 )
 GO
 
+
+
 CREATE TABLE [LichTrinh] (
   [MA_LICH_TRINH] varchar(128) PRIMARY KEY,
   [ID_TUYEN_DUONG] INT NOT NULL,
@@ -121,15 +123,6 @@ CREATE TABLE [ChiTietVe] (
 GO
 
 
-CREATE TABLE THONGKE(
-	[ID_THONG_KE] INT PRIMARY KEY IDENTITY(1,1),
-	[MA_LICH_TRINH] varchar(128) NOT NULL,
-	[SO_VE_DA_BAN] INT NOT NULL DEFAULT 0,
-	[TONG_DOANH_THU] float NOT NULL DEFAULT 0,
-	[SO_GHE_CON_TRONG] INT NOT NULL,
-	FOREIGN KEY (MA_LICH_TRINH) REFERENCES LichTrinh(MA_LICH_TRINH)
-)
-go
 
 
 -------------------------TRIGGER---------------------------------
@@ -383,5 +376,43 @@ BEGIN
     END CATCH
 END;
 GO
+
+
+
+
+--Tạo role và gán quyền
+sp_addrole 'QuanLyRole';
+go
+GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::dbo TO QuanLyRole; 
+GO
+
+sp_addrole 'NhanVienRole';
+go
+GRANT SELECT, INSERT, UPDATE ON Ve TO NhanVienRole
+GO
+GRANT SELECT, INSERT ON ChiTietVe TO NhanVienRole
+GO
+GRANT SELECT ON  LichTrinh TO NhanVienRole
+GO
+GRANT SELECT ON GHE TO NhanVienRole
+GO
+GRANT SELECT ON DiaDiem TO NhanVienRole
+GO
+GRANT SELECT ON TRAMDUNGCHAN  TO NhanVienRole
+GO
+GRANT SELECT ON Xe TO NhanVienRole
+GO
+GRANT SELECT ON TuyenDuong TO NhanVienRole
+GO
+GRANT SELECT ON THEMTRAMDUNGCHAN TO NhanVienRole
+GO
+GRANT EXECUTE ON [dbo].[ChonXe] TO NhanVienRole;
+go
+
+
+
+
+
+
 
 

@@ -8,7 +8,12 @@ namespace DAL
 {
     public class DiaDiemDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
+
+        public DiaDiemDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+        }
         public List<DiaDiem> loadDiaDiem() 
         {
             return db.DiaDiems.ToList();

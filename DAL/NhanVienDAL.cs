@@ -11,13 +11,10 @@ namespace DAL
 {
     public class NhanVienDAL
     {
-        public string str;
-        SqlConnection conn;
-        public QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        public QuanLyNhaXeDataContext db;
         public NhanVienDAL()
         {
-            str = ConfigurationManager.ConnectionStrings["QLBanVeXe"].ConnectionString;
-            conn = new SqlConnection(str);
+            db = new QuanLyNhaXeDataContext();
         }
         public List<object> LoadNhanVien()
         {
@@ -48,17 +45,20 @@ namespace DAL
 
         public bool Login(string username, string password)
         {
-
             NHANVIEN nv = db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username));
             if (nv != null)
             {
                 if (nv.MAT_KHAU.Equals(password))
+                {
+                    DTO.Connect.ConnectString = $"Data Source = DESKTOP-86N3SME\\SQL_KING;Database=QuanLyBanVeXeKhach;Integrated Security=False ;User Id={username};Password={password};";
                     return true;
+                }
                 else return false;
             }
-
             return false;
         }
+
+
 
         public string getTenNV(string username) {
             return db.NHANVIENs.First(t => t.USERNAME.Equals(username)).HOTEN;
@@ -87,6 +87,11 @@ namespace DAL
                 throw new Exception("Lỗi: " + ex);
             }
 
+        }
+
+        public string getRoleNhanVien(string username)
+        {
+            return db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username)).LOAINV;
         }
     }
 }

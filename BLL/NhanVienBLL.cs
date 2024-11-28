@@ -36,5 +36,10 @@ namespace BLL
         {
             return nvDAL.update(username, nvMoi);
         }
+
+        public string getRoleNhanVien(string username)
+        {
+            return nvDAL.getRoleNhanVien(username);
+        }
     }
 }

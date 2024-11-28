@@ -66,7 +66,7 @@ namespace DTO
     #endregion
 		
 		public QuanLyNhaXeDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -181,6 +181,13 @@ namespace DTO
 			{
 				return this.GetTable<Ve>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ThemNhanVien")]
+		public int ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="NVarChar(128)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAT_KHAU", DbType="NVarChar(128)")] string mAT_KHAU, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HOTEN", DbType="NVarChar(128)")] string hOTEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SO_DT", DbType="NVarChar(128)")] string sO_DT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GIOITINH", DbType="NVarChar(5)")] string gIOITINH, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DIACHI", DbType="NVarChar(128)")] string dIACHI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LOAINV", DbType="NVarChar(128)")] string lOAINV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, mAT_KHAU, hOTEN, sO_DT, gIOITINH, dIACHI, lOAINV);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChonXe", IsComposable=true)]
@@ -2479,6 +2486,8 @@ namespace DTO
 		
 		private string _DIEMTRA;
 		
+		private string _HINHTHUCTHANHTOAN;
+		
 		private EntitySet<ChiTietVe> _ChiTietVes;
 		
 		private EntityRef<TRAMDUNGCHAN> _TRAMDUNGCHAN;
@@ -2515,6 +2524,8 @@ namespace DTO
     partial void OnDIEMDONChanged();
     partial void OnDIEMTRAChanging(string value);
     partial void OnDIEMTRAChanged();
+    partial void OnHINHTHUCTHANHTOANChanging(string value);
+    partial void OnHINHTHUCTHANHTOANChanged();
     #endregion
 		
 		public Ve()
@@ -2759,6 +2770,26 @@ namespace DTO
 					this._DIEMTRA = value;
 					this.SendPropertyChanged("DIEMTRA");
 					this.OnDIEMTRAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HINHTHUCTHANHTOAN", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string HINHTHUCTHANHTOAN
+		{
+			get
+			{
+				return this._HINHTHUCTHANHTOAN;
+			}
+			set
+			{
+				if ((this._HINHTHUCTHANHTOAN != value))
+				{
+					this.OnHINHTHUCTHANHTOANChanging(value);
+					this.SendPropertyChanging();
+					this._HINHTHUCTHANHTOAN = value;
+					this.SendPropertyChanged("HINHTHUCTHANHTOAN");
+					this.OnHINHTHUCTHANHTOANChanged();
 				}
 			}
 		}

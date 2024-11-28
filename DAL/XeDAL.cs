@@ -9,7 +9,13 @@ namespace DAL
 {
     public class XeDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
+
+        public XeDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+
+        }
         public List<Xe> Xe()
         {
             return db.Xes.ToList();

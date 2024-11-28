@@ -31,7 +31,7 @@ namespace GUI
             txt_TaiKhoan.ForeColor = Color.Gray;
         }
 
-
+        
         private void txt_TaiKhoan_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_TaiKhoan.Text))
@@ -68,10 +68,11 @@ namespace GUI
         {
             if (nvBLL.Login(txt_TaiKhoan.Text, txt_MatKhau.Text))
             {
-
                 frm_Main frm = new frm_Main();
+                frm.role = nvBLL.getRoleNhanVien(txt_TaiKhoan.Text);
                 string name = nvBLL.getTenNV(txt_TaiKhoan.Text);
                 frm.setTenNV(name,txt_TaiKhoan.Text);
+                frm.checkQuyen(frm.role);
                 frm.ShowDialog();
                 this.Close();
             }
@@ -80,6 +81,51 @@ namespace GUI
                 MessageBox.Show("Sai mật khẩu hoặc tài khoản");
             } 
                 
+        }
+
+        private void toolStripButton_Restore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Backup Files (*.bak)|*.bak";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string backupPath = openFileDialog.FileName;
+                    RestoreBLL bll = new RestoreBLL();
+                    if (bll.RestoreDatabase(backupPath))
+                    {
+                        MessageBox.Show("Restore successful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStripButton_BackUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Backup Files (*.bak)|*.bak";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string backupPath = saveFileDialog.FileName;
+                    BackupBLL bll = new BackupBLL();
+                    if (bll.BackupDatabase(backupPath))
+                    {
+                        MessageBox.Show("Backup successful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

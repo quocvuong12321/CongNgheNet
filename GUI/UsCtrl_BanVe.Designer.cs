@@ -476,6 +476,7 @@ namespace GUI
             // 
             // txt_ViTriGhe
             // 
+            this.txt_ViTriGhe.Enabled = false;
             this.txt_ViTriGhe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ViTriGhe.Location = new System.Drawing.Point(701, 457);
             this.txt_ViTriGhe.Name = "txt_ViTriGhe";
@@ -1029,6 +1030,7 @@ namespace GUI
             // 
             // txt_MaVe
             // 
+            this.txt_MaVe.Enabled = false;
             this.txt_MaVe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaVe.Location = new System.Drawing.Point(701, 337);
             this.txt_MaVe.Name = "txt_MaVe";

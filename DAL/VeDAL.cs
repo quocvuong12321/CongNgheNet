@@ -8,8 +8,13 @@ namespace DAL
 {
     public class VeDAL
     {
-        QuanLyNhaXeDataContext db = new QuanLyNhaXeDataContext();
+        QuanLyNhaXeDataContext db;
 
+        public VeDAL()
+        {
+            db = new QuanLyNhaXeDataContext(DTO.Connect.ConnectString);
+
+        }
         public List<object> LoadlstVe(List<Ve> lstve)
         {
             var dsVe = lstve.Select(ve => new
