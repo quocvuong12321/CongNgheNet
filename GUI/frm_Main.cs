@@ -14,10 +14,25 @@ namespace GUI
     {
         private string MaNV;
         public UsCtrl_BanVe usBV;
+
+        public string role;
         public frm_Main()
         {
             InitializeComponent();
         }
+
+        public void checkQuyen()
+        {
+            if(role.Equals("Nhân viên"))
+            {
+                tsb_QLLichTrinh.Enabled = false;
+                tsb_QLTuyenDuong.Enabled = false;
+                tsb_QLLichTrinh.Enabled = false;
+                tsb_QLXe.Enabled = false;
+                
+            }
+        }
+
         private void frm_Main_Load(object sender, EventArgs e)
         {
             panel.Dock = DockStyle.Fill;
@@ -123,8 +138,5 @@ namespace GUI
             us.Dock = DockStyle.Fill;
             panel.Controls.Add(us);
         }
-
-
-        
     }
 }

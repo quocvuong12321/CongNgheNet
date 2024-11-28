@@ -95,13 +95,14 @@ CREATE TABLE [Ve] (
   [ID_LICH_TRINH] varchar(128) NOT NULL,
   [TONG_TIEN] float NOT NULL,
   NHAN_VIEN_TAO VARCHAR(128),
-  [TRANG_THAI] Nvarchar(128) NOT NULL CHECK ([TRANG_THAI] IN (N'Đã thanh toán', N'Chưa thanh toán')),
+  [TRANG_THAI] Nvarchar(128) NOT NULL CHECK ([TRANG_THAI] IN (N'Hiện tại', N'Đã đi',N'Đã huỷ')),
   [NGAY_DAT_VE]  datetime NOT NULL DEFAULT GETDATE(),
   SOLUONG int ,
   SDT VARCHAR(15),
   TENKHACHHANG NVARCHAR(128),
-  DIEMDON VARCHAR(128) ,
-  DIEMTRA VARCHAR(128) ,
+  DIEMDON VARCHAR(128),
+  DIEMTRA VARCHAR(128),
+  HINHTHUCTHANHTOAN NVARCHAR(128) NOT NULL CHECK (HINHTHUCTHANHTOAN in (N'Chuyển khoản',N'Tiền mặt')),
   FOREIGN KEY (DIEMDON) REFERENCES TRAMDUNGCHAN(ID_TramDungChan),
   FOREIGN KEY (DIEMTRA) REFERENCES TRAMDUNGCHAN(ID_TramDungChan),
   FOREIGN KEY (ID_LICH_TRINH) REFERENCES LichTrinh(MA_LICH_TRINH),
@@ -332,5 +333,55 @@ GO
 
 
 
+
+CREATE PROCEDURE ThemNhanVien
+    @USERNAME NVARCHAR(128),     -- Tên đăng nhập của nhân viên
+    @MAT_KHAU NVARCHAR(128),     -- Mật khẩu đăng nhập
+    @HOTEN NVARCHAR(128),        -- Họ tên nhân viên
+    @SO_DT NVARCHAR(128) = NULL, -- Số điện thoại (tùy chọn)
+    @GIOITINH NVARCHAR(5),       -- Giới tính (Nam/Nữ)
+    @DIACHI NVARCHAR(128) = NULL,-- Địa chỉ (tùy chọn)
+    @LOAINV NVARCHAR(128)        -- Loại nhân viên (Quản lý/Nhân viên)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Thêm nhân viên vào bảng NHANVIEN
+        INSERT INTO NHANVIEN (USERNAME, MAT_KHAU, HOTEN, SO_DT, GIOITINH, DIACHI, LOAINV)
+        VALUES (@USERNAME, @MAT_KHAU, @HOTEN, @SO_DT, @GIOITINH, @DIACHI, @LOAINV);
+
+        -- Kiểm tra loại nhân viên để gán quyền phù hợp
+        DECLARE @ROLE NVARCHAR(128);
+        IF (@LOAINV = N'Quản lý')
+            SET @ROLE = N'QuanLyRole'; -- Quyền dành cho quản lý
+        ELSE
+            SET @ROLE = N'NhanVienRole'; -- Quyền dành cho nhân viên
+
+        -- Tạo SQL Server login
+        DECLARE @SQL NVARCHAR(MAX);
+        SET @SQL = N'CREATE LOGIN [' + @USERNAME + N'] WITH PASSWORD = ''' + @MAT_KHAU + N''';';
+        EXEC sp_executesql @SQL;
+
+        -- Tạo database user tương ứng với login
+        SET @SQL = N'CREATE USER [' + @USERNAME + N'] FOR LOGIN [' + @USERNAME + N'];';
+        EXEC sp_executesql @SQL;
+
+        -- Gán quyền cho user dựa vào vai trò
+        SET @SQL = N'EXEC sp_addrolemember ''' + @ROLE + ''', [' + @USERNAME + N'];';
+        EXEC sp_executesql @SQL;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+
+        -- Xử lý lỗi
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT @ErrorMessage = ERROR_MESSAGE(), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END;
+GO
 
 
