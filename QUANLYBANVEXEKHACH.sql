@@ -382,12 +382,15 @@ GO
 
 --Tạo role và gán quyền
 sp_addrole 'QuanLyRole';
-go
-GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::dbo TO QuanLyRole; 
 GO
 
+GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON SCHEMA::dbo TO QuanLyRole; 
+GO
+
+
 sp_addrole 'NhanVienRole';
-go
+GO
+
 GRANT SELECT, INSERT, UPDATE ON Ve TO NhanVienRole
 GO
 GRANT SELECT, INSERT ON ChiTietVe TO NhanVienRole
