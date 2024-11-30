@@ -36,8 +36,8 @@ namespace GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_XuatBaoCaoTheoThang = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbo_Nam = new System.Windows.Forms.ComboBox();
+            this.cbo_Thang = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_timTheoNgay = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,8 +70,8 @@ namespace GUI
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btn_XuatBaoCaoTheoThang);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbo_Nam);
+            this.groupBox2.Controls.Add(this.cbo_Thang);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(226, 218);
@@ -125,21 +125,21 @@ namespace GUI
             this.btn_XuatBaoCaoTheoThang.UseVisualStyleBackColor = true;
             this.btn_XuatBaoCaoTheoThang.Click += new System.EventHandler(this.btn_XuatBaoCaoTheoThang_Click);
             // 
-            // comboBox2
+            // cbo_Nam
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(373, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 28);
-            this.comboBox2.TabIndex = 19;
+            this.cbo_Nam.FormattingEnabled = true;
+            this.cbo_Nam.Location = new System.Drawing.Point(373, 27);
+            this.cbo_Nam.Name = "cbo_Nam";
+            this.cbo_Nam.Size = new System.Drawing.Size(100, 28);
+            this.cbo_Nam.TabIndex = 19;
             // 
-            // comboBox1
+            // cbo_Thang
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(168, 27);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 28);
-            this.comboBox1.TabIndex = 18;
+            this.cbo_Thang.FormattingEnabled = true;
+            this.cbo_Thang.Location = new System.Drawing.Point(168, 27);
+            this.cbo_Thang.Name = "cbo_Thang";
+            this.cbo_Thang.Size = new System.Drawing.Size(100, 28);
+            this.cbo_Thang.TabIndex = 18;
             // 
             // groupBox1
             // 
@@ -151,7 +151,7 @@ namespace GUI
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(226, 107);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(901, 75);
+            this.groupBox1.Size = new System.Drawing.Size(901, 82);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lọc dữ liệu theo ngày";
@@ -257,8 +257,8 @@ namespace GUI
         private System.Windows.Forms.Button btn_timTheoThang;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbo_Nam;
+        private System.Windows.Forms.ComboBox cbo_Thang;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_timTheoNgay;
         private System.Windows.Forms.Button btn_XuatBaoCaoTheoThang;

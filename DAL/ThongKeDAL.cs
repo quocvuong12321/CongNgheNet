@@ -1,6 +1,8 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,14 +37,6 @@ namespace DAL
             {
                 var danhSachVe = db.Ves
                     .Where(ve => ve.ID_LICH_TRINH == maLichTrinh)
-                    //.Select(ve => new Ve
-                    //{
-                    //    ID_VE = ve.ID_VE,
-                    //    ID_LICH_TRINH = ve.ID_LICH_TRINH,
-                    //    TONG_TIEN = ve.TONG_TIEN,
-                    //    NHAN_VIEN_TAO = ve.NHAN_VIEN_TAO,
-                    //    SOLUONG = ve.SOLUONG
-                    //})
                     .ToList();
 
                 return danhSachVe;
@@ -89,6 +83,25 @@ namespace DAL
                 return new List<Ve>(); // Trả về danh sách rỗng khi có lỗi
             }
         }
+
+        //public DataTable GetDoanhThuThang(int thang, int nam)
+        //{
+        //    DataTable dt = new DataTable();
+        //    string query = "sp_GetDoanhThuThang";
+
+        //    using (SqlConnection conn = new SqlConnection("Data Source = DESKTOP-I22SAC7\\TKHANGDI;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id=sa;Password=123;"))
+        //    {
+        //        SqlCommand cmd = new SqlCommand(query, conn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.Parameters.Add(new SqlParameter("Thang", thang));
+        //        cmd.Parameters.Add(new SqlParameter("Nam", nam));
+
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(dt);
+        //    }
+
+        //    return dt;
+        //}
 
 
     }

@@ -20,13 +20,31 @@ namespace GUI
             InitializeComponent();
         }
 
+        public void loadCbo_Thang()
+        {
+            for (int i = 1; i <= 12; i++)
+            {
+                cbo_Thang.Items.Add(i.ToString());
+            }
+        }
+
+        public void loadCbo_Nam()
+        {
+            for (int i = 2000; i <= 2025; i++)
+            {
+                cbo_Nam.Items.Add(i.ToString());
+            }
+        }
+
 
 
         private void UsCtrl_ThongKeDoanhThu_Load(object sender, EventArgs e)
         {
-            //// Đặt DateTimePicker ban đầu không hiển thị giá trị
-            //dtp_Ngay.Format = DateTimePickerFormat.Custom;
-            //dtp_Ngay.CustomFormat = " "; // Hiển thị trống
+            loadCbo_Thang();
+            loadCbo_Nam();
+
+            cbo_Thang.SelectedIndex = 0;
+            cbo_Nam.SelectedIndex = cbo_Nam.Items.Count - 1;
         }
 
         private void btn_timTheoNgay_Click(object sender, EventArgs e)
@@ -41,35 +59,34 @@ namespace GUI
                 // Lấy danh sách vé theo ngày
                 List<Ve> danhSachve = tkBll.LayDanhSachVeTheoNgay(selectedDate);
 
-                // Tạm thời hủy sự kiện SelectedIndexChanged
-                //cbo_LichTrinh.SelectedIndexChanged -= cbo_LichTrinh_SelectedIndexChanged;
 
                 if (danhSachve.Any())
                 {
                     // Bind danh sách lịch trình vào ComboBox
                     dgv_Ve.DataSource = danhSachve;
-                    //cbo_LichTrinh.DisplayMember = "MA_LICH_TRINH"; // Hiển thị mã lịch trình
-                    //cbo_LichTrinh.ValueMember = "MA_LICH_TRINH";  // Giá trị là mã lịch trình
 
-                    // Đặt SelectedIndex = -1 để không chọn phần tử đầu tiên
-                    //cbo_LichTrinh.SelectedIndex = -1;
+                    dgv_Ve.Columns["SDT"].Visible = false;
+                    dgv_Ve.Columns["DIEMDON"].Visible = false;
+                    dgv_Ve.Columns["DIEMTRA"].Visible = false;
+                    dgv_Ve.Columns["HINHTHUCTHANHTOAN"].Visible = false;
+                    dgv_Ve.Columns["TRAMDUNGCHAN"].Visible = false;
+                    dgv_Ve.Columns["TRAMDUNGCHAN1"].Visible = false;
+                    dgv_Ve.Columns["LICHTRINH"].Visible = false;
+                    dgv_Ve.Columns["NHANVIEN"].Visible = false;
                 }
                 else
                 {
-                    // Nếu không có lịch trình, hiển thị thông báo và xóa dữ liệu ComboBox
-                    //cbo_LichTrinh.DataSource = null;
                     dgv_Ve.DataSource = null; // Xóa dữ liệu DataGridView
                     MessageBox.Show("Không có lịch trình nào trong ngày đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                // Gắn lại sự kiện SelectedIndexChanged
-                //cbo_LichTrinh.SelectedIndexChanged += cbo_LichTrinh_SelectedIndexChanged;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btn_XuatBaoCaoTheoNgay_Click(object sender, EventArgs e)
         {
@@ -93,30 +110,69 @@ namespace GUI
                 }
 
                 //Mở form báo cáo và truyền tham số
-                frm_BaoCao frmBaoCao = new frm_BaoCao();
-                frmBaoCao.LoadReport(ngayBaoCao); // Truyền tham số vào form báo cáo
+                frm_BaoCaoNgay frmBaoCao = new frm_BaoCaoNgay();
+                frmBaoCao.LoadReportNgay(ngayBaoCao); // Truyền tham số vào form báo cáo
                 frmBaoCao.ShowDialog();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
         }
 
         private void btn_XuatBaoCaoTheoThang_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    //Kiểm tra nếu người dùng chưa chọn ngày
+            //    if (dtp_Ngay.CustomFormat == " ")
+            //    {
+            //        MessageBox.Show("Vui lòng chọn ngày để xuất báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        return;
+            //    }
+
+            //    int thang = int.Parse(cbo_Thang.SelectedItem.ToString()); // Lấy tháng báo cáo từ DateTimePicker
+            //    int nam = int.Parse(cbo_Nam.SelectedItem.ToString()); // Lấy tháng báo cáo từ DateTimePicker
+
+            //    //Kiểm tra xem có dữ liệu vé hay không
+            //    var danhSachVe = tkBll.LayDanhSachVeTheoThang(thang, nam);
+            //    if (danhSachVe == null || !danhSachVe.Any())
+            //    {
+            //        MessageBox.Show("Không có dữ liệu vé để xuất báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        return;
+            //    }
+
+            //    //Mở form báo cáo và truyền tham số
+            //    frm_BaoCaoThang frmBaoCao = new frm_BaoCaoThang();
+            //    frmBaoCao.LoadReportThang(thang, nam); // Truyền tham số vào form báo cáo
+            //    frmBaoCao.ShowDialog();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+
+
+
 
         }
 
         private void btn_timTheoThang_Click(object sender, EventArgs e)
         {
-            // Khi chọn ngày, đặt lại định dạng bình thường
-            dtp_Ngay.Format = DateTimePickerFormat.Short;
             try
             {
-                int thang = dtp_Ngay.Value.Month;
-                int nam = dtp_Ngay.Value.Year;
+                int thang = int.Parse(cbo_Thang.SelectedItem.ToString());
+                int nam = int.Parse(cbo_Nam.SelectedItem.ToString());
+
+                if(cbo_Nam.SelectedItem == null || cbo_Thang.SelectedItem == null)
+                {
+                    MessageBox.Show("Nhập đầy đủ thông tin!");
+                    return;
+                }
 
                 List<Ve> danhSachve = tkBll.LayDanhSachVeTheoThang(thang,nam);
 
@@ -125,6 +181,15 @@ namespace GUI
                 {
                     // Bind danh sách lịch trình vào ComboBox
                     dgv_Ve.DataSource = danhSachve;
+
+                    dgv_Ve.Columns["SDT"].Visible = false; 
+                    dgv_Ve.Columns["DIEMDON"].Visible = false;
+                    dgv_Ve.Columns["DIEMTRA"].Visible = false;
+                    dgv_Ve.Columns["HINHTHUCTHANHTOAN"].Visible = false;
+                    dgv_Ve.Columns["TRAMDUNGCHAN"].Visible = false;
+                    dgv_Ve.Columns["TRAMDUNGCHAN1"].Visible = false;
+                    dgv_Ve.Columns["LICHTRINH"].Visible = false;
+                    dgv_Ve.Columns["NHANVIEN"].Visible = false;
                 }
                 else
                 {

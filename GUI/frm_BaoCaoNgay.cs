@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,20 +11,20 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frm_BaoCao : Form
+    public partial class frm_BaoCaoNgay : Form
     {
-        public frm_BaoCao()
+        ThongKeBLL tkBll = new ThongKeBLL();
+        public frm_BaoCaoNgay()
         {
             InitializeComponent();
         }
 
-
-        public void LoadReport(DateTime ngayBaoCao)
+        public void LoadReportNgay(DateTime ngayBaoCao)
         {
             try
             {
                 // Tạo instance của Crystal Report
-                CrystalReport1 rpt = new CrystalReport1();
+                BaoCaoNgay rpt = new BaoCaoNgay();
 
                 rpt.SetParameterValue("ngayBaoCao", ngayBaoCao);
                 rpt.SetDatabaseLogon("sa", "123");
@@ -37,5 +38,6 @@ namespace GUI
                 MessageBox.Show("Lỗi khi tải báo cáo: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class frm_BaoCao
+    partial class frm_BaoCaoNgay
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace GUI
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport11 = new GUI.CrystalReport1();
+            this.BaoCaoNgay1 = new GUI.BaoCaoNgay();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -41,18 +41,18 @@ namespace GUI
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1258, 450);
+            this.crystalReportViewer1.ReportSource = this.BaoCaoNgay1;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // frm_BaoCao
+            // frm_BaoCaoNgay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1258, 450);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "frm_BaoCao";
-            this.Text = "frm_BaoCao";
+            this.Name = "frm_BaoCaoNgay";
+            this.Text = "frm_BaoCaoNgay";
             this.ResumeLayout(false);
 
         }
@@ -60,6 +60,6 @@ namespace GUI
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private CrystalReport1 CrystalReport11;
+        private BaoCaoNgay BaoCaoNgay1;
     }
 }
