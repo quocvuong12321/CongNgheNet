@@ -380,6 +380,26 @@ GO
 
 
 
+CREATE PROCEDURE sp_BaoCaoDoanhThuTheoThang
+    @Thang INT,
+    @Nam INT
+AS
+BEGIN
+    SELECT 
+        td.TEN_TUYEN AS 'TuyenDuong',
+        COUNT(v.ID_VE) AS 'SoLuongVe',
+        SUM(v.TONG_TIEN) AS 'TongDoanhThu'
+    FROM Ve v
+    INNER JOIN LichTrinh lt ON v.ID_LICH_TRINH = lt.MA_LICH_TRINH
+    INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
+    WHERE MONTH(v.NGAY_DAT_VE) = @Thang AND YEAR(v.NGAY_DAT_VE) = @Nam
+    GROUP BY td.TEN_TUYEN
+    ORDER BY td.TEN_TUYEN;
+END
+GO
+
+
+
 --Tạo role và gán quyền
 sp_addrole 'QuanLyRole';
 GO

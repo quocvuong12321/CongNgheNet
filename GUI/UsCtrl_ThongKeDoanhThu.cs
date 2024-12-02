@@ -125,38 +125,35 @@ namespace GUI
 
         private void btn_XuatBaoCaoTheoThang_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    //Kiểm tra nếu người dùng chưa chọn ngày
-            //    if (dtp_Ngay.CustomFormat == " ")
-            //    {
-            //        MessageBox.Show("Vui lòng chọn ngày để xuất báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
+            try
+            {
+                //Kiểm tra nếu người dùng chưa chọn ngày
+                if (dtp_Ngay.CustomFormat == " ")
+                {
+                    MessageBox.Show("Vui lòng chọn ngày để xuất báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            //    int thang = int.Parse(cbo_Thang.SelectedItem.ToString()); // Lấy tháng báo cáo từ DateTimePicker
-            //    int nam = int.Parse(cbo_Nam.SelectedItem.ToString()); // Lấy tháng báo cáo từ DateTimePicker
+                int thang = int.Parse(cbo_Thang.SelectedItem.ToString()); // Lấy tháng báo cáo từ DateTimePicker
+                int nam = int.Parse(cbo_Nam.SelectedItem.ToString()); // Lấy tháng báo cáo từ DateTimePicker
 
-            //    //Kiểm tra xem có dữ liệu vé hay không
-            //    var danhSachVe = tkBll.LayDanhSachVeTheoThang(thang, nam);
-            //    if (danhSachVe == null || !danhSachVe.Any())
-            //    {
-            //        MessageBox.Show("Không có dữ liệu vé để xuất báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        return;
-            //    }
+                //Kiểm tra xem có dữ liệu vé hay không
+                var danhSachVe = tkBll.LayDanhSachVeTheoThang(thang, nam);
+                if (danhSachVe == null || !danhSachVe.Any())
+                {
+                    MessageBox.Show("Không có dữ liệu vé để xuất báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            //    //Mở form báo cáo và truyền tham số
-            //    frm_BaoCaoThang frmBaoCao = new frm_BaoCaoThang();
-            //    frmBaoCao.LoadReportThang(thang, nam); // Truyền tham số vào form báo cáo
-            //    frmBaoCao.ShowDialog();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-
-
+                //Mở form báo cáo và truyền tham số
+                frm_BaoCaoThang frmBaoCao = new frm_BaoCaoThang();
+                frmBaoCao.LoadReportThang(thang, nam); // Truyền tham số vào form báo cáo
+                frmBaoCao.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
         }

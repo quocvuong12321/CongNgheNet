@@ -62,11 +62,23 @@
       <DependentUpon>BaoCaoNgay.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaoCaoThang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoThang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frm_BaoCaoNgay.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_BaoCaoNgay.Designer.cs">
       <DependentUpon>frm_BaoCaoNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BaoCaoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BaoCaoThang.Designer.cs">
+      <DependentUpon>frm_BaoCaoThang.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_DangNhap.cs">
       <SubType>Form</SubType>
@@ -134,8 +146,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoNgay.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoThang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoThang.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_BaoCaoNgay.resx">
       <DependentUpon>frm_BaoCaoNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BaoCaoThang.resx">
+      <DependentUpon>frm_BaoCaoThang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>

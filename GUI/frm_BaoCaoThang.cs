@@ -1,5 +1,4 @@
-﻿using BLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,21 +10,22 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frm_BaoCaoNgay : Form
+    public partial class frm_BaoCaoThang : Form
     {
-        public frm_BaoCaoNgay()
+        public frm_BaoCaoThang()
         {
             InitializeComponent();
         }
 
-        public void LoadReportNgay(DateTime ngayBaoCao)
+        public void LoadReportThang(int thang, int nam)
         {
             try
             {
                 // Tạo instance của Crystal Report
-                BaoCaoNgay rpt = new BaoCaoNgay();
+                BaoCaoThang rpt = new BaoCaoThang();
 
-                rpt.SetParameterValue("ngayBaoCao", ngayBaoCao);
+                rpt.SetParameterValue("@Thang", thang);
+                rpt.SetParameterValue("@Nam", nam);
                 rpt.SetDatabaseLogon("sa", "123");
 
                 // Gán report vào CrystalReportViewer
