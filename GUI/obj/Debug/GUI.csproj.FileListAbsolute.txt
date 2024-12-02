@@ -430,3 +430,4 @@ C:\Users\ASUS\Desktop\testCLo\CongNgheNet\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\ASUS\Desktop\testCLo\CongNgheNet\GUI\obj\Debug\GUI.exe
 C:\Users\ASUS\Desktop\testCLo\CongNgheNet\GUI\obj\Debug\GUI.pdb
 C:\Users\ASUS\Desktop\testCLo\CongNgheNet\GUI\obj\Debug\GUI.frm_BaoCaoThang.resources
+C:\Users\ASUS\Desktop\testCLo\CongNgheNet\GUI\obj\Debug\GUI.frm_BaoCaoNhanVienTheoThang.resources

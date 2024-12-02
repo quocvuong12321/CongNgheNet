@@ -62,6 +62,12 @@
       <DependentUpon>BaoCaoNgay.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaoCaoNhanVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoNhanVien.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaoCaoThang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,6 +79,12 @@
     </Compile>
     <Compile Include="frm_BaoCaoNgay.Designer.cs">
       <DependentUpon>frm_BaoCaoNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BaoCaoNhanVienTheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BaoCaoNhanVienTheoThang.Designer.cs">
+      <DependentUpon>frm_BaoCaoNhanVienTheoThang.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_BaoCaoThang.cs">
       <SubType>Form</SubType>
@@ -146,12 +158,19 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoNgay.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoNhanVien.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoNhanVien.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoThang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoThang.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_BaoCaoNgay.resx">
       <DependentUpon>frm_BaoCaoNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BaoCaoNhanVienTheoThang.resx">
+      <DependentUpon>frm_BaoCaoNhanVienTheoThang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_BaoCaoThang.resx">
       <DependentUpon>frm_BaoCaoThang.cs</DependentUpon>

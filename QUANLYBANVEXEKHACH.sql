@@ -379,7 +379,7 @@ GO
 
 
 
-
+-----------------------Dùng cho crystal report--------------------------
 CREATE PROCEDURE sp_BaoCaoDoanhThuTheoThang
     @Thang INT,
     @Nam INT
@@ -400,7 +400,29 @@ GO
 
 
 
---Tạo role và gán quyền
+CREATE PROCEDURE sp_BaoCaoNhanVienTheoThang
+    @Thang INT,
+    @Nam INT
+AS
+BEGIN
+    SELECT 
+        nv.HOTEN AS TenNhanVien,
+        SUM(v.SOLUONG) AS TongSoLuongVe, -- Tổng số lượng vé
+        SUM(v.TONG_TIEN) AS TongDoanhThu -- Tổng doanh thu
+    FROM Ve v
+    INNER JOIN NHANVIEN nv ON v.NHAN_VIEN_TAO = nv.USERNAME
+    WHERE MONTH(v.NGAY_DAT_VE) = @Thang AND YEAR(v.NGAY_DAT_VE) = @Nam
+    GROUP BY nv.HOTEN
+    ORDER BY TongSoLuongVe DESC;
+END
+GO
+
+
+
+
+
+
+------------------------------------Tạo role và phân quyền----------------------------------------
 sp_addrole 'QuanLyRole';
 GO
 

@@ -130,5 +130,23 @@ namespace GUI
             cbo_LoaiTaiKhoan.SelectedItem = null;
             cbo_GioiTinh.SelectedItem = null;
         }
+
+        private void btn_XuatBaoCaoNhanVien_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //int thang = int.Parse(cbo_Thang.SelectedItem.ToString());
+                //int nam = int.Parse(cbo_Nam.SelectedItem.ToString());
+
+                // Mở form báo cáo
+                frm_BaoCaoNhanVienTheoThang frmBaoCao = new frm_BaoCaoNhanVienTheoThang();
+                frmBaoCao.LoadReportNhanVienTheoThang();
+                frmBaoCao.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
