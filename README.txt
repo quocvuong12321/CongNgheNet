@@ -1,20 +1,8 @@
+Thực hiện theo thứ tự:
+- Xóa tài khoản login trong sql server manager
+- Chạy file database , dữ liệu
+- Xóa LinQ tạo lại
+- Thay DataSource trong NhanVienDAL
+- Thay DataSource trong appconfig
+- Cập nhật lại database của 4 cái report
 
-
-
-QUY TẮC ĐẶT TÊN
-
-ĐỐI VỚI ĐẶT TÊN FORM VÀ CÁC TOOL CỦA FORM THÌ PHẢI CÓ TIỀN TỐ Ở TRƯỚC SAU ĐÓ GHI HOA CHỮ CÁI ĐẦU MỖI CHỮ VD: frm_DangKy
-VD:
-TẠO FORM MỚI THÌ PHẢI CÓ frm_
-textbox: txt_
-button: btn_
-combobox: cbo_
-checkbox: chk_
-radio: rdo_
-listbox: lst_
-treeview: trv_
-listview: lstv_
-
-
-ĐẶT TÊN HÀM VÀ CLASS: GHI HOA CHỮ CÁI ĐẦU MỖI TỪ VD: MangSoNguyen
-ĐẶT TÊN BIẾN: TỪ ĐẦU TIÊN GHI THƯỜNG, GHI HOA CHỮ CÁI ĐẦU CÁC TỪ SAU: VD soNguyenTo
