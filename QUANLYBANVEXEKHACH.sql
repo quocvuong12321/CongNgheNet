@@ -446,7 +446,37 @@ END
 GO
 
 
-
+CREATE PROCEDURE sp_InVeChoKhachHang
+    @MaVe VARCHAR(128)
+AS
+BEGIN
+    SELECT 
+        v.ID_VE AS MaVe,
+        v.TENKHACHHANG AS TenKhachHang,
+        v.SDT AS SoDienThoai,
+        td.TEN_TUYEN AS TuyenDuong,
+        lt.KHOI_HANH AS NgayKhoiHanh,
+        v.DIEMDON AS DiemDon,
+        v.DIEMTRA AS DiemTra,
+        -- Gộp chuỗi vị trí ngồi
+        STUFF((
+            SELECT ', ' + g.VI_TRI_NGOI
+            FROM ChiTietVe ctv, GHE g
+            WHERE ctv.ID_VE = v.ID_VE and ctv.ID_GHE = g.ID_GHE
+            FOR XML PATH(''), TYPE
+        ).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS ViTriNgoi,
+        v.SOLUONG AS SoLuongGhe,
+        v.TONG_TIEN AS TongTien,
+        v.HINHTHUCTHANHTOAN AS PhuongThucThanhToan
+    FROM Ve v
+    INNER JOIN LichTrinh lt ON v.ID_LICH_TRINH = lt.MA_LICH_TRINH
+    INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
+    WHERE v.ID_VE = @MaVe
+    GROUP BY 
+        v.ID_VE, v.TENKHACHHANG, v.SDT, td.TEN_TUYEN, lt.KHOI_HANH, 
+        v.DIEMDON, v.DIEMTRA, v.SOLUONG, v.TONG_TIEN, v.HINHTHUCTHANHTOAN;
+END;
+go
 
 
 
