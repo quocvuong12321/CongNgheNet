@@ -72,28 +72,7 @@ namespace GUI
 
         private void btn_ThemLichTrinh_Click(object sender, EventArgs e)
         {
-            if (txt_MaLichTrinh.Text.Trim().Length != 0 && txt_GiaVe.Text.Trim().Length != 0)
-            {
-                int maTuyenDuong = int.Parse(cbo_TuyenDuong.SelectedValue.ToString());
-                DateTime ngaykh = DateTime.Parse(dtp_NgayKhoiHanh.Value.ToShortDateString() + " " + dtp_GioKhoiHanh.Value.ToShortTimeString());
-
-                bool themThanhCong = ltBll.ThemLichTrinh(txt_MaLichTrinh.Text, int.Parse(cbo_TuyenDuong.SelectedValue.ToString()), ngaykh, float.Parse(txt_GiaVe.Text), int.Parse(cbo_Xe.SelectedValue.ToString()));
-
-                if (themThanhCong == true)
-                {
-                    MessageBox.Show("Thêm lịch trình thành công!");
-                    HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
-                }
-                else
-                {
-                    MessageBox.Show("Thêm lịch trình thất bại. Mã lịch trình đã tồn tại.");
-                    HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Điền đầy đủ thông tin!");
-            }
+            txt_MaLichTrinh.Text = ltBll.taoMaLichTrinhTuDong();
         }
 
 
@@ -169,5 +148,36 @@ namespace GUI
 
         }
 
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            if (txt_MaLichTrinh.Text.Trim().Length != 0 && txt_GiaVe.Text.Trim().Length != 0)
+            {
+                int maTuyenDuong = int.Parse(cbo_TuyenDuong.SelectedValue.ToString());
+                DateTime ngaykh = DateTime.Parse(dtp_NgayKhoiHanh.Value.ToShortDateString() + " " + dtp_GioKhoiHanh.Value.ToShortTimeString());
+
+                bool themThanhCong = ltBll.ThemLichTrinh(txt_MaLichTrinh.Text, int.Parse(cbo_TuyenDuong.SelectedValue.ToString()), ngaykh, float.Parse(txt_GiaVe.Text), int.Parse(cbo_Xe.SelectedValue.ToString()));
+
+                if (themThanhCong == true)
+                {
+                    MessageBox.Show("Thêm lịch trình thành công!");
+                    HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm lịch trình thất bại. Mã lịch trình đã tồn tại.");
+                    HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Điền đầy đủ thông tin!");
+            }
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            txt_MaLichTrinh.Clear();
+            txt_GiaVe.Clear();
+        }
     }
 }

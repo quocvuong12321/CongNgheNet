@@ -118,16 +118,6 @@
       <Association Name="NHANVIEN_Ve" Member="NHANVIEN" ThisKey="NHAN_VIEN_TAO" OtherKey="USERNAME" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.ChonXe" Method="ChonXe" IsComposable="true">
-    <Parameter Name="malt" Type="System.String" DbType="VarChar(128)" />
-    <Return Type="System.Boolean" />
-  </Function>
-  <Function Name="dbo.LayDanhSachXeCoTheGan" Method="LayDanhSachXeCoTheGan" IsComposable="true">
-    <Parameter Name="ngaykhoihanh" Type="System.DateTime" DbType="DateTime" />
-    <ElementType Name="LayDanhSachXeCoTheGanResult">
-      <Column Name="ID_XE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.ThemNhanVien" Method="ThemNhanVien">
     <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="NVarChar(128)" />
     <Parameter Name="MAT_KHAU" Parameter="mAT_KHAU" Type="System.String" DbType="NVarChar(128)" />
@@ -137,5 +127,15 @@
     <Parameter Name="DIACHI" Parameter="dIACHI" Type="System.String" DbType="NVarChar(128)" />
     <Parameter Name="LOAINV" Parameter="lOAINV" Type="System.String" DbType="NVarChar(128)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChonXe" Method="ChonXe" IsComposable="true">
+    <Parameter Name="malt" Type="System.String" DbType="VarChar(128)" />
+    <Return Type="System.Boolean" />
+  </Function>
+  <Function Name="dbo.LayDanhSachXeCoTheGan" Method="LayDanhSachXeCoTheGan" IsComposable="true">
+    <Parameter Name="ngaykhoihanh" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="LayDanhSachXeCoTheGanResult">
+      <Column Name="ID_XE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

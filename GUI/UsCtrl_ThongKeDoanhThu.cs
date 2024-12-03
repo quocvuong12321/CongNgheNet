@@ -77,7 +77,7 @@ namespace GUI
                 else
                 {
                     dgv_Ve.DataSource = null; // Xóa dữ liệu DataGridView
-                    MessageBox.Show("Không có lịch trình nào trong ngày đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Không có vé nào trong ngày đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }

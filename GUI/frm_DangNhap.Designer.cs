@@ -36,7 +36,7 @@ namespace GUI
             this.txt_TaiKhoan = new System.Windows.Forms.TextBox();
             this.txt_MatKhau = new System.Windows.Forms.TextBox();
             this.btn_DangNhap = new System.Windows.Forms.Button();
-            this.chk_NhoMK = new System.Windows.Forms.CheckBox();
+            this.chk_HienThiMK = new System.Windows.Forms.CheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_Restore = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_BackUp = new System.Windows.Forms.ToolStripButton();
@@ -107,16 +107,17 @@ namespace GUI
             this.btn_DangNhap.UseVisualStyleBackColor = true;
             this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
-            // chk_NhoMK
+            // chk_HienThiMK
             // 
-            this.chk_NhoMK.AutoSize = true;
-            this.chk_NhoMK.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_NhoMK.Location = new System.Drawing.Point(194, 253);
-            this.chk_NhoMK.Name = "chk_NhoMK";
-            this.chk_NhoMK.Size = new System.Drawing.Size(151, 27);
-            this.chk_NhoMK.TabIndex = 6;
-            this.chk_NhoMK.Text = "Nhớ mật khẩu";
-            this.chk_NhoMK.UseVisualStyleBackColor = true;
+            this.chk_HienThiMK.AutoSize = true;
+            this.chk_HienThiMK.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_HienThiMK.Location = new System.Drawing.Point(194, 253);
+            this.chk_HienThiMK.Name = "chk_HienThiMK";
+            this.chk_HienThiMK.Size = new System.Drawing.Size(182, 27);
+            this.chk_HienThiMK.TabIndex = 6;
+            this.chk_HienThiMK.Text = "Hiển thị mật khẩu";
+            this.chk_HienThiMK.UseVisualStyleBackColor = true;
+            this.chk_HienThiMK.CheckedChanged += new System.EventHandler(this.chk_HienThiMK_CheckedChanged);
             // 
             // toolStrip1
             // 
@@ -158,7 +159,7 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 383);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.chk_NhoMK);
+            this.Controls.Add(this.chk_HienThiMK);
             this.Controls.Add(this.btn_DangNhap);
             this.Controls.Add(this.txt_MatKhau);
             this.Controls.Add(this.txt_TaiKhoan);
@@ -183,7 +184,7 @@ namespace GUI
         private System.Windows.Forms.TextBox txt_TaiKhoan;
         private System.Windows.Forms.TextBox txt_MatKhau;
         private System.Windows.Forms.Button btn_DangNhap;
-        private System.Windows.Forms.CheckBox chk_NhoMK;
+        private System.Windows.Forms.CheckBox chk_HienThiMK;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton_Restore;
         private System.Windows.Forms.ToolStripButton toolStripButton_BackUp;

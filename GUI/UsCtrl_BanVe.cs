@@ -285,6 +285,19 @@ namespace GUI
 
         }
 
-        
+        private void btn_InVe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Mở form in vé
+                frm_InVe frmVe = new frm_InVe();
+                frmVe.LoadReportInVe(maVe);
+                frmVe.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -77,5 +77,16 @@ namespace DTO.Properties {
                 return ((string)(this["QuanLyBanVeXeKhachConnectionString4"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-I22SAC7\\TKHANGDI;Initial Catalog=QuanLyBanVeXeKhach;User ID=s" +
+            "a")]
+        public string QuanLyBanVeXeKhachConnectionString5 {
+            get {
+                return ((string)(this["QuanLyBanVeXeKhachConnectionString5"]));
+            }
+        }
     }
 }

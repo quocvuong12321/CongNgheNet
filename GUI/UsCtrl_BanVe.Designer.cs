@@ -121,6 +121,7 @@ namespace GUI
             this.cbo_DiemTra = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.btn_InVe = new System.Windows.Forms.Button();
             this.gb_Xe20.SuspendLayout();
             this.gb_Xe34.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThongTinLichTrinh)).BeginInit();
@@ -507,7 +508,7 @@ namespace GUI
             this.btn_Them.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Them.ForeColor = System.Drawing.Color.Green;
             this.btn_Them.Image = ((System.Drawing.Image)(resources.GetObject("btn_Them.Image")));
-            this.btn_Them.Location = new System.Drawing.Point(1154, 333);
+            this.btn_Them.Location = new System.Drawing.Point(1154, 320);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(105, 55);
             this.btn_Them.TabIndex = 32;
@@ -522,7 +523,7 @@ namespace GUI
             this.btn_Huy.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Red;
             this.btn_Huy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Huy.Image")));
-            this.btn_Huy.Location = new System.Drawing.Point(1154, 403);
+            this.btn_Huy.Location = new System.Drawing.Point(1154, 387);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(105, 55);
             this.btn_Huy.TabIndex = 33;
@@ -1054,7 +1055,7 @@ namespace GUI
             this.btn_Luu.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_Luu.Image = ((System.Drawing.Image)(resources.GetObject("btn_Luu.Image")));
-            this.btn_Luu.Location = new System.Drawing.Point(1154, 474);
+            this.btn_Luu.Location = new System.Drawing.Point(1154, 454);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(105, 55);
             this.btn_Luu.TabIndex = 32;
@@ -1120,11 +1121,29 @@ namespace GUI
             this.label18.TabIndex = 47;
             this.label18.Text = "Điểm trả";
             // 
+            // btn_InVe
+            // 
+            this.btn_InVe.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_InVe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_InVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_InVe.Image = ((System.Drawing.Image)(resources.GetObject("btn_InVe.Image")));
+            this.btn_InVe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_InVe.Location = new System.Drawing.Point(1154, 521);
+            this.btn_InVe.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_InVe.Name = "btn_InVe";
+            this.btn_InVe.Size = new System.Drawing.Size(105, 55);
+            this.btn_InVe.TabIndex = 48;
+            this.btn_InVe.Text = "In Vé";
+            this.btn_InVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_InVe.UseVisualStyleBackColor = false;
+            this.btn_InVe.Click += new System.EventHandler(this.btn_InVe_Click);
+            // 
             // UsCtrl_BanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.btn_InVe);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.cbo_DiemTra);
@@ -1263,5 +1282,6 @@ namespace GUI
         private System.Windows.Forms.ComboBox cbo_DiemTra;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btn_InVe;
     }
 }

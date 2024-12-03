@@ -33,7 +33,6 @@ namespace GUI
             this.dgv_DanhSachTaiKhoan = new System.Windows.Forms.DataGridView();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
-            this.btn_XoaNhanVien = new System.Windows.Forms.Button();
             this.btn_CapNhat = new System.Windows.Forms.Button();
             this.btn_ThemNhanVien = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,10 +70,10 @@ namespace GUI
             this.btn_Huy.BackColor = System.Drawing.Color.Red;
             this.btn_Huy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Snow;
-            this.btn_Huy.Location = new System.Drawing.Point(886, 202);
+            this.btn_Huy.Location = new System.Drawing.Point(834, 202);
             this.btn_Huy.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(158, 57);
+            this.btn_Huy.Size = new System.Drawing.Size(174, 57);
             this.btn_Huy.TabIndex = 40;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.UseVisualStyleBackColor = false;
@@ -85,30 +84,14 @@ namespace GUI
             this.btn_Luu.BackColor = System.Drawing.Color.SeaGreen;
             this.btn_Luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.ForeColor = System.Drawing.Color.Snow;
-            this.btn_Luu.Location = new System.Drawing.Point(689, 202);
+            this.btn_Luu.Location = new System.Drawing.Point(598, 202);
             this.btn_Luu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(158, 57);
+            this.btn_Luu.Size = new System.Drawing.Size(174, 57);
             this.btn_Luu.TabIndex = 39;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.UseVisualStyleBackColor = false;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
-            // 
-            // btn_XoaNhanVien
-            // 
-            this.btn_XoaNhanVien.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_XoaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaNhanVien.ForeColor = System.Drawing.Color.Red;
-            this.btn_XoaNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaNhanVien.Image")));
-            this.btn_XoaNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_XoaNhanVien.Location = new System.Drawing.Point(492, 202);
-            this.btn_XoaNhanVien.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_XoaNhanVien.Name = "btn_XoaNhanVien";
-            this.btn_XoaNhanVien.Size = new System.Drawing.Size(158, 57);
-            this.btn_XoaNhanVien.TabIndex = 38;
-            this.btn_XoaNhanVien.Text = "Xóa nhân viên";
-            this.btn_XoaNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_XoaNhanVien.UseVisualStyleBackColor = false;
             // 
             // btn_CapNhat
             // 
@@ -117,10 +100,10 @@ namespace GUI
             this.btn_CapNhat.ForeColor = System.Drawing.Color.Goldenrod;
             this.btn_CapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhat.Image")));
             this.btn_CapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CapNhat.Location = new System.Drawing.Point(295, 202);
+            this.btn_CapNhat.Location = new System.Drawing.Point(362, 202);
             this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhat.Name = "btn_CapNhat";
-            this.btn_CapNhat.Size = new System.Drawing.Size(158, 57);
+            this.btn_CapNhat.Size = new System.Drawing.Size(174, 57);
             this.btn_CapNhat.TabIndex = 37;
             this.btn_CapNhat.Text = "Cập nhật";
             this.btn_CapNhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -134,10 +117,10 @@ namespace GUI
             this.btn_ThemNhanVien.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemNhanVien.Image")));
             this.btn_ThemNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemNhanVien.Location = new System.Drawing.Point(98, 202);
+            this.btn_ThemNhanVien.Location = new System.Drawing.Point(126, 202);
             this.btn_ThemNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemNhanVien.Name = "btn_ThemNhanVien";
-            this.btn_ThemNhanVien.Size = new System.Drawing.Size(158, 57);
+            this.btn_ThemNhanVien.Size = new System.Drawing.Size(174, 57);
             this.btn_ThemNhanVien.TabIndex = 36;
             this.btn_ThemNhanVien.Text = "Thêm nhân viên";
             this.btn_ThemNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -286,10 +269,10 @@ namespace GUI
             this.btn_XuatBaoCaoNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_XuatBaoCaoNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_XuatBaoCaoNhanVien.Image")));
             this.btn_XuatBaoCaoNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_XuatBaoCaoNhanVien.Location = new System.Drawing.Point(1076, 202);
+            this.btn_XuatBaoCaoNhanVien.Location = new System.Drawing.Point(1070, 202);
             this.btn_XuatBaoCaoNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_XuatBaoCaoNhanVien.Name = "btn_XuatBaoCaoNhanVien";
-            this.btn_XuatBaoCaoNhanVien.Size = new System.Drawing.Size(167, 57);
+            this.btn_XuatBaoCaoNhanVien.Size = new System.Drawing.Size(174, 57);
             this.btn_XuatBaoCaoNhanVien.TabIndex = 45;
             this.btn_XuatBaoCaoNhanVien.Text = "Xuất báo cáo";
             this.btn_XuatBaoCaoNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -307,7 +290,6 @@ namespace GUI
             this.Controls.Add(this.dgv_DanhSachTaiKhoan);
             this.Controls.Add(this.btn_Huy);
             this.Controls.Add(this.btn_Luu);
-            this.Controls.Add(this.btn_XoaNhanVien);
             this.Controls.Add(this.btn_CapNhat);
             this.Controls.Add(this.btn_ThemNhanVien);
             this.Controls.Add(this.txt_SoDienThoai);
@@ -335,7 +317,6 @@ namespace GUI
         private System.Windows.Forms.DataGridView dgv_DanhSachTaiKhoan;
         private System.Windows.Forms.Button btn_Huy;
         private System.Windows.Forms.Button btn_Luu;
-        private System.Windows.Forms.Button btn_XoaNhanVien;
         private System.Windows.Forms.Button btn_CapNhat;
         private System.Windows.Forms.Button btn_ThemNhanVien;
         private System.Windows.Forms.Label label4;

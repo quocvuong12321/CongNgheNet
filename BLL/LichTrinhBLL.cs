@@ -58,5 +58,10 @@ namespace BLL
         {
             return ltDAL.loadLT();
         }
+
+        public string taoMaLichTrinhTuDong()
+        {
+            return ltDAL.taoMaLichTrinhTuDong();
+        }
     }
 }

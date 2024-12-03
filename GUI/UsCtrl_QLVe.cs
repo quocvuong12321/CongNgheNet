@@ -23,6 +23,7 @@ namespace GUI
 
         private void UsCtrl_QLVe_Load(object sender, EventArgs e)
         {
+
             cbo_LichTrinh.DataSource = ltBLL.loadLT();
             cbo_LichTrinh.DisplayMember = "MA_LICH_TRINH";
             cbo_LichTrinh.ValueMember= "MA_LICH_TRINH";
@@ -79,6 +80,27 @@ namespace GUI
                 MessageBox.Show("Thông tin tìm kiếm không tồn tại");
             }
             
+        }
+
+        private void btn_HuyVe_Click(object sender, EventArgs e)
+        {
+            if(dgv_DSVe.SelectedRows == null)
+            {
+                MessageBox.Show("Vui lòng chọn vé muốn hủy");
+                return;
+            }
+            string mave = dgv_DSVe.SelectedRows[0].Cells[0].Value.ToString();
+            DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn hủy vé này không?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(r==DialogResult.Yes)
+            {
+                MessageBox.Show( vBLL.HuyVe(mave)?"Hủy vé thành công": "Hủy vé thất bại");
+                var currentControl = this;
+                UsCtrl_QLVe Nus = new UsCtrl_QLVe();
+                var panel = currentControl.Parent;
+                Parent.Controls.Remove(currentControl);
+                panel.Controls.Add(Nus);
+                Nus.Dock = DockStyle.Fill;
+            }    
         }
     }
 }

@@ -172,6 +172,13 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ThemNhanVien")]
+		public int ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="NVarChar(128)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAT_KHAU", DbType="NVarChar(128)")] string mAT_KHAU, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HOTEN", DbType="NVarChar(128)")] string hOTEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SO_DT", DbType="NVarChar(128)")] string sO_DT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GIOITINH", DbType="NVarChar(5)")] string gIOITINH, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DIACHI", DbType="NVarChar(128)")] string dIACHI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LOAINV", DbType="NVarChar(128)")] string lOAINV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, mAT_KHAU, hOTEN, sO_DT, gIOITINH, dIACHI, lOAINV);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChonXe", IsComposable=true)]
 		public System.Nullable<bool> ChonXe([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(128)")] string malt)
 		{
@@ -182,13 +189,6 @@ namespace DTO
 		public IQueryable<LayDanhSachXeCoTheGanResult> LayDanhSachXeCoTheGan([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> ngaykhoihanh)
 		{
 			return this.CreateMethodCallQuery<LayDanhSachXeCoTheGanResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngaykhoihanh);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ThemNhanVien")]
-		public int ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="NVarChar(128)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAT_KHAU", DbType="NVarChar(128)")] string mAT_KHAU, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HOTEN", DbType="NVarChar(128)")] string hOTEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SO_DT", DbType="NVarChar(128)")] string sO_DT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GIOITINH", DbType="NVarChar(5)")] string gIOITINH, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DIACHI", DbType="NVarChar(128)")] string dIACHI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LOAINV", DbType="NVarChar(128)")] string lOAINV)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, mAT_KHAU, hOTEN, sO_DT, gIOITINH, dIACHI, lOAINV);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	

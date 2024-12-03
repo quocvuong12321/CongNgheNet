@@ -45,7 +45,7 @@ namespace GUI
                 cbo_GioiTinh.Items.Add(item);
             }
         }
-
+        //private bool isCreate = false;
         private void btn_ThemNhanVien_Click(object sender, EventArgs e)
         {
             isEditing = false;

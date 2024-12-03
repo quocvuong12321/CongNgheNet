@@ -33,8 +33,7 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_TimKiem = new System.Windows.Forms.TextBox();
-            this.btn_CapNhat = new System.Windows.Forms.Button();
-            this.btn_XoaVe = new System.Windows.Forms.Button();
+            this.btn_HuyVe = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.dgv_DSVe = new System.Windows.Forms.DataGridView();
@@ -78,52 +77,40 @@ namespace GUI
             this.txt_TimKiem.Size = new System.Drawing.Size(414, 29);
             this.txt_TimKiem.TabIndex = 3;
             // 
-            // btn_CapNhat
+            // btn_HuyVe
             // 
-            this.btn_CapNhat.BackColor = System.Drawing.Color.White;
-            this.btn_CapNhat.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhat.Image")));
-            this.btn_CapNhat.Location = new System.Drawing.Point(255, 221);
-            this.btn_CapNhat.Name = "btn_CapNhat";
-            this.btn_CapNhat.Size = new System.Drawing.Size(135, 46);
-            this.btn_CapNhat.TabIndex = 27;
-            this.btn_CapNhat.Text = "Cập nhật";
-            this.btn_CapNhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_CapNhat.UseVisualStyleBackColor = false;
-            // 
-            // btn_XoaVe
-            // 
-            this.btn_XoaVe.BackColor = System.Drawing.Color.White;
-            this.btn_XoaVe.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaVe.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaVe.Image")));
-            this.btn_XoaVe.Location = new System.Drawing.Point(483, 221);
-            this.btn_XoaVe.Name = "btn_XoaVe";
-            this.btn_XoaVe.Size = new System.Drawing.Size(135, 46);
-            this.btn_XoaVe.TabIndex = 28;
-            this.btn_XoaVe.Text = "Xóa vé";
-            this.btn_XoaVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_XoaVe.UseVisualStyleBackColor = false;
+            this.btn_HuyVe.BackColor = System.Drawing.Color.White;
+            this.btn_HuyVe.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HuyVe.Image = ((System.Drawing.Image)(resources.GetObject("btn_HuyVe.Image")));
+            this.btn_HuyVe.Location = new System.Drawing.Point(200, 221);
+            this.btn_HuyVe.Name = "btn_HuyVe";
+            this.btn_HuyVe.Size = new System.Drawing.Size(188, 46);
+            this.btn_HuyVe.TabIndex = 28;
+            this.btn_HuyVe.Text = "Hủy vé";
+            this.btn_HuyVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_HuyVe.UseVisualStyleBackColor = false;
+            this.btn_HuyVe.Click += new System.EventHandler(this.btn_HuyVe_Click);
             // 
             // btn_Luu
             // 
-            this.btn_Luu.BackColor = System.Drawing.Color.Green;
+            this.btn_Luu.BackColor = System.Drawing.Color.SeaGreen;
             this.btn_Luu.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Luu.Location = new System.Drawing.Point(711, 221);
+            this.btn_Luu.Location = new System.Drawing.Point(569, 221);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(135, 46);
+            this.btn_Luu.Size = new System.Drawing.Size(188, 46);
             this.btn_Luu.TabIndex = 30;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.UseVisualStyleBackColor = false;
             // 
             // btn_Huy
             // 
-            this.btn_Huy.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Huy.BackColor = System.Drawing.Color.Red;
             this.btn_Huy.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Huy.Location = new System.Drawing.Point(939, 221);
+            this.btn_Huy.Location = new System.Drawing.Point(938, 221);
             this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(135, 46);
+            this.btn_Huy.Size = new System.Drawing.Size(188, 46);
             this.btn_Huy.TabIndex = 31;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.UseVisualStyleBackColor = false;
@@ -136,6 +123,7 @@ namespace GUI
             this.dgv_DSVe.Name = "dgv_DSVe";
             this.dgv_DSVe.RowHeadersWidth = 51;
             this.dgv_DSVe.RowTemplate.Height = 24;
+            this.dgv_DSVe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSVe.Size = new System.Drawing.Size(1127, 251);
             this.dgv_DSVe.TabIndex = 32;
             // 
@@ -227,8 +215,7 @@ namespace GUI
             this.Controls.Add(this.dgv_DSVe);
             this.Controls.Add(this.btn_Huy);
             this.Controls.Add(this.btn_Luu);
-            this.Controls.Add(this.btn_XoaVe);
-            this.Controls.Add(this.btn_CapNhat);
+            this.Controls.Add(this.btn_HuyVe);
             this.Controls.Add(this.txt_TimKiem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -246,8 +233,7 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_TimKiem;
-        private System.Windows.Forms.Button btn_CapNhat;
-        private System.Windows.Forms.Button btn_XoaVe;
+        private System.Windows.Forms.Button btn_HuyVe;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_Huy;
         private System.Windows.Forms.DataGridView dgv_DSVe;

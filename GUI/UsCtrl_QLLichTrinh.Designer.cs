@@ -47,6 +47,8 @@ namespace GUI
             this.btn_QLTramDungChan = new System.Windows.Forms.Button();
             this.txt_MaLichTrinh = new System.Windows.Forms.TextBox();
             this.dgv_DanhSachLichTrinh = new System.Windows.Forms.DataGridView();
+            this.btn_Luu = new System.Windows.Forms.Button();
+            this.btn_Huy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachLichTrinh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,13 +85,13 @@ namespace GUI
             // btn_ThemLichTrinh
             // 
             this.btn_ThemLichTrinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ThemLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThemLichTrinh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemLichTrinh.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemLichTrinh.Image")));
-            this.btn_ThemLichTrinh.Location = new System.Drawing.Point(416, 270);
+            this.btn_ThemLichTrinh.Location = new System.Drawing.Point(245, 253);
             this.btn_ThemLichTrinh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemLichTrinh.Name = "btn_ThemLichTrinh";
-            this.btn_ThemLichTrinh.Size = new System.Drawing.Size(202, 43);
+            this.btn_ThemLichTrinh.Size = new System.Drawing.Size(202, 51);
             this.btn_ThemLichTrinh.TabIndex = 119;
             this.btn_ThemLichTrinh.Text = "Thêm lịch trình";
             this.btn_ThemLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -99,13 +101,13 @@ namespace GUI
             // btn_CapNhatLichTrinh
             // 
             this.btn_CapNhatLichTrinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_CapNhatLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CapNhatLichTrinh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CapNhatLichTrinh.ForeColor = System.Drawing.Color.Orange;
             this.btn_CapNhatLichTrinh.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhatLichTrinh.Image")));
-            this.btn_CapNhatLichTrinh.Location = new System.Drawing.Point(789, 270);
+            this.btn_CapNhatLichTrinh.Location = new System.Drawing.Point(485, 253);
             this.btn_CapNhatLichTrinh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhatLichTrinh.Name = "btn_CapNhatLichTrinh";
-            this.btn_CapNhatLichTrinh.Size = new System.Drawing.Size(202, 43);
+            this.btn_CapNhatLichTrinh.Size = new System.Drawing.Size(202, 51);
             this.btn_CapNhatLichTrinh.TabIndex = 120;
             this.btn_CapNhatLichTrinh.Text = "Cập nhật lịch trình";
             this.btn_CapNhatLichTrinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -216,7 +218,7 @@ namespace GUI
             // btn_QLTramDungChan
             // 
             this.btn_QLTramDungChan.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QLTramDungChan.Location = new System.Drawing.Point(997, 193);
+            this.btn_QLTramDungChan.Location = new System.Drawing.Point(997, 169);
             this.btn_QLTramDungChan.Name = "btn_QLTramDungChan";
             this.btn_QLTramDungChan.Size = new System.Drawing.Size(198, 62);
             this.btn_QLTramDungChan.TabIndex = 127;
@@ -229,6 +231,7 @@ namespace GUI
             this.txt_MaLichTrinh.Font = new System.Drawing.Font("Tahoma", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaLichTrinh.Location = new System.Drawing.Point(332, 115);
             this.txt_MaLichTrinh.Name = "txt_MaLichTrinh";
+            this.txt_MaLichTrinh.ReadOnly = true;
             this.txt_MaLichTrinh.Size = new System.Drawing.Size(255, 29);
             this.txt_MaLichTrinh.TabIndex = 128;
             // 
@@ -246,11 +249,41 @@ namespace GUI
             this.dgv_DanhSachLichTrinh.TabIndex = 129;
             this.dgv_DanhSachLichTrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DanhSachLichTrinh_CellClick);
             // 
+            // btn_Luu
+            // 
+            this.btn_Luu.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Luu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Luu.ForeColor = System.Drawing.Color.Snow;
+            this.btn_Luu.Location = new System.Drawing.Point(725, 253);
+            this.btn_Luu.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(202, 51);
+            this.btn_Luu.TabIndex = 131;
+            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.UseVisualStyleBackColor = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.BackColor = System.Drawing.Color.Red;
+            this.btn_Huy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Huy.ForeColor = System.Drawing.Color.Snow;
+            this.btn_Huy.Location = new System.Drawing.Point(965, 253);
+            this.btn_Huy.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(202, 51);
+            this.btn_Huy.TabIndex = 132;
+            this.btn_Huy.Text = "Hủy";
+            this.btn_Huy.UseVisualStyleBackColor = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
             // UsCtrl_QLLichTrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.btn_Huy);
+            this.Controls.Add(this.btn_Luu);
             this.Controls.Add(this.dgv_DanhSachLichTrinh);
             this.Controls.Add(this.txt_MaLichTrinh);
             this.Controls.Add(this.btn_QLTramDungChan);
@@ -296,5 +329,7 @@ namespace GUI
         private System.Windows.Forms.Button btn_QLTramDungChan;
         private System.Windows.Forms.TextBox txt_MaLichTrinh;
         private System.Windows.Forms.DataGridView dgv_DanhSachLichTrinh;
+        private System.Windows.Forms.Button btn_Luu;
+        private System.Windows.Forms.Button btn_Huy;
     }
 }

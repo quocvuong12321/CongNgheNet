@@ -45,7 +45,6 @@ namespace GUI
             this.tsb_BanVe = new System.Windows.Forms.ToolStripButton();
             this.tsb_DoanhThu = new System.Windows.Forms.ToolStripButton();
             this.tsb_TenNV = new System.Windows.Forms.ToolStripButton();
-            this.tab_TroGiup = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tab_HeThong.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,7 +53,6 @@ namespace GUI
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tab_HeThong);
-            this.tabControl1.Controls.Add(this.tab_TroGiup);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -221,16 +219,6 @@ namespace GUI
             this.tsb_TenNV.Size = new System.Drawing.Size(52, 72);
             this.tsb_TenNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // tab_TroGiup
-            // 
-            this.tab_TroGiup.Location = new System.Drawing.Point(4, 33);
-            this.tab_TroGiup.Name = "tab_TroGiup";
-            this.tab_TroGiup.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_TroGiup.Size = new System.Drawing.Size(1487, 863);
-            this.tab_TroGiup.TabIndex = 1;
-            this.tab_TroGiup.Text = "Trợ giúp";
-            this.tab_TroGiup.UseVisualStyleBackColor = true;
-            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -270,7 +258,6 @@ namespace GUI
         private System.Windows.Forms.ToolStripButton tsb_BanVe;
         private System.Windows.Forms.ToolStripButton tsb_DoanhThu;
         private System.Windows.Forms.ToolStripButton tsb_TenNV;
-        private System.Windows.Forms.TabPage tab_TroGiup;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.ToolStripButton tsb_QLLichTrinh;
     }

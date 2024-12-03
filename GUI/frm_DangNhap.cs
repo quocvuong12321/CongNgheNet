@@ -127,5 +127,17 @@ namespace GUI
             }
 
         }
+
+        private void chk_HienThiMK_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chk_HienThiMK.Checked == true)
+            {
+                txt_MatKhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_MatKhau.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

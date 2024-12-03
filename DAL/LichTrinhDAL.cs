@@ -254,5 +254,10 @@ namespace DAL
             return db.LichTrinhs.ToList();
         }
 
+        public string taoMaLichTrinhTuDong()
+        {
+            int solt = db.LichTrinhs.Count() +1;
+            return "LT" + solt.ToString("D3");
+        }
     }
 }

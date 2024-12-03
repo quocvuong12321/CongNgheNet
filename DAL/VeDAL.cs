@@ -68,6 +68,13 @@ namespace DAL
             return LoadlstVe(query.ToList());
         }
 
-        
+        public bool HuyVe(string mave)
+        {
+            Ve v = db.Ves.FirstOrDefault(t => t.ID_VE.Equals(mave));
+            if (v == null) return false;
+            v.TRANG_THAI = "Đã huỷ";
+            db.SubmitChanges();
+            return true;
+        }
     }
 }

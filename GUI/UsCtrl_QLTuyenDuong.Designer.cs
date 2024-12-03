@@ -72,7 +72,7 @@ namespace GUI
             this.dgvDanhSachTuyenDuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachTuyenDuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSachTuyenDuong.Location = new System.Drawing.Point(271, 345);
-            this.dgvDanhSachTuyenDuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDanhSachTuyenDuong.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDanhSachTuyenDuong.Name = "dgvDanhSachTuyenDuong";
             this.dgvDanhSachTuyenDuong.RowHeadersWidth = 51;
             this.dgvDanhSachTuyenDuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -83,12 +83,11 @@ namespace GUI
             // btnXoaTuyenDuong
             // 
             this.btnXoaTuyenDuong.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnXoaTuyenDuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaTuyenDuong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaTuyenDuong.ForeColor = System.Drawing.Color.Red;
             this.btnXoaTuyenDuong.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaTuyenDuong.Image")));
-            this.btnXoaTuyenDuong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXoaTuyenDuong.Location = new System.Drawing.Point(911, 271);
-            this.btnXoaTuyenDuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaTuyenDuong.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaTuyenDuong.Name = "btnXoaTuyenDuong";
             this.btnXoaTuyenDuong.Size = new System.Drawing.Size(221, 57);
             this.btnXoaTuyenDuong.TabIndex = 94;
@@ -100,12 +99,11 @@ namespace GUI
             // btnThemTuyenDuong
             // 
             this.btnThemTuyenDuong.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThemTuyenDuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemTuyenDuong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTuyenDuong.ForeColor = System.Drawing.Color.Green;
             this.btnThemTuyenDuong.Image = ((System.Drawing.Image)(resources.GetObject("btnThemTuyenDuong.Image")));
-            this.btnThemTuyenDuong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThemTuyenDuong.Location = new System.Drawing.Point(271, 271);
-            this.btnThemTuyenDuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemTuyenDuong.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemTuyenDuong.Name = "btnThemTuyenDuong";
             this.btnThemTuyenDuong.Size = new System.Drawing.Size(221, 57);
             this.btnThemTuyenDuong.TabIndex = 90;
@@ -117,12 +115,11 @@ namespace GUI
             // btnCapNhatTuyenDuong
             // 
             this.btnCapNhatTuyenDuong.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCapNhatTuyenDuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhatTuyenDuong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhatTuyenDuong.ForeColor = System.Drawing.Color.Orange;
             this.btnCapNhatTuyenDuong.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhatTuyenDuong.Image")));
-            this.btnCapNhatTuyenDuong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCapNhatTuyenDuong.Location = new System.Drawing.Point(591, 271);
-            this.btnCapNhatTuyenDuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCapNhatTuyenDuong.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhatTuyenDuong.Name = "btnCapNhatTuyenDuong";
             this.btnCapNhatTuyenDuong.Size = new System.Drawing.Size(237, 57);
             this.btnCapNhatTuyenDuong.TabIndex = 91;
@@ -135,7 +132,7 @@ namespace GUI
             // 
             this.txtKhoangCach.Font = new System.Drawing.Font("Tahoma", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKhoangCach.Location = new System.Drawing.Point(405, 159);
-            this.txtKhoangCach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKhoangCach.Margin = new System.Windows.Forms.Padding(4);
             this.txtKhoangCach.Multiline = true;
             this.txtKhoangCach.Name = "txtKhoangCach";
             this.txtKhoangCach.Size = new System.Drawing.Size(229, 26);
@@ -146,7 +143,7 @@ namespace GUI
             // 
             this.txtTenTuyenDuong.Font = new System.Drawing.Font("Tahoma", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenTuyenDuong.Location = new System.Drawing.Point(405, 109);
-            this.txtTenTuyenDuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenTuyenDuong.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTuyenDuong.Multiline = true;
             this.txtTenTuyenDuong.Name = "txtTenTuyenDuong";
             this.txtTenTuyenDuong.Size = new System.Drawing.Size(229, 26);
@@ -228,7 +225,7 @@ namespace GUI
             // 
             this.txt_ThoiGianDuKien.Font = new System.Drawing.Font("Tahoma", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ThoiGianDuKien.Location = new System.Drawing.Point(405, 206);
-            this.txt_ThoiGianDuKien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_ThoiGianDuKien.Margin = new System.Windows.Forms.Padding(4);
             this.txt_ThoiGianDuKien.Multiline = true;
             this.txt_ThoiGianDuKien.Name = "txt_ThoiGianDuKien";
             this.txt_ThoiGianDuKien.Size = new System.Drawing.Size(229, 26);

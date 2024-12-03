@@ -30,5 +30,10 @@ namespace BLL
         {
             return vDAL.TimKiemVe(keyword);
         }
+        public bool HuyVe(string mave)
+        {
+           
+            return vDAL.HuyVe(mave);
+        }
     }
 }

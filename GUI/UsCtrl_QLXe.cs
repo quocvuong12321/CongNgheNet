@@ -45,7 +45,6 @@ namespace GUI
 
         private void ClearInput()
         {
-            txt_MaXe.Clear();
             txtBienSoXe.Clear();
             cbo_SoGhe.SelectedIndex = -1;
         }
@@ -76,7 +75,7 @@ namespace GUI
             // Tạo đối tượng xe mới
             XeDTO xe = new XeDTO
             {
-                Id = int.Parse(txt_MaXe.Text),
+                //Id = int.Parse(txt_MaXe.Text),
                 BienSoXe = txtBienSoXe.Text,
                 SoGhe = int.Parse(cbo_SoGhe.SelectedItem.ToString()),
                 NgayThem = dtp_NgayThem.Value
@@ -92,15 +91,9 @@ namespace GUI
 
         private void btn_CapNhat_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_MaXe.Text))
-            {
-                MessageBox.Show("Vui lòng chọn một xe để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             XeDTO xe = new XeDTO
             {
-                Id = int.Parse(txt_MaXe.Text),
+                //Id = int.Parse(txt_MaXe.Text),
                 BienSoXe = txtBienSoXe.Text,
                 SoGhe = int.Parse(cbo_SoGhe.SelectedItem.ToString()),
                 NgayThem = dtp_NgayThem.Value
@@ -113,16 +106,11 @@ namespace GUI
 
         private void btn_XoaXe_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_MaXe.Text))
-            {
-                MessageBox.Show("Vui lòng chọn một xe để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa xe này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                int id = int.Parse(txt_MaXe.Text);
+                int id = int.Parse(dgv_DanhSachXe.SelectedRows[0].Cells[0].Value.ToString());
                 xeBLL.DeleteXe(id);
                 MessageBox.Show("Xóa xe thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HienThiDanhSachXe();
@@ -151,7 +139,6 @@ namespace GUI
             {
                 DataGridViewRow row = dgv_DanhSachXe.Rows[e.RowIndex];
 
-                txt_MaXe.Text = row.Cells["Id"].Value.ToString();
                 txtBienSoXe.Text = row.Cells["BienSoXe"].Value.ToString();
                 // Kiểm tra và chuyển đổi giá trị ngày
                 if (DateTime.TryParse(row.Cells["NgayThem"].Value.ToString(), out DateTime ngayThem))
