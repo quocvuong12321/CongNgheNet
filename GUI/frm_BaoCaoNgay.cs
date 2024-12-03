@@ -25,7 +25,7 @@ namespace GUI
                 // Tạo instance của Crystal Report
                 BaoCaoNgay rpt = new BaoCaoNgay();
 
-                rpt.SetParameterValue("ngayBaoCao", ngayBaoCao);
+                rpt.SetParameterValue("@Ngay", ngayBaoCao);
                 rpt.SetDatabaseLogon("sa", "123");
 
                 // Gán report vào CrystalReportViewer

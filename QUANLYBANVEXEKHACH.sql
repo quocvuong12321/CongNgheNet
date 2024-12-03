@@ -380,23 +380,29 @@ GO
 
 
 -----------------------Dùng cho crystal report--------------------------
-CREATE PROCEDURE sp_BaoCaoDoanhThuTheoThang
-    @Thang INT,
-    @Nam INT
+
+CREATE PROCEDURE sp_ThongKeLichTrinhTheoNgay
+    @Ngay DATE
 AS
 BEGIN
     SELECT 
-        td.TEN_TUYEN AS 'TuyenDuong',
-        COUNT(v.ID_VE) AS 'SoLuongVe',
-        SUM(v.TONG_TIEN) AS 'TongDoanhThu'
-    FROM Ve v
-    INNER JOIN LichTrinh lt ON v.ID_LICH_TRINH = lt.MA_LICH_TRINH
+        lt.MA_LICH_TRINH AS MaLichTrinh,
+        td.TEN_TUYEN AS TuyenDuong,
+        xe.SO_GHE AS TongSoGhe,
+        SUM(v.SOLUONG) AS TongSoLuongVe, -- Tổng số lượng vé bán ra
+        (xe.SO_GHE - ISNULL(SUM(v.SOLUONG), 0)) AS SoGheConTrong, -- Số ghế còn trống
+        SUM(v.TONG_TIEN) AS TongDoanhThu -- Tổng doanh thu
+    FROM LichTrinh lt
     INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
-    WHERE MONTH(v.NGAY_DAT_VE) = @Thang AND YEAR(v.NGAY_DAT_VE) = @Nam
-    GROUP BY td.TEN_TUYEN
-    ORDER BY td.TEN_TUYEN;
+    INNER JOIN Xe xe ON lt.ID_XE = xe.ID_XE
+    LEFT JOIN Ve v ON lt.MA_LICH_TRINH = v.ID_LICH_TRINH
+    WHERE CAST(v.NGAY_DAT_VE AS DATE) = @Ngay
+    GROUP BY lt.MA_LICH_TRINH, td.TEN_TUYEN, xe.SO_GHE
+    ORDER BY TongDoanhThu DESC;
 END
 GO
+
+
 
 
 
@@ -414,6 +420,26 @@ BEGIN
     WHERE MONTH(v.NGAY_DAT_VE) = @Thang AND YEAR(v.NGAY_DAT_VE) = @Nam
     GROUP BY nv.HOTEN
     ORDER BY TongSoLuongVe DESC;
+END
+GO
+
+
+CREATE PROCEDURE sp_ThongKeLichTrinhTheoThang
+    @Thang INT,
+    @Nam INT
+AS
+BEGIN
+    SELECT 
+        lt.MA_LICH_TRINH AS MaLichTrinh,
+        td.TEN_TUYEN AS TuyenDuong,
+        SUM(v.SOLUONG) AS TongSoLuongVe, -- Tổng số lượng vé bán ra
+        SUM(v.TONG_TIEN) AS TongDoanhThu -- Tổng doanh thu
+    FROM LichTrinh lt
+    INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
+    LEFT JOIN Ve v ON lt.MA_LICH_TRINH = v.ID_LICH_TRINH
+    WHERE MONTH(lt.KHOI_HANH) = @Thang AND YEAR(lt.KHOI_HANH) = @Nam
+    GROUP BY lt.MA_LICH_TRINH, td.TEN_TUYEN
+    ORDER BY TongDoanhThu DESC;
 END
 GO
 

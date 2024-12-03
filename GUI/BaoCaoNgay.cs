@@ -90,7 +90,7 @@ namespace GUI {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ngayBaoCao {
+        public CrystalDecisions.Shared.IParameterField Parameter_Ngay {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
