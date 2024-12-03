@@ -179,5 +179,7 @@ namespace GUI
             txt_MaLichTrinh.Clear();
             txt_GiaVe.Clear();
         }
+
+       
     }
 }

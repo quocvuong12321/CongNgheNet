@@ -12,7 +12,7 @@ namespace GUI
 {
     public partial class frm_Main : Form
     {
-        private string MaNV;
+        public string MaNV;
         public UsCtrl_BanVe usBV;
 
         public string role;
@@ -139,6 +139,14 @@ namespace GUI
         private void tsb_QLLichTrinh_Click(object sender, EventArgs e)
         {
             UsCtrl_QLLichTrinh us = new UsCtrl_QLLichTrinh(this);
+            panel.Controls.Clear();
+            us.Dock = DockStyle.Fill;
+            panel.Controls.Add(us);
+        }
+
+        private void tsb_TenNV_Click(object sender, EventArgs e)
+        {
+            UsCtrl_ThongTinNhanVien us = new UsCtrl_ThongTinNhanVien(this);
             panel.Controls.Clear();
             us.Dock = DockStyle.Fill;
             panel.Controls.Add(us);

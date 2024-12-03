@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -121,6 +122,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsCtrl_DoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_DoiMatKhau.Designer.cs">
+      <DependentUpon>UsCtrl_DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsCtrl_QLTramDungChan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +176,12 @@
     <Compile Include="UsCtrl_ThongKeDoanhThu.Designer.cs">
       <DependentUpon>UsCtrl_ThongKeDoanhThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsCtrl_ThongTinNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsCtrl_ThongTinNhanVien.Designer.cs">
+      <DependentUpon>UsCtrl_ThongTinNhanVien.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BaoCaoNgay.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoNgay.cs</LastGenOutput>
@@ -212,6 +225,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UsCtrl_DoiMatKhau.resx">
+      <DependentUpon>UsCtrl_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_QLTramDungChan.resx">
       <DependentUpon>UsCtrl_QLTramDungChan.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsCtrl_ThongKeDoanhThu.resx">
       <DependentUpon>UsCtrl_ThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsCtrl_ThongTinNhanVien.resx">
+      <DependentUpon>UsCtrl_ThongTinNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

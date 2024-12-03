@@ -65,5 +65,6 @@ namespace DAL
             return db.Xes.Any(x => x.BIEN_SO_XE == bienSoXe); // Kiểm tra nếu có xe với biển số này
 
         }
+        
     }
 }

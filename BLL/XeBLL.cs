@@ -37,6 +37,6 @@ namespace BLL
             return xeDAL.CheckBienSoXe(bienSoXe);
         }
 
-
+        
     }
 }

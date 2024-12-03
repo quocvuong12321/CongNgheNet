@@ -26,7 +26,9 @@ namespace DAL
                 DiemDon = ve.TRAMDUNGCHAN.TEN_TramDungChan,
                 DiemTra =ve.TRAMDUNGCHAN1.TEN_TramDungChan,
                 ve.TONG_TIEN,
-                ve.TRANG_THAI
+                ve.TRANG_THAI,
+                vitringoi = string.Join(", ", ve.ChiTietVes.Select(ctv => ctv.GHE.VI_TRI_NGOI)) // Nối tên ghế thành chuỗi
+
             }).ToList();
             return dsVe.Cast<object>().ToList();
         }

@@ -265,7 +265,6 @@ go
 
 
 
---drop trigger trg_AutoSetEndDateTime
 --Trigger tự động thêm ngày kết thúc dựa vào TuyenDuong và Ngay khởi hành
 CREATE TRIGGER trg_AutoSetEndDateTime
 ON LichTrinh
@@ -301,108 +300,34 @@ begin
 end
 go
 
--- fucntion lấy ra danh sách xe có thể gán cho lịch trình thỏa mãn điều kiện lịch trình KET_THUC > 2 ngày so với lịch trình khác
-CREATE FUNCTION dbo.LayDanhSachXeCoTheGan (@ngaykhoihanh DATETIME)
-RETURNS @danhsachxe TABLE (
-    ID_XE INT
-)
-AS
-BEGIN
-    -- Lọc các xe thỏa mãn điều kiện và chèn vào bảng trả về
-    INSERT INTO @danhsachxe (ID_XE)
-    SELECT DISTINCT LT.ID_XE
-    FROM LichTrinh LT
-    WHERE NOT EXISTS (
-        -- Kiểm tra nếu có một lịch trình không thỏa mãn điều kiện
-        SELECT 1
-        FROM LichTrinh LT2
-        WHERE LT2.ID_XE = LT.ID_XE
-        AND DATEDIFF(DAY, LT2.KET_THUC, @ngaykhoihanh) < 2
-    );
-
-    -- Trả về bảng tạm chứa danh sách xe hợp lệ
-    RETURN;
-END;
-GO
 
 
+--TRIGGER KHI HUY TOUR THI TRẢ SỐ LƯỢNG GHẾ LẠI TỪ ĐÃ ĐẶT THÀNH TRỐNG
+CREATE TRIGGER XuLyKhiHuyVe
+on Ve
+for update
+as
+begin
+	if UPDATE(TRANG_THAI)
+	BEGIN
+		UPDATE Ghe
+        SET TRANG_THAI = N'Trống'
+        FROM Ghe g
+        INNER JOIN ChiTietVe ct ON g.ID_GHE = ct.ID_GHE
+        INNER JOIN inserted i ON ct.ID_VE = i.ID_VE
+        WHERE i.TRANG_THAI = N'Đã huỷ';
 
-
-CREATE PROCEDURE ThemNhanVien
-    @USERNAME NVARCHAR(128),     -- Tên đăng nhập của nhân viên
-    @MAT_KHAU NVARCHAR(128),     -- Mật khẩu đăng nhập
-    @HOTEN NVARCHAR(128),        -- Họ tên nhân viên
-    @SO_DT NVARCHAR(128) = NULL, -- Số điện thoại (tùy chọn)
-    @GIOITINH NVARCHAR(5),       -- Giới tính (Nam/Nữ)
-    @DIACHI NVARCHAR(128) = NULL,-- Địa chỉ (tùy chọn)
-    @LOAINV NVARCHAR(128)        -- Loại nhân viên (Quản lý/Nhân viên)
-AS
-BEGIN
-    BEGIN TRY
-        BEGIN TRANSACTION;
-
-        -- Thêm nhân viên vào bảng NHANVIEN
-        INSERT INTO NHANVIEN (USERNAME, MAT_KHAU, HOTEN, SO_DT, GIOITINH, DIACHI, LOAINV)
-        VALUES (@USERNAME, @MAT_KHAU, @HOTEN, @SO_DT, @GIOITINH, @DIACHI, @LOAINV);
-
-        -- Kiểm tra loại nhân viên để gán quyền phù hợp
-        DECLARE @ROLE NVARCHAR(128);
-        IF (@LOAINV = N'Quản lý')
-            SET @ROLE = N'QuanLyRole'; -- Quyền dành cho quản lý
-        ELSE
-            SET @ROLE = N'NhanVienRole'; -- Quyền dành cho nhân viên
-
-        -- Tạo SQL Server login
-        DECLARE @SQL NVARCHAR(MAX);
-        SET @SQL = N'CREATE LOGIN [' + @USERNAME + N'] WITH PASSWORD = ''' + @MAT_KHAU + N''';';
-        EXEC sp_executesql @SQL;
-
-        -- Tạo database user tương ứng với login
-        SET @SQL = N'CREATE USER [' + @USERNAME + N'] FOR LOGIN [' + @USERNAME + N'];';
-        EXEC sp_executesql @SQL;
-
-        -- Gán quyền cho user dựa vào vai trò
-        SET @SQL = N'EXEC sp_addrolemember ''' + @ROLE + ''', [' + @USERNAME + N'];';
-        EXEC sp_executesql @SQL;
-
-        COMMIT TRANSACTION;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRANSACTION;
-
-        -- Xử lý lỗi
-        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
-        SELECT @ErrorMessage = ERROR_MESSAGE(), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE();
-        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH
-END;
-GO
-
-
+		UPDATE LichTrinh
+        SET SOGHETRONG = SOGHETRONG + i.SOLUONG
+        FROM LichTrinh l
+        INNER JOIN inserted i
+            ON l.MA_LICH_TRINH = i.ID_LICH_TRINH
+        WHERE i.TRANG_THAI = N'Đã huỷ';
+	END
+end
+go
 
 -----------------------Dùng cho crystal report--------------------------
-
---CREATE PROCEDURE sp_ThongKeLichTrinhTheoNgay
---    @Ngay DATE
---AS
---BEGIN
---    SELECT 
---        lt.MA_LICH_TRINH AS MaLichTrinh,
---        td.TEN_TUYEN AS TuyenDuong,
---        xe.SO_GHE AS TongSoGhe,
---        SUM(v.SOLUONG) AS TongSoLuongVe, -- Tổng số lượng vé bán ra
---        (xe.SO_GHE - ISNULL(SUM(v.SOLUONG), 0)) AS SoGheConTrong, -- Số ghế còn trống
---        SUM(v.TONG_TIEN) AS TongDoanhThu -- Tổng doanh thu
---    FROM LichTrinh lt
---    INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
---    INNER JOIN Xe xe ON lt.ID_XE = xe.ID_XE
---    LEFT JOIN Ve v ON lt.MA_LICH_TRINH = v.ID_LICH_TRINH
---    WHERE CAST(v.NGAY_DAT_VE AS DATE) = @Ngay
---    GROUP BY lt.MA_LICH_TRINH, td.TEN_TUYEN, xe.SO_GHE
---    ORDER BY TongDoanhThu DESC;
---END
---GO
-
 
 
 CREATE PROCEDURE sp_ThongKeLichTrinhTheoNgay
@@ -544,6 +469,95 @@ GRANT EXECUTE ON [dbo].[ChonXe] TO NhanVienRole;
 go
 
 
+CREATE PROCEDURE ThemNhanVien
+    @USERNAME NVARCHAR(128),     -- Tên đăng nhập của nhân viên
+    @MAT_KHAU NVARCHAR(128),     -- Mật khẩu đăng nhập
+    @HOTEN NVARCHAR(128),        -- Họ tên nhân viên
+    @SO_DT NVARCHAR(128) = NULL, -- Số điện thoại (tùy chọn)
+    @GIOITINH NVARCHAR(5),       -- Giới tính (Nam/Nữ)
+    @DIACHI NVARCHAR(128) = NULL,-- Địa chỉ (tùy chọn)
+    @LOAINV NVARCHAR(128)        -- Loại nhân viên (Quản lý/Nhân viên)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Thêm nhân viên vào bảng NHANVIEN
+        INSERT INTO NHANVIEN (USERNAME, MAT_KHAU, HOTEN, SO_DT, GIOITINH, DIACHI, LOAINV)
+        VALUES (@USERNAME, @MAT_KHAU, @HOTEN, @SO_DT, @GIOITINH, @DIACHI, @LOAINV);
+
+        -- Kiểm tra loại nhân viên để gán quyền phù hợp
+        DECLARE @ROLE NVARCHAR(128);
+        IF (@LOAINV = N'Quản lý')
+            SET @ROLE = N'QuanLyRole'; -- Quyền dành cho quản lý
+        ELSE
+            SET @ROLE = N'NhanVienRole'; -- Quyền dành cho nhân viên
+
+        -- Tạo SQL Server login
+        DECLARE @SQL NVARCHAR(MAX);
+        SET @SQL = N'CREATE LOGIN [' + @USERNAME + N'] WITH PASSWORD = ''' + @MAT_KHAU + N''';';
+        EXEC sp_executesql @SQL;
+
+        -- Tạo database user tương ứng với login
+        SET @SQL = N'CREATE USER [' + @USERNAME + N'] FOR LOGIN [' + @USERNAME + N'];';
+        EXEC sp_executesql @SQL;
+
+        -- Gán quyền cho user dựa vào vai trò
+        SET @SQL = N'EXEC sp_addrolemember ''' + @ROLE + ''', [' + @USERNAME + N'];';
+        EXEC sp_executesql @SQL;
+
+        COMMIT TRANSACTION;
+		return 1;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+
+        -- Xử lý lỗi
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT @ErrorMessage = ERROR_MESSAGE(), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+		return -1
+    END CATCH
+END;
+GO
 
 
+
+CREATE PROCEDURE sp_DoiMatKhau
+    @Username NVARCHAR(50),
+    @NewPassword NVARCHAR(50)
+AS
+BEGIN
+	SET NOCOUNT OFF;
+    BEGIN TRY
+        -- Bắt đầu giao dịch
+        BEGIN TRANSACTION;
+
+        -- Cập nhật mật khẩu trong bảng NHANVIENs
+        UPDATE NHANVIEN
+        SET MAT_KHAU = @NewPassword
+        WHERE USERNAME = @Username;
+
+        -- Kiểm tra nếu người dùng tồn tại
+        IF @@ROWCOUNT = 0
+        BEGIN
+            ROLLBACK TRANSACTION;
+            return 0;
+        END
+
+        -- Đổi mật khẩu login SQL Server
+        DECLARE @SQL NVARCHAR(MAX);
+        SET @SQL = 'ALTER LOGIN [' + @Username + '] WITH PASSWORD = ''' + @NewPassword + ''';';
+        EXEC sp_executesql @SQL;
+        -- Commit giao dịch
+        COMMIT TRANSACTION;
+		return 1;
+    END TRY
+    BEGIN CATCH
+        -- Rollback nếu có lỗi
+        ROLLBACK TRANSACTION;
+        return -1;
+    END CATCH
+END
+go
 

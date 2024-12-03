@@ -32,14 +32,15 @@ namespace DAL
 
         public bool Insert(NHANVIEN nv)
         {
-            try {
-                db.NHANVIENs.InsertOnSubmit(nv);
-                db.SubmitChanges();
-                return true;
+            try
+            {
+                int result = db.ThemNhanVien(nv.USERNAME, nv.MAT_KHAU, nv.HOTEN, nv.SO_DT, nv.GIOITINH, nv.DIACHI, nv.LOAINV);
+                return result == 0;
             }
             catch (Exception ex)
             {
-                throw new Exception("Lỗi: "+ex.Message);
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
             }
         }
 
@@ -50,7 +51,7 @@ namespace DAL
             {
                 if (nv.MAT_KHAU.Equals(password))
                 {
-                    DTO.Connect.ConnectString = $"Data Source = DESKTOP-I22SAC7\\TKHANGDI;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id={username};Password={password};";
+                    DTO.Connect.ConnectString = $"Data Source = DESKTOP-86N3SME\\SQL_KING;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id={username};Password={password};";
                     return true;
                 }
                 else return false;
@@ -92,6 +93,23 @@ namespace DAL
         public string getRoleNhanVien(string username)
         {
             return db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username)).LOAINV;
+        }
+
+        public NHANVIEN getThongTinNhanVien(string username)
+        {
+            return db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username));
+        }
+
+        public bool ktMatKhau(string password,string username)
+        {
+            return db.NHANVIENs.FirstOrDefault(t => t.USERNAME.Equals(username) && t.MAT_KHAU.Equals(password)) != null;
+        }
+
+        public int DoiMatKhau(string newPassword,string username)
+        {
+            int result = (int)db.sp_DoiMatKhau(username, newPassword);
+            return result;
+
         }
     }
 }

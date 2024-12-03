@@ -218,6 +218,7 @@ namespace GUI
             this.tsb_TenNV.Name = "tsb_TenNV";
             this.tsb_TenNV.Size = new System.Drawing.Size(52, 72);
             this.tsb_TenNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsb_TenNV.Click += new System.EventHandler(this.tsb_TenNV_Click);
             // 
             // frm_Main
             // 

@@ -41,8 +41,8 @@ namespace GUI
             dgv_DSVe.Columns["TRANG_THAI"].HeaderText = "Trạng thái";
             dgv_DSVe.Columns["DIEMDON"].HeaderText = "Điểm đón";
             dgv_DSVe.Columns["DIEMTRA"].HeaderText = "Điểm trả";
-
             dgv_DSVe.Columns["TONG_TIEN"].DefaultCellStyle.Format = "0,00" + " đ";
+            dgv_DSVe.Columns["vitringoi"].HeaderText = "Vị trí ngồi";
         }
 
         private void btn_DSVe_Click(object sender, EventArgs e)
