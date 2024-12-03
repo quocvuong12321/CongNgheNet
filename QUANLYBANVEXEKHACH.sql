@@ -456,10 +456,12 @@ BEGIN
         v.SDT AS SoDienThoai,
         td.TEN_TUYEN AS TuyenDuong,
         lt.KHOI_HANH AS NgayKhoiHanh,
-        v.DIEMDON AS DiemDon,
-        v.DIEMTRA AS DiemTra,
+        -- Lấy tên điểm đón
+        dd.TEN_TramDungChan AS DiemDon,
+        -- Lấy tên điểm trả
+        dt.TEN_TramDungChan AS DiemTra,
         -- Gộp chuỗi vị trí ngồi
-        STUFF((
+         STUFF((
             SELECT ', ' + g.VI_TRI_NGOI
             FROM ChiTietVe ctv, GHE g
             WHERE ctv.ID_VE = v.ID_VE and ctv.ID_GHE = g.ID_GHE
@@ -471,12 +473,16 @@ BEGIN
     FROM Ve v
     INNER JOIN LichTrinh lt ON v.ID_LICH_TRINH = lt.MA_LICH_TRINH
     INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
+    -- Tham gia thêm với bảng TRAMDUNGCHAN để lấy tên điểm đón và điểm trả
+    LEFT JOIN TRAMDUNGCHAN dd ON v.DIEMDON = dd.ID_TramDungChan
+    LEFT JOIN TRAMDUNGCHAN dt ON v.DIEMTRA = dt.ID_TramDungChan
     WHERE v.ID_VE = @MaVe
     GROUP BY 
         v.ID_VE, v.TENKHACHHANG, v.SDT, td.TEN_TUYEN, lt.KHOI_HANH, 
-        v.DIEMDON, v.DIEMTRA, v.SOLUONG, v.TONG_TIEN, v.HINHTHUCTHANHTOAN;
+        dd.TEN_TramDungChan, dt.TEN_TramDungChan, v.SOLUONG, 
+        v.TONG_TIEN, v.HINHTHUCTHANHTOAN;
 END;
-go
+GO
 
 
 
@@ -511,9 +517,6 @@ GRANT SELECT ON THEMTRAMDUNGCHAN TO NhanVienRole
 GO
 GRANT EXECUTE ON [dbo].[ChonXe] TO NhanVienRole;
 go
-
-
-
 
 
 
