@@ -128,6 +128,11 @@ namespace GUI
 
         }
 
+
+
+
+
+
         private void chk_HienThiMK_CheckedChanged(object sender, EventArgs e)
         {
             if(chk_HienThiMK.Checked == true)
