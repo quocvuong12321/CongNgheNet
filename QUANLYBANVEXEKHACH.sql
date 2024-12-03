@@ -8,6 +8,7 @@ use QuanLyBanVeXeKhach
 go
 
 
+
 CREATE TABLE [DiaDiem] (
   [ID_DIADIEM] int IDENTITY(1,1) PRIMARY KEY ,
   [TEN_TINH_THANH] nvarchar(255) NOT NULL
@@ -381,6 +382,29 @@ GO
 
 -----------------------Dùng cho crystal report--------------------------
 
+--CREATE PROCEDURE sp_ThongKeLichTrinhTheoNgay
+--    @Ngay DATE
+--AS
+--BEGIN
+--    SELECT 
+--        lt.MA_LICH_TRINH AS MaLichTrinh,
+--        td.TEN_TUYEN AS TuyenDuong,
+--        xe.SO_GHE AS TongSoGhe,
+--        SUM(v.SOLUONG) AS TongSoLuongVe, -- Tổng số lượng vé bán ra
+--        (xe.SO_GHE - ISNULL(SUM(v.SOLUONG), 0)) AS SoGheConTrong, -- Số ghế còn trống
+--        SUM(v.TONG_TIEN) AS TongDoanhThu -- Tổng doanh thu
+--    FROM LichTrinh lt
+--    INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
+--    INNER JOIN Xe xe ON lt.ID_XE = xe.ID_XE
+--    LEFT JOIN Ve v ON lt.MA_LICH_TRINH = v.ID_LICH_TRINH
+--    WHERE CAST(v.NGAY_DAT_VE AS DATE) = @Ngay
+--    GROUP BY lt.MA_LICH_TRINH, td.TEN_TUYEN, xe.SO_GHE
+--    ORDER BY TongDoanhThu DESC;
+--END
+--GO
+
+
+
 CREATE PROCEDURE sp_ThongKeLichTrinhTheoNgay
     @Ngay DATE
 AS
@@ -397,10 +421,12 @@ BEGIN
     INNER JOIN Xe xe ON lt.ID_XE = xe.ID_XE
     LEFT JOIN Ve v ON lt.MA_LICH_TRINH = v.ID_LICH_TRINH
     WHERE CAST(v.NGAY_DAT_VE AS DATE) = @Ngay
+          AND v.TRANG_THAI <> N'Đã huỷ' -- Thêm điều kiện trạng thái vé
     GROUP BY lt.MA_LICH_TRINH, td.TEN_TUYEN, xe.SO_GHE
     ORDER BY TongDoanhThu DESC;
 END
 GO
+
 
 
 
@@ -417,12 +443,11 @@ BEGIN
         SUM(v.TONG_TIEN) AS TongDoanhThu -- Tổng doanh thu
     FROM Ve v
     INNER JOIN NHANVIEN nv ON v.NHAN_VIEN_TAO = nv.USERNAME
-    WHERE MONTH(v.NGAY_DAT_VE) = @Thang AND YEAR(v.NGAY_DAT_VE) = @Nam
+    WHERE MONTH(v.NGAY_DAT_VE) = @Thang AND YEAR(v.NGAY_DAT_VE) = @Nam AND v.TRANG_THAI <> N'Đã huỷ' -- Thêm điều kiện trạng thái vé
     GROUP BY nv.HOTEN
     ORDER BY TongSoLuongVe DESC;
 END
 GO
-
 
 
 
@@ -439,7 +464,7 @@ BEGIN
     FROM LichTrinh lt
     INNER JOIN TuyenDuong td ON lt.ID_TUYEN_DUONG = td.ID_TUYEN
     LEFT JOIN Ve v ON lt.MA_LICH_TRINH = v.ID_LICH_TRINH
-    WHERE MONTH(lt.KHOI_HANH) = @Thang AND YEAR(lt.KHOI_HANH) = @Nam
+    WHERE MONTH(lt.KHOI_HANH) = @Thang AND YEAR(lt.KHOI_HANH) = @Nam AND v.TRANG_THAI <> N'Đã huỷ' -- Thêm điều kiện trạng thái vé
     GROUP BY lt.MA_LICH_TRINH, td.TEN_TUYEN
     ORDER BY TongDoanhThu DESC;
 END

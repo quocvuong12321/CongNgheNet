@@ -78,3 +78,4 @@ C:\Users\ASUS\Desktop\testCLo\CongNgheNet\DTO\bin\Debug\DTO.pdb
 C:\Users\ASUS\Desktop\testCLo\CongNgheNet\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\testCLo\CongNgheNet\DTO\obj\Debug\DTO.dll
 C:\Users\ASUS\Desktop\testCLo\CongNgheNet\DTO\obj\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\testCLo\CongNgheNet\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache

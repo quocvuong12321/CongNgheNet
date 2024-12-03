@@ -30,7 +30,7 @@ namespace GUI
 
         public void loadCbo_Nam()
         {
-            for (int i = 2000; i <= 2025; i++)
+            for (int i = 2020; i <= 2025; i++)
             {
                 cbo_Nam.Items.Add(i.ToString());
             }
