@@ -63,7 +63,7 @@ namespace DTO
     #endregion
 		
 		public QuanLyNhaXeDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString6, mappingSource)
 		{
 			OnCreated();
 		}
@@ -172,6 +172,13 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DoiMatKhau")]
+		public int sp_DoiMatKhau([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewPassword", DbType="NVarChar(50)")] string newPassword)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, newPassword);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ThemNhanVien")]
 		public int ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="NVarChar(128)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAT_KHAU", DbType="NVarChar(128)")] string mAT_KHAU, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HOTEN", DbType="NVarChar(128)")] string hOTEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SO_DT", DbType="NVarChar(128)")] string sO_DT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GIOITINH", DbType="NVarChar(5)")] string gIOITINH, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DIACHI", DbType="NVarChar(128)")] string dIACHI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LOAINV", DbType="NVarChar(128)")] string lOAINV)
 		{
@@ -183,19 +190,6 @@ namespace DTO
 		public System.Nullable<bool> ChonXe([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(128)")] string malt)
 		{
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), malt).ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LayDanhSachXeCoTheGan", IsComposable=true)]
-		public IQueryable<LayDanhSachXeCoTheGanResult> LayDanhSachXeCoTheGan([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> ngaykhoihanh)
-		{
-			return this.CreateMethodCallQuery<LayDanhSachXeCoTheGanResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngaykhoihanh);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DoiMatKhau")]
-		public int sp_DoiMatKhau([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewPassword", DbType="NVarChar(50)")] string newPassword)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, newPassword);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -924,6 +918,8 @@ namespace DTO
 		
 		private System.DateTime _NGAY_TAO_LICH_TRINH;
 		
+		private string _TRANG_THAI;
+		
 		private EntitySet<GHE> _GHEs;
 		
 		private EntitySet<THEMTRAMDUNGCHAN> _THEMTRAMDUNGCHANs;
@@ -954,6 +950,8 @@ namespace DTO
     partial void OnSOGHETRONGChanged();
     partial void OnNGAY_TAO_LICH_TRINHChanging(System.DateTime value);
     partial void OnNGAY_TAO_LICH_TRINHChanged();
+    partial void OnTRANG_THAIChanging(string value);
+    partial void OnTRANG_THAIChanged();
     #endregion
 		
 		public LichTrinh()
@@ -1130,6 +1128,26 @@ namespace DTO
 					this._NGAY_TAO_LICH_TRINH = value;
 					this.SendPropertyChanged("NGAY_TAO_LICH_TRINH");
 					this.OnNGAY_TAO_LICH_TRINHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRANG_THAI", DbType="NVarChar(50)")]
+		public string TRANG_THAI
+		{
+			get
+			{
+				return this._TRANG_THAI;
+			}
+			set
+			{
+				if ((this._TRANG_THAI != value))
+				{
+					this.OnTRANG_THAIChanging(value);
+					this.SendPropertyChanging();
+					this._TRANG_THAI = value;
+					this.SendPropertyChanged("TRANG_THAI");
+					this.OnTRANG_THAIChanged();
 				}
 			}
 		}
@@ -2742,32 +2760,6 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.Ve = null;
-		}
-	}
-	
-	public partial class LayDanhSachXeCoTheGanResult
-	{
-		
-		private System.Nullable<int> _ID_XE;
-		
-		public LayDanhSachXeCoTheGanResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_XE", DbType="Int")]
-		public System.Nullable<int> ID_XE
-		{
-			get
-			{
-				return this._ID_XE;
-			}
-			set
-			{
-				if ((this._ID_XE != value))
-				{
-					this._ID_XE = value;
-				}
-			}
 		}
 	}
 }

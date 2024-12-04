@@ -228,6 +228,44 @@ namespace GUI
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_MaVe.Text))
+            {
+                MessageBox.Show("Mã vé không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_MaVe.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txt_TenKH.Text))
+            {
+                MessageBox.Show("Tên khách hàng không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_TenKH.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txt_SDT.Text) || txt_SDT.Text.Length != 10 || !txt_SDT.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Số điện thoại phải là 10 ký tự và chỉ chứa số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (cbo_DiemDon.SelectedValue == null)
+            {
+                MessageBox.Show("Điểm đón không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbo_DiemDon.Focus();
+                return;
+            }
+            if (cbo_DiemTra.SelectedValue == null)
+            {
+                MessageBox.Show("Điểm trả không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbo_DiemTra.Focus();
+                return;
+            }
+            if (cboThanhToan.SelectedValue == null)
+            {
+                MessageBox.Show("Phương thức thanh toán không được trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboThanhToan.Focus();
+                return;
+            }
+
+
+
             string maLichTrinhSelected = dgv_ThongTinLichTrinh.SelectedRows[0].Cells[0].Value.ToString();
             Ve newVe = new Ve()
             {
@@ -269,8 +307,6 @@ namespace GUI
             {
                 MessageBox.Show("Đặt vé không thành công");
             }
-
-           
         }
 
         private void btn_KiemTra_Click(object sender, EventArgs e)

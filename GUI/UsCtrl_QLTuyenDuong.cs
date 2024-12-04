@@ -109,6 +109,7 @@ namespace GUI
             dgvDanhSachTuyenDuong.Columns["DiemCuoi"].HeaderText = "Điểm cuối";
             dgvDanhSachTuyenDuong.Columns["KhoangCach"].HeaderText = "Khoảng cách";
             dgvDanhSachTuyenDuong.Columns["TgianDiChuyen"].HeaderText = "Thời gian di chuyển";
+
             dgvDanhSachTuyenDuong.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDanhSachTuyenDuong.Font, FontStyle.Bold);
         }
 

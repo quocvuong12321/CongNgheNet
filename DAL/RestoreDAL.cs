@@ -33,9 +33,7 @@ namespace DAL
                     string restoreQuery = $@"
                         RESTORE DATABASE QuanLyBanVeXeKhach 
                         FROM DISK = '{backupPath}' 
-                        WITH MOVE 'QuanLyBanVeXeKhach' TO 'D:\Backups\QuanLyBanVeXeKhach.mdf',
-                             MOVE 'QuanLyBanVeXeKhach_log' TO 'D:\Backups\QuanLyBanVeXeKhach.ldf',
-                             REPLACE, RECOVERY;";
+                        WITH REPLACE, RECOVERY;";
                     using (var cmd = new SqlCommand(restoreQuery, connection))
                     {
                         cmd.ExecuteNonQuery();

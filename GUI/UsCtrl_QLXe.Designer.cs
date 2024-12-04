@@ -50,10 +50,10 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(855, 52);
+            this.label1.Location = new System.Drawing.Point(734, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 40);
+            this.label1.Size = new System.Drawing.Size(179, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ XE";
             // 
@@ -62,10 +62,10 @@ namespace GUI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(576, 177);
+            this.label3.Location = new System.Drawing.Point(455, 157);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 24);
+            this.label3.Size = new System.Drawing.Size(79, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ngày thêm";
             // 
@@ -74,10 +74,10 @@ namespace GUI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(576, 214);
+            this.label4.Location = new System.Drawing.Point(455, 194);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 24);
+            this.label4.Size = new System.Drawing.Size(55, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Số ghế";
             // 
@@ -87,7 +87,7 @@ namespace GUI
             this.btn_ThemXe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemXe.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemXe.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemXe.Image")));
-            this.btn_ThemXe.Location = new System.Drawing.Point(564, 270);
+            this.btn_ThemXe.Location = new System.Drawing.Point(443, 250);
             this.btn_ThemXe.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemXe.Name = "btn_ThemXe";
             this.btn_ThemXe.Size = new System.Drawing.Size(168, 51);
@@ -103,7 +103,7 @@ namespace GUI
             this.btn_CapNhat.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CapNhat.ForeColor = System.Drawing.Color.Goldenrod;
             this.btn_CapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhat.Image")));
-            this.btn_CapNhat.Location = new System.Drawing.Point(775, 270);
+            this.btn_CapNhat.Location = new System.Drawing.Point(654, 250);
             this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhat.Name = "btn_CapNhat";
             this.btn_CapNhat.Size = new System.Drawing.Size(168, 51);
@@ -118,7 +118,7 @@ namespace GUI
             this.btn_XoaXe.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XoaXe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XoaXe.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaXe.Image")));
-            this.btn_XoaXe.Location = new System.Drawing.Point(986, 271);
+            this.btn_XoaXe.Location = new System.Drawing.Point(865, 251);
             this.btn_XoaXe.Margin = new System.Windows.Forms.Padding(4);
             this.btn_XoaXe.Name = "btn_XoaXe";
             this.btn_XoaXe.Size = new System.Drawing.Size(168, 51);
@@ -134,7 +134,7 @@ namespace GUI
             this.btn_Huy.BackColor = System.Drawing.Color.Red;
             this.btn_Huy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.Snow;
-            this.btn_Huy.Location = new System.Drawing.Point(1197, 267);
+            this.btn_Huy.Location = new System.Drawing.Point(1076, 247);
             this.btn_Huy.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(168, 51);
@@ -147,7 +147,7 @@ namespace GUI
             // 
             this.dgv_DanhSachXe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DanhSachXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DanhSachXe.Location = new System.Drawing.Point(396, 338);
+            this.dgv_DanhSachXe.Location = new System.Drawing.Point(275, 318);
             this.dgv_DanhSachXe.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSachXe.Name = "dgv_DanhSachXe";
             this.dgv_DanhSachXe.RowHeadersWidth = 51;
@@ -161,41 +161,41 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(577, 140);
+            this.label5.Location = new System.Drawing.Point(456, 120);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 24);
+            this.label5.Size = new System.Drawing.Size(77, 18);
             this.label5.TabIndex = 29;
             this.label5.Text = "Biển số xe";
             // 
             // txtBienSoXe
             // 
-            this.txtBienSoXe.Location = new System.Drawing.Point(697, 133);
+            this.txtBienSoXe.Location = new System.Drawing.Point(576, 113);
             this.txtBienSoXe.Margin = new System.Windows.Forms.Padding(4);
             this.txtBienSoXe.Name = "txtBienSoXe";
-            this.txtBienSoXe.Size = new System.Drawing.Size(148, 28);
+            this.txtBienSoXe.Size = new System.Drawing.Size(148, 24);
             this.txtBienSoXe.TabIndex = 30;
             // 
             // dtp_NgayThem
             // 
             this.dtp_NgayThem.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_NgayThem.Location = new System.Drawing.Point(697, 174);
+            this.dtp_NgayThem.Location = new System.Drawing.Point(576, 154);
             this.dtp_NgayThem.Name = "dtp_NgayThem";
-            this.dtp_NgayThem.Size = new System.Drawing.Size(431, 28);
+            this.dtp_NgayThem.Size = new System.Drawing.Size(431, 24);
             this.dtp_NgayThem.TabIndex = 31;
             // 
             // cbo_SoGhe
             // 
             this.cbo_SoGhe.FormattingEnabled = true;
-            this.cbo_SoGhe.Location = new System.Drawing.Point(697, 214);
+            this.cbo_SoGhe.Location = new System.Drawing.Point(576, 194);
             this.cbo_SoGhe.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_SoGhe.Name = "cbo_SoGhe";
-            this.cbo_SoGhe.Size = new System.Drawing.Size(124, 29);
+            this.cbo_SoGhe.Size = new System.Drawing.Size(124, 25);
             this.cbo_SoGhe.TabIndex = 3;
             // 
             // UsCtrl_QLXe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.Controls.Add(this.dtp_NgayThem);

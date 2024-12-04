@@ -49,7 +49,6 @@ CREATE TABLE NHANVIEN(
 GO
 
 
-
 CREATE TABLE [LichTrinh] (
   [MA_LICH_TRINH] varchar(128) PRIMARY KEY,
   [ID_TUYEN_DUONG] INT NOT NULL,
@@ -59,6 +58,7 @@ CREATE TABLE [LichTrinh] (
   [ID_XE] INT NOT NULL,
   SOGHETRONG INT,
   [NGAY_TAO_LICH_TRINH]  datetime NOT NULL DEFAULT GETDATE(),
+  [TRANG_THAI] NVARCHAR(50) CHECK( [TRANG_THAI] IN (N'Đã đi',N'Chưa đi')) Default N'Chưa đi',
   CHECK (KHOI_HANH < KET_THUC),
   FOREIGN KEY (ID_TUYEN_DUONG) REFERENCES TuyenDuong(ID_TUYEN),
   FOREIGN KEY (ID_XE) REFERENCES Xe(ID_XE)
@@ -101,7 +101,7 @@ CREATE TABLE [Ve] (
   [TRANG_THAI] Nvarchar(128) NOT NULL CHECK ([TRANG_THAI] IN (N'Hiện tại', N'Đã đi',N'Đã huỷ')),
   [NGAY_DAT_VE]  datetime NOT NULL DEFAULT GETDATE(),
   SOLUONG int ,
-  SDT VARCHAR(15),
+  SDT VARCHAR(15) UNIQUE,
   TENKHACHHANG NVARCHAR(128),
   DIEMDON VARCHAR(128),
   DIEMTRA VARCHAR(128),
@@ -112,6 +112,9 @@ CREATE TABLE [Ve] (
   FOREIGN KEY (NHAN_VIEN_TAO) REFERENCES NHANVIEN(USERNAME)
 )
 GO
+
+
+
 
 
 CREATE TABLE [ChiTietVe] (
@@ -434,6 +437,53 @@ BEGIN
 END;
 GO
 
+
+CREATE TRIGGER trg_CheckSDT
+ON Ve
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    -- Kiểm tra các bản ghi vừa được chèn hoặc cập nhật
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE LEN(SDT) <> 10 OR SDT LIKE '%[^0-9]%'
+    )
+    BEGIN
+        -- Nếu có lỗi, rollback và hiển thị thông báo
+        ROLLBACK TRANSACTION;
+        RAISERROR ('Số điện thoại phải là 10 ký tự và chỉ chứa số.', 16, 1);
+    END
+END;
+GO
+
+
+
+--------------- PROCEDURE cập nhật trạng thái lịch trình----------------
+CREATE PROCEDURE CapNhatTrangThaiLichTrinh
+AS
+BEGIN
+    -- Bắt đầu transaction để đảm bảo tính nhất quán
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Cập nhật trạng thái thành 'Đã đi' nếu ngày khởi hành nhỏ hơn ngày hiện tại
+        UPDATE LichTrinh
+        SET TRANG_THAI = N'Đã đi'
+        WHERE KHOI_HANH < GETDATE();
+
+        -- Commit transaction nếu không có lỗi
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        -- Ném lỗi ra ngoài để xử lý
+        THROW;
+    END CATCH
+END;
+GO
 
 
 ------------------------------------Tạo role và phân quyền----------------------------------------

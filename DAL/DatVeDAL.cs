@@ -36,9 +36,10 @@ namespace DAL
                 db.SubmitChanges();
                 return true;
             }
-            catch(Exception ex)
+            catch(Exception )
             {
-                throw new Exception("Lỗi: " + ex);
+                //throw new Exception("Lỗi: " + ex);
+                return false;
             }
         }
 

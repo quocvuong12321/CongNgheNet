@@ -33,7 +33,7 @@ namespace DAL
 
         public DataTable loadLichTrinh()
         {
-            string sql = "Select * from LichTrinh;";
+            string sql = "Select * from LichTrinh where [TRANG_THAI] = N'Chưa đi';";
 
             da = new SqlDataAdapter(sql, conn);
             da.Fill(ds, "lt");
@@ -259,5 +259,10 @@ namespace DAL
             int solt = db.LichTrinhs.Count() +1;
             return "LT" + solt.ToString("D3");
         }
+
+        //public void capnhatTrangThaiLT()
+        //{
+        //    db.CapNhatTrangThaiLichTrinh();
+        //}
     }
 }

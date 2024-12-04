@@ -61,9 +61,12 @@ namespace DAL
         public bool DeleteTuyen(int id)
         {
             TuyenDuong td = db.TuyenDuongs.FirstOrDefault(x => x.ID_TUYEN == id);
-
             if (td != null)
             {
+                if (db.LichTrinhs.Where(t => t.ID_TUYEN_DUONG == td.ID_TUYEN).Count() > 0)
+                {
+                    return false;
+                }
                 db.TuyenDuongs.DeleteOnSubmit(td);
                 db.SubmitChanges();
                 return true;

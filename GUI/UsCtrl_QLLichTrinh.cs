@@ -101,7 +101,6 @@ namespace GUI
             dgv_DanhSachLichTrinh.Columns["ID_XE"].HeaderText = "Xe";
             dgv_DanhSachLichTrinh.Columns["SOGHETRONG"].HeaderText = "Số Ghế Trống";
             dgv_DanhSachLichTrinh.Columns["NGAY_TAO_LICH_TRINH"].HeaderText = "Ngày Tạo Lịch Trình";
-
         }
 
         
@@ -150,6 +149,25 @@ namespace GUI
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_MaLichTrinh.Text) || string.IsNullOrWhiteSpace(txt_GiaVe.Text))
+            {
+                MessageBox.Show("Điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (!float.TryParse(txt_GiaVe.Text, out float giaVe))
+            {
+                MessageBox.Show("Giá vé phải là một số hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (giaVe < 250000 || giaVe > 700000)
+            {
+                MessageBox.Show("Giá vé phải nằm trong khoảng từ 250.000 đến 700.000!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (txt_MaLichTrinh.Text.Trim().Length != 0 && txt_GiaVe.Text.Trim().Length != 0)
             {
                 int maTuyenDuong = int.Parse(cbo_TuyenDuong.SelectedValue.ToString());
@@ -171,7 +189,9 @@ namespace GUI
             else
             {
                 MessageBox.Show("Điền đầy đủ thông tin!");
+                return;
             }
+
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
