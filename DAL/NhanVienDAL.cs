@@ -35,7 +35,7 @@ namespace DAL
             try
             {
                 int result = db.ThemNhanVien(nv.USERNAME, nv.MAT_KHAU, nv.HOTEN, nv.SO_DT, nv.GIOITINH, nv.DIACHI, nv.LOAINV);
-                return result == 0;
+                return result != 0;
             }
             catch (Exception ex)
             {

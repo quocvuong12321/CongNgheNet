@@ -49,7 +49,7 @@ namespace DAL
                 query = query.Where(t => t.ID_LICH_TRINH.Equals(maLichTrinh));
             }
 
-            if(trangThai == "Đã thanh toán" || trangThai == "Chưa thanh toán")
+            if(trangThai == "Đã huỷ" || trangThai == "Hiện tại" || trangThai == "Đã đi")
             {
                 query = query.Where(t => t.TRANG_THAI.Equals(trangThai));
             }

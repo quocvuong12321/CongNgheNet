@@ -30,7 +30,7 @@ namespace GUI
             cbo_LichTrinh.SelectedItem = null;
 
 
-            string[] trangthai = { "Tất cả", "Chưa thanh toán", "Đã thanh toán" };
+            string[] trangthai = { "Tất cả", "Hiện tại", "Đã huỷ" };
             cbo_TrangThai.Items.AddRange(trangthai);
             cbo_TrangThai.SelectedIndex = 0;
             dgv_DSVe.DataSource = vBLL.LoadDSVe();
@@ -101,6 +101,11 @@ namespace GUI
                 panel.Controls.Add(Nus);
                 Nus.Dock = DockStyle.Fill;
             }    
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            UsCtrl_QLVe_Load(this,e);
         }
     }
 }

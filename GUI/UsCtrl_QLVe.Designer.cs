@@ -114,6 +114,7 @@ namespace GUI
             this.btn_Huy.TabIndex = 31;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.UseVisualStyleBackColor = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // dgv_DSVe
             // 

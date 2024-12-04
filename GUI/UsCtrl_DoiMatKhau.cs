@@ -54,9 +54,9 @@ namespace GUI
             }
             else
             {
-                txt_MatKhauCu.UseSystemPasswordChar = false;
-                txt_MatKhauMoi.UseSystemPasswordChar = false;
-                txt_NhapLaiMatKhau.UseSystemPasswordChar = false;
+                txt_MatKhauCu.UseSystemPasswordChar = true;
+                txt_MatKhauMoi.UseSystemPasswordChar = true;
+                txt_NhapLaiMatKhau.UseSystemPasswordChar = true;
 
             }
         }
