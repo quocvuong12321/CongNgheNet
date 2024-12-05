@@ -189,6 +189,13 @@ namespace GUI
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
+            if (dgv_ThongTinLichTrinh.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Chưa chọn lịch trình!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             txt_TenKH.Clear();
             txt_SDT.Clear();
             txt_TongTien.Clear();

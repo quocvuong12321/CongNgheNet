@@ -116,14 +116,53 @@ namespace GUI
 
         private void btn_CapNhatLichTrinh_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_MaLichTrinh.Text) || string.IsNullOrWhiteSpace(txt_GiaVe.Text))
+            {
+                MessageBox.Show("Điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (!float.TryParse(txt_GiaVe.Text, out float giaVe))
+            {
+                MessageBox.Show("Giá vé phải là một số hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (giaVe < 250000 || giaVe > 700000)
+            {
+                MessageBox.Show("Giá vé phải nằm trong khoảng từ 250.000 đến 700.000!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DateTime dateTime = DateTime.Now;
+
+            if (dtp_NgayKhoiHanh.Value < dateTime)
+            {
+                MessageBox.Show("Ngày khởi hành phải lớn hơn ngày hiện tại!");
+                return;
+            }
+
+            if ((dtp_NgayKhoiHanh.Value - dateTime).TotalDays < 10)
+            {
+                MessageBox.Show("Ngày khởi hành phải lớn hơn ngày hiện tại ít nhất 10 ngày!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbo_Xe.SelectedIndex == -1 || cbo_Xe.SelectedValue == null || string.IsNullOrWhiteSpace(cbo_Xe.Text))
+            {
+                MessageBox.Show("Vui lòng chọn xe hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             if (txt_MaLichTrinh.Text.Trim().Length != 0 && txt_GiaVe.Text.Trim().Length != 0)
             {
                 int maTuyenDuong = int.Parse(cbo_TuyenDuong.SelectedValue.ToString());
                 DateTime ngaykh = DateTime.Parse(dtp_NgayKhoiHanh.Value.ToShortDateString() + " " + dtp_GioKhoiHanh.Value.ToShortTimeString());
-                float giaVe = float.Parse(txt_GiaVe.Text);
+                float giave = float.Parse(txt_GiaVe.Text);
                 int maXe = int.Parse(cbo_Xe.SelectedValue.ToString());
 
-                bool capNhatThanhCong = ltBll.CapNhatLichTrinh(txt_MaLichTrinh.Text, maTuyenDuong, ngaykh, giaVe, maXe);
+                bool capNhatThanhCong = ltBll.CapNhatLichTrinh(txt_MaLichTrinh.Text, maTuyenDuong, ngaykh, giave, maXe);
 
                 if (capNhatThanhCong)
                 {
@@ -189,6 +228,14 @@ namespace GUI
                 MessageBox.Show("Ngày khởi hành phải lớn hơn ngày hiện tại ít nhất 10 ngày!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            if (cbo_Xe.SelectedIndex == -1 || cbo_Xe.SelectedValue == null || string.IsNullOrWhiteSpace(cbo_Xe.Text))
+            {
+                MessageBox.Show("Vui lòng chọn xe hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
 
             if (txt_MaLichTrinh.Text.Trim().Length != 0 && txt_GiaVe.Text.Trim().Length != 0)
             {
