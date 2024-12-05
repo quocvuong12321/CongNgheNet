@@ -31,6 +31,13 @@ namespace GUI
 
         }
 
+        public void loadSoGhe(ComboBox comboBoxGhe)
+        {
+            List<int> soGheList = new List<int> { 20, 34 };
+
+            comboBoxGhe.DataSource = soGheList;
+        }
+
         private void btn_QLTramDungChan_Click(object sender, EventArgs e)
         {
 
@@ -65,8 +72,9 @@ namespace GUI
 
         private void UsCtrl_QLLichTrinh_Load(object sender, EventArgs e)
         {
+            loadSoGhe(cbo_Ghe);
             Loadcbo_MaTuyenDuong();
-            loadcbo_IDXe();
+            //loadcbo_IDXe();
             HienThiDanhSachLichTrinhTheoTuyenDuong(int.Parse(cbo_TuyenDuong.SelectedValue.ToString()));
         }
 
@@ -101,6 +109,7 @@ namespace GUI
             dgv_DanhSachLichTrinh.Columns["ID_XE"].HeaderText = "Xe";
             dgv_DanhSachLichTrinh.Columns["SOGHETRONG"].HeaderText = "Số Ghế Trống";
             dgv_DanhSachLichTrinh.Columns["NGAY_TAO_LICH_TRINH"].HeaderText = "Ngày Tạo Lịch Trình";
+            dgv_DanhSachLichTrinh.Columns["TRANG_THAI"].HeaderText = "Trạng thái";
         }
 
         
@@ -167,6 +176,19 @@ namespace GUI
                 MessageBox.Show("Giá vé phải nằm trong khoảng từ 250.000 đến 700.000!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            DateTime dateTime = DateTime.Now;
+
+            if(dtp_NgayKhoiHanh.Value < dateTime)
+            {
+                MessageBox.Show("Ngày khởi hành phải lớn hơn ngày hiện tại!");
+                return;
+            }
+
+            if ((dtp_NgayKhoiHanh.Value - dateTime).TotalDays < 10)
+            {
+                MessageBox.Show("Ngày khởi hành phải lớn hơn ngày hiện tại ít nhất 10 ngày!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (txt_MaLichTrinh.Text.Trim().Length != 0 && txt_GiaVe.Text.Trim().Length != 0)
             {
@@ -179,6 +201,8 @@ namespace GUI
                 {
                     MessageBox.Show("Thêm lịch trình thành công!");
                     HienThiDanhSachLichTrinhTheoTuyenDuong(maTuyenDuong);
+                    txt_MaLichTrinh.Clear();
+                    txt_GiaVe.Clear();
                 }
                 else
                 {
@@ -200,6 +224,11 @@ namespace GUI
             txt_GiaVe.Clear();
         }
 
-       
+        private void cbo_Ghe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbo_Xe.DataSource = xeBll.LayDanhSachXeTheoSoGhe(int.Parse(cbo_Ghe.SelectedItem.ToString()));
+            cbo_Xe.DisplayMember = "BIEN_SO_XE";
+            cbo_Xe.ValueMember = "ID_XE";
+        }
     }
 }

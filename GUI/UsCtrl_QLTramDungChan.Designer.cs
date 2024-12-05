@@ -55,9 +55,11 @@ namespace GUI
             this.dgv_DanhSachTramDungChanDiemTra = new System.Windows.Forms.DataGridView();
             this.btn_BoChon1 = new System.Windows.Forms.Button();
             this.btn_BoChon = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemDi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemTra)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -65,7 +67,7 @@ namespace GUI
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(950, 143);
+            this.label7.Location = new System.Drawing.Point(122, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(266, 25);
             this.label7.TabIndex = 34;
@@ -74,7 +76,7 @@ namespace GUI
             // cbo_DiaDiem
             // 
             this.cbo_DiaDiem.FormattingEnabled = true;
-            this.cbo_DiaDiem.Location = new System.Drawing.Point(1012, 89);
+            this.cbo_DiaDiem.Location = new System.Drawing.Point(184, 34);
             this.cbo_DiaDiem.Name = "cbo_DiaDiem";
             this.cbo_DiaDiem.Size = new System.Drawing.Size(245, 24);
             this.cbo_DiaDiem.TabIndex = 33;
@@ -84,7 +86,7 @@ namespace GUI
             // 
             this.dgv_DanhSachTramDungChan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DanhSachTramDungChan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DanhSachTramDungChan.Location = new System.Drawing.Point(861, 180);
+            this.dgv_DanhSachTramDungChan.Location = new System.Drawing.Point(33, 125);
             this.dgv_DanhSachTramDungChan.Name = "dgv_DanhSachTramDungChan";
             this.dgv_DanhSachTramDungChan.RowHeadersWidth = 51;
             this.dgv_DanhSachTramDungChan.RowTemplate.Height = 24;
@@ -96,7 +98,7 @@ namespace GUI
             // 
             this.btn_XoaTramDungChan.BackColor = System.Drawing.Color.White;
             this.btn_XoaTramDungChan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaTramDungChan.Location = new System.Drawing.Point(1148, 486);
+            this.btn_XoaTramDungChan.Location = new System.Drawing.Point(320, 431);
             this.btn_XoaTramDungChan.Name = "btn_XoaTramDungChan";
             this.btn_XoaTramDungChan.Size = new System.Drawing.Size(85, 50);
             this.btn_XoaTramDungChan.TabIndex = 31;
@@ -108,7 +110,7 @@ namespace GUI
             // 
             this.btn_Sua.BackColor = System.Drawing.Color.White;
             this.btn_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Sua.Location = new System.Drawing.Point(1015, 486);
+            this.btn_Sua.Location = new System.Drawing.Point(187, 431);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(85, 50);
             this.btn_Sua.TabIndex = 30;
@@ -132,7 +134,7 @@ namespace GUI
             // 
             this.btn_ThemTramDungChan.BackColor = System.Drawing.Color.White;
             this.btn_ThemTramDungChan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThemTramDungChan.Location = new System.Drawing.Point(882, 486);
+            this.btn_ThemTramDungChan.Location = new System.Drawing.Point(54, 431);
             this.btn_ThemTramDungChan.Name = "btn_ThemTramDungChan";
             this.btn_ThemTramDungChan.Size = new System.Drawing.Size(85, 50);
             this.btn_ThemTramDungChan.TabIndex = 28;
@@ -180,7 +182,7 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkRed;
-            this.label5.Location = new System.Drawing.Point(859, 443);
+            this.label5.Location = new System.Drawing.Point(31, 388);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(170, 20);
             this.label5.TabIndex = 24;
@@ -191,7 +193,7 @@ namespace GUI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkRed;
-            this.label6.Location = new System.Drawing.Point(858, 89);
+            this.label6.Location = new System.Drawing.Point(30, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 25);
             this.label6.TabIndex = 23;
@@ -202,7 +204,7 @@ namespace GUI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(859, 399);
+            this.label4.Location = new System.Drawing.Point(31, 344);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 20);
             this.label4.TabIndex = 22;
@@ -221,7 +223,7 @@ namespace GUI
             // 
             // txt_TenTramDungChan
             // 
-            this.txt_TenTramDungChan.Location = new System.Drawing.Point(1062, 443);
+            this.txt_TenTramDungChan.Location = new System.Drawing.Point(234, 388);
             this.txt_TenTramDungChan.Name = "txt_TenTramDungChan";
             this.txt_TenTramDungChan.Size = new System.Drawing.Size(196, 22);
             this.txt_TenTramDungChan.TabIndex = 19;
@@ -239,7 +241,7 @@ namespace GUI
             // 
             // txt_MaTramDungChan
             // 
-            this.txt_MaTramDungChan.Location = new System.Drawing.Point(1062, 399);
+            this.txt_MaTramDungChan.Location = new System.Drawing.Point(234, 344);
             this.txt_MaTramDungChan.Name = "txt_MaTramDungChan";
             this.txt_MaTramDungChan.Size = new System.Drawing.Size(196, 22);
             this.txt_MaTramDungChan.TabIndex = 18;
@@ -333,32 +335,41 @@ namespace GUI
             this.btn_BoChon.UseVisualStyleBackColor = true;
             this.btn_BoChon.Click += new System.EventHandler(this.btn_BoChon_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgv_DanhSachTramDungChan);
+            this.groupBox1.Controls.Add(this.txt_MaTramDungChan);
+            this.groupBox1.Controls.Add(this.btn_Sua);
+            this.groupBox1.Controls.Add(this.btn_XoaTramDungChan);
+            this.groupBox1.Controls.Add(this.txt_TenTramDungChan);
+            this.groupBox1.Controls.Add(this.btn_ThemTramDungChan);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbo_DiaDiem);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(782, 62);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(461, 503);
+            this.groupBox1.TabIndex = 76;
+            this.groupBox1.TabStop = false;
+            // 
             // UsCtrl_QLTramDungChan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_BoChon1);
             this.Controls.Add(this.btn_BoChon);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbo_DiaDiem);
-            this.Controls.Add(this.dgv_DanhSachTramDungChan);
-            this.Controls.Add(this.btn_XoaTramDungChan);
-            this.Controls.Add(this.btn_Sua);
             this.Controls.Add(this.btn_Xoa);
-            this.Controls.Add(this.btn_ThemTramDungChan);
             this.Controls.Add(this.btn_Them);
             this.Controls.Add(this.dgv_DanhSachTramDungChanDiemTra);
             this.Controls.Add(this.dgv_DanhSachTramDungChanDiemDi);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_TenTramDungChan);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_MaTramDungChan);
             this.Controls.Add(this.txt_DiemDen);
             this.Controls.Add(this.txt_DiemDi);
             this.Controls.Add(this.cbo_DanhSachMaLichTrinh);
@@ -370,6 +381,8 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemDi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachTramDungChanDiemTra)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,5 +416,6 @@ namespace GUI
         private System.Windows.Forms.DataGridView dgv_DanhSachTramDungChanDiemTra;
         private System.Windows.Forms.Button btn_BoChon1;
         private System.Windows.Forms.Button btn_BoChon;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

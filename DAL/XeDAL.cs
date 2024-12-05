@@ -65,6 +65,13 @@ namespace DAL
             return db.Xes.Any(x => x.BIEN_SO_XE == bienSoXe); // Kiểm tra nếu có xe với biển số này
 
         }
-        
+
+        public List<Xe> LayDanhSachXeTheoSoGhe(int soGhe)
+        {
+            return db.Xes
+                     .Where(x => x.SO_GHE == soGhe)
+                     .ToList();
+        }
+
     }
 }

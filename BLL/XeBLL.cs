@@ -37,6 +37,12 @@ namespace BLL
             return xeDAL.CheckBienSoXe(bienSoXe);
         }
 
-        
+        public List<Xe> LayDanhSachXeTheoSoGhe(int soGhe)
+        {
+            return xeDAL.LayDanhSachXeTheoSoGhe(soGhe);
+        }
+
+
+
     }
 }

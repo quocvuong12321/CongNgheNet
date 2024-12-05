@@ -257,13 +257,6 @@ namespace GUI
                 cbo_DiemTra.Focus();
                 return;
             }
-            if (cboThanhToan.SelectedValue == null)
-            {
-                MessageBox.Show("Phương thức thanh toán không được trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboThanhToan.Focus();
-                return;
-            }
-
 
 
             string maLichTrinhSelected = dgv_ThongTinLichTrinh.SelectedRows[0].Cells[0].Value.ToString();

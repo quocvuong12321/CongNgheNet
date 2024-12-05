@@ -63,5 +63,11 @@ namespace BLL
         {
             return ltDAL.taoMaLichTrinhTuDong();
         }
+
+
+        public void CapNhatTrangThaiLichTrinh()
+        {
+            ltDAL.capnhatTrangThaiLT();
+        }
     }
 }

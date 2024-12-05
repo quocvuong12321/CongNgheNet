@@ -78,7 +78,7 @@ namespace GUI
                 //Id = int.Parse(txt_MaXe.Text),
                 BienSoXe = txtBienSoXe.Text,
                 SoGhe = int.Parse(cbo_SoGhe.SelectedItem.ToString()),
-                NgayThem = dtp_NgayThem.Value
+                NgayThem = DateTime.Now,
             };
 
             // Thêm xe vào cơ sở dữ liệu
@@ -91,12 +91,18 @@ namespace GUI
 
         private void btn_CapNhat_Click(object sender, EventArgs e)
         {
+            if(txtBienSoXe.Text == null || cbo_SoGhe.SelectedItem == null)
+            {
+                MessageBox.Show("Chọn xe để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             XeDTO xe = new XeDTO
             {
                 //Id = int.Parse(txt_MaXe.Text),
                 BienSoXe = txtBienSoXe.Text,
                 SoGhe = int.Parse(cbo_SoGhe.SelectedItem.ToString()),
-                NgayThem = dtp_NgayThem.Value
+                NgayThem = DateTime.Now,
             };
 
             xeBLL.UpdateXe(xe);
@@ -125,6 +131,7 @@ namespace GUI
         private void btn_Huy_Click(object sender, EventArgs e)
         {
             ClearInput();
+            dgv_DanhSachXe.ClearSelection();
         }
 
         private void btn_HienThi_Click(object sender, EventArgs e)
@@ -140,17 +147,17 @@ namespace GUI
                 DataGridViewRow row = dgv_DanhSachXe.Rows[e.RowIndex];
 
                 txtBienSoXe.Text = row.Cells["BienSoXe"].Value.ToString();
-                // Kiểm tra và chuyển đổi giá trị ngày
-                if (DateTime.TryParse(row.Cells["NgayThem"].Value.ToString(), out DateTime ngayThem))
-                {
-                    dtp_NgayThem.Format = DateTimePickerFormat.Custom;
-                    dtp_NgayThem.CustomFormat = "dd/MM/yyyy";
-                    dtp_NgayThem.Value = ngayThem;
-                }
-                else
-                {
-                    MessageBox.Show("Ngày không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                //// Kiểm tra và chuyển đổi giá trị ngày
+                //if (DateTime.TryParse(row.Cells["NgayThem"].Value.ToString(), out DateTime ngayThem))
+                //{
+                //    dtp_NgayThem.Format = DateTimePickerFormat.Custom;
+                //    dtp_NgayThem.CustomFormat = "dd/MM/yyyy";
+                //    dtp_NgayThem.Value = ngayThem;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Ngày không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
                 // Cập nhật ComboBox với số ghế
                 string soGhe = row.Cells["SoGhe"].Value.ToString();
                 if (cbo_SoGhe.Items.Contains(soGhe))

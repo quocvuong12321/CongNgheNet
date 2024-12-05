@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,18 @@ namespace GUI
 {
     public partial class frm_Main : Form
     {
+        
         public string MaNV;
         public UsCtrl_BanVe usBV;
 
         public string role;
+
+        LichTrinhBLL ltBll = new LichTrinhBLL();
         public frm_Main()
         {
             InitializeComponent();
+
+            ltBll.CapNhatTrangThaiLichTrinh();
         }
 
         public void checkQuyen(string Role)

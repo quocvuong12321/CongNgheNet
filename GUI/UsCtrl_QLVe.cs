@@ -32,6 +32,12 @@ namespace GUI
 
             string[] trangthai = { "Tất cả", "Hiện tại", "Đã huỷ" };
             cbo_TrangThai.Items.AddRange(trangthai);
+            List<object> lst = vBLL.LoadDSVe();
+            if(lst.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu vé!");
+                return;
+            }
             cbo_TrangThai.SelectedIndex = 0;
             dgv_DSVe.DataSource = vBLL.LoadDSVe();
             dgv_DSVe.Columns["ID_VE"].HeaderText = "Mã vé";

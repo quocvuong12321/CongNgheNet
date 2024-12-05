@@ -108,6 +108,7 @@ namespace DAL
                 newR["KHOI_HANH"] = khoiHanh;
                 newR["GIA_VE"] = giaVe;
                 newR["ID_XE"] = maXe;
+                newR["TRANG_THAI"] = "Chưa đi";
 
                 ds.Tables["lt"].Rows.Add(newR);
 
@@ -260,9 +261,9 @@ namespace DAL
             return "LT" + solt.ToString("D3");
         }
 
-        //public void capnhatTrangThaiLT()
-        //{
-        //    db.CapNhatTrangThaiLichTrinh();
-        //}
+        public void capnhatTrangThaiLT()
+        {
+            db.CapNhatTrangThaiLichTrinh();
+        }
     }
 }
