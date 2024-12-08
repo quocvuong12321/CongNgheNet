@@ -79,7 +79,44 @@ namespace GUI
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            
+            // Kiểm tra các trường bắt buộc không được để trống
+            if (string.IsNullOrWhiteSpace(txt_TaiKhoan.Text))
+            {
+                MessageBox.Show("Vui lòng nhập username.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_TaiKhoan.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txt_HoTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập họ và tên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_HoTen.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txt_SoDienThoai.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_SoDienThoai.Focus();
+                return;
+            }
+            if (cbo_GioiTinh.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbo_GioiTinh.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txt_DiaChi.Text))
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_DiaChi.Focus();
+                return;
+            }
+            if (cbo_LoaiTaiKhoan.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn loại tài khoản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbo_LoaiTaiKhoan.Focus();
+                return;
+            }
+
             if (isEditing)
             {
                 string username = txt_TaiKhoan.Text; 

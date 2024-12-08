@@ -173,20 +173,40 @@ namespace DAL
             }
         }
 
-        public List<string> LayMaLichTrinh()
+        //public List<string> LayMaLichTrinh()
+        //{
+        //    try
+        //    {
+        //        var danhSachMaLichTrinh = (from lt in db.LichTrinhs
+        //                                   select lt.MA_LICH_TRINH).ToList();
+        //        return danhSachMaLichTrinh;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("Lỗi khi lấy danh sách mã lịch trình: " + ex.Message);
+        //        return new List<string>();
+        //    }
+        //}
+
+        public List<string> LayMaLichTrinh1()
         {
             try
             {
                 var danhSachMaLichTrinh = (from lt in db.LichTrinhs
-                                           select lt.MA_LICH_TRINH ).ToList();
+                                           where lt.KHOI_HANH > DateTime.Now
+                                           select lt.MA_LICH_TRINH).ToList();
                 return danhSachMaLichTrinh;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi lấy danh sách mã lịch trình: " + ex.Message);
+                Console.WriteLine("Lỗi khi lấy danh sách mã lịch trình với ngày khởi hành nhỏ hơn ngày hiện tại: " + ex.Message);
                 return new List<string>();
             }
         }
+
+
+
+
 
         public LichTrinh_DiemDau_DiemCuoi LayThongTinLichTrinh(string maLichTrinh)
         {

@@ -37,7 +37,7 @@ namespace DAL
                 return true;
             }
             catch(Exception )
-            {
+            { 
                 //throw new Exception("Lỗi: " + ex);
                 return false;
             }

@@ -78,7 +78,7 @@ namespace GUI
             this.cbo_DiaDiem.FormattingEnabled = true;
             this.cbo_DiaDiem.Location = new System.Drawing.Point(184, 34);
             this.cbo_DiaDiem.Name = "cbo_DiaDiem";
-            this.cbo_DiaDiem.Size = new System.Drawing.Size(245, 24);
+            this.cbo_DiaDiem.Size = new System.Drawing.Size(245, 33);
             this.cbo_DiaDiem.TabIndex = 33;
             this.cbo_DiaDiem.SelectedValueChanged += new System.EventHandler(this.cbo_DiaDiem_SelectedValueChanged);
             // 
@@ -225,7 +225,7 @@ namespace GUI
             // 
             this.txt_TenTramDungChan.Location = new System.Drawing.Point(234, 388);
             this.txt_TenTramDungChan.Name = "txt_TenTramDungChan";
-            this.txt_TenTramDungChan.Size = new System.Drawing.Size(196, 22);
+            this.txt_TenTramDungChan.Size = new System.Drawing.Size(196, 30);
             this.txt_TenTramDungChan.TabIndex = 19;
             // 
             // label1
@@ -235,15 +235,15 @@ namespace GUI
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(128, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 20);
+            this.label1.Size = new System.Drawing.Size(299, 20);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Danh Sách Mã Lịch Trình";
+            this.label1.Text = "Danh Sách Lịch Trình Chưa Khởi Hành";
             // 
             // txt_MaTramDungChan
             // 
             this.txt_MaTramDungChan.Location = new System.Drawing.Point(234, 344);
             this.txt_MaTramDungChan.Name = "txt_MaTramDungChan";
-            this.txt_MaTramDungChan.Size = new System.Drawing.Size(196, 22);
+            this.txt_MaTramDungChan.Size = new System.Drawing.Size(196, 30);
             this.txt_MaTramDungChan.TabIndex = 18;
             // 
             // txt_DiemDen
@@ -348,11 +348,13 @@ namespace GUI
             this.groupBox1.Controls.Add(this.cbo_DiaDiem);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(782, 62);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(461, 503);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Quản lý trạm dừng chân theo địa điểm";
             // 
             // UsCtrl_QLTramDungChan
             // 

@@ -30,7 +30,7 @@ namespace BLL
 
         public List<string> LayDanhSachMaLichTrinh()
         {
-            return ltDAL.LayMaLichTrinh();
+            return ltDAL.LayMaLichTrinh1();
         }
 
         public LichTrinh_DiemDau_DiemCuoi LayThongTinLichTrinh(string maLichTrinh)

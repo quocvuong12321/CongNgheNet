@@ -99,7 +99,6 @@ namespace GUI
             this.btn_CapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CapNhat.ForeColor = System.Drawing.Color.Goldenrod;
             this.btn_CapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapNhat.Image")));
-            this.btn_CapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CapNhat.Location = new System.Drawing.Point(362, 202);
             this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CapNhat.Name = "btn_CapNhat";
@@ -116,7 +115,6 @@ namespace GUI
             this.btn_ThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemNhanVien.ForeColor = System.Drawing.Color.Green;
             this.btn_ThemNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemNhanVien.Image")));
-            this.btn_ThemNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ThemNhanVien.Location = new System.Drawing.Point(126, 202);
             this.btn_ThemNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ThemNhanVien.Name = "btn_ThemNhanVien";
@@ -250,9 +248,9 @@ namespace GUI
             this.lable_12.Location = new System.Drawing.Point(109, 68);
             this.lable_12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lable_12.Name = "lable_12";
-            this.lable_12.Size = new System.Drawing.Size(93, 24);
+            this.lable_12.Size = new System.Drawing.Size(97, 24);
             this.lable_12.TabIndex = 33;
-            this.lable_12.Text = "Tài khoản";
+            this.lable_12.Text = "Username";
             // 
             // txt_TaiKhoan
             // 
@@ -268,7 +266,6 @@ namespace GUI
             this.btn_XuatBaoCaoNhanVien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XuatBaoCaoNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_XuatBaoCaoNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_XuatBaoCaoNhanVien.Image")));
-            this.btn_XuatBaoCaoNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_XuatBaoCaoNhanVien.Location = new System.Drawing.Point(1070, 202);
             this.btn_XuatBaoCaoNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btn_XuatBaoCaoNhanVien.Name = "btn_XuatBaoCaoNhanVien";

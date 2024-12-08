@@ -237,30 +237,30 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txt_MaVe.Text))
             {
-                MessageBox.Show("Mã vé không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mã vé không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_MaVe.Focus();
                 return;
             }
             if (string.IsNullOrWhiteSpace(txt_TenKH.Text))
             {
-                MessageBox.Show("Tên khách hàng không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên khách hàng không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_TenKH.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(txt_SDT.Text) || txt_SDT.Text.Length != 10 || !txt_SDT.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Số điện thoại phải là 10 ký tự và chỉ chứa số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Số điện thoại phải là 10 ký tự và chỉ chứa số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (cbo_DiemDon.SelectedValue == null)
             {
-                MessageBox.Show("Điểm đón không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Điểm đón không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbo_DiemDon.Focus();
                 return;
             }
             if (cbo_DiemTra.SelectedValue == null)
             {
-                MessageBox.Show("Điểm trả không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Điểm trả không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbo_DiemTra.Focus();
                 return;
             }
@@ -294,7 +294,7 @@ namespace GUI
                     };
                     dvBLL.LuuChiTietVe(ctVe);
                 }
-                MessageBox.Show("Đặt vé thành công");
+                MessageBox.Show("Đặt vé thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txt_TenKH.Clear();
                 txt_SDT.Clear();
@@ -305,7 +305,7 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Đặt vé không thành công");
+                MessageBox.Show("Đặt vé không thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
