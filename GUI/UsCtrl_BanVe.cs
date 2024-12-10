@@ -56,6 +56,16 @@ namespace GUI
             dgv_ThongTinLichTrinh.Columns["GioDi"].DefaultCellStyle.Format = "HH:mm";
             dgv_ThongTinLichTrinh.Columns["GioDen"].DefaultCellStyle.Format = "HH:mm";
             dgv_ThongTinLichTrinh.Columns["GiaVe"].DefaultCellStyle.Format = "0,00" + " đ";
+                dgv_ThongTinLichTrinh.Columns["MaLichTrinh"].HeaderText = "Mã lịch trình";
+                dgv_ThongTinLichTrinh.Columns["DiemDon"].HeaderText = "Điểm khởi hành";
+                dgv_ThongTinLichTrinh.Columns["DiemTra"].HeaderText = "Điểm kết thúc";
+                dgv_ThongTinLichTrinh.Columns["GioDi"].HeaderText = "Giờ khởi hành";
+                dgv_ThongTinLichTrinh.Columns["GioDen"].HeaderText = "Giờ kết thúc";
+                dgv_ThongTinLichTrinh.Columns["BienSoXe"].HeaderText = "Biển số xe";
+                dgv_ThongTinLichTrinh.Columns["GiaVe"].HeaderText = "Giá vé";
+            
+
+
         }
         private void UsCtrl_BanVe_Load(object sender, EventArgs e)
         {
@@ -262,6 +272,10 @@ namespace GUI
             {
                 MessageBox.Show("Điểm trả không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbo_DiemTra.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txt_ViTriGhe.Text.Trim())){
+                MessageBox.Show("Vui lòng chọn ít nhất một ghế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

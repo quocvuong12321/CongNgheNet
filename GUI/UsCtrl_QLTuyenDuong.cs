@@ -76,13 +76,13 @@ namespace GUI
                 return;
             }
 
-            TuyenDuongDTO td = new TuyenDuongDTO
+            TuyenDuong td = new TuyenDuong
             {
-                TenTuyen = txtTenTuyenDuong.Text,
-                DiemDau = int.Parse(cbbDiemDi.SelectedValue.ToString()),
-                DiemCuoi = int.Parse(cbbDiemDen.SelectedValue.ToString()),
-                KhoangCach = float.Parse(txtKhoangCach.Text),
-                TgianDiChuyen = float.Parse(txt_ThoiGianDuKien.Text)
+                TEN_TUYEN = txtTenTuyenDuong.Text,
+                DIEM_DAU = int.Parse(cbbDiemDi.SelectedValue.ToString()),
+                DIEM_CUOI = int.Parse(cbbDiemDen.SelectedValue.ToString()),
+                KHOANG_CACH = float.Parse(txtKhoangCach.Text),
+                THOI_GIAN_DI_CHUYEN = float.Parse(txt_ThoiGianDuKien.Text)
             };
 
             tdBLL.insertTuyen(td);
@@ -133,11 +133,11 @@ namespace GUI
                 txt_ThoiGianDuKien.Text = row.Cells["TgianDiChuyen"].Value.ToString();
 
                 // Cập nhật ComboBox với điểm đầu
-                int diemDauId = Convert.ToInt32(row.Cells["DiemDau"].Value);
-                int diemCuoiId = Convert.ToInt32(row.Cells["DiemCuoi"].Value);
+                string diemDau = row.Cells["DiemDau"].Value.ToString();
+                string diemCuoi = row.Cells["DiemCuoi"].Value.ToString();
 
-                cbbDiemDi.SelectedValue = diemDauId;
-                cbbDiemDen.SelectedValue = diemCuoiId;
+                cbbDiemDi.SelectedValue = tdBLL.timMaTuyenDuong(diemDau);
+                cbbDiemDen.SelectedValue = tdBLL.timMaTuyenDuong(diemCuoi) ;
             }
         }
 
@@ -156,14 +156,14 @@ namespace GUI
                 return;
             }
 
-            TuyenDuongDTO td = new TuyenDuongDTO
+            TuyenDuong td = new TuyenDuong
             {
-                IdTuyen = idTuyen,
-                TenTuyen = txtTenTuyenDuong.Text,
-                DiemDau = int.Parse(cbbDiemDi.SelectedValue.ToString()),
-                DiemCuoi = int.Parse(cbbDiemDen.SelectedValue.ToString()),
-                KhoangCach = float.Parse(txtKhoangCach.Text),
-                TgianDiChuyen = float.Parse(txt_ThoiGianDuKien.Text)
+                ID_TUYEN = idTuyen,
+                TEN_TUYEN = txtTenTuyenDuong.Text,
+                DIEM_DAU = int.Parse(cbbDiemDi.SelectedValue.ToString()),
+                DIEM_CUOI = int.Parse(cbbDiemDen.SelectedValue.ToString()),
+                KHOANG_CACH = float.Parse(txtKhoangCach.Text),
+                THOI_GIAN_DI_CHUYEN = float.Parse(txt_ThoiGianDuKien.Text)
             };
 
             tdBLL.updateTuyen(td);

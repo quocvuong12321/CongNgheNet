@@ -24,9 +24,9 @@ namespace BLL
         {
             xeDAL.InsertXe(xe);
         }
-        public void UpdateXe(XeDTO xe)
+        public bool UpdateXe(XeDTO xe)
         {
-            xeDAL.UpdateXe(xe);
+            return xeDAL.UpdateXe(xe);
         }
         public void DeleteXe(int id)
         {

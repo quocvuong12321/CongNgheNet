@@ -41,7 +41,7 @@ namespace DAL
             db.Xes.InsertOnSubmit(xe);
             db.SubmitChanges();
         }
-        public void UpdateXe(XeDTO xeDTO)
+        public bool UpdateXe(XeDTO xeDTO)
         {
             Xe xe = db.Xes.FirstOrDefault(x => x.ID_XE == xeDTO.Id);
             if (xe != null)
@@ -49,7 +49,9 @@ namespace DAL
                 xe.BIEN_SO_XE = xeDTO.BienSoXe;
                 xe.SO_GHE = xeDTO.SoGhe;
                 db.SubmitChanges();
+                return true;
             }
+            return false;
         }
         public void DeleteXe(int id)
         {

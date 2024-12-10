@@ -25,36 +25,36 @@ namespace DAL
             {
                 IdTuyen = x.ID_TUYEN,
                 TenTuyen = x.TEN_TUYEN,
-                DiemDau = x.DIEM_DAU,
-                DiemCuoi = x.DIEM_CUOI,
+                DiemDau = x.DiaDiem.TEN_TINH_THANH,
+                DiemCuoi  = x.DiaDiem1.TEN_TINH_THANH,
                 KhoangCach = (float)x.KHOANG_CACH,
                 TgianDiChuyen = (float)x.THOI_GIAN_DI_CHUYEN
             }).ToList();
         }
-        public void InsertTuyen(TuyenDuongDTO tdDTO)
+        public void InsertTuyen(TuyenDuong tdDTO)
         {
             TuyenDuong td = new TuyenDuong
             {
-                ID_TUYEN = tdDTO.IdTuyen,
-                TEN_TUYEN = tdDTO.TenTuyen,
-                DIEM_DAU = tdDTO.DiemDau,
-                DIEM_CUOI = tdDTO.DiemCuoi,
-                KHOANG_CACH = tdDTO.KhoangCach,
-                THOI_GIAN_DI_CHUYEN = tdDTO.TgianDiChuyen
+                ID_TUYEN = tdDTO.ID_TUYEN,
+                TEN_TUYEN = tdDTO.TEN_TUYEN,
+                DIEM_DAU = tdDTO.DIEM_DAU,
+                DIEM_CUOI = tdDTO.DIEM_CUOI,
+                KHOANG_CACH = tdDTO.KHOANG_CACH,
+                THOI_GIAN_DI_CHUYEN = tdDTO.THOI_GIAN_DI_CHUYEN
             };
             db.TuyenDuongs.InsertOnSubmit(td);
             db.SubmitChanges();
         }
-        public void UpdateTuyen(TuyenDuongDTO tdDTO)
+        public void UpdateTuyen(TuyenDuong tdDTO)
         {
-            TuyenDuong td = db.TuyenDuongs.FirstOrDefault(x => x.ID_TUYEN == tdDTO.IdTuyen);
+            TuyenDuong td = db.TuyenDuongs.FirstOrDefault(x => x.ID_TUYEN == tdDTO.ID_TUYEN);
             if (td != null)
             {
-                td.TEN_TUYEN = tdDTO.TenTuyen;
-                td.KHOANG_CACH = tdDTO.KhoangCach;
-                td.THOI_GIAN_DI_CHUYEN = tdDTO.TgianDiChuyen;
-                td.DIEM_DAU = tdDTO.DiemDau;
-                td.DIEM_CUOI = tdDTO.DiemCuoi;
+                td.TEN_TUYEN = tdDTO.TEN_TUYEN;
+                td.KHOANG_CACH = tdDTO.KHOANG_CACH;
+                td.THOI_GIAN_DI_CHUYEN = tdDTO.THOI_GIAN_DI_CHUYEN;
+                td.DIEM_DAU = tdDTO.DIEM_DAU;
+                td.DIEM_CUOI = tdDTO.DIEM_CUOI;
                 db.SubmitChanges();
             }
         }
@@ -95,6 +95,11 @@ namespace DAL
         {
             // Kiểm tra trong cơ sở dữ liệu xem có tuyến đường nào có cùng điểm đầu và điểm cuối không
             return db.TuyenDuongs.Any(t => t.DIEM_DAU == diemDau && t.DIEM_CUOI == diemCuoi);
+        }
+
+        public int timMaTuyenDuong(string tenTuyen)
+        {
+            return db.DiaDiems.FirstOrDefault(t => t.TEN_TINH_THANH.Equals(tenTuyen)).ID_DIADIEM;
         }
     }
 }

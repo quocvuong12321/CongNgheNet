@@ -10,8 +10,8 @@ namespace DTO
     {
         public int IdTuyen { get; set; }
         public string TenTuyen { get; set; }
-        public int DiemDau { get; set; }
-        public int DiemCuoi { get; set; }
+        public string DiemDau { get; set; }
+        public string DiemCuoi { get; set; }
         public float KhoangCach { get; set; }
         public float TgianDiChuyen { get; set; }
 
@@ -19,12 +19,12 @@ namespace DTO
         {
             IdTuyen = 0;
             TenTuyen = string.Empty;
-            DiemDau = 0;
-            DiemCuoi = 0;
+            DiemDau = string.Empty;
+            DiemCuoi = string.Empty;
             KhoangCach = 0;
             TgianDiChuyen = 0;
         }
-        public TuyenDuongDTO(int id, string ten, int dd, int dc, float kc, float tg)
+        public TuyenDuongDTO(int id, string ten, string dd, string dc, float kc, float tg)
         {
             IdTuyen = id;
             TenTuyen = ten;

@@ -20,11 +20,11 @@ namespace BLL
         {
             return tdDAL.GetAll();
         }    
-        public void insertTuyen(TuyenDuongDTO td)
+        public void insertTuyen(TuyenDuong td)
         {
             tdDAL.InsertTuyen(td);
         }
-        public void updateTuyen(TuyenDuongDTO td)
+        public void updateTuyen(TuyenDuong td)
         {
             tdDAL.UpdateTuyen(td);
         }
@@ -43,6 +43,10 @@ namespace BLL
         public bool CheckTrungTuyen(int diemDau, int diemCuoi)
         {
             return tdDAL.CheckTrungTuyen(diemDau, diemCuoi);
+        }
+        public int timMaTuyenDuong(string tenTuyen)
+        {
+            return tdDAL.timMaTuyenDuong(tenTuyen);
         }
     }
 }

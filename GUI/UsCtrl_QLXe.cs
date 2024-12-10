@@ -99,14 +99,20 @@ namespace GUI
 
             XeDTO xe = new XeDTO
             {
-                //Id = int.Parse(txt_MaXe.Text),
+                Id = int.Parse(dgv_DanhSachXe.SelectedRows[0].Cells[0].Value.ToString()),
                 BienSoXe = txtBienSoXe.Text,
                 SoGhe = int.Parse(cbo_SoGhe.SelectedItem.ToString()),
                 NgayThem = DateTime.Now,
             };
 
-            xeBLL.UpdateXe(xe);
-            MessageBox.Show("Cập nhật xe thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (xeBLL.UpdateXe(xe))
+            {
+                MessageBox.Show("Cập nhật xe thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật xe thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             HienThiDanhSachXe();
         }
 

@@ -35,7 +35,7 @@ namespace DAL
             try
             {
                 int result = db.ThemNhanVien(nv.USERNAME, nv.MAT_KHAU, nv.HOTEN, nv.SO_DT, nv.GIOITINH, nv.DIACHI, nv.LOAINV);
-                return result != 0;
+                return result == 1;
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace DAL
             {
                 if (nv.MAT_KHAU.Equals(password))
                 {
-                    DTO.Connect.ConnectString = $"Data Source = DESKTOP-I22SAC7\\TKHANGDI;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id={username};Password={password};";
+                    DTO.Connect.ConnectString = $"Data Source = DESKTOP-86N3SME\\SQL_KING;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id={username};Password={password};";
                     return true;
                 }
                 else return false;
