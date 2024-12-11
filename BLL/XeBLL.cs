@@ -28,9 +28,9 @@ namespace BLL
         {
             return xeDAL.UpdateXe(xe);
         }
-        public void DeleteXe(int id)
+        public bool DeleteXe(int id)
         {
-            xeDAL.DeleteXe(id);
+            return xeDAL.DeleteXe(id);
         }
         public bool CheckBienSoXe(string bienSoXe)
         {

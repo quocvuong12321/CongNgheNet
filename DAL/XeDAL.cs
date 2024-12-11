@@ -53,14 +53,21 @@ namespace DAL
             }
             return false;
         }
-        public void DeleteXe(int id)
+        public bool DeleteXe(int id)
         {
             Xe xe = db.Xes.FirstOrDefault(x => x.ID_XE == id);
+            if (db.LichTrinhs.Contains(db.LichTrinhs.FirstOrDefault(t => t.ID_XE == id)))
+            {
+                return false;
+            }
             if (xe != null)
             {
                 db.Xes.DeleteOnSubmit(xe);
                 db.SubmitChanges();
+                return true;
             }
+            return false;
+
         }
         public bool CheckBienSoXe(string bienSoXe)
         {

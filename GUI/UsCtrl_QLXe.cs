@@ -123,10 +123,16 @@ namespace GUI
             if (result == DialogResult.Yes)
             {
                 int id = int.Parse(dgv_DanhSachXe.SelectedRows[0].Cells[0].Value.ToString());
-                xeBLL.DeleteXe(id);
-                MessageBox.Show("Xóa xe thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                HienThiDanhSachXe();
-                ClearInput();
+                if (xeBLL.DeleteXe(id))
+                {
+                    MessageBox.Show("Xóa xe thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HienThiDanhSachXe();
+                    ClearInput();
+                }
+                else
+                {
+                    MessageBox.Show("Xe này không thể xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {

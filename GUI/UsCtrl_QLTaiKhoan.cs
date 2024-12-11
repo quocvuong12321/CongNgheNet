@@ -116,6 +116,11 @@ namespace GUI
                 cbo_LoaiTaiKhoan.Focus();
                 return;
             }
+            if (string.IsNullOrEmpty(txt_SoDienThoai.Text) || txt_SoDienThoai.Text.Length != 10 || !txt_SoDienThoai.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Số điện thoại phải là 10 ký tự và chỉ chứa số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (isEditing)
             {

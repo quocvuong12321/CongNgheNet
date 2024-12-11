@@ -197,3 +197,5 @@ INSERT [dbo].[ChiTietVe] ([ID_VE], [ID_GHE]) VALUES (N'LT003VE002', 56)
 GO
 INSERT [dbo].[ChiTietVe] ([ID_VE], [ID_GHE]) VALUES (N'LT003VE002', 57)
 GO
+
+
