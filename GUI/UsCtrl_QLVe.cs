@@ -113,5 +113,28 @@ namespace GUI
         {
             UsCtrl_QLVe_Load(this,e);
         }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            if (dgv_DSVe.SelectedRows == null)
+            {
+                MessageBox.Show("Vui lòng chọn vé muốn check in");
+                return;
+            }
+            string mave = dgv_DSVe.SelectedRows[0].Cells[0].Value.ToString();
+            DialogResult r = MessageBox.Show("Bạn muốn check in cho vé " + mave + " không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                bool kq = vBLL.checkInVe(mave);
+                MessageBox.Show(kq ? "Check in vé thành công" : "Check in vé thất bại");
+                var currentControl = this;
+                UsCtrl_QLVe Nus = new UsCtrl_QLVe();
+                var panel = currentControl.Parent;
+                Parent.Controls.Remove(currentControl);
+                panel.Controls.Add(Nus);
+                Nus.Dock = DockStyle.Fill;
+            }
+
+        }
     }
 }

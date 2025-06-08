@@ -51,7 +51,7 @@ namespace DAL
             {
                 if (nv.MAT_KHAU.Equals(password))
                 {
-                    DTO.Connect.ConnectString = $"Data Source = DESKTOP-86N3SME\\SQL_KING;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id={username};Password={password};";
+                    DTO.Connect.ConnectString = $"Data Source=localhost\\SQLEXPRESS01;Database=QuanLyBanVeXeKhach;Integrated Security=False;User Id={username};Password={password};";
                     return true;
                 }
                 else return false;

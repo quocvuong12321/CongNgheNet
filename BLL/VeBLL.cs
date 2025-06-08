@@ -35,5 +35,11 @@ namespace BLL
            
             return vDAL.HuyVe(mave);
         }
-    }
+
+        public bool checkInVe(string mave)
+        {
+            return vDAL.checkInVe(mave);
+        }
+
+        }
 }

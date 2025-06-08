@@ -63,7 +63,7 @@ namespace DTO
     #endregion
 		
 		public QuanLyNhaXeDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString4, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyBanVeXeKhachConnectionString7, mappingSource)
 		{
 			OnCreated();
 		}
@@ -172,6 +172,12 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChonXe", IsComposable=true)]
+		public System.Nullable<bool> ChonXe([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(128)")] string malt)
+		{
+			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), malt).ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CapNhatTrangThaiLichTrinh")]
 		public int CapNhatTrangThaiLichTrinh()
 		{
@@ -191,12 +197,6 @@ namespace DTO
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, mAT_KHAU, hOTEN, sO_DT, gIOITINH, dIACHI, lOAINV);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChonXe", IsComposable=true)]
-		public System.Nullable<bool> ChonXe([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(128)")] string malt)
-		{
-			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), malt).ReturnValue));
 		}
 	}
 	
@@ -925,6 +925,8 @@ namespace DTO
 		
 		private System.DateTime _NGAY_TAO_LICH_TRINH;
 		
+		private string _TRANG_THAI;
+		
 		private EntitySet<GHE> _GHEs;
 		
 		private EntitySet<THEMTRAMDUNGCHAN> _THEMTRAMDUNGCHANs;
@@ -955,6 +957,8 @@ namespace DTO
     partial void OnSOGHETRONGChanged();
     partial void OnNGAY_TAO_LICH_TRINHChanging(System.DateTime value);
     partial void OnNGAY_TAO_LICH_TRINHChanged();
+    partial void OnTRANG_THAIChanging(string value);
+    partial void OnTRANG_THAIChanged();
     #endregion
 		
 		public LichTrinh()
@@ -1131,6 +1135,26 @@ namespace DTO
 					this._NGAY_TAO_LICH_TRINH = value;
 					this.SendPropertyChanged("NGAY_TAO_LICH_TRINH");
 					this.OnNGAY_TAO_LICH_TRINHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRANG_THAI", DbType="NVarChar(50)")]
+		public string TRANG_THAI
+		{
+			get
+			{
+				return this._TRANG_THAI;
+			}
+			set
+			{
+				if ((this._TRANG_THAI != value))
+				{
+					this.OnTRANG_THAIChanging(value);
+					this.SendPropertyChanging();
+					this._TRANG_THAI = value;
+					this.SendPropertyChanged("TRANG_THAI");
+					this.OnTRANG_THAIChanged();
 				}
 			}
 		}

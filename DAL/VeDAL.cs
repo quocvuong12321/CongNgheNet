@@ -78,5 +78,18 @@ namespace DAL
             db.SubmitChanges();
             return true;
         }
+        public bool checkInVe(string mave)
+        {
+            Ve v = db.Ves.FirstOrDefault(t => t.ID_VE.Equals(mave));
+            if (v == null) return false;
+            if (v.TRANG_THAI.Equals("Hiện tại"))
+            {
+                v.TRANG_THAI = "Đã đi";
+                db.SubmitChanges();
+                return true;
+            }
+            else { return false; }
+
+        }
     }
 }

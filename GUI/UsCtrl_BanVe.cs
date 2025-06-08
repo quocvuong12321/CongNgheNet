@@ -349,5 +349,20 @@ namespace GUI
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txt_SDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // Giới hạn độ dài tối đa là 10 số
+            TextBox txt = sender as TextBox;
+            if (!char.IsControl(e.KeyChar) && txt.Text.Length >= 10)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

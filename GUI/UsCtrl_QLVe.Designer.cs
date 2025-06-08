@@ -100,8 +100,9 @@ namespace GUI
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(188, 46);
             this.btn_Luu.TabIndex = 30;
-            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.Text = "Check in";
             this.btn_Luu.UseVisualStyleBackColor = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_Huy
             // 
